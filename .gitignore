@@ -1,0 +1,15 @@
+# 本机配置与用户提供的游戏文件（不分发）
+.env
+user-provided/
+*.apk
+
+# 构建产物、训练输出
+build/
+runs/
+
+# 录制数据含账号信息，不进仓库
+tianze_coc/data/records/
+*.bin
+
+__pycache__/
+*.pyc

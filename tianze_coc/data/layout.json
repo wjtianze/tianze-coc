@@ -1,0 +1,37 @@
+{
+ "object_fields": [
+  {
+   "name": "x",
+   "path": [
+    32
+   ]
+  },
+  {
+   "name": "y",
+   "path": [
+    36
+   ]
+  },
+  {
+   "name": "hp",
+   "path": [
+    72,
+    32
+   ]
+  },
+  {
+   "name": "hp_max",
+   "path": [
+    72,
+    24
+   ]
+  },
+  {
+   "name": "team",
+   "path": [
+    72,
+    20
+   ]
+  }
+ ]
+}

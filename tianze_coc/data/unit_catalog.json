@@ -1,0 +1,8000 @@
+{
+ "schema": "tianze-coc/unit-catalog/v1",
+ "th_scale_percent": {
+  "1": 25,
+  "2": 25,
+  "3": 25,
+  "4": 50,
+  "5": 75,
+  "6": 100,
+  "7": 100,
+  "8": 100,
+  "9": 100,
+  "10": 100,
+  "11": 100,
+  "12": 100,
+  "13": 100,
+  "14": 100,
+  "15": 100,
+  "16": 100,
+  "17": 100,
+  "18": 100
+ },
+ "build_tag": "18_647_2",
+ "summary": {
+  "permanent": 120,
+  "internal": 212,
+  "super_troop": 17,
+  "temporary_event": 56,
+  "builder_base": 26
+ },
+ "units": [
+  {
+   "name": "Barbarian",
+   "global_id": 4000000,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Barracks 1 级可生产",
+   "housing_space": 1,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_BARBARIAN",
+   "name_cn": "野蛮人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Archer",
+   "global_id": 4000001,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Barracks 2 级可生产",
+   "housing_space": 1,
+   "max_level": 14,
+   "production_building": "Barracks",
+   "required_building_level": 2,
+   "tid": "TID_ARCHER",
+   "name_cn": "弓箭手",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Giant",
+   "global_id": 4000003,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Barracks 3 级可生产",
+   "housing_space": 5,
+   "max_level": 14,
+   "production_building": "Barracks",
+   "required_building_level": 3,
+   "tid": "TID_GIANT",
+   "name_cn": "巨人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Goblin",
+   "global_id": 4000002,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Barracks 4 级可生产",
+   "housing_space": 1,
+   "max_level": 10,
+   "production_building": "Barracks",
+   "required_building_level": 4,
+   "tid": "TID_GOBLIN",
+   "name_cn": "哥布林",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Wall Breaker",
+   "global_id": 4000004,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Barracks 5 级可生产",
+   "housing_space": 2,
+   "max_level": 14,
+   "production_building": "Barracks",
+   "required_building_level": 5,
+   "tid": "TID_WALL_BREAKER",
+   "name_cn": "炸弹人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Balloon",
+   "global_id": 4000005,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Barracks 6 级可生产",
+   "housing_space": 5,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 6,
+   "tid": "TID_GOBLIN_BALLOON",
+   "name_cn": "气球兵",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Wizard",
+   "global_id": 4000006,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Barracks 7 级可生产",
+   "housing_space": 4,
+   "max_level": 14,
+   "production_building": "Barracks",
+   "required_building_level": 7,
+   "tid": "TID_WIZARD",
+   "name_cn": "法师",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Healer",
+   "global_id": 4000007,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Barracks 8 级可生产",
+   "housing_space": 14,
+   "max_level": 11,
+   "production_building": "Barracks",
+   "required_building_level": 8,
+   "tid": "TID_HEALER",
+   "name_cn": "天使",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Dragon",
+   "global_id": 4000008,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Barracks 9 级可生产",
+   "housing_space": 20,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 9,
+   "tid": "TID_DRAGON",
+   "name_cn": "飞龙",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "PEKKA",
+   "global_id": 4000009,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Barracks 10 级可生产",
+   "housing_space": 25,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 10,
+   "tid": "TID_PEKKA",
+   "name_cn": "皮卡超人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Baby Dragon",
+   "global_id": 4000023,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Barracks 11 级可生产",
+   "housing_space": 10,
+   "max_level": 12,
+   "production_building": "Barracks",
+   "required_building_level": 11,
+   "tid": "TID_BABY_DRAGON",
+   "name_cn": "飞龙宝宝",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Miner",
+   "global_id": 4000024,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Barracks 12 级可生产",
+   "housing_space": 6,
+   "max_level": 12,
+   "production_building": "Barracks",
+   "required_building_level": 12,
+   "tid": "TID_MINER",
+   "name_cn": "掘地矿工",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Electro Dragon",
+   "global_id": 4000059,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Barracks 13 级可生产",
+   "housing_space": 30,
+   "max_level": 9,
+   "production_building": "Barracks",
+   "required_building_level": 13,
+   "tid": "TID_LIGHTNINGDRAGON",
+   "name_cn": "雷电飞龙",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Yeti",
+   "global_id": 4000053,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Barracks 14 级可生产",
+   "housing_space": 18,
+   "max_level": 8,
+   "production_building": "Barracks",
+   "required_building_level": 14,
+   "tid": "TID_CHARACTER_YETI",
+   "name_cn": "大雪怪",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Yetimite",
+   "global_id": 4000054,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 2,
+   "max_level": 8,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_CHARACTER_YETIMITE",
+   "name_cn": "小雪怪",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Dragon Rider",
+   "global_id": 4000065,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Barracks 15 级可生产",
+   "housing_space": 25,
+   "max_level": 6,
+   "production_building": "Barracks",
+   "required_building_level": 15,
+   "tid": "TID_CHARACTER_MECHA_DRAGON",
+   "name_cn": "龙骑士",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Electro Titan",
+   "global_id": 4000095,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Barracks 16 级可生产",
+   "housing_space": 32,
+   "max_level": 5,
+   "production_building": "Barracks",
+   "required_building_level": 16,
+   "tid": "TID_CHARACTER_ELECTRO_TITAN",
+   "name_cn": "雷霆泰坦",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Root Rider",
+   "global_id": 4000110,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Barracks 17 级可生产",
+   "housing_space": 20,
+   "max_level": 4,
+   "production_building": "Barracks",
+   "required_building_level": 17,
+   "tid": "TID_CHARACTER_TREANT",
+   "name_cn": "根蔓骑士",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Thrower",
+   "global_id": 4000132,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Barracks 18 级可生产",
+   "housing_space": 16,
+   "max_level": 4,
+   "production_building": "Barracks",
+   "required_building_level": 18,
+   "tid": "TID_CHARACTER_THROWER",
+   "name_cn": "巨矛投手",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Meteor Golem",
+   "global_id": 4000177,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Barracks 19 级可生产",
+   "housing_space": 40,
+   "max_level": 3,
+   "production_building": "Barracks",
+   "required_building_level": 19,
+   "tid": "TID_METEOR_GOLEM",
+   "name_cn": "陨石戈仑",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Meteormite",
+   "global_id": 4000178,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 20,
+   "max_level": 3,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_METEOR_GOLEM_SMALL",
+   "name_cn": "小陨石戈仑",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Defensive Meteor Golem",
+   "global_id": 4000179,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 40,
+   "max_level": 3,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_METEOR_GOLEM",
+   "name_cn": "陨石戈仑",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Defensive Meteormite",
+   "global_id": 4000180,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 20,
+   "max_level": 3,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_METEOR_GOLEM_SMALL",
+   "name_cn": "小陨石戈仑",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Minion",
+   "global_id": 4000010,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Dark Barracks 1 级可生产",
+   "housing_space": 2,
+   "max_level": 14,
+   "production_building": "Dark Barracks",
+   "required_building_level": 1,
+   "tid": "TID_GARGOYLE",
+   "name_cn": "亡灵",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Hog Rider",
+   "global_id": 4000011,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Dark Barracks 2 级可生产",
+   "housing_space": 5,
+   "max_level": 15,
+   "production_building": "Dark Barracks",
+   "required_building_level": 2,
+   "tid": "TID_BOARRIDER",
+   "name_cn": "野猪骑士",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Valkyrie",
+   "global_id": 4000012,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Dark Barracks 3 级可生产",
+   "housing_space": 8,
+   "max_level": 12,
+   "production_building": "Dark Barracks",
+   "required_building_level": 3,
+   "tid": "TID_WARRIORGIRL",
+   "name_cn": "瓦基丽武神",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Golem",
+   "global_id": 4000013,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Dark Barracks 4 级可生产",
+   "housing_space": 30,
+   "max_level": 15,
+   "production_building": "Dark Barracks",
+   "required_building_level": 4,
+   "tid": "TID_GOLEM",
+   "name_cn": "戈仑石人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Golemite",
+   "global_id": 4000014,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 6,
+   "max_level": 15,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_GOLEM_SEC",
+   "name_cn": "小戈仑石人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Witch",
+   "global_id": 4000015,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Dark Barracks 5 级可生产",
+   "housing_space": 12,
+   "max_level": 8,
+   "production_building": "Dark Barracks",
+   "required_building_level": 5,
+   "tid": "TID_WARLOCK",
+   "name_cn": "女巫",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Skeleton",
+   "global_id": 4000016,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 2,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_SKELETON",
+   "name_cn": "骷髅兵",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Lava Hound",
+   "global_id": 4000017,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Dark Barracks 6 级可生产",
+   "housing_space": 30,
+   "max_level": 8,
+   "production_building": "Dark Barracks",
+   "required_building_level": 6,
+   "tid": "TID_AD_SEEKER",
+   "name_cn": "熔岩猎犬",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Lava Pup",
+   "global_id": 4000018,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_AD_SEEKER_FRAG",
+   "name_cn": "迷你熔岩犬",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Defensive Lava Hound",
+   "global_id": 4000077,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 30,
+   "max_level": 8,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_AD_SEEKER",
+   "name_cn": "熔岩猎犬",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Bowler",
+   "global_id": 4000022,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Dark Barracks 7 级可生产",
+   "housing_space": 6,
+   "max_level": 10,
+   "production_building": "Dark Barracks",
+   "required_building_level": 7,
+   "tid": "TID_BOWLER",
+   "name_cn": "巨石投手",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Ice Golem",
+   "global_id": 4000058,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Dark Barracks 8 级可生产",
+   "housing_space": 15,
+   "max_level": 9,
+   "production_building": "Dark Barracks",
+   "required_building_level": 8,
+   "tid": "TID_ICEGOLEM",
+   "name_cn": "戈仑冰人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Defensive Ice Golem",
+   "global_id": 4000069,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 15,
+   "max_level": 9,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_ICEGOLEM",
+   "name_cn": "戈仑冰人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Headhunter",
+   "global_id": 4000082,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Dark Barracks 9 级可生产",
+   "housing_space": 6,
+   "max_level": 4,
+   "production_building": "Dark Barracks",
+   "required_building_level": 9,
+   "tid": "TID_CHARACTER_HEADHUNTER",
+   "name_cn": "英雄猎手",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Apprentice Warden",
+   "global_id": 4000097,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Dark Barracks 10 级可生产",
+   "housing_space": 20,
+   "max_level": 4,
+   "production_building": "Dark Barracks",
+   "required_building_level": 10,
+   "tid": "TID_CHARACTER_APPRENTICE_WARDEN",
+   "name_cn": "守护者学徒",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Druid",
+   "global_id": 4000123,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Dark Barracks 11 级可生产",
+   "housing_space": 16,
+   "max_level": 6,
+   "production_building": "Dark Barracks",
+   "required_building_level": 11,
+   "tid": "TID_CHARACTER_SHAPESHIFTER_DRUID",
+   "name_cn": "德鲁伊",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Bear",
+   "global_id": 4000124,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 16,
+   "max_level": 6,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_SHAPESHIFTER_DRUID_BEAR",
+   "name_cn": "巨熊",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Furnace",
+   "global_id": 4000150,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Dark Barracks 12 级可生产",
+   "housing_space": 18,
+   "max_level": 4,
+   "production_building": "Dark Barracks",
+   "required_building_level": 12,
+   "tid": "TID_CHARACTER_FURNACE",
+   "name_cn": "烈焰熔炉",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Firemite Spawn",
+   "global_id": 4000149,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 4,
+   "production_building": "",
+   "required_building_level": 10,
+   "tid": "TID_CHARACTER_FIREMITE",
+   "name_cn": "小火怪",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Furnace_DEF",
+   "global_id": 4000151,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 18,
+   "max_level": 4,
+   "production_building": "",
+   "required_building_level": 12,
+   "tid": "TID_CHARACTER_FURNACE",
+   "name_cn": "烈焰熔炉",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Firemite Spawn_DEF",
+   "global_id": 4000152,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 4,
+   "production_building": "",
+   "required_building_level": 10,
+   "tid": "TID_CHARACTER_FIREMITE",
+   "name_cn": "小火怪",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Super Barbarian",
+   "global_id": 4000026,
+   "kind": "troop",
+   "status": "super_troop",
+   "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
+   "housing_space": 5,
+   "max_level": 9,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_CHARACTER_ELITE_BARBARIAN",
+   "name_cn": "超级野蛮人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": true,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Super Archer",
+   "global_id": 4000027,
+   "kind": "troop",
+   "status": "super_troop",
+   "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
+   "housing_space": 12,
+   "max_level": 10,
+   "production_building": "Barracks",
+   "required_building_level": 2,
+   "tid": "TID_CHARACTER_MAGIC_ARCHER",
+   "name_cn": "超级弓箭手",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": true,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Super Giant",
+   "global_id": 4000029,
+   "kind": "troop",
+   "status": "super_troop",
+   "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
+   "housing_space": 10,
+   "max_level": 10,
+   "production_building": "Barracks",
+   "required_building_level": 3,
+   "tid": "TID_CHARACTER_ELITE_GIANT",
+   "name_cn": "超级巨人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": true,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Sneaky Goblin",
+   "global_id": 4000055,
+   "kind": "troop",
+   "status": "super_troop",
+   "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
+   "housing_space": 3,
+   "max_level": 6,
+   "production_building": "Barracks",
+   "required_building_level": 4,
+   "tid": "TID_CHARACTER_ELITE_GOBLIN",
+   "name_cn": "隐秘哥布林",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": true,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Super Wall Breaker",
+   "global_id": 4000028,
+   "kind": "troop",
+   "status": "super_troop",
+   "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
+   "housing_space": 8,
+   "max_level": 10,
+   "production_building": "Barracks",
+   "required_building_level": 5,
+   "tid": "TID_CHARACTER_ELITE_WALLBREAKER",
+   "name_cn": "超级炸弹人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": true,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Rocket Balloon",
+   "global_id": 4000057,
+   "kind": "troop",
+   "status": "super_troop",
+   "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
+   "housing_space": 8,
+   "max_level": 9,
+   "production_building": "Barracks",
+   "required_building_level": 6,
+   "tid": "TID_CHARACTER_HASTY_BALLOON",
+   "name_cn": "火箭气球兵",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": true,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Super Wizard",
+   "global_id": 4000083,
+   "kind": "troop",
+   "status": "super_troop",
+   "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
+   "housing_space": 10,
+   "max_level": 10,
+   "production_building": "Barracks",
+   "required_building_level": 7,
+   "tid": "TID_SUPER_WIZARD",
+   "name_cn": "超级法师",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": true,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Super Dragon",
+   "global_id": 4000081,
+   "kind": "troop",
+   "status": "super_troop",
+   "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
+   "housing_space": 40,
+   "max_level": 11,
+   "production_building": "Barracks",
+   "required_building_level": 9,
+   "tid": "TID_SUPER_DRAGON",
+   "name_cn": "超级飞龙",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": true,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Inferno Dragon",
+   "global_id": 4000063,
+   "kind": "troop",
+   "status": "super_troop",
+   "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
+   "housing_space": 15,
+   "max_level": 12,
+   "production_building": "Barracks",
+   "required_building_level": 11,
+   "tid": "TID_CHARACTER_INFERNO_DRAGON",
+   "name_cn": "地狱飞龙",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": true,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Super Miner",
+   "global_id": 4000056,
+   "kind": "troop",
+   "status": "super_troop",
+   "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
+   "housing_space": 24,
+   "max_level": 12,
+   "production_building": "Barracks",
+   "required_building_level": 12,
+   "tid": "TID_SUPER_MINER",
+   "name_cn": "超级矿工",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": true,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Super Yeti",
+   "global_id": 4000147,
+   "kind": "troop",
+   "status": "super_troop",
+   "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
+   "housing_space": 35,
+   "max_level": 8,
+   "production_building": "Barracks",
+   "required_building_level": 14,
+   "tid": "TID_CHARACTER_SUPER_YETI",
+   "name_cn": "超级大雪怪",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": true,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Electromite",
+   "global_id": 4000148,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 3,
+   "max_level": 8,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_CHARACTER_ELECTROMITE",
+   "name_cn": "雷电小雪怪",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Super Minion",
+   "global_id": 4000084,
+   "kind": "troop",
+   "status": "super_troop",
+   "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
+   "housing_space": 12,
+   "max_level": 11,
+   "production_building": "Dark Barracks",
+   "required_building_level": 1,
+   "tid": "TID_SUPER_MINION",
+   "name_cn": "超级亡灵",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": true,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Defensive Super Minion",
+   "global_id": 4000086,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 12,
+   "max_level": 11,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_SUPER_MINION",
+   "name_cn": "超级亡灵",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Super Hog Rider",
+   "global_id": 4000098,
+   "kind": "troop",
+   "status": "super_troop",
+   "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
+   "housing_space": 12,
+   "max_level": 12,
+   "production_building": "Dark Barracks",
+   "required_building_level": 2,
+   "tid": "TID_CHARACTER_SUPER_HOG_RIDER",
+   "name_cn": "超级野猪骑士",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": true,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Super Hog",
+   "global_id": 4000099,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 5,
+   "max_level": 12,
+   "production_building": "Dark Barracks",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_RIDERLESS_HOG",
+   "name_cn": "超猛野猪",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Super Rider",
+   "global_id": 4000100,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 5,
+   "max_level": 12,
+   "production_building": "Dark Barracks",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_HOGLESS_RIDER",
+   "name_cn": "超猛骑士",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Super Valkyrie",
+   "global_id": 4000064,
+   "kind": "troop",
+   "status": "super_troop",
+   "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
+   "housing_space": 20,
+   "max_level": 12,
+   "production_building": "Dark Barracks",
+   "required_building_level": 3,
+   "tid": "TID_CHARACTER_SUPER_VALKYRIE",
+   "name_cn": "超级瓦基丽武神",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": true,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Super Witch",
+   "global_id": 4000066,
+   "kind": "troop",
+   "status": "super_troop",
+   "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
+   "housing_space": 40,
+   "max_level": 8,
+   "production_building": "Dark Barracks",
+   "required_building_level": 5,
+   "tid": "TID_CHARACTER_SUPER_WITCH",
+   "name_cn": "超级女巫",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": true,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Big Boy",
+   "global_id": 4000078,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 20,
+   "max_level": 1,
+   "production_building": "Barracks",
+   "required_building_level": 3,
+   "tid": "TID_CHARACTER_BIG_BOY",
+   "name_cn": "大宝宝",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Ice Hound",
+   "global_id": 4000076,
+   "kind": "troop",
+   "status": "super_troop",
+   "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
+   "housing_space": 40,
+   "max_level": 8,
+   "production_building": "Dark Barracks",
+   "required_building_level": 6,
+   "tid": "TID_ICE_HOUND",
+   "name_cn": "寒冰猎犬",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": true,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Ice Hound Pup",
+   "global_id": 4000085,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_ICE_PUP",
+   "name_cn": "迷你寒冰犬",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Defensive Ice Hound",
+   "global_id": 4000079,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 40,
+   "max_level": 8,
+   "production_building": "",
+   "required_building_level": 6,
+   "tid": "TID_ICE_HOUND",
+   "name_cn": "寒冰猎犬",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Super Bowler",
+   "global_id": 4000080,
+   "kind": "troop",
+   "status": "super_troop",
+   "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
+   "housing_space": 30,
+   "max_level": 10,
+   "production_building": "Dark Barracks",
+   "required_building_level": 7,
+   "tid": "TID_SUPER_BOWLER",
+   "name_cn": "超级巨石投手",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": true,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Wall Wrecker",
+   "global_id": 4000051,
+   "kind": "siege",
+   "status": "permanent",
+   "reason": "Siege Workshop 1 级可生产",
+   "housing_space": 1,
+   "max_level": 6,
+   "production_building": "Siege Workshop",
+   "required_building_level": 1,
+   "tid": "TID_SIEGE_MACHINE_RAM",
+   "name_cn": "攻城战车",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Battle Blimp",
+   "global_id": 4000052,
+   "kind": "siege",
+   "status": "permanent",
+   "reason": "Siege Workshop 2 级可生产",
+   "housing_space": 1,
+   "max_level": 6,
+   "production_building": "Siege Workshop",
+   "required_building_level": 2,
+   "tid": "TID_SIEGE_MACHINE_FLYER",
+   "name_cn": "攻城飞艇",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Stone Slammer",
+   "global_id": 4000062,
+   "kind": "siege",
+   "status": "permanent",
+   "reason": "Siege Workshop 3 级可生产",
+   "housing_space": 1,
+   "max_level": 6,
+   "production_building": "Siege Workshop",
+   "required_building_level": 3,
+   "tid": "TID_SIEGE_MACHINE_BALLOON",
+   "name_cn": "攻城气球",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Siege Barracks",
+   "global_id": 4000075,
+   "kind": "siege",
+   "status": "permanent",
+   "reason": "Siege Workshop 4 级可生产",
+   "housing_space": 1,
+   "max_level": 6,
+   "production_building": "Siege Workshop",
+   "required_building_level": 4,
+   "tid": "TID_SIEGE_MACHINE_CARRIER",
+   "name_cn": "攻城训练营",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Log Launcher",
+   "global_id": 4000087,
+   "kind": "siege",
+   "status": "permanent",
+   "reason": "Siege Workshop 5 级可生产",
+   "housing_space": 1,
+   "max_level": 6,
+   "production_building": "Siege Workshop",
+   "required_building_level": 5,
+   "tid": "TID_SIEGE_MACHINE_LOG_LAUNCHER",
+   "name_cn": "攻城滚木车",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Flame Flinger",
+   "global_id": 4000091,
+   "kind": "siege",
+   "status": "permanent",
+   "reason": "Siege Workshop 6 级可生产",
+   "housing_space": 1,
+   "max_level": 5,
+   "production_building": "Siege Workshop",
+   "required_building_level": 6,
+   "tid": "TID_CHARACTER_SIEGE_MACHINE_CATAPULT",
+   "name_cn": "攻城烈焰车",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Battle Drill",
+   "global_id": 4000092,
+   "kind": "siege",
+   "status": "permanent",
+   "reason": "Siege Workshop 7 级可生产",
+   "housing_space": 1,
+   "max_level": 6,
+   "production_building": "Siege Workshop",
+   "required_building_level": 7,
+   "tid": "TID_CHARACTER_SIEGE_BATTLE_DRILL",
+   "name_cn": "攻城钻机",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Troop Launcher",
+   "global_id": 4000135,
+   "kind": "siege",
+   "status": "permanent",
+   "reason": "Siege Workshop 8 级可生产",
+   "housing_space": 1,
+   "max_level": 4,
+   "production_building": "Siege Workshop",
+   "required_building_level": 8,
+   "tid": "TID_CHARACTER_SIEGE_MACHINE_TROOP_CATAPULT",
+   "name_cn": "部队发射器",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Longshot",
+   "global_id": 4000169,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 25,
+   "max_level": 5,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_INFERNO_GUARDIAN",
+   "name_cn": "远袭者",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Smasher",
+   "global_id": 4000170,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 25,
+   "max_level": 5,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_MELEE_AREA_GUARDIAN",
+   "name_cn": "粉碎者",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Ice Wizard",
+   "global_id": 4000030,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 4,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_WIZARD2",
+   "name_cn": "寒冰法师",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Battle Ram",
+   "global_id": 4000045,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 4,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_BATTLERAM",
+   "name_cn": "野蛮人攻城槌",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Battle Ram Barbarian",
+   "global_id": 4000046,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 1,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_BARBARIAN",
+   "name_cn": "野蛮人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Royal Ghost",
+   "global_id": 4000047,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 8,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_GHOST",
+   "name_cn": "皇家幽灵",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Pumpkin Barbarian Armored",
+   "global_id": 4000048,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 1,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_PUMPKIN_BARBARIAN",
+   "name_cn": "南瓜野蛮人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Pumpkin Barbarian Bare",
+   "global_id": 4000049,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 1,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_BARBARIAN",
+   "name_cn": "野蛮人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Giant Skeleton",
+   "global_id": 4000050,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 20,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 3,
+   "tid": "TID_GIANT_SKELETON",
+   "name_cn": "骷髅巨人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Skeleton Barrel",
+   "global_id": 4000061,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 5,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 6,
+   "tid": "TID_CHARACTER_SKELETON_BARREL",
+   "name_cn": "骷髅飞桶",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "MECHA",
+   "global_id": 4000067,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 10,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_MECHA",
+   "name_cn": "机甲超人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Party Wizard",
+   "global_id": 4000072,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 4,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_PARTY_WIZARD",
+   "name_cn": "派对法师",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Ram Rider",
+   "global_id": 4000094,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 12,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_RAM_RIDER",
+   "name_cn": "蛮羊骑士",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Barcher",
+   "global_id": 4000101,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 3,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_CHARACTER_BARCHER",
+   "name_cn": "野蛮箭手",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Witch Golem",
+   "global_id": 4000102,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 41,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_CHARACTER_GRAVE_GOLEM",
+   "name_cn": "女巫戈仑",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Witch Golem Skeleton",
+   "global_id": 4000116,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_SKELETON",
+   "name_cn": "骷髅兵",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Witch Golem Big Boy",
+   "global_id": 4000117,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 20,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 3,
+   "tid": "TID_CHARACTER_BIG_BOY",
+   "name_cn": "大宝宝",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Hog Wizard",
+   "global_id": 4000103,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 7,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_CHARACTER_HOG_WIZARD",
+   "name_cn": "野猪法师",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Lavaloon",
+   "global_id": 4000104,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 21,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_CHARACTER_LAVALOON",
+   "name_cn": "熔岩气球",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Lavaloon Pup",
+   "global_id": 4000108,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 13,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_CHARACTER_LAVALOON_PUP",
+   "name_cn": "迷你熔岩气球犬",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "COOKIE",
+   "global_id": 4000118,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 10,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_COOKIE_PEKKA",
+   "name_cn": "饼干皮卡",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Firecracker",
+   "global_id": 4000119,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 10,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_FIRECRACKER",
+   "name_cn": "烟花炮手",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Azure Dragon",
+   "global_id": 4000120,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 40,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_WATER_DRAGON",
+   "name_cn": "驭水青龙",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Barbarian Kicker",
+   "global_id": 4000121,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 12,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_FREE_KICKER",
+   "name_cn": "任意球野蛮人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Giant Thrower",
+   "global_id": 4000122,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 15,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_SIDE_THROWER",
+   "name_cn": "边线球巨人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Broom Witch",
+   "global_id": 4000125,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 20,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_COURIER",
+   "name_cn": "扫帚女巫",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Witch Spirit",
+   "global_id": 4000126,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 13,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_COURIERSPAWN",
+   "name_cn": "女巫精灵",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Ice Minion",
+   "global_id": 4000130,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 4,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_ICEMINION",
+   "name_cn": "寒冰亡灵",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Tax Collector",
+   "global_id": 4000136,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 4,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_TAX_COLLECTOR",
+   "name_cn": "收债哥布林",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Snake Barrel",
+   "global_id": 4000142,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 8,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_CHARACTER_SNAKE_BARREL",
+   "name_cn": "灵蛇飞桶",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Snake",
+   "global_id": 4000143,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_SNAKE",
+   "name_cn": "灵蛇",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Giant Giant",
+   "global_id": 4000156,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 50,
+   "max_level": 16,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_APRIL25GTG",
+   "name_cn": "霸天巨人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "KANE",
+   "global_id": 4000157,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 75,
+   "max_level": 16,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_APRIL25TBRM",
+   "name_cn": "皮卡凯恩",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Reborn KANE",
+   "global_id": 4000162,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 75,
+   "max_level": 16,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_CHARACTER_APRIL25TBRM",
+   "name_cn": "皮卡凯恩",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Disarmer",
+   "global_id": 4000158,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 60,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_APRIL25BLTM",
+   "name_cn": "铁臂终结者",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Defensive Disarmer",
+   "global_id": 4000165,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 60,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_APRIL25BLTM",
+   "name_cn": "铁臂终结者",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "YEETer",
+   "global_id": 4000159,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 45,
+   "max_level": 16,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_APRIL25RRBL",
+   "name_cn": "战吼狂人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Tribal Tag Team",
+   "global_id": 4000163,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 5,
+   "max_level": 16,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_CHARACTER_TRIBAL_TAG_TEAM",
+   "name_cn": "部族小队",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Defensive YEETer",
+   "global_id": 4000164,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 45,
+   "max_level": 16,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_APRIL25RRBL",
+   "name_cn": "战吼狂人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Defensive Tribal Tag Team",
+   "global_id": 4000166,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 5,
+   "max_level": 16,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_CHARACTER_TRIBAL_TAG_TEAM",
+   "name_cn": "部族小队",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Event Meteor Golem",
+   "global_id": 4000167,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 40,
+   "max_level": 13,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_METEOR_GOLEM",
+   "name_cn": "陨石戈仑",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Event Meteormite",
+   "global_id": 4000168,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 20,
+   "max_level": 13,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_METEOR_GOLEM_SMALL",
+   "name_cn": "小陨石戈仑",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Tutorial Goblin",
+   "global_id": 4000039,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 4,
+   "tid": "TID_GOBLIN",
+   "name_cn": "哥布林",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Tutorial Barbarian",
+   "global_id": 4000089,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_BARBARIAN",
+   "name_cn": "野蛮人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Golden Dragon",
+   "global_id": 4000060,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 100,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_DRAGON",
+   "name_cn": "飞龙",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "MOMMA",
+   "global_id": 4000090,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 100,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_SUPER_CHARGED_PEKKA",
+   "name_cn": "雷霆皮卡",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Mega COOKIE",
+   "global_id": 4000145,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 100,
+   "max_level": 1,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_CHARACTER_COOKIE_PEKKA",
+   "name_cn": "饼干皮卡",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Defending Builder",
+   "global_id": 4000088,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 7,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Icemite",
+   "global_id": 4000096,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_CHARACTER_ICE_SPIRIT",
+   "name_cn": "小冰怪",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Booger",
+   "global_id": 4000141,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 4,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_SNEEZY_SPAWN",
+   "name_cn": "鼻涕小怪",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Spell Shielded Skeleton",
+   "global_id": 4000073,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_SKELETON",
+   "name_cn": "骷髅兵",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Spell Unshielded Skeleton",
+   "global_id": 4000074,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_SKELETON",
+   "name_cn": "骷髅兵",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Spell Bat",
+   "global_id": 4000068,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_BAT",
+   "name_cn": "蝙蝠",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "BouncingFrostmite",
+   "global_id": 4000113,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_CHARACTER_ICE_SPIRIT",
+   "name_cn": "小冰怪",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Totem",
+   "global_id": 4000175,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 4,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_GOLEM",
+   "name_cn": "戈仑石人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Trap Skeleton",
+   "global_id": 4000019,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 2,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_SKELETON",
+   "name_cn": "骷髅兵",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Trap Air Skeleton",
+   "global_id": 4000021,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 2,
+   "production_building": "Dark Barracks",
+   "required_building_level": 1,
+   "tid": "TID_AIR_SKELETON",
+   "name_cn": "空中骷髅兵",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Trap Minion",
+   "global_id": 4000020,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 2,
+   "max_level": 1,
+   "production_building": "Dark Barracks",
+   "required_building_level": 1,
+   "tid": "TID_GARGOYLE",
+   "name_cn": "亡灵",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "BK Equipment Snake",
+   "global_id": 4000144,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_BARBKINGEQUIPSNAKE",
+   "name_cn": "灵蛇",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "MP Equipment Henchman",
+   "global_id": 4000146,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 10,
+   "max_level": 7,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_MINION_BODYGUARD",
+   "name_cn": "护卫",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "GW Equipment Lavaloon",
+   "global_id": 4000128,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 21,
+   "max_level": 11,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_CHARACTER_LAVALOON",
+   "name_cn": "熔岩气球",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "GW Equipment Lavaloon Pup",
+   "global_id": 4000129,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 11,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_CHARACTER_LAVALOON_PUP",
+   "name_cn": "迷你熔岩气球犬",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "Prototype3",
+   "global_id": 4000093,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_BARBARIAN",
+   "name_cn": "野蛮人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Ruin Witch",
+   "global_id": 4000109,
+   "kind": "troop",
+   "status": "permanent",
+   "reason": "Dark Barracks 13 级可生产",
+   "housing_space": 26,
+   "max_level": 4,
+   "production_building": "Dark Barracks",
+   "required_building_level": 13,
+   "tid": "TID_CHARACTER_RUIN_WITCH",
+   "name_cn": "废墟女巫",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Prototype4",
+   "global_id": 4000111,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_BARBARIAN",
+   "name_cn": "野蛮人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Prototype5",
+   "global_id": 4000112,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_BARBARIAN",
+   "name_cn": "野蛮人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Prototype6",
+   "global_id": 4000114,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_BARBARIAN",
+   "name_cn": "野蛮人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Prototype7",
+   "global_id": 4000115,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_BARBARIAN",
+   "name_cn": "野蛮人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Ruin Knight",
+   "global_id": 4000127,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 20,
+   "max_level": 4,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_RUIN_KNIGHT",
+   "name_cn": "废墟骑士",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Prototype8",
+   "global_id": 4000131,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_BARBARIAN",
+   "name_cn": "野蛮人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Prototype9",
+   "global_id": 4000133,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_BARBARIAN",
+   "name_cn": "野蛮人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Prototype10",
+   "global_id": 4000134,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_BARBARIAN",
+   "name_cn": "野蛮人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Prototype11",
+   "global_id": 4000137,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_BARBARIAN",
+   "name_cn": "野蛮人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Prototype12",
+   "global_id": 4000138,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_BARBARIAN",
+   "name_cn": "野蛮人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Prototype13",
+   "global_id": 4000139,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_BARBARIAN",
+   "name_cn": "野蛮人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Prototype14",
+   "global_id": 4000140,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_BARBARIAN",
+   "name_cn": "野蛮人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Prototype15",
+   "global_id": 4000153,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_BARBARIAN",
+   "name_cn": "野蛮人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Prototype16",
+   "global_id": 4000154,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_BARBARIAN",
+   "name_cn": "野蛮人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Prototype17",
+   "global_id": 4000155,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_BARBARIAN",
+   "name_cn": "野蛮人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Unused2",
+   "global_id": 4000160,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_BARBARIAN",
+   "name_cn": "野蛮人",
+   "flags": {
+    "Deprecated": true,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Unused3",
+   "global_id": 4000161,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_BARBARIAN",
+   "name_cn": "野蛮人",
+   "flags": {
+    "Deprecated": true,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Guardian Eagle",
+   "global_id": 4000171,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 25,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_GOLEM",
+   "name_cn": "戈仑石人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Guardian Giga Inferno",
+   "global_id": 4000172,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 25,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_GOLEM",
+   "name_cn": "戈仑石人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Guardian Assassins",
+   "global_id": 4000173,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 25,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_GOLEM",
+   "name_cn": "戈仑石人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Guardian Reviver",
+   "global_id": 4000174,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 25,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_GOLEM",
+   "name_cn": "戈仑石人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Unused4",
+   "global_id": 4000176,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "Barracks",
+   "required_building_level": 1,
+   "tid": "TID_BARBARIAN",
+   "name_cn": "野蛮人",
+   "flags": {
+    "Deprecated": true,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "DEPRECATED",
+   "global_id": 4000025,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 6,
+   "max_level": 11,
+   "production_building": "",
+   "required_building_level": 99,
+   "tid": "TID_MINER",
+   "name_cn": "掘地矿工",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "BB Raged Barbarian",
+   "global_id": 4000031,
+   "kind": "troop",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 4,
+   "max_level": 20,
+   "production_building": "BB Barracks",
+   "required_building_level": 1,
+   "tid": "TID_RAGED_BARBARIAN",
+   "name_cn": "狂暴野蛮人",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "BB Sneaky Archer",
+   "global_id": 4000032,
+   "kind": "troop",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 3,
+   "max_level": 20,
+   "production_building": "BB Barracks",
+   "required_building_level": 2,
+   "tid": "TID_SNEAKY_ARCHER",
+   "name_cn": "隐秘弓箭手",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "BB Boxer Giant",
+   "global_id": 4000034,
+   "kind": "troop",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 18,
+   "max_level": 18,
+   "production_building": "BB Barracks",
+   "required_building_level": 3,
+   "tid": "TID_IRONFIST_GIANT",
+   "name_cn": "巨人拳击手",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "BB Beta Minion",
+   "global_id": 4000033,
+   "kind": "troop",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 3,
+   "max_level": 18,
+   "production_building": "BB Barracks",
+   "required_building_level": 4,
+   "tid": "TID_TOXIC_MINION",
+   "name_cn": "异变亡灵",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "BB Bomber",
+   "global_id": 4000035,
+   "kind": "troop",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 12,
+   "max_level": 16,
+   "production_building": "BB Barracks",
+   "required_building_level": 5,
+   "tid": "TID_BOMBER",
+   "name_cn": "炸弹兵",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "BB Baby Dragon",
+   "global_id": 4000041,
+   "kind": "troop",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 12,
+   "max_level": 16,
+   "production_building": "BB Barracks",
+   "required_building_level": 6,
+   "tid": "TID_BABY_DRAGON2",
+   "name_cn": "飞龙宝宝",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "BB Cannon Cart",
+   "global_id": 4000037,
+   "kind": "troop",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 16,
+   "max_level": 14,
+   "production_building": "BB Barracks",
+   "required_building_level": 7,
+   "tid": "TID_MOVING_CANNON",
+   "name_cn": "加农炮战车",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "BB Night Witch",
+   "global_id": 4000042,
+   "kind": "troop",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 14,
+   "max_level": 12,
+   "production_building": "BB Barracks",
+   "required_building_level": 8,
+   "tid": "TID_DARK_WITCH",
+   "name_cn": "暗夜女巫",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "BB Bat",
+   "global_id": 4000043,
+   "kind": "troop",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_BAT",
+   "name_cn": "蝙蝠",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "BB Enraged Bat",
+   "global_id": 4000105,
+   "kind": "troop",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_BAT",
+   "name_cn": "蝙蝠",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "BB Drop Ship",
+   "global_id": 4000038,
+   "kind": "troop",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 15,
+   "max_level": 10,
+   "production_building": "BB Barracks",
+   "required_building_level": 9,
+   "tid": "TID_BALLOON_CARRIER",
+   "name_cn": "骷髅气球",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "BB Drop Ship Skeleton",
+   "global_id": 4000040,
+   "kind": "troop",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_SKELETON",
+   "name_cn": "骷髅兵",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "BB Power PEKKA",
+   "global_id": 4000036,
+   "kind": "troop",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 22,
+   "max_level": 8,
+   "production_building": "BB Barracks",
+   "required_building_level": 10,
+   "tid": "TID_SUPER_CHARGED_PEKKA",
+   "name_cn": "雷霆皮卡",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "BB Hog Glider",
+   "global_id": 4000070,
+   "kind": "troop",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 12,
+   "max_level": 6,
+   "production_building": "BB Barracks",
+   "required_building_level": 11,
+   "tid": "TID_HOG_GLIDER",
+   "name_cn": "野猪飞骑",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "BB Hog Rider",
+   "global_id": 4000071,
+   "kind": "troop",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 12,
+   "max_level": 6,
+   "production_building": "BB Barracks",
+   "required_building_level": 10,
+   "tid": "TID_HOG_RIDER",
+   "name_cn": "野猪骑士",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "BB Electrofire Wizard",
+   "global_id": 4000106,
+   "kind": "troop",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 14,
+   "max_level": 4,
+   "production_building": "BB Barracks",
+   "required_building_level": 12,
+   "tid": "TID_ELECTROFIRE_WIZARD",
+   "name_cn": "电火法师",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "BB Zappy",
+   "global_id": 4000107,
+   "kind": "troop",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 6,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_ZAPPY",
+   "name_cn": "电击车",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "BB MovingCannonSecondary",
+   "global_id": 4000044,
+   "kind": "troop",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 16,
+   "max_level": 18,
+   "production_building": "BB Barracks",
+   "required_building_level": 7,
+   "tid": "TID_MOVING_CANNON",
+   "name_cn": "加农炮战车",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Guardian Sniffer",
+   "global_id": 4000181,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 25,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_SNIFFER_GUARDIAN",
+   "name_cn": "",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Guardian Builder",
+   "global_id": 4000182,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 25,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_BUILDER_GUARDIAN",
+   "name_cn": "",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Guardian Logger",
+   "global_id": 4000183,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 25,
+   "max_level": 5,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_LOGGER_GUARDIAN",
+   "name_cn": "滚木手",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Guardian Returner",
+   "global_id": 4000184,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 25,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_RETURNER_GUARDIAN",
+   "name_cn": "",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Elephant",
+   "global_id": 4000186,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 20,
+   "max_level": 18,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_ELEPHANT",
+   "name_cn": "大象",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Rider",
+   "global_id": 4000187,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 10,
+   "max_level": 18,
+   "production_building": "Dark Barracks",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_ELEPHANT_RIDER_DEPLOYED",
+   "name_cn": "骑士",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Air Troop Launcher",
+   "global_id": 4000188,
+   "kind": "siege",
+   "status": "permanent",
+   "reason": "Siege Workshop 9 级可生产",
+   "housing_space": 1,
+   "max_level": 4,
+   "production_building": "Siege Workshop",
+   "required_building_level": 9,
+   "tid": "TID_SIEGE_MACHINE_AIR_TROOP_LAUNCHER",
+   "name_cn": "空中战车",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": true
+   }
+  },
+  {
+   "name": "UnusedSiegePrototype",
+   "global_id": 4000189,
+   "kind": "siege",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "Siege Workshop",
+   "required_building_level": 1,
+   "tid": "TID_SIEGE_MACHINE_RAM",
+   "name_cn": "攻城战车",
+   "flags": {
+    "Deprecated": true,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Elephant Rider",
+   "global_id": 4000185,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 24,
+   "max_level": 18,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_ELEPHANT_RIDER",
+   "name_cn": "大象骑士",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Undead Wrestler Big Boy",
+   "global_id": 4000191,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 20,
+   "max_level": 18,
+   "production_building": "Barracks",
+   "required_building_level": 3,
+   "tid": "TID_CHARACTER_UNDEAD_WRESTLER_BIG_BOY",
+   "name_cn": "黑暗骷髅兵",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Ruin Witch_DEF",
+   "global_id": 4000192,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 26,
+   "max_level": 4,
+   "production_building": "Dark Barracks",
+   "required_building_level": 13,
+   "tid": "TID_CHARACTER_RUIN_WITCH",
+   "name_cn": "废墟女巫",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "UndeadWrestler",
+   "global_id": 4000190,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 80,
+   "max_level": 18,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_UNDEAD_WRESTLER",
+   "name_cn": "送葬者大雪怪",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Tiny Totem",
+   "global_id": 4000193,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 20,
+   "max_level": 4,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Totem Thrower",
+   "global_id": 4000194,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 28,
+   "max_level": 18,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_TOTEM_THROWER",
+   "name_cn": "图腾投手",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   }
+  },
+  {
+   "name": "Lightning",
+   "global_id": 26000000,
+   "kind": "spell",
+   "status": "permanent",
+   "reason": "Spell Factory 1 级可生产",
+   "housing_space": 1,
+   "max_level": 13,
+   "production_building": "Spell Factory",
+   "required_building_level": 1,
+   "tid": "TID_LIGHTNING_STORM",
+   "name_cn": "雷电法术",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Healing",
+   "global_id": 26000001,
+   "kind": "spell",
+   "status": "permanent",
+   "reason": "Spell Factory 2 级可生产",
+   "housing_space": 2,
+   "max_level": 12,
+   "production_building": "Spell Factory",
+   "required_building_level": 2,
+   "tid": "TID_HEALING_WAVE",
+   "name_cn": "疗伤法术",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Rage",
+   "global_id": 26000002,
+   "kind": "spell",
+   "status": "permanent",
+   "reason": "Spell Factory 3 级可生产",
+   "housing_space": 2,
+   "max_level": 7,
+   "production_building": "Spell Factory",
+   "required_building_level": 3,
+   "tid": "TID_HASTE",
+   "name_cn": "狂暴法术",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Jump",
+   "global_id": 26000003,
+   "kind": "spell",
+   "status": "permanent",
+   "reason": "Spell Factory 4 级可生产",
+   "housing_space": 2,
+   "max_level": 5,
+   "production_building": "Spell Factory",
+   "required_building_level": 4,
+   "tid": "TID_JUMP_SPELL",
+   "name_cn": "弹跳法术",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Freeze",
+   "global_id": 26000005,
+   "kind": "spell",
+   "status": "permanent",
+   "reason": "Spell Factory 4 级可生产",
+   "housing_space": 1,
+   "max_level": 8,
+   "production_building": "Spell Factory",
+   "required_building_level": 4,
+   "tid": "TID_FREEZE_SPELL",
+   "name_cn": "冰冻法术",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Clone",
+   "global_id": 26000016,
+   "kind": "spell",
+   "status": "permanent",
+   "reason": "Spell Factory 5 级可生产",
+   "housing_space": 3,
+   "max_level": 9,
+   "production_building": "Spell Factory",
+   "required_building_level": 5,
+   "tid": "TID_DUPLICATE_SPELL",
+   "name_cn": "镜像法术",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Invisibility",
+   "global_id": 26000035,
+   "kind": "spell",
+   "status": "permanent",
+   "reason": "Spell Factory 6 级可生产",
+   "housing_space": 1,
+   "max_level": 4,
+   "production_building": "Spell Factory",
+   "required_building_level": 6,
+   "tid": "TID_INVISIBILITY_SPELL",
+   "name_cn": "隐形法术",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Recall",
+   "global_id": 26000053,
+   "kind": "spell",
+   "status": "permanent",
+   "reason": "Spell Factory 7 级可生产",
+   "housing_space": 2,
+   "max_level": 7,
+   "production_building": "Spell Factory",
+   "required_building_level": 7,
+   "tid": "TID_SPELL_RECALL",
+   "name_cn": "回溯法术",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Revive",
+   "global_id": 26000098,
+   "kind": "spell",
+   "status": "permanent",
+   "reason": "Spell Factory 8 级可生产",
+   "housing_space": 2,
+   "max_level": 5,
+   "production_building": "Spell Factory",
+   "required_building_level": 8,
+   "tid": "TID_SPELL_REVIVE",
+   "name_cn": "复苏法术",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Totem Spell",
+   "global_id": 26000120,
+   "kind": "spell",
+   "status": "permanent",
+   "reason": "Spell Factory 9 级可生产",
+   "housing_space": 1,
+   "max_level": 4,
+   "production_building": "Spell Factory",
+   "required_building_level": 9,
+   "tid": "TID_TOTEM_SPELL",
+   "name_cn": "图腾法术",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Poison",
+   "global_id": 26000009,
+   "kind": "spell",
+   "status": "permanent",
+   "reason": "Dark Spell Factory 1 级可生产",
+   "housing_space": 1,
+   "max_level": 12,
+   "production_building": "Dark Spell Factory",
+   "required_building_level": 1,
+   "tid": "TID_POISON_CLOUD",
+   "name_cn": "伤害药水法术",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Earthquake",
+   "global_id": 26000010,
+   "kind": "spell",
+   "status": "permanent",
+   "reason": "Dark Spell Factory 2 级可生产",
+   "housing_space": 1,
+   "max_level": 8,
+   "production_building": "Dark Spell Factory",
+   "required_building_level": 2,
+   "tid": "TID_EARTHQUAKE",
+   "name_cn": "地震法术",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Haste",
+   "global_id": 26000011,
+   "kind": "spell",
+   "status": "permanent",
+   "reason": "Dark Spell Factory 3 级可生产",
+   "housing_space": 1,
+   "max_level": 7,
+   "production_building": "Dark Spell Factory",
+   "required_building_level": 3,
+   "tid": "TID_SPEEDUP",
+   "name_cn": "急速法术",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Skeleton Spell",
+   "global_id": 26000017,
+   "kind": "spell",
+   "status": "permanent",
+   "reason": "Dark Spell Factory 4 级可生产",
+   "housing_space": 1,
+   "max_level": 8,
+   "production_building": "Dark Spell Factory",
+   "required_building_level": 4,
+   "tid": "TID_CREATE_SKELETONS_SPELL",
+   "name_cn": "骷髅法术",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Bat Spell",
+   "global_id": 26000028,
+   "kind": "spell",
+   "status": "permanent",
+   "reason": "Dark Spell Factory 5 级可生产",
+   "housing_space": 1,
+   "max_level": 8,
+   "production_building": "Dark Spell Factory",
+   "required_building_level": 5,
+   "tid": "TID_SPELL_BATS",
+   "name_cn": "蝙蝠法术",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Overgrowth",
+   "global_id": 26000070,
+   "kind": "spell",
+   "status": "permanent",
+   "reason": "Dark Spell Factory 6 级可生产",
+   "housing_space": 2,
+   "max_level": 5,
+   "production_building": "Dark Spell Factory",
+   "required_building_level": 6,
+   "tid": "TID_SPELL_OVERGROWTH",
+   "name_cn": "疯狂蔓生法术",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Ice Block",
+   "global_id": 26000109,
+   "kind": "spell",
+   "status": "permanent",
+   "reason": "Dark Spell Factory 7 级可生产",
+   "housing_space": 1,
+   "max_level": 6,
+   "production_building": "Dark Spell Factory",
+   "required_building_level": 7,
+   "tid": "TID_ICE_BLOCK_SPELL",
+   "name_cn": "冰障法术",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "xmas",
+   "global_id": 26000004,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 2,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_XMAS_SPELL",
+   "name_cn": "圣诞奇袭",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Santas Surprise",
+   "global_id": 26000006,
+   "kind": "spell",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 2,
+   "max_level": 13,
+   "production_building": "Spell Factory",
+   "required_building_level": 1,
+   "tid": "TID_XMAS_SPELL",
+   "name_cn": "圣诞奇袭",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": true
+   }
+  },
+  {
+   "name": "Slow",
+   "global_id": 26000007,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 2,
+   "max_level": 2,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_SLOW_SPELL",
+   "name_cn": "慢",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "BoostDefences",
+   "global_id": 26000008,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 2,
+   "max_level": 2,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_BOOSTDEFENCES_SPELL",
+   "name_cn": "提升防御",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Eternal Tome Aura",
+   "global_id": 26000012,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Life Gem Aura",
+   "global_id": 26000013,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 7,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Eagle Artillery Hit Spell",
+   "global_id": 26000014,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 7,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "MiniGrowth",
+   "global_id": 26000015,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "FreezeTrap",
+   "global_id": 26000018,
+   "kind": "spell",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": true
+   }
+  },
+  {
+   "name": "Lava Launcher Hit Spell",
+   "global_id": 26000019,
+   "kind": "spell",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 0,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "TroopRage",
+   "global_id": 26000020,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 9,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "ShrinkTrap",
+   "global_id": 26000021,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Birthday2017",
+   "global_id": 26000022,
+   "kind": "spell",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 2,
+   "max_level": 1,
+   "production_building": "Spell Factory",
+   "required_building_level": 1,
+   "tid": "TID_BIRTHDAY_SPELL",
+   "name_cn": "生日大爆炸",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": true
+   }
+  },
+  {
+   "name": "IceGolemFreeze",
+   "global_id": 26000023,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 9,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "ElectroDragonDie",
+   "global_id": 26000024,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 12,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Tornado Trap",
+   "global_id": 26000025,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 3,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "TroopHaste",
+   "global_id": 26000026,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "ProtoSpell2",
+   "global_id": 26000027,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 3,
+   "max_level": 5,
+   "production_building": "",
+   "required_building_level": 5,
+   "tid": "TID_LIGHTNING_STORM",
+   "name_cn": "雷电法术",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "IceGolemFreeze_DEF",
+   "global_id": 26000029,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 6,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Scattershot Hit Spell",
+   "global_id": 26000030,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 7,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "BatRage",
+   "global_id": 26000031,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "TH13 Frost",
+   "global_id": 26000032,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Electro Titan Aura",
+   "global_id": 26000033,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 5,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "EliteValkyrieRage",
+   "global_id": 26000034,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "IceHoundFreeze",
+   "global_id": 26000036,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 4,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "TH14 Poison",
+   "global_id": 26000037,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "FireSpiritExplosion",
+   "global_id": 26000038,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 5,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "PhoenixImmortality",
+   "global_id": 26000039,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 3,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "TroopImmortality",
+   "global_id": 26000040,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 3,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "AreaStun",
+   "global_id": 26000041,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "DrillerSurfacing",
+   "global_id": 26000042,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "TH15 Poison",
+   "global_id": 26000043,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Spell Tower Poison",
+   "global_id": 26000044,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_POISON_CLOUD_TOWER",
+   "name_cn": "伤害药水法术模式",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "SuperHogRiderSummonHog",
+   "global_id": 26000045,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 12,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Spell Tower Rage",
+   "global_id": 26000046,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 2,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_HASTE_TOWER",
+   "name_cn": "狂暴法术模式",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "SuperHogRiderSummonRider",
+   "global_id": 26000047,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 12,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Spell Tower Invisibility",
+   "global_id": 26000048,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_INVISIBILITY_SPELL_TOWER",
+   "name_cn": "隐形法术模式",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "GraveGolemSummonBigBoy",
+   "global_id": 26000049,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 13,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "HogWizardDamageAura",
+   "global_id": 26000050,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Unused1",
+   "global_id": 26000051,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "COOKIEAura",
+   "global_id": 26000052,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "GrandWardenRangeRing",
+   "global_id": 26000054,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "PoisonLizardAttack",
+   "global_id": 26000055,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 4,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "RamRiderDestroyWalls",
+   "global_id": 26000056,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_RAM_RIDER_ABILITY_TITLE",
+   "name_cn": "蛮羊冲锋！",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "SlowBomb",
+   "global_id": 26000057,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "VisualRage",
+   "global_id": 26000058,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Baby Dragon Flaming Sneeze",
+   "global_id": 26000059,
+   "kind": "spell",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 0,
+   "max_level": 5,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Power PEKKA Overcharge",
+   "global_id": 26000060,
+   "kind": "spell",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 0,
+   "max_level": 5,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Drop Ship Skeleton Bomb",
+   "global_id": 26000061,
+   "kind": "spell",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 0,
+   "max_level": 4,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Night Witch Bat Swarm",
+   "global_id": 26000062,
+   "kind": "spell",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 0,
+   "max_level": 5,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Cannon Cart Mortar Mode Splash",
+   "global_id": 26000063,
+   "kind": "spell",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界）",
+   "housing_space": 0,
+   "max_level": 8,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Apprentice Aura",
+   "global_id": 26000064,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 4,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "PetJump",
+   "global_id": 26000065,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "PetSpeedUp",
+   "global_id": 26000066,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "FireSpiritBurn",
+   "global_id": 26000067,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 4,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "TreantWallDamageAura",
+   "global_id": 26000068,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "SiegeInvisibility",
+   "global_id": 26000069,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Heroic Torch Aura",
+   "global_id": 26000071,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Blizzard",
+   "global_id": 26000072,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 5,
+   "tid": "TID_FREEZE_SPELL",
+   "name_cn": "冰冻法术",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "BagOfFrostmites",
+   "global_id": 26000073,
+   "kind": "spell",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 1,
+   "max_level": 13,
+   "production_building": "Spell Factory",
+   "required_building_level": 1,
+   "tid": "TID_SPELL_BAG_OF_FROSTMITES",
+   "name_cn": "袋装小冰怪",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": true
+   }
+  },
+  {
+   "name": "TroopCatapultSummonTroop",
+   "global_id": 26000074,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "LavaloonSpawnPup",
+   "global_id": 26000075,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 13,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Firecracker Hit Spell",
+   "global_id": 26000076,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 13,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Earthquake Boots Spell",
+   "global_id": 26000077,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 7,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_EARTHQUAKE",
+   "name_cn": "地震法术",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Fireball Hit Spell",
+   "global_id": 26000078,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Rage Gem Aura",
+   "global_id": 26000079,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 7,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "QueenFreeze",
+   "global_id": 26000080,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "ElectrifiedShield",
+   "global_id": 26000081,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "BarbarianKingDestroyWalls",
+   "global_id": 26000082,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_RAM_RIDER_ABILITY_TITLE",
+   "name_cn": "蛮羊冲锋！",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Healing Tome Aura",
+   "global_id": 26000083,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 7,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Yellow Card",
+   "global_id": 26000084,
+   "kind": "spell",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "Spell Factory",
+   "required_building_level": 1,
+   "tid": "TID_SPELL_YELLOW_CARD",
+   "name_cn": "黄牌法术",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": true
+   }
+  },
+  {
+   "name": "GWPhoenixStickSpell",
+   "global_id": 26000085,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "BattleDruidHeal",
+   "global_id": 26000086,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_HEALING_WAVE",
+   "name_cn": "疗伤法术",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Electro Boots Aura",
+   "global_id": 26000087,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "GWLavaloonSpawnPup",
+   "global_id": 26000088,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 11,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "IceMinionFreeze",
+   "global_id": 26000089,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 2,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Commander Aura",
+   "global_id": 26000090,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "TroopCatapultSummonTroopNew",
+   "global_id": 26000091,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 4,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "TorchThrowerB",
+   "global_id": 26000092,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Destroyer",
+   "global_id": 26000093,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Debris Explosion 1",
+   "global_id": 26000094,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 2,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 8,
+   "tid": "TID_LIGHTNING_STORM",
+   "name_cn": "雷电法术",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Debris Explosion 2",
+   "global_id": 26000095,
+   "kind": "spell",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 2,
+   "max_level": 1,
+   "production_building": "Spell Factory",
+   "required_building_level": 1,
+   "tid": "TID_EARTHQUAKE",
+   "name_cn": "地震法术",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": true
+   }
+  },
+  {
+   "name": "FireSpiritBurn_DEF",
+   "global_id": 26000096,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 4,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Resurrect",
+   "global_id": 26000097,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 2,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 6,
+   "tid": "TID_SPELL_REVIVE",
+   "name_cn": "复苏法术",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "TH17WeaponAreaDamage",
+   "global_id": 26000099,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "BarbKingEquipSpawn",
+   "global_id": 26000100,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "MassDestruction",
+   "global_id": 26000101,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_SPELL_MASS_DESTRUCTION",
+   "name_cn": "重度摧毁",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "MinionGiantPoison",
+   "global_id": 26000102,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_POISON_CLOUD",
+   "name_cn": "伤害药水法术",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Unused2",
+   "global_id": 26000103,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Unused3",
+   "global_id": 26000104,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "April25_TBRM_Aura",
+   "global_id": 26000105,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 16,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "April25_TBRM_DeathSpawn",
+   "global_id": 26000106,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 15,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "April25_RRAltProjectile_Spawn",
+   "global_id": 26000107,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 16,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "April25_RRAltProjectile_Spawn_DEF",
+   "global_id": 26000108,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 16,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "MPMeteorStaffSpell",
+   "global_id": 26000110,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "MeteorGolemImpactSpell",
+   "global_id": 26000111,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "TH18EventMeteorDeathDamage",
+   "global_id": 26000112,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 17,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "SmasherRageArea",
+   "global_id": 26000113,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "SlowdownTowerSlowness",
+   "global_id": 26000114,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_POISON_CLOUD_TOWER",
+   "name_cn": "伤害药水法术模式",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "GuardianRage",
+   "global_id": 26000115,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "GuardianReviveSpell",
+   "global_id": 26000116,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "SeasonalDefenseHeroBoosterRageAura",
+   "global_id": 26000117,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "SeasonalDefenseHeroBoosterHealthBoostAura",
+   "global_id": 26000118,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Debris Explosion 3",
+   "global_id": 26000119,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 2,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 8,
+   "tid": "TID_LIGHTNING_STORM",
+   "name_cn": "雷电法术",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "TotemSummon",
+   "global_id": 26000121,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 4,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "PhoenixSpell",
+   "global_id": 26000122,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 2,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 8,
+   "tid": "TID_HEALING_WAVE",
+   "name_cn": "疗伤法术",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "AngrySpell",
+   "global_id": 26000123,
+   "kind": "spell",
+   "status": "permanent",
+   "reason": "Dark Spell Factory 8 级可生产",
+   "housing_space": 1,
+   "max_level": 4,
+   "production_building": "Dark Spell Factory",
+   "required_building_level": 8,
+   "tid": "TID_ANGRY_SPELL_ANGER",
+   "name_cn": "愤怒法术",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Unused4",
+   "global_id": 26000124,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Unused5",
+   "global_id": 26000125,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Clashmas25FireArea",
+   "global_id": 26000126,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "LNY26HealingArea",
+   "global_id": 26000127,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "LNY26DeathDamage",
+   "global_id": 26000128,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Lava Launcher Hit Spell_Seasonal_Defense",
+   "global_id": 26000129,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Spell Tower Earthquake",
+   "global_id": 26000130,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_EARTHQUAKE",
+   "name_cn": "地震法术",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "DragonDukeDashAura",
+   "global_id": 26000131,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "DragonDukeRingOfFire",
+   "global_id": 26000132,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "DragonDukeFireBlast",
+   "global_id": 26000133,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 7,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "DragonCrownExplosion",
+   "global_id": 26000134,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 7,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "DDBlastSpell",
+   "global_id": 26000135,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 7,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "DragonDukeFireBlastMini",
+   "global_id": 26000136,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "GuardianBuilderRageSpell",
+   "global_id": 26000137,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "ElephantRiderSummonElephant",
+   "global_id": 26000138,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "ElephantRiderSummonRider",
+   "global_id": 26000139,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "AirTroopSummon",
+   "global_id": 26000141,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 4,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "CakeThrowerExplosion",
+   "global_id": 26000142,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "UndeadWrestlerDeathSpawn",
+   "global_id": 26000140,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "TinyTotemImpact",
+   "global_id": 26000143,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 4,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "TinyTotemSummon",
+   "global_id": 26000144,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 4,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "CakeThrowerExplosion2",
+   "global_id": 26000145,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "CakeThrowerExplosion3",
+   "global_id": 26000146,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "CakeThrowerExplosion4",
+   "global_id": 26000147,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   }
+  },
+  {
+   "name": "Barbarian King",
+   "global_id": 28000000,
+   "kind": "hero",
+   "status": "permanent",
+   "reason": "英雄（长期解锁）；属性按大本营缩放（ScaleByTH）：4本50% 5本75%，其后 100%",
+   "housing_space": 25,
+   "max_level": 110,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_BARBARIAN_KING",
+   "name_cn": "野蛮人之王",
+   "flags": {}
+  },
+  {
+   "name": "Archer Queen",
+   "global_id": 28000001,
+   "kind": "hero",
+   "status": "permanent",
+   "reason": "英雄（长期解锁）",
+   "housing_space": 25,
+   "max_level": 110,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_ARCHER_QUEEN",
+   "name_cn": "弓箭女皇",
+   "flags": {}
+  },
+  {
+   "name": "Grand Warden",
+   "global_id": 28000002,
+   "kind": "hero",
+   "status": "permanent",
+   "reason": "英雄（长期解锁）",
+   "housing_space": 25,
+   "max_level": 85,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_GRAND_WARDEN",
+   "name_cn": "大守护者",
+   "flags": {}
+  },
+  {
+   "name": "BB Battle Machine",
+   "global_id": 28000003,
+   "kind": "hero",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界英雄）",
+   "housing_space": 25,
+   "max_level": 35,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_WARMACHINE",
+   "name_cn": "战争机器",
+   "flags": {}
+  },
+  {
+   "name": "Royal Champion",
+   "global_id": 28000004,
+   "kind": "hero",
+   "status": "permanent",
+   "reason": "英雄（长期解锁）",
+   "housing_space": 25,
+   "max_level": 55,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_HERO_ROYAL_CHAMPION",
+   "name_cn": "飞盾战神",
+   "flags": {}
+  },
+  {
+   "name": "BB Battle Copter",
+   "global_id": 28000005,
+   "kind": "hero",
+   "status": "builder_base",
+   "reason": "VillageType=1（夜世界英雄）",
+   "housing_space": 25,
+   "max_level": 21,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_HERO_BATTLE_COPTER",
+   "name_cn": "战斗直升机",
+   "flags": {}
+  },
+  {
+   "name": "Minion Prince",
+   "global_id": 28000006,
+   "kind": "hero",
+   "status": "permanent",
+   "reason": "英雄（长期解锁）",
+   "housing_space": 25,
+   "max_level": 95,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_MINION_HERO",
+   "name_cn": "亡灵王子",
+   "flags": {}
+  },
+  {
+   "name": "Dragon Duke",
+   "global_id": 28000007,
+   "kind": "hero",
+   "status": "permanent",
+   "reason": "英雄（长期解锁）",
+   "housing_space": 25,
+   "max_level": 25,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_DRAGON_DUKE",
+   "name_cn": "飞龙公爵",
+   "flags": {}
+  },
+  {
+   "name": "LASSI",
+   "global_id": 73000000,
+   "kind": "pet",
+   "status": "permanent",
+   "reason": "宠物小屋 1 级解锁（随英雄出场）",
+   "housing_space": 0,
+   "max_level": 15,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_PET_MELEEJUMPER",
+   "name_cn": "莱希",
+   "flags": {}
+  },
+  {
+   "name": "Mighty Yak",
+   "global_id": 73000001,
+   "kind": "pet",
+   "status": "permanent",
+   "reason": "宠物小屋 3 级解锁（随英雄出场）",
+   "housing_space": 0,
+   "max_level": 15,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_PET_WALLBUSTER",
+   "name_cn": "大牦",
+   "flags": {}
+  },
+  {
+   "name": "Electro Owl",
+   "global_id": 73000002,
+   "kind": "pet",
+   "status": "permanent",
+   "reason": "宠物小屋 2 级解锁（随英雄出场）",
+   "housing_space": 0,
+   "max_level": 15,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_PET_RANGEDATTACKER",
+   "name_cn": "闪枭",
+   "flags": {}
+  },
+  {
+   "name": "Unicorn",
+   "global_id": 73000003,
+   "kind": "pet",
+   "status": "permanent",
+   "reason": "宠物小屋 4 级解锁（随英雄出场）",
+   "housing_space": 0,
+   "max_level": 15,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_PET_HEALER",
+   "name_cn": "独角",
+   "flags": {}
+  },
+  {
+   "name": "Phoenix",
+   "global_id": 73000004,
+   "kind": "pet",
+   "status": "permanent",
+   "reason": "宠物小屋 8 级解锁（随英雄出场）",
+   "housing_space": 0,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_PET_PHOENIX",
+   "name_cn": "凤凰",
+   "flags": {}
+  },
+  {
+   "name": "Phoenix Egg",
+   "global_id": 73000005,
+   "kind": "pet",
+   "status": "internal",
+   "reason": "与前一战宠共用 TID，是其派生形态",
+   "housing_space": 0,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_PET_PHOENIX",
+   "name_cn": "凤凰",
+   "flags": {}
+  },
+  {
+   "name": "Stork",
+   "global_id": 73000006,
+   "kind": "pet",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_PET_HEALER",
+   "name_cn": "独角",
+   "flags": {}
+  },
+  {
+   "name": "Poison Lizard",
+   "global_id": 73000007,
+   "kind": "pet",
+   "status": "permanent",
+   "reason": "宠物小屋 7 级解锁（随英雄出场）",
+   "housing_space": 0,
+   "max_level": 15,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_PET_POISON_LIZARD",
+   "name_cn": "猛蜥",
+   "flags": {}
+  },
+  {
+   "name": "Diggy",
+   "global_id": 73000008,
+   "kind": "pet",
+   "status": "permanent",
+   "reason": "宠物小屋 6 级解锁（随英雄出场）",
+   "housing_space": 0,
+   "max_level": 15,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_PET_DIGGY",
+   "name_cn": "地兽",
+   "flags": {}
+  },
+  {
+   "name": "Frosty",
+   "global_id": 73000009,
+   "kind": "pet",
+   "status": "permanent",
+   "reason": "宠物小屋 5 级解锁（随英雄出场）",
+   "housing_space": 0,
+   "max_level": 15,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_PET_FROSTY",
+   "name_cn": "冰牙",
+   "flags": {}
+  },
+  {
+   "name": "Spirit Fox",
+   "global_id": 73000010,
+   "kind": "pet",
+   "status": "permanent",
+   "reason": "宠物小屋 9 级解锁（随英雄出场）",
+   "housing_space": 0,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_PET_SPIRIT_FOX",
+   "name_cn": "灵狐",
+   "flags": {}
+  },
+  {
+   "name": "Angry Jelly",
+   "global_id": 73000011,
+   "kind": "pet",
+   "status": "permanent",
+   "reason": "宠物小屋 10 级解锁（随英雄出场）",
+   "housing_space": 0,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_PET_ANGRY_JELLY",
+   "name_cn": "愤怒水母",
+   "flags": {}
+  },
+  {
+   "name": "JumpAuraPet",
+   "global_id": 73000012,
+   "kind": "pet",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_PET_MELEEJUMPER",
+   "name_cn": "莱希",
+   "flags": {}
+  },
+  {
+   "name": "SpeedupPet",
+   "global_id": 73000013,
+   "kind": "pet",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_PET_RANGEDATTACKER",
+   "name_cn": "闪枭",
+   "flags": {}
+  },
+  {
+   "name": "Turtle",
+   "global_id": 73000014,
+   "kind": "pet",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_PET_MELEEJUMPER",
+   "name_cn": "莱希",
+   "flags": {}
+  },
+  {
+   "name": "AirSplitPetSpawnRemoved",
+   "global_id": 73000015,
+   "kind": "pet",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_PET_RANGEDATTACKER",
+   "name_cn": "闪枭",
+   "flags": {}
+  },
+  {
+   "name": "Sneezy",
+   "global_id": 73000016,
+   "kind": "pet",
+   "status": "permanent",
+   "reason": "宠物小屋 11 级解锁（随英雄出场）",
+   "housing_space": 0,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_PET_SNEEZY",
+   "name_cn": "阿啾",
+   "flags": {}
+  },
+  {
+   "name": "Crow",
+   "global_id": 73000017,
+   "kind": "pet",
+   "status": "permanent",
+   "reason": "宠物小屋 12 级解锁（随英雄出场）",
+   "housing_space": 0,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_PET_RAVEN",
+   "name_cn": "贪婪渡鸦",
+   "flags": {}
+  },
+  {
+   "name": "Barbarian Puppet",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Barbarian King）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Barbarian King",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_BARBARIAN_CROWN",
+   "name_cn": "野蛮人木偶",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Rage Vial",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Barbarian King）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Barbarian King",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_IRON_FIST",
+   "name_cn": "狂暴药水瓶",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Archer Puppet",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Archer Queen）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Archer Queen",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_ARCHER_CROWN",
+   "name_cn": "弓箭手木偶",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Invisibility Vial",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Archer Queen）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Archer Queen",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_ROYAL_CLOAK",
+   "name_cn": "隐形药水瓶",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Eternal Tome",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Grand Warden）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Grand Warden",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_ETERNAL_TOME",
+   "name_cn": "永恒书卷",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Life Gem",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Grand Warden）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Grand Warden",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_LIFE_GEM",
+   "name_cn": "生命宝石",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Seeking Shield",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Royal Champion）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Royal Champion",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_SEEKING_SHIELD",
+   "name_cn": "寻踪飞盾",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Royal Gem",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Royal Champion）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Royal Champion",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_PROTECTIVE_CLOAK",
+   "name_cn": "皇家宝石",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Earthquake Boots",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Barbarian King）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Barbarian King",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_EARTHQUAKE_BOOTS",
+   "name_cn": "地震金靴",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Hog Rider Puppet",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Royal Champion）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Royal Champion",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_HOG_TOTEM",
+   "name_cn": "野猪骑士木偶",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Giant Gauntlet",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Barbarian King）",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "Barbarian King",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_GIANT_GAUNTLET",
+   "name_cn": "巨型手套",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "Vampstache",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Barbarian King）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Barbarian King",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_VAMPSTACHE",
+   "name_cn": "治疗胡须",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Haste Vial",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Royal Champion）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Royal Champion",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_HASTE_VIAL",
+   "name_cn": "急速药水瓶",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Rocket Spear",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Royal Champion）",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "Royal Champion",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_ROCKET_SPEAR",
+   "name_cn": "火箭飞矛",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "Spiky Ball",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Barbarian King）",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "Barbarian King",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_FOOTBALL",
+   "name_cn": "尖刺足球",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "Frozen Arrow",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Archer Queen）",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "Archer Queen",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_FROZEN_ARROW",
+   "name_cn": "冰封箭矢",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "Monolith Arrow",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Archer Queen）",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "Archer Queen",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_MONOLITH_ARROW",
+   "name_cn": "擎天箭矢",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "Piercing Arrow",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Archer Queen）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Archer Queen",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_PIERCING_ARROW",
+   "name_cn": "巨型箭矢",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "UNUSED2",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "Archer Queen",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_PIERCING_ARROW",
+   "name_cn": "巨型箭矢",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "Heroic Torch",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Grand Warden）",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "Grand Warden",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_HEROIC_TORCH",
+   "name_cn": "英雄火炬",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "Healer Puppet",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Archer Queen）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Archer Queen",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_HEALER_JAR",
+   "name_cn": "天使木偶",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "UNUSED3",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "Archer Queen",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_BARBARIAN_CROWN",
+   "name_cn": "野蛮人木偶",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Fireball",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Grand Warden）",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "Grand Warden",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_FIRE_IN_A_CAN",
+   "name_cn": "巨大火球",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "UNUSED4",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "Grand Warden",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_BARBARIAN_CROWN",
+   "name_cn": "野蛮人木偶",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Rage Gem",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Grand Warden）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Grand Warden",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_ANGRY_TOME",
+   "name_cn": "狂暴宝石",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "UNUSED5",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "Grand Warden",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_BARBARIAN_CROWN",
+   "name_cn": "野蛮人木偶",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "UNUSED6",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "Grand Warden",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_BARBARIAN_CROWN",
+   "name_cn": "野蛮人木偶",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "UNUSED7",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "Grand Warden",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_BARBARIAN_CROWN",
+   "name_cn": "野蛮人木偶",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "UNUSED8",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "Royal Champion",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_BARBARIAN_CROWN",
+   "name_cn": "野蛮人木偶",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "UNUSED9",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "Royal Champion",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_BARBARIAN_CROWN",
+   "name_cn": "野蛮人木偶",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "UNUSED10",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "Royal Champion",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_HOG_TOTEM",
+   "name_cn": "野猪骑士木偶",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "UNUSED11",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "Royal Champion",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_BARBARIAN_CROWN",
+   "name_cn": "野蛮人木偶",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Snake Bracelet",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Barbarian King）",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "Barbarian King",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_SNAKE_ARMOR",
+   "name_cn": "灵蛇手镯",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "UNUSED13",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "Royal Champion",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_BARBARIAN_CROWN",
+   "name_cn": "野蛮人木偶",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Healing Tome",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Grand Warden）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Grand Warden",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_HEALING_TOME",
+   "name_cn": "治疗书卷",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Dark Crown",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Minion Prince）",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "Minion Prince",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_DARK_CROWN",
+   "name_cn": "暗黑皇冠",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "UNUSED15",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "Barbarian King",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_BARBARIAN_CROWN",
+   "name_cn": "野蛮人木偶",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "UNUSED16",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "Barbarian King",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_BARBARIAN_CROWN",
+   "name_cn": "野蛮人木偶",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "UNUSED17",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "Grand Warden",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_BARBARIAN_CROWN",
+   "name_cn": "野蛮人木偶",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "Magic Mirror",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Archer Queen）",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "Archer Queen",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_CLONING_CLOAK",
+   "name_cn": "克隆魔镜",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "Electro Boots",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Royal Champion）",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "Royal Champion",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_ELECTRO_SHIELD",
+   "name_cn": "雷电战靴",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "Lavaloon Puppet",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Grand Warden）",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "Grand Warden",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_LAVALOON_PUPPET",
+   "name_cn": "熔岩气球玩偶",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "Henchmen Puppet",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Minion Prince）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Minion Prince",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_MINION_BODYGUARDS",
+   "name_cn": "护卫玩偶",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Dark Orb",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Minion Prince）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Minion Prince",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_DARK_ORB",
+   "name_cn": "暗黑魔球",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Metal Pants",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Minion Prince）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Minion Prince",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_STONE_AMULET",
+   "name_cn": "铁甲短裤",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "MP Trap Shield",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Minion Prince",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_TRAP_SHIELD",
+   "name_cn": "",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Punch Arrow",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "Archer Queen",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_CLONING_CLOAK",
+   "name_cn": "克隆魔镜",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "Noble Iron",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Minion Prince）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Minion Prince",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_TURBO_START",
+   "name_cn": "贵族哑铃",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Action Figure",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Archer Queen）",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "Archer Queen",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_ACTION_FIGURE",
+   "name_cn": "动作人偶",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "Meteor Staff",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Minion Prince）",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "Minion Prince",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_METEOR_WAND",
+   "name_cn": "陨石法杖",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "Frost Charm",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Royal Champion）",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "Royal Champion",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_FROST_CHARM",
+   "name_cn": "冷冽冰晶",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "Stick Horse",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Barbarian King）",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "Barbarian King",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_STICK_HORSE",
+   "name_cn": "木棍马驹",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "Fire Heart",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Dragon Duke）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Dragon Duke",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_FIRE_HEART",
+   "name_cn": "烈焰之心",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Rocket Backpack",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Dragon Duke）",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "Dragon Duke",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_DEADLY_DASH",
+   "name_cn": "火箭背包",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "Deadly Dash2",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "Dragon Duke",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_DEADLY_DASH",
+   "name_cn": "火箭背包",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "Deadly Dash3",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "Dragon Duke",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_DEADLY_DASH",
+   "name_cn": "火箭背包",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "Stun Blaster",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Dragon Duke）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Dragon Duke",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_STUN_BLAST",
+   "name_cn": "爆震器",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Flame Blower",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Dragon Duke）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Dragon Duke",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_FLAME_BREATH",
+   "name_cn": "助燃器",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "FlameAttack",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "internal",
+   "reason": "Deprecated=TRUE",
+   "housing_space": 0,
+   "max_level": 1,
+   "production_building": "Dragon Duke",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_STUN_BLAST",
+   "name_cn": "爆震器",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "ElectroAttack",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Dragon Duke）",
+   "housing_space": 0,
+   "max_level": 18,
+   "production_building": "Dragon Duke",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_ELECTRO_ATTACK",
+   "name_cn": "雷电獠牙",
+   "flags": {
+    "epic": false
+   }
+  },
+  {
+   "name": "Draconic Counter",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Dragon Duke）",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "Dragon Duke",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_DRAGON_REFLECTOR",
+   "name_cn": "反击卡组",
+   "flags": {
+    "epic": true
+   }
+  },
+  {
+   "name": "Cosmic Portal",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "permanent",
+   "reason": "英雄装备（Minion Prince）",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "Minion Prince",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_COSMIC_PORTAL",
+   "name_cn": "传送吊坠",
+   "flags": {
+    "epic": true
+   }
+  }
+ ]
+}

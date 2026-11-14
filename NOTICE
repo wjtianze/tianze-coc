@@ -1,0 +1,15 @@
+tianze-coc
+Copyright tianze-coc contributors
+
+本项目在方法与工程结构上全面借鉴 FirstLight CR（https://github.com/Jaasssoooonnnnn/FirstLight_CR，
+Apache-2.0）。代码为针对部落冲突 / Atrasis 私服客户端独立编写，未复制 FirstLight CR 的源码。
+
+本发行版包含独立编写的研究软件：静态分析工具、原生注入探针、Python 战斗环境与配套工具，
+采用 Apache-2.0 许可。
+
+本项目不分发任何游戏二进制、资源、修改后的客户端，也不包含任何账号数据或服务器消息录制。
+用户提供的 APK、资源及其本地生成的衍生文件仍受各自权利人权利约束；Apache-2.0 不授予对上述材料的权利。
+
+本项目只在 Atrasis 私服客户端（com.atrasis.*）进程中工作，探针在其他进程中不做任何事，
+不接入 Supercell 官方服务器，不操作官方账号。本项目不隶属于、不代表 Supercell，也未获其背书。
+产品名称仅用于标明兼容性。

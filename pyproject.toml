@@ -1,0 +1,9 @@
+[project]
+name = "tianze-coc"
+version = "0.1.0"
+description = "基于 Atrasis 私服客户端的部落冲突 AI 战斗环境（底层探针 + 中间层）"
+requires-python = ">=3.12"
+dependencies = ["numpy>=1.26", "pyelftools>=0.31", "capstone>=5.0"]
+
+[tool.setuptools.packages.find]
+include = ["tianze_coc*"]
