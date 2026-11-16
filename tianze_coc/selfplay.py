@@ -1,7 +1,7 @@
 """自对弈对局组装：把 摆阵模型 / 配兵模型 的输出拼成一条可离线重放的 EnemyHomeData。
 
     match = Match(defender=防守方账号, layout=阵型(含防守援军), attacker=进攻方账号, army=配兵)
-    payload = build_enemy_payload(模板录制, match)
+    payload = build_enemy_payload(模板录制, match)    # match.mode 指定难度模式（战斗属性调整）
     env = TianzeBattleEnv(battle_starter=OfflineStarter(home, enemy, payload_fn=lambda i: payload))
 
 模板录制只提供消息骨架（任意一份真实的 EnemyHomeData，例如友谊战录制）；双方的建筑、等级、阵型、
@@ -12,6 +12,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from . import army as army_mod
+from . import battle_modifier
 from . import layout as layout_mod
 from .account import Account
 from .army import Army
@@ -23,6 +24,7 @@ class Match:
     attacker: Account
     army: Army
     layout: layout_mod.Layout | None = None  # None = 用 defender 当前坐标
+    mode: str = "normal"  # 难度模式：normal / legend3 / legend2 / legend1 / esports（战斗属性调整）
 
 
 def check(m: Match, require_all_built: bool = True) -> list[str]:
@@ -45,4 +47,5 @@ def build_enemy_payload(template: bytes, m: Match, strict: bool = True) -> bytes
         layout_mod.apply(m.layout, d, check=False)
     p = d.apply_to_payload(template, "defender", clear_obstacles=True)
     p = m.attacker.apply_to_payload(p, "attacker")
-    return army_mod.apply_to_enemy_payload(p, m.army)
+    p = army_mod.apply_to_enemy_payload(p, m.army)
+    return battle_modifier.set_modifier(p, m.mode)

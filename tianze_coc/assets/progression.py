@@ -171,8 +171,11 @@ def build_progression(src: AssetSource, lang: str = "cn") -> dict:
     g = {}
     for r in src.table("assets/logic/globals.csv").rows:
         g[r.name] = r.fields
+    from ..battle_modifier import load_table
+
     return {
         "schema": SCHEMA, "build_tag": src.build_tag(), "th_max": th_max,
+        "battle_modifiers": load_table(src),
         "structures": structures, "units": units, "obstacles": obstacles,
         "rules": {
             "hero_slots": 4,  # 进攻时最多 4 名英雄（active_army_loadout 的英雄槽数）

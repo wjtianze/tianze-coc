@@ -2,6 +2,164 @@
  "schema": "tianze-coc/progression/v1",
  "build_tag": "18_647_2",
  "th_max": 18,
+ "battle_modifiers": {
+  "Hard Mode": {
+   "tid": "TID_CHALLENGE_TITLE_HARD_MODE",
+   "effects": [
+    {
+     "side": "defender",
+     "target": "building",
+     "building_class": "Any Building",
+     "spells": true,
+     "damage_pct": 125,
+     "hp_pct": 100
+    },
+    {
+     "side": "attacker",
+     "target": "hero",
+     "building_class": "",
+     "spells": false,
+     "damage_pct": 80,
+     "hp_pct": 80
+    },
+    {
+     "side": "defender",
+     "target": "hero",
+     "building_class": "",
+     "spells": false,
+     "damage_pct": 125,
+     "hp_pct": 125
+    },
+    {
+     "side": "defender",
+     "target": "guardian",
+     "building_class": "",
+     "spells": false,
+     "damage_pct": 120,
+     "hp_pct": 120
+    }
+   ],
+   "common_equipment_minus": 3,
+   "epic_equipment_minus": 6
+  },
+  "Minus One": {
+   "tid": "TID_MODE_TITLE_MINUS_ONE",
+   "effects": [
+    {
+     "side": "defender",
+     "target": "building",
+     "building_class": "Any Building",
+     "spells": true,
+     "damage_pct": 120,
+     "hp_pct": 100
+    },
+    {
+     "side": "attacker",
+     "target": "hero",
+     "building_class": "",
+     "spells": false,
+     "damage_pct": 80,
+     "hp_pct": 80
+    },
+    {
+     "side": "defender",
+     "target": "hero",
+     "building_class": "",
+     "spells": false,
+     "damage_pct": 120,
+     "hp_pct": 120
+    },
+    {
+     "side": "defender",
+     "target": "guardian",
+     "building_class": "",
+     "spells": false,
+     "damage_pct": 120,
+     "hp_pct": 120
+    }
+   ],
+   "common_equipment_minus": 0,
+   "epic_equipment_minus": 0
+  },
+  "Minus Two": {
+   "tid": "TID_MODE_TITLE_MINUS_TWO",
+   "effects": [
+    {
+     "side": "defender",
+     "target": "building",
+     "building_class": "Any Building",
+     "spells": true,
+     "damage_pct": 115,
+     "hp_pct": 100
+    },
+    {
+     "side": "attacker",
+     "target": "hero",
+     "building_class": "",
+     "spells": false,
+     "damage_pct": 90,
+     "hp_pct": 90
+    },
+    {
+     "side": "defender",
+     "target": "hero",
+     "building_class": "",
+     "spells": false,
+     "damage_pct": 115,
+     "hp_pct": 115
+    },
+    {
+     "side": "defender",
+     "target": "guardian",
+     "building_class": "",
+     "spells": false,
+     "damage_pct": 110,
+     "hp_pct": 110
+    }
+   ],
+   "common_equipment_minus": 0,
+   "epic_equipment_minus": 0
+  },
+  "Minus Three": {
+   "tid": "TID_MODE_TITLE_MINUS_THREE",
+   "effects": [
+    {
+     "side": "defender",
+     "target": "building",
+     "building_class": "Any Building",
+     "spells": true,
+     "damage_pct": 110,
+     "hp_pct": 100
+    },
+    {
+     "side": "attacker",
+     "target": "hero",
+     "building_class": "",
+     "spells": false,
+     "damage_pct": 95,
+     "hp_pct": 95
+    },
+    {
+     "side": "defender",
+     "target": "hero",
+     "building_class": "",
+     "spells": false,
+     "damage_pct": 110,
+     "hp_pct": 110
+    },
+    {
+     "side": "defender",
+     "target": "guardian",
+     "building_class": "",
+     "spells": false,
+     "damage_pct": 105,
+     "hp_pct": 105
+    }
+   ],
+   "common_equipment_minus": 0,
+   "epic_equipment_minus": 0
+  }
+ },
  "structures": [
   {
    "gid": 1000001,

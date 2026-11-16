@@ -68,6 +68,7 @@
 | `EnvConfig(realtime=True)` | 实时模式：不锁步，按真实时间推进（联机打真人友谊战用） |
 | `selfplay.Match` + `build_enemy_payload(模板, match)` | **自对弈**：防守方账号+阵型+援军、进攻方单位等级+配兵 → 一条 EnemyHomeData |
 | `OfflineStarter(..., payload_fn=lambda i: payload)` | 每局用新负载离线开局 |
+| `selfplay.Match(..., mode="esports")` / `battle_modifier.set_modifier` | **难度模式**（战斗属性调整）：普通 / 传奇杯 3 / 2 / 1 / 电竞，写入负载末尾 4 字节；真机验证进攻方英雄生命上限按表变化 |
 
 真机验证（`tools/selfplay_check.py`）：16 本随机防守方 269 座建筑、23 个陷阱、随机阵型与援军，
 18 本进攻方随机配兵——开局后引擎中的兵种、法术、攻城机器、防守建筑与注入完全一致；公平视角下陷阱数为 0。

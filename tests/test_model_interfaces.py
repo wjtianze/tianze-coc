@@ -222,3 +222,30 @@ class RecordedPayloadTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class BattleModifierTest(unittest.TestCase):
+    def test_set_get_on_synthetic_payload(self):
+        from tianze_coc import battle_modifier as bm
+
+        p = b"\x01\x02\x03" + (0).to_bytes(4, "big")
+        self.assertEqual(bm.mode_of(p), "normal")
+        for m in bm.ORDER:
+            q = bm.set_modifier(p, m)
+            self.assertEqual(bm.mode_of(q), m)
+            self.assertEqual(len(q), len(p))
+        with self.assertRaises(ValueError):
+            bm.set_modifier(b"\x00" + (12345678).to_bytes(4, "big"), "esports")  # 末尾不是属性调整字段
+
+    def test_table_in_progression(self):
+        t = P.data["battle_modifiers"]
+        hard = t["Hard Mode"]
+        self.assertEqual((hard["common_equipment_minus"], hard["epic_equipment_minus"]), (3, 6))
+        att = [e for e in t["Minus One"]["effects"] if e["side"] == "attacker" and e["target"] == "hero"][0]
+        self.assertEqual((att["damage_pct"], att["hp_pct"]), (80, 80))
+
+    @unittest.skipUnless(ENEMY.exists(), "没有本地录制")
+    def test_recorded_friendly_is_normal(self):
+        from tianze_coc import battle_modifier as bm
+
+        self.assertEqual(bm.mode_of(ENEMY.read_bytes()), "normal")
