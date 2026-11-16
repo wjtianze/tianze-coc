@@ -481,6 +481,32 @@ def locate(r: ElfRe) -> dict:
     virt = [c for c in set(r.func_of(x) for x in r.callers(lr)) if c in inv]
     o["Client_update"] = only(virt, "ClientInstance::update")
     o["Messaging_sendOne"] = func_by_string(r, b"Trying to send too big message, type %d")
+
+    # ---- 命令的 encode/decode 虚表槽（通用命令接口：抓 UI 命令的序列化字节、按字节构造任意命令）
+    # 放兵命令的 encode/decode 都先调用基类：
+    #   基类 encode：ldr x9,[x1]; mov x8,x1; ldr w1,[x0,#8] ... br  （写执行 tick）
+    #   基类 decode：... blr readInt; str w0,[x19,#8]                 （读执行 tick）
+    pa_vt = o["LogicPlaceAttackerCommand_vtable"]
+    for slot in range(5, 9):
+        fn = r.ptr(pa_vt + 8 * slot)
+        first_bl = next((bl_target(i) for i in insns(r, fn, n=8) if bl_target(i)), None)
+        if first_bl is None:
+            continue
+        head = [f"{i.mnemonic} {i.op_str}" for i in insns(r, first_bl, n=10)]
+        if head[:3] == ["ldr x9, [x1]", "mov x8, x1", "ldr w1, [x0, #8]"]:
+            s["LogicCommand_vt_encode"] = slot
+            o["LogicCommand_encodeBase"] = first_bl
+        elif "str w0, [x19, #8]" in head:
+            s["LogicCommand_vt_decode"] = slot
+            o["LogicCommand_decodeBase"] = first_bl
+    if "LogicCommand_vt_encode" not in s or "LogicCommand_vt_decode" not in s:
+        raise LocateError("未找到命令虚表的 encode/decode 槽")
+    s["LogicCommand_vt_getType"] = 4
+    # 删除析构（槽 2）形如 `b operator delete`
+    dd = insns(r, r.ptr(pa_vt + 2 * 8), n=1)[0]
+    if dd.mnemonic != "b":
+        raise LocateError(f"放兵命令删除析构特征不符: {dd.mnemonic} {dd.op_str}")
+    o["operator_delete"] = int(dd.op_str[1:], 0)
     return {"functions": o, "struct": s, "notes": notes}
 
 
@@ -551,6 +577,7 @@ EXPECTED_STRUCT_18_647 = {
     "LogicPlaceRecalledUnitsCommand_type": 7654, "LogicBattleLog_townHallDestroyed": 0x1B9,
     "LogicAvatar_allianceUnits": 0x1D0, "data_type_alliance_portal": 0xF, "LogicCombatItemData_vt_getUnitType": 23,
     "LogicCharacter_isDead": 0x17F, "ByteStream_offset": 0x14, "ByteStream_buffer": 0x38,
+    "LogicCommand_vt_encode": 5, "LogicCommand_vt_decode": 6,
 }
 
 

@@ -4,6 +4,7 @@
 #include <link.h>
 #include <pthread.h>
 
+#include <algorithm>
 #include <chrono>
 #include <cstring>
 
@@ -31,6 +32,10 @@ using HeroModeCtor = void (*)(void *self, void *hero_data, int mode);
 using GetStarsFn = int (*)(void *battle_log);
 using InstanceFn = void *(*)();
 using DataTypeFn = int (*)(void *data);
+using CreateCmdFn = void *(*)(int type);
+using CmdStreamFn = void (*)(void *cmd, void *stream);
+using MsgFactoryFn = void *(*)(void *factory, int type);
+using DeleteFn = void (*)(void *);
 
 int cmd_class(ActionKind k) {
   switch (k) {
@@ -382,6 +387,13 @@ void Engine::on_submit(void *cmd) {
     e.hex += hx[b >> 4];
     e.hex += hx[b & 15];
   }
+  std::vector<std::uint8_t> enc;
+  if (encode_cmd(cmd, enc)) {
+    for (unsigned char b : enc) {
+      e.enc += hx[b >> 4];
+      e.enc += hx[b & 15];
+    }
+  }
   const std::uintptr_t gm = current_game_mode();
   const std::uintptr_t level = gm ? rdp(gm + off::LogicGameMode_level) : 0;
   e.tick = level ? rd_or<int>(level + off::LogicLevel_currentTick, -1) : -1;
@@ -395,10 +407,170 @@ void Engine::cmd_log(json::Writer &w, bool clear) {
   w.key("commands").begin_arr();
   for (const auto &e : spy_) {
     w.begin_obj().key("tick").num(e.tick).key("type").num(static_cast<long long>(e.type));
-    w.key("ours").boolean(e.ours).key("data").num(static_cast<long long>(e.data_gid)).key("hex").str(e.hex).end_obj();
+    w.key("ours").boolean(e.ours).key("data").num(static_cast<long long>(e.data_gid)).key("hex").str(e.hex);
+    w.key("enc").str(e.enc).end_obj();
   }
   w.end_arr();
   if (clear) spy_.clear();
+}
+
+// ---- 通用命令通道 ---------------------------------------------------------------
+// 借用一条消息对象内嵌的 ByteStream 作为编码/解码的暂存流（ByteStream 同时实现读写）。
+std::uintptr_t Engine::scratch_stream() {
+  if (!scratch_msg_) {
+    void *msg = reinterpret_cast<MsgFactoryFn>(base_ + off::MessageFactory_create)(nullptr, off::msg_NpcData);
+    scratch_msg_ = reinterpret_cast<std::uintptr_t>(msg);
+  }
+  return scratch_msg_ ? scratch_msg_ + off::PiranhaMessage_byteStream : 0;
+}
+
+namespace {
+void reset_stream(std::uintptr_t bs) {
+  *reinterpret_cast<int *>(bs + off::ByteStream_offset) = 0;
+  *reinterpret_cast<int *>(bs + off::ByteStream_length) = 0;
+  *reinterpret_cast<int *>(bs + off::ByteStream_bitIndex) = 0;
+}
+}  // namespace
+
+bool Engine::encode_cmd(void *cmd, std::vector<std::uint8_t> &out) {
+  if (!g_game_thread_known.load() || !pthread_equal(pthread_self(), g_game_thread)) return false;
+  const std::uintptr_t bs = scratch_stream();
+  if (!bs || !cmd) return false;
+  const std::uintptr_t vt = rdp(reinterpret_cast<std::uintptr_t>(cmd));
+  const std::uintptr_t fn = vt ? rdp(vt + 8 * off::LogicCommand_vt_encode) : 0;
+  if (!fn || fn < base_ || fn > base_ + 0x1900000) return false;
+  reset_stream(bs);
+  reinterpret_cast<CmdStreamFn>(fn)(cmd, reinterpret_cast<void *>(bs));
+  // 写入时 offset 即已写字节数
+  const int n = rd_or<int>(bs + off::ByteStream_offset, 0);
+  const std::uintptr_t buf = rdp(bs + off::ByteStream_buffer);
+  if (n < 0 || n > (1 << 20) || (n > 0 && !buf)) return false;
+  out.resize(static_cast<std::size_t>(n));
+  return n == 0 || safe_read(buf, out.data(), out.size());
+}
+
+void *Engine::generic_vtable(void *cmd, int type) {
+  for (const auto &g : generic_vts_)
+    if (g.type == type) return g.copy;
+  const std::uintptr_t vt = rdp(reinterpret_cast<std::uintptr_t>(cmd));
+  auto *copy = new std::uintptr_t[kVtSlots + 2];
+  for (int i = 0; i < kVtSlots + 2; ++i) copy[i] = rdp(vt - 16 + 8 * i);
+  GenericVt g{type, copy + 2, copy[2 + 3]};
+  copy[2 + 3] = reinterpret_cast<std::uintptr_t>(&Engine::generic_exec_wrapper);
+  generic_vts_.push_back(g);
+  return g.copy;
+}
+
+int Engine::generic_exec_wrapper(void *cmd, void *level) {
+  Engine &e = get();
+  const auto vt = reinterpret_cast<std::uintptr_t *>(rdp(reinterpret_cast<std::uintptr_t>(cmd)));
+  std::uintptr_t orig = 0;
+  int type = -1;
+  for (const auto &g : e.generic_vts_)
+    if (g.copy == vt) {
+      orig = g.orig_exec;
+      type = g.type;
+    }
+  if (!orig) return -100;
+  const int rc = reinterpret_cast<ExecFn>(orig)(cmd, level);
+  std::lock_guard<std::mutex> lk(e.mu_);
+  auto it = e.raw_cmd_ids_.find(reinterpret_cast<std::uintptr_t>(cmd));
+  if (it != e.raw_cmd_ids_.end()) {
+    e.raw_results_.push_back({it->second, type, rc == 0 ? "executed" : "rejected", rc,
+                              rd_or<int>(reinterpret_cast<std::uintptr_t>(level) + off::LogicLevel_currentTick, -1)});
+    e.raw_cmd_ids_.erase(it);
+  }
+  return rc;
+}
+
+long long Engine::enqueue_raw(int type, std::vector<std::uint8_t> bytes, std::uintptr_t vtable, int size) {
+  std::lock_guard<std::mutex> lk(mu_);
+  const long long id = ++raw_seq_;
+  RawCmd rc;
+  rc.id = id;
+  rc.type = type;
+  rc.bytes = std::move(bytes);
+  rc.vtable = vtable;
+  rc.size = size;
+  raw_pending_.push_back(std::move(rc));
+  return id;
+}
+
+void Engine::service_raw() {
+  if (!ready_) return;
+  RawCmd rc;
+  {
+    std::lock_guard<std::mutex> lk(mu_);
+    if (raw_pending_.empty()) return;
+    rc = std::move(raw_pending_.front());
+    raw_pending_.pop_front();
+  }
+  if (!g_game_thread_known.exchange(true)) g_game_thread = pthread_self();
+  auto fail = [&](const char *why) {
+    LOGW("通用命令 #%lld type=%d 未提交: %s", rc.id, rc.type, why);
+    std::lock_guard<std::mutex> lk(mu_);
+    raw_results_.push_back({rc.id, rc.type, std::string("rejected:") + why, 0, -1});
+  };
+  const std::uintptr_t gm = current_game_mode();
+  if (!gm) return fail("no_game_mode");
+  void *cmd = reinterpret_cast<CreateCmdFn>(base_ + off::LogicCommandManager_createCommand)(rc.type);
+  if (!cmd && rc.vtable) {
+    // 按虚表直接构造：清零 -> 写虚表 -> 执行 tick = -1（与基类构造函数一致）；成员由 decode 填写
+    const std::uintptr_t vt = base_ + rc.vtable;
+    const std::uintptr_t type_fn = rdp(vt + 8 * off::LogicCommand_vt_getType);
+    if (!type_fn || type_fn < base_ || type_fn > base_ + 0x1900000 ||
+        reinterpret_cast<int (*)(void *)>(type_fn)(nullptr) != rc.type)
+      return fail("vtable_type_mismatch");
+    const std::size_t sz = static_cast<std::size_t>(std::max(rc.size, 0x40)) + 0x40;
+    cmd = reinterpret_cast<NewFn>(base_ + off::operator_new)(sz);
+    std::memset(cmd, 0, sz);
+    *reinterpret_cast<std::uintptr_t *>(cmd) = vt;
+    *reinterpret_cast<int *>(reinterpret_cast<std::uintptr_t>(cmd) + 8) = -1;
+  }
+  if (!cmd) return fail("unknown_command_type");
+  const std::uintptr_t bs = scratch_stream();
+  if (!bs) return fail("no_scratch_stream");
+  // 换上我们自己的缓冲区（operator new 分配；旧缓冲区用 operator delete 释放）
+  const std::uintptr_t old = rdp(bs + off::ByteStream_ownedBuffer);
+  void *buf = reinterpret_cast<NewFn>(base_ + off::operator_new)(rc.bytes.size() + 16);
+  if (!rc.bytes.empty()) std::memcpy(buf, rc.bytes.data(), rc.bytes.size());
+  if (old) reinterpret_cast<DeleteFn>(base_ + off::operator_delete)(reinterpret_cast<void *>(old));
+  *reinterpret_cast<void **>(bs + off::ByteStream_ownedBuffer) = buf;
+  *reinterpret_cast<void **>(bs + off::ByteStream_buffer) = buf;
+  reset_stream(bs);
+  *reinterpret_cast<int *>(bs + off::ByteStream_length) = static_cast<int>(rc.bytes.size());
+  const std::uintptr_t vt = rdp(reinterpret_cast<std::uintptr_t>(cmd));
+  reinterpret_cast<CmdStreamFn>(rdp(vt + 8 * off::LogicCommand_vt_decode))(cmd, reinterpret_cast<void *>(bs));
+  const int consumed = rd_or<int>(bs + off::ByteStream_offset, -1);
+  if (consumed != static_cast<int>(rc.bytes.size()))
+    LOGW("通用命令 #%lld type=%d：decode 读取 %d / %zu 字节", rc.id, rc.type, consumed, rc.bytes.size());
+  *reinterpret_cast<void **>(cmd) = generic_vtable(cmd, rc.type);
+  {
+    std::lock_guard<std::mutex> lk(mu_);
+    raw_cmd_ids_[reinterpret_cast<std::uintptr_t>(cmd)] = rc.id;
+  }
+  void *holder = cmd;
+  reinterpret_cast<SubmitFn>(base_ + off::ClientCommand_submit)(&holder);  // 经过侦听 hook，cmd_log 里也能看到
+  std::lock_guard<std::mutex> lk(mu_);
+  if (holder == nullptr) {
+    raw_cmd_ids_.erase(reinterpret_cast<std::uintptr_t>(cmd));
+    raw_results_.push_back({rc.id, rc.type, "rejected:command_manager_refused", 0, -1});
+    return;
+  }
+  const std::uintptr_t level = rdp(gm + off::LogicGameMode_level);
+  raw_results_.push_back({rc.id, rc.type, "submitted", consumed, rd_or<int>(level + off::LogicLevel_currentTick, -1)});
+}
+
+void Engine::raw_results(json::Writer &w, bool clear) {
+  std::lock_guard<std::mutex> lk(mu_);
+  w.key("pending").num(static_cast<long long>(raw_pending_.size()));
+  w.key("results").begin_arr();
+  for (const auto &r : raw_results_) {
+    w.begin_obj().key("id").num(r.id).key("type").num(static_cast<long long>(r.type)).key("status").str(r.status);
+    w.key("code").num(static_cast<long long>(r.code)).key("tick").num(r.tick).end_obj();
+  }
+  w.end_arr();
+  if (clear) raw_results_.clear();
 }
 
 void Engine::serve_snapshot_locked(std::uintptr_t gm) {

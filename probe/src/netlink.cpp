@@ -187,6 +187,7 @@ void hk_client_update(void *client, float dt) {
   }
   // 战斗被教程/弹窗暂停时 updateSubTick 不会被调用，因此快照请求也在每帧这里处理
   Engine::get().service_snapshot();
+  Engine::get().service_raw();
   g_orig_client_update(client, dt);
 }
 

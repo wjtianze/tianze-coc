@@ -14,6 +14,7 @@ import json
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Callable
 
 from .home_payload import replace_home_json
 from .local_config import DATA
@@ -55,6 +56,7 @@ class OfflineStarter:
     enemy_record: Path
     enemy_kind: str = "EnemyHomeData"  # 或 "NpcData"
     layouts: list[dict] = field(default_factory=list)  # 非空时每局轮换替换村庄 JSON
+    payload_fn: "Callable[[int], bytes] | None" = None  # 给定时每局调用 payload_fn(局号) 生成敌方负载（自对弈）
     block_outgoing: bool = True
     allow_types: list[int] = field(default_factory=list)  # 离线时仍放行的外发消息（例如保活）
     home_state: int = 1
@@ -70,7 +72,7 @@ class OfflineStarter:
         home_type = ids["OwnHomeData"]
         enemy_type = ids[self.enemy_kind]
         c.record_put(home_type, self.home_record.read_bytes())
-        payload = self.enemy_record.read_bytes()
+        payload = self.payload_fn(self._round) if self.payload_fn else self.enemy_record.read_bytes()
         if self.layouts:
             payload = replace_home_json(payload, self.layouts[self._round % len(self.layouts)])
         self._round += 1

@@ -69,7 +69,10 @@
   "VisitedHomeDataMessage_vtable": 24444392,
   "MessageFactory_create": 15948124,
   "Client_update": 12057952,
-  "Messaging_sendOne": 18794836
+  "Messaging_sendOne": 18794836,
+  "LogicCommand_encodeBase": 14080424,
+  "LogicCommand_decodeBase": 14080448,
+  "operator_delete": 23798528
  },
  "struct": {
   "logic_units_per_tile_shift": 9,
@@ -194,7 +197,10 @@
   "ByteStream_buffer": 56,
   "ByteStream_length": 24,
   "ByteStream_bitIndex": 28,
-  "ByteStream_ownedBuffer": 48
+  "ByteStream_ownedBuffer": 48,
+  "LogicCommand_vt_encode": 5,
+  "LogicCommand_vt_decode": 6,
+  "LogicCommand_vt_getType": 4
  },
  "notes": {
   "LogicLevel_visitorAvatar": "GameMode \u72b6\u6001\u4e3a 2/4\uff08\u8fdb\u653b/\u8bbf\u95ee\uff09\u65f6 Client_getAvatar \u8fd4\u56de level+\u8be5\u504f\u79fb",
@@ -264,6 +270,9 @@
   "MessageManager_deliver": "ff4301d1fd7b01a9",
   "MessageFactory_create": "fd7bbea9f30b00f9",
   "Client_update": "ff0302d1eb2b016d",
-  "Messaging_sendOne": "ff4302d1fd7b03a9"
+  "Messaging_sendOne": "ff4302d1fd7b03a9",
+  "LogicCommand_encodeBase": "290040f9e80301aa",
+  "LogicCommand_decodeBase": "fd7bbea9f30b00f9",
+  "operator_delete": "90060090111a40f9"
  }
 }

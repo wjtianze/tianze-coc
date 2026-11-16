@@ -1,0 +1,12162 @@
+{
+ "schema": "tianze-coc/progression/v1",
+ "build_tag": "18_647_2",
+ "th_max": 18,
+ "structures": [
+  {
+   "gid": 1000001,
+   "name": "Town Hall",
+   "name_cn": "大本营",
+   "category": "building",
+   "width": 4,
+   "height": 4,
+   "max_level": 18,
+   "level_th": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Town Hall",
+   "require_built_on_th_up": false
+  },
+  {
+   "gid": 1000014,
+   "name": "Clan Castle",
+   "name_cn": "部落城堡",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 14,
+   "level_th": [
+    3,
+    4,
+    6,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "hidden": false,
+   "housing": {
+    "troops": [
+     10,
+     15,
+     20,
+     25,
+     30,
+     35,
+     35,
+     40,
+     45,
+     45,
+     50,
+     50,
+     55,
+     55
+    ],
+    "spells": [
+     0,
+     0,
+     0,
+     1,
+     1,
+     1,
+     2,
+     2,
+     2,
+     3,
+     3,
+     3,
+     3,
+     4
+    ],
+    "sieges": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     2,
+     2,
+     2
+    ]
+   },
+   "building_class": "Army",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000005,
+   "name": "Gold Storage",
+   "name_cn": "储金罐",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 19,
+   "level_th": [
+    1,
+    2,
+    2,
+    3,
+    3,
+    3,
+    4,
+    4,
+    5,
+    6,
+    7,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    3,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Resource",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000003,
+   "name": "Elixir Storage",
+   "name_cn": "圣水瓶",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 19,
+   "level_th": [
+    1,
+    2,
+    2,
+    3,
+    3,
+    3,
+    4,
+    4,
+    5,
+    6,
+    7,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    3,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Resource",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000024,
+   "name": "Dark Elixir Storage",
+   "name_cn": "暗黑重油罐",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 13,
+   "level_th": [
+    7,
+    7,
+    8,
+    8,
+    9,
+    9,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Resource",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000004,
+   "name": "Gold Mine",
+   "name_cn": "金矿",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 17,
+   "level_th": [
+    1,
+    2,
+    2,
+    2,
+    3,
+    3,
+    4,
+    4,
+    5,
+    5,
+    7,
+    8,
+    10,
+    11,
+    12,
+    14,
+    16
+   ],
+   "max_count": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    6,
+    6,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Resource",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000002,
+   "name": "Elixir Collector",
+   "name_cn": "圣水收集器",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 17,
+   "level_th": [
+    1,
+    2,
+    2,
+    2,
+    3,
+    3,
+    4,
+    4,
+    5,
+    5,
+    7,
+    8,
+    10,
+    11,
+    12,
+    14,
+    16
+   ],
+   "max_count": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    6,
+    6,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Resource",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000023,
+   "name": "Dark Elixir Drill",
+   "name_cn": "暗黑重油钻井",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 11,
+   "level_th": [
+    7,
+    7,
+    7,
+    9,
+    9,
+    9,
+    10,
+    11,
+    12,
+    14,
+    16
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    2,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Resource",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000000,
+   "name": "Army Camp",
+   "name_cn": "兵营",
+   "category": "building",
+   "width": 4,
+   "height": 4,
+   "max_level": 14,
+   "level_th": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    9,
+    10,
+    11,
+    12,
+    13,
+    15,
+    17,
+    18
+   ],
+   "max_count": [
+    1,
+    1,
+    2,
+    2,
+    3,
+    3,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "hidden": false,
+   "housing": {
+    "troops": [
+     20,
+     30,
+     35,
+     40,
+     45,
+     50,
+     55,
+     60,
+     65,
+     70,
+     75,
+     80,
+     85,
+     88
+    ]
+   },
+   "building_class": "Army",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000007,
+   "name": "Laboratory",
+   "name_cn": "实验室",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 16,
+   "level_th": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Army",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000006,
+   "name": "Barracks",
+   "name_cn": "训练营",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 19,
+   "level_th": [
+    1,
+    2,
+    2,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+   ],
+   "max_count": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Army",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000026,
+   "name": "Dark Barracks",
+   "name_cn": "暗黑训练营",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 13,
+   "level_th": [
+    7,
+    7,
+    8,
+    8,
+    9,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Army",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000020,
+   "name": "Spell Factory",
+   "name_cn": "法术工厂",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 9,
+   "level_th": [
+    5,
+    6,
+    7,
+    9,
+    10,
+    11,
+    13,
+    15,
+    16
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "hidden": false,
+   "housing": {
+    "spells": [
+     2,
+     4,
+     6,
+     8,
+     10,
+     10,
+     10,
+     10,
+     10
+    ]
+   },
+   "building_class": "Army",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000029,
+   "name": "Dark Spell Factory",
+   "name_cn": "暗黑法术工厂",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 8,
+   "level_th": [
+    8,
+    8,
+    9,
+    9,
+    10,
+    12,
+    14,
+    15
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "hidden": false,
+   "housing": {
+    "spells": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ]
+   },
+   "building_class": "Army",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000059,
+   "name": "Siege Workshop",
+   "name_cn": "攻城机器工坊",
+   "category": "building",
+   "width": 4,
+   "height": 4,
+   "max_level": 9,
+   "level_th": [
+    12,
+    12,
+    12,
+    13,
+    13,
+    14,
+    15,
+    16,
+    17
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "hidden": false,
+   "housing": {
+    "sieges": [
+     1,
+     2,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3
+    ]
+   },
+   "building_class": "Army",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000071,
+   "name": "Hero Hall",
+   "name_cn": "英雄殿堂",
+   "category": "building",
+   "width": 4,
+   "height": 4,
+   "max_level": 12,
+   "level_th": [
+    4,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Army",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000068,
+   "name": "Pet House",
+   "name_cn": "战宠小屋",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 12,
+   "level_th": [
+    14,
+    14,
+    14,
+    14,
+    15,
+    15,
+    15,
+    15,
+    16,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Army",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000070,
+   "name": "Blacksmith",
+   "name_cn": "铁匠铺",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 10,
+   "level_th": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Army",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000015,
+   "name": "Builders Hut",
+   "name_cn": "建筑工人小屋",
+   "category": "building",
+   "width": 2,
+   "height": 2,
+   "max_level": 8,
+   "level_th": [
+    1,
+    14,
+    14,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Worker",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000064,
+   "name": "BOBs Hut",
+   "name_cn": "小博木屋",
+   "category": "building",
+   "width": 2,
+   "height": 2,
+   "max_level": 1,
+   "level_th": [
+    1
+   ],
+   "max_count": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Worker2",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000093,
+   "name": "Helper Hut",
+   "name_cn": "帮手小屋",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 1,
+   "level_th": [
+    9
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Helper",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000010,
+   "name": "Wall",
+   "name_cn": "城墙",
+   "category": "wall",
+   "width": 1,
+   "height": 1,
+   "max_level": 19,
+   "level_th": [
+    2,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    0,
+    25,
+    50,
+    75,
+    100,
+    125,
+    175,
+    225,
+    250,
+    275,
+    300,
+    300,
+    300,
+    325,
+    325,
+    325,
+    325,
+    325
+   ],
+   "hidden": false,
+   "require_built_on_th_up": false
+  },
+  {
+   "gid": 1000008,
+   "name": "Cannon",
+   "name_cn": "加农炮",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 21,
+   "level_th": [
+    1,
+    2,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    8,
+    9,
+    10,
+    10,
+    11,
+    11,
+    12,
+    12,
+    13,
+    13,
+    14,
+    15
+   ],
+   "max_count": [
+    1,
+    2,
+    2,
+    2,
+    3,
+    3,
+    5,
+    5,
+    5,
+    6,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Defense",
+   "require_built_on_th_up": false
+  },
+  {
+   "gid": 1000009,
+   "name": "Archer Tower",
+   "name_cn": "箭塔",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 21,
+   "level_th": [
+    2,
+    2,
+    3,
+    4,
+    5,
+    5,
+    6,
+    7,
+    8,
+    8,
+    9,
+    10,
+    10,
+    11,
+    11,
+    12,
+    12,
+    13,
+    13,
+    14,
+    15
+   ],
+   "max_count": [
+    0,
+    1,
+    1,
+    2,
+    3,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    9,
+    9
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Defense",
+   "require_built_on_th_up": false
+  },
+  {
+   "gid": 1000013,
+   "name": "Mortar",
+   "name_cn": "迫击炮",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 18,
+   "level_th": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    11,
+    12,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    1,
+    1,
+    1,
+    2,
+    3,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Defense",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000012,
+   "name": "Air Defense",
+   "name_cn": "防空火箭",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 16,
+   "level_th": [
+    4,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    1,
+    1,
+    2,
+    3,
+    3,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Defense",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000011,
+   "name": "Wizard Tower",
+   "name_cn": "法师塔",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 17,
+   "level_th": [
+    5,
+    5,
+    6,
+    7,
+    8,
+    8,
+    9,
+    10,
+    10,
+    11,
+    12,
+    13,
+    13,
+    14,
+    15,
+    16,
+    17
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    2,
+    2,
+    3,
+    4,
+    4,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    6
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Defense",
+   "require_built_on_th_up": false
+  },
+  {
+   "gid": 1000019,
+   "name": "Hidden Tesla",
+   "name_cn": "特斯拉电磁塔",
+   "category": "building",
+   "width": 2,
+   "height": 2,
+   "max_level": 17,
+   "level_th": [
+    7,
+    7,
+    7,
+    8,
+    8,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    3,
+    4,
+    4,
+    4,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "hidden": true,
+   "housing": {},
+   "building_class": "Defense",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000028,
+   "name": "Air Sweeper",
+   "name_cn": "空气炮",
+   "category": "building",
+   "width": 2,
+   "height": 2,
+   "max_level": 7,
+   "level_th": [
+    6,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Defense",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000032,
+   "name": "Bomb Tower",
+   "name_cn": "炸弹塔",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 13,
+   "level_th": [
+    8,
+    8,
+    9,
+    10,
+    11,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Defense",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000021,
+   "name": "X-Bow",
+   "name_cn": "十字连弩",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 13,
+   "level_th": [
+    9,
+    9,
+    9,
+    10,
+    11,
+    12,
+    13,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    3,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Defense",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000027,
+   "name": "Inferno Tower",
+   "name_cn": "地狱之塔",
+   "category": "building",
+   "width": 2,
+   "height": 2,
+   "max_level": 12,
+   "level_th": [
+    10,
+    10,
+    10,
+    11,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    2,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Defense",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000031,
+   "name": "Eagle Artillery",
+   "name_cn": "天鹰火炮",
+   "category": "building",
+   "width": 4,
+   "height": 4,
+   "max_level": 7,
+   "level_th": [
+    11,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Defense",
+   "require_built_on_th_up": false
+  },
+  {
+   "gid": 1000067,
+   "name": "Scattershot",
+   "name_cn": "投石炮",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 7,
+   "level_th": [
+    13,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Defense",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000072,
+   "name": "Spell Tower",
+   "name_cn": "法术塔",
+   "category": "building",
+   "width": 2,
+   "height": 2,
+   "max_level": 4,
+   "level_th": [
+    15,
+    15,
+    15,
+    17
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    2,
+    2,
+    2
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Defense",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000077,
+   "name": "Monolith",
+   "name_cn": "擎天巨柱",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 5,
+   "level_th": [
+    15,
+    15,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Defense",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000084,
+   "name": "Multi Archer Tower",
+   "name_cn": "多人箭塔",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 4,
+   "level_th": [
+    16,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    3,
+    3
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Defense",
+   "merge": {
+    "inputs": {
+     "Archer Tower": 2
+    },
+    "input_levels": {
+     "Archer Tower": 21
+    },
+    "input_geared": {
+     "Archer Tower": false
+    }
+   },
+   "require_built_on_th_up": false
+  },
+  {
+   "gid": 1000085,
+   "name": "Ricochet Cannon",
+   "name_cn": "跳弹加农炮",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 4,
+   "level_th": [
+    16,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    3,
+    3
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Defense",
+   "merge": {
+    "inputs": {
+     "Cannon": 2
+    },
+    "input_levels": {
+     "Cannon": 21
+    },
+    "input_geared": {
+     "Cannon": false
+    }
+   },
+   "require_built_on_th_up": false
+  },
+  {
+   "gid": 1000079,
+   "name": "Multi Gear Tower",
+   "name_cn": "复合机械塔",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 3,
+   "level_th": [
+    17,
+    17,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Defense",
+   "merge": {
+    "inputs": {
+     "Archer Tower": 1,
+     "Cannon": 1
+    },
+    "input_levels": {
+     "Archer Tower": 21,
+     "Cannon": 21
+    },
+    "input_geared": {
+     "Archer Tower": true,
+     "Cannon": true
+    }
+   },
+   "require_built_on_th_up": false
+  },
+  {
+   "gid": 1000089,
+   "name": "Firespitter",
+   "name_cn": "火焰喷射器",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 3,
+   "level_th": [
+    17,
+    17,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    2
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Defense",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000086,
+   "name": "Revenge Tower",
+   "name_cn": "反击之塔",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 2,
+   "level_th": [
+    18,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Defense",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000102,
+   "name": "Super Wizard Tower",
+   "name_cn": "超级法师塔",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 2,
+   "level_th": [
+    18,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Defense",
+   "merge": {
+    "inputs": {
+     "Wizard Tower": 2
+    },
+    "input_levels": {
+     "Wizard Tower": 17
+    },
+    "input_geared": {
+     "Wizard Tower": false
+    }
+   },
+   "require_built_on_th_up": false
+  },
+  {
+   "gid": 1000097,
+   "name": "Crafting Station",
+   "name_cn": "精制台",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 1,
+   "level_th": [
+    17
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Defense",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 12000000,
+   "name": "Bomb",
+   "name_cn": "隐形炸弹",
+   "category": "trap",
+   "width": 1,
+   "height": 1,
+   "max_level": 14,
+   "level_th": [
+    1,
+    3,
+    5,
+    7,
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    2,
+    2,
+    4,
+    4,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    7,
+    8,
+    8,
+    8,
+    8,
+    8
+   ],
+   "hidden": true,
+   "require_built_on_th_up": false
+  },
+  {
+   "gid": 12000001,
+   "name": "Spring Trap",
+   "name_cn": "隐形弹簧",
+   "category": "trap",
+   "width": 1,
+   "height": 1,
+   "max_level": 13,
+   "level_th": [
+    1,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    2,
+    2,
+    4,
+    4,
+    6,
+    6,
+    6,
+    6,
+    8,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9
+   ],
+   "hidden": true,
+   "require_built_on_th_up": false
+  },
+  {
+   "gid": 12000005,
+   "name": "Air Bomb",
+   "name_cn": "空中炸弹",
+   "category": "trap",
+   "width": 1,
+   "height": 1,
+   "max_level": 13,
+   "level_th": [
+    1,
+    5,
+    7,
+    9,
+    11,
+    12,
+    13,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    2,
+    2,
+    2,
+    4,
+    4,
+    5,
+    5,
+    6,
+    6,
+    7,
+    7,
+    7,
+    7,
+    8
+   ],
+   "hidden": true,
+   "require_built_on_th_up": false
+  },
+  {
+   "gid": 12000002,
+   "name": "Giant Bomb",
+   "name_cn": "巨型炸弹",
+   "category": "trap",
+   "width": 2,
+   "height": 2,
+   "max_level": 12,
+   "level_th": [
+    1,
+    6,
+    8,
+    10,
+    11,
+    13,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    5,
+    6,
+    6,
+    7,
+    7,
+    7,
+    8,
+    8
+   ],
+   "hidden": true,
+   "require_built_on_th_up": false
+  },
+  {
+   "gid": 12000006,
+   "name": "Seeking Air Mine",
+   "name_cn": "搜空地雷",
+   "category": "trap",
+   "width": 1,
+   "height": 1,
+   "max_level": 8,
+   "level_th": [
+    1,
+    9,
+    10,
+    13,
+    15,
+    16,
+    17,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    2,
+    4,
+    5,
+    5,
+    6,
+    7,
+    8,
+    8,
+    8,
+    9,
+    9
+   ],
+   "hidden": true,
+   "require_built_on_th_up": false
+  },
+  {
+   "gid": 12000008,
+   "name": "Skeleton Trap",
+   "name_cn": "骷髅陷阱",
+   "category": "trap",
+   "width": 1,
+   "height": 1,
+   "max_level": 5,
+   "level_th": [
+    1,
+    8,
+    9,
+    10,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    2,
+    3,
+    3,
+    3,
+    3,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "hidden": true,
+   "require_built_on_th_up": false
+  },
+  {
+   "gid": 12000016,
+   "name": "Tornado Trap",
+   "name_cn": "飓风陷阱",
+   "category": "trap",
+   "width": 1,
+   "height": 1,
+   "max_level": 3,
+   "level_th": [
+    11,
+    11,
+    12
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "hidden": true,
+   "require_built_on_th_up": false
+  },
+  {
+   "gid": 12000020,
+   "name": "Giga Bomb",
+   "name_cn": "终极炸弹",
+   "category": "trap",
+   "width": 2,
+   "height": 2,
+   "max_level": 4,
+   "level_th": [
+    17,
+    17,
+    17,
+    18
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1
+   ],
+   "hidden": true,
+   "require_built_on_th_up": false
+  }
+ ],
+ "units": [
+  {
+   "gid": 4000000,
+   "name": "Barbarian",
+   "name_cn": "野蛮人",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 1,
+   "max_level": 13,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 3
+    },
+    {
+     "Laboratory": 5
+    },
+    {
+     "Laboratory": 6
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Barracks": 1
+   }
+  },
+  {
+   "gid": 4000001,
+   "name": "Archer",
+   "name_cn": "弓箭手",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 1,
+   "max_level": 14,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 3
+    },
+    {
+     "Laboratory": 5
+    },
+    {
+     "Laboratory": 6
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Barracks": 2
+   }
+  },
+  {
+   "gid": 4000003,
+   "name": "Giant",
+   "name_cn": "巨人",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 5,
+   "max_level": 14,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 2
+    },
+    {
+     "Laboratory": 4
+    },
+    {
+     "Laboratory": 5
+    },
+    {
+     "Laboratory": 6
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Barracks": 3
+   }
+  },
+  {
+   "gid": 4000002,
+   "name": "Goblin",
+   "name_cn": "哥布林",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 1,
+   "max_level": 10,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 3
+    },
+    {
+     "Laboratory": 5
+    },
+    {
+     "Laboratory": 6
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Barracks": 4
+   }
+  },
+  {
+   "gid": 4000004,
+   "name": "Wall Breaker",
+   "name_cn": "炸弹人",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 2,
+   "max_level": 14,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 2
+    },
+    {
+     "Laboratory": 4
+    },
+    {
+     "Laboratory": 5
+    },
+    {
+     "Laboratory": 6
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Barracks": 5
+   }
+  },
+  {
+   "gid": 4000005,
+   "name": "Balloon",
+   "name_cn": "气球兵",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 5,
+   "max_level": 13,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 2
+    },
+    {
+     "Laboratory": 4
+    },
+    {
+     "Laboratory": 5
+    },
+    {
+     "Laboratory": 6
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Barracks": 6
+   }
+  },
+  {
+   "gid": 4000006,
+   "name": "Wizard",
+   "name_cn": "法师",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 4,
+   "max_level": 14,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 3
+    },
+    {
+     "Laboratory": 4
+    },
+    {
+     "Laboratory": 5
+    },
+    {
+     "Laboratory": 6
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Barracks": 7
+   }
+  },
+  {
+   "gid": 4000007,
+   "name": "Healer",
+   "name_cn": "天使",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 14,
+   "max_level": 11,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 5
+    },
+    {
+     "Laboratory": 6
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Barracks": 8
+   }
+  },
+  {
+   "gid": 4000008,
+   "name": "Dragon",
+   "name_cn": "飞龙",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 20,
+   "max_level": 13,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 5
+    },
+    {
+     "Laboratory": 6
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Barracks": 9
+   }
+  },
+  {
+   "gid": 4000009,
+   "name": "PEKKA",
+   "name_cn": "皮卡超人",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 25,
+   "max_level": 13,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 6
+    },
+    {
+     "Laboratory": 6
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Barracks": 10
+   }
+  },
+  {
+   "gid": 4000023,
+   "name": "Baby Dragon",
+   "name_cn": "飞龙宝宝",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 10,
+   "max_level": 12,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Barracks": 11
+   }
+  },
+  {
+   "gid": 4000024,
+   "name": "Miner",
+   "name_cn": "掘地矿工",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 6,
+   "max_level": 12,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Barracks": 12
+   }
+  },
+  {
+   "gid": 4000059,
+   "name": "Electro Dragon",
+   "name_cn": "雷电飞龙",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 30,
+   "max_level": 9,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Barracks": 13
+   }
+  },
+  {
+   "gid": 4000053,
+   "name": "Yeti",
+   "name_cn": "大雪怪",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 18,
+   "max_level": 8,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Barracks": 14
+   }
+  },
+  {
+   "gid": 4000065,
+   "name": "Dragon Rider",
+   "name_cn": "龙骑士",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 25,
+   "max_level": 6,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Barracks": 15
+   }
+  },
+  {
+   "gid": 4000095,
+   "name": "Electro Titan",
+   "name_cn": "雷霆泰坦",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 32,
+   "max_level": 5,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Barracks": 16
+   }
+  },
+  {
+   "gid": 4000110,
+   "name": "Root Rider",
+   "name_cn": "根蔓骑士",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 20,
+   "max_level": 4,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Barracks": 17
+   }
+  },
+  {
+   "gid": 4000132,
+   "name": "Thrower",
+   "name_cn": "巨矛投手",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 16,
+   "max_level": 4,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Barracks": 18
+   }
+  },
+  {
+   "gid": 4000177,
+   "name": "Meteor Golem",
+   "name_cn": "陨石戈仑",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 40,
+   "max_level": 3,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Barracks": 19
+   }
+  },
+  {
+   "gid": 4000010,
+   "name": "Minion",
+   "name_cn": "亡灵",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 2,
+   "max_level": 14,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 5
+    },
+    {
+     "Laboratory": 6
+    },
+    {
+     "Laboratory": 6
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Dark Barracks": 1
+   }
+  },
+  {
+   "gid": 4000011,
+   "name": "Hog Rider",
+   "name_cn": "野猪骑士",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 5,
+   "max_level": 15,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 5
+    },
+    {
+     "Laboratory": 6
+    },
+    {
+     "Laboratory": 6
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Dark Barracks": 2
+   }
+  },
+  {
+   "gid": 4000012,
+   "name": "Valkyrie",
+   "name_cn": "瓦基丽武神",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 8,
+   "max_level": 12,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 6
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    }
+   ],
+   "unlock": {
+    "Dark Barracks": 3
+   }
+  },
+  {
+   "gid": 4000013,
+   "name": "Golem",
+   "name_cn": "戈仑石人",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 30,
+   "max_level": 15,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 6
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Dark Barracks": 4
+   }
+  },
+  {
+   "gid": 4000015,
+   "name": "Witch",
+   "name_cn": "女巫",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 12,
+   "max_level": 8,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Dark Barracks": 5
+   }
+  },
+  {
+   "gid": 4000017,
+   "name": "Lava Hound",
+   "name_cn": "熔岩猎犬",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 30,
+   "max_level": 8,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Dark Barracks": 6
+   }
+  },
+  {
+   "gid": 4000022,
+   "name": "Bowler",
+   "name_cn": "巨石投手",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 6,
+   "max_level": 10,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Dark Barracks": 7
+   }
+  },
+  {
+   "gid": 4000058,
+   "name": "Ice Golem",
+   "name_cn": "戈仑冰人",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 15,
+   "max_level": 9,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    }
+   ],
+   "unlock": {
+    "Dark Barracks": 8
+   }
+  },
+  {
+   "gid": 4000082,
+   "name": "Headhunter",
+   "name_cn": "英雄猎手",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 6,
+   "max_level": 4,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Dark Barracks": 9
+   }
+  },
+  {
+   "gid": 4000097,
+   "name": "Apprentice Warden",
+   "name_cn": "守护者学徒",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 20,
+   "max_level": 4,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 13
+    }
+   ],
+   "unlock": {
+    "Dark Barracks": 10
+   }
+  },
+  {
+   "gid": 4000123,
+   "name": "Druid",
+   "name_cn": "德鲁伊",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 16,
+   "max_level": 6,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Dark Barracks": 11
+   }
+  },
+  {
+   "gid": 4000150,
+   "name": "Furnace",
+   "name_cn": "烈焰熔炉",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 18,
+   "max_level": 4,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    }
+   ],
+   "unlock": {
+    "Dark Barracks": 12
+   }
+  },
+  {
+   "gid": 4000026,
+   "name": "Super Barbarian",
+   "name_cn": "超级野蛮人",
+   "kind": "troop",
+   "status": "super_troop",
+   "housing": 5,
+   "max_level": 9,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    }
+   ],
+   "unlock": {
+    "Barracks": 1
+   },
+   "derived_level": true
+  },
+  {
+   "gid": 4000027,
+   "name": "Super Archer",
+   "name_cn": "超级弓箭手",
+   "kind": "troop",
+   "status": "super_troop",
+   "housing": 12,
+   "max_level": 10,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    }
+   ],
+   "unlock": {
+    "Barracks": 2
+   },
+   "derived_level": true
+  },
+  {
+   "gid": 4000029,
+   "name": "Super Giant",
+   "name_cn": "超级巨人",
+   "kind": "troop",
+   "status": "super_troop",
+   "housing": 10,
+   "max_level": 10,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    }
+   ],
+   "unlock": {
+    "Barracks": 3
+   },
+   "derived_level": true
+  },
+  {
+   "gid": 4000055,
+   "name": "Sneaky Goblin",
+   "name_cn": "隐秘哥布林",
+   "kind": "troop",
+   "status": "super_troop",
+   "housing": 3,
+   "max_level": 6,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    }
+   ],
+   "unlock": {
+    "Barracks": 4
+   },
+   "derived_level": true
+  },
+  {
+   "gid": 4000028,
+   "name": "Super Wall Breaker",
+   "name_cn": "超级炸弹人",
+   "kind": "troop",
+   "status": "super_troop",
+   "housing": 8,
+   "max_level": 10,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    }
+   ],
+   "unlock": {
+    "Barracks": 5
+   },
+   "derived_level": true
+  },
+  {
+   "gid": 4000057,
+   "name": "Rocket Balloon",
+   "name_cn": "火箭气球兵",
+   "kind": "troop",
+   "status": "super_troop",
+   "housing": 8,
+   "max_level": 9,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    }
+   ],
+   "unlock": {
+    "Barracks": 6
+   },
+   "derived_level": true
+  },
+  {
+   "gid": 4000083,
+   "name": "Super Wizard",
+   "name_cn": "超级法师",
+   "kind": "troop",
+   "status": "super_troop",
+   "housing": 10,
+   "max_level": 10,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    }
+   ],
+   "unlock": {
+    "Barracks": 7
+   },
+   "derived_level": true
+  },
+  {
+   "gid": 4000081,
+   "name": "Super Dragon",
+   "name_cn": "超级飞龙",
+   "kind": "troop",
+   "status": "super_troop",
+   "housing": 40,
+   "max_level": 11,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    }
+   ],
+   "unlock": {
+    "Barracks": 9
+   },
+   "derived_level": true
+  },
+  {
+   "gid": 4000063,
+   "name": "Inferno Dragon",
+   "name_cn": "地狱飞龙",
+   "kind": "troop",
+   "status": "super_troop",
+   "housing": 15,
+   "max_level": 12,
+   "levels_req": [
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    }
+   ],
+   "unlock": {
+    "Barracks": 11
+   },
+   "derived_level": true
+  },
+  {
+   "gid": 4000056,
+   "name": "Super Miner",
+   "name_cn": "超级矿工",
+   "kind": "troop",
+   "status": "super_troop",
+   "housing": 24,
+   "max_level": 12,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    }
+   ],
+   "unlock": {
+    "Barracks": 12
+   },
+   "derived_level": true
+  },
+  {
+   "gid": 4000147,
+   "name": "Super Yeti",
+   "name_cn": "超级大雪怪",
+   "kind": "troop",
+   "status": "super_troop",
+   "housing": 35,
+   "max_level": 8,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    }
+   ],
+   "unlock": {
+    "Barracks": 14
+   },
+   "derived_level": true
+  },
+  {
+   "gid": 4000084,
+   "name": "Super Minion",
+   "name_cn": "超级亡灵",
+   "kind": "troop",
+   "status": "super_troop",
+   "housing": 12,
+   "max_level": 11,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    }
+   ],
+   "unlock": {
+    "Dark Barracks": 1
+   },
+   "derived_level": true
+  },
+  {
+   "gid": 4000098,
+   "name": "Super Hog Rider",
+   "name_cn": "超级野猪骑士",
+   "kind": "troop",
+   "status": "super_troop",
+   "housing": 12,
+   "max_level": 12,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    }
+   ],
+   "unlock": {
+    "Dark Barracks": 2
+   },
+   "derived_level": true
+  },
+  {
+   "gid": 4000064,
+   "name": "Super Valkyrie",
+   "name_cn": "超级瓦基丽武神",
+   "kind": "troop",
+   "status": "super_troop",
+   "housing": 20,
+   "max_level": 12,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    }
+   ],
+   "unlock": {
+    "Dark Barracks": 3
+   },
+   "derived_level": true
+  },
+  {
+   "gid": 4000066,
+   "name": "Super Witch",
+   "name_cn": "超级女巫",
+   "kind": "troop",
+   "status": "super_troop",
+   "housing": 40,
+   "max_level": 8,
+   "levels_req": [
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    }
+   ],
+   "unlock": {
+    "Dark Barracks": 5
+   },
+   "derived_level": true
+  },
+  {
+   "gid": 4000076,
+   "name": "Ice Hound",
+   "name_cn": "寒冰猎犬",
+   "kind": "troop",
+   "status": "super_troop",
+   "housing": 40,
+   "max_level": 8,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    }
+   ],
+   "unlock": {
+    "Dark Barracks": 6
+   },
+   "derived_level": true
+  },
+  {
+   "gid": 4000080,
+   "name": "Super Bowler",
+   "name_cn": "超级巨石投手",
+   "kind": "troop",
+   "status": "super_troop",
+   "housing": 30,
+   "max_level": 10,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    }
+   ],
+   "unlock": {
+    "Dark Barracks": 7
+   },
+   "derived_level": true
+  },
+  {
+   "gid": 4000051,
+   "name": "Wall Wrecker",
+   "name_cn": "攻城战车",
+   "kind": "siege",
+   "status": "permanent",
+   "housing": 1,
+   "max_level": 6,
+   "levels_req": [
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Siege Workshop": 1
+   }
+  },
+  {
+   "gid": 4000052,
+   "name": "Battle Blimp",
+   "name_cn": "攻城飞艇",
+   "kind": "siege",
+   "status": "permanent",
+   "housing": 1,
+   "max_level": 6,
+   "levels_req": [
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Siege Workshop": 2
+   }
+  },
+  {
+   "gid": 4000062,
+   "name": "Stone Slammer",
+   "name_cn": "攻城气球",
+   "kind": "siege",
+   "status": "permanent",
+   "housing": 1,
+   "max_level": 6,
+   "levels_req": [
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Siege Workshop": 3
+   }
+  },
+  {
+   "gid": 4000075,
+   "name": "Siege Barracks",
+   "name_cn": "攻城训练营",
+   "kind": "siege",
+   "status": "permanent",
+   "housing": 1,
+   "max_level": 6,
+   "levels_req": [
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Siege Workshop": 4
+   }
+  },
+  {
+   "gid": 4000087,
+   "name": "Log Launcher",
+   "name_cn": "攻城滚木车",
+   "kind": "siege",
+   "status": "permanent",
+   "housing": 1,
+   "max_level": 6,
+   "levels_req": [
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Siege Workshop": 5
+   }
+  },
+  {
+   "gid": 4000091,
+   "name": "Flame Flinger",
+   "name_cn": "攻城烈焰车",
+   "kind": "siege",
+   "status": "permanent",
+   "housing": 1,
+   "max_level": 5,
+   "levels_req": [
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 14
+    }
+   ],
+   "unlock": {
+    "Siege Workshop": 6
+   }
+  },
+  {
+   "gid": 4000092,
+   "name": "Battle Drill",
+   "name_cn": "攻城钻机",
+   "kind": "siege",
+   "status": "permanent",
+   "housing": 1,
+   "max_level": 6,
+   "levels_req": [
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Siege Workshop": 7
+   }
+  },
+  {
+   "gid": 4000135,
+   "name": "Troop Launcher",
+   "name_cn": "部队发射器",
+   "kind": "siege",
+   "status": "permanent",
+   "housing": 1,
+   "max_level": 4,
+   "levels_req": [
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    }
+   ],
+   "unlock": {
+    "Siege Workshop": 8
+   }
+  },
+  {
+   "gid": 4000109,
+   "name": "Ruin Witch",
+   "name_cn": "废墟女巫",
+   "kind": "troop",
+   "status": "permanent",
+   "housing": 26,
+   "max_level": 4,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Dark Barracks": 13
+   }
+  },
+  {
+   "gid": 4000188,
+   "name": "Air Troop Launcher",
+   "name_cn": "空中战车",
+   "kind": "siege",
+   "status": "permanent",
+   "housing": 1,
+   "max_level": 4,
+   "levels_req": [
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Siege Workshop": 9
+   }
+  },
+  {
+   "gid": 26000000,
+   "name": "Lightning",
+   "name_cn": "雷电法术",
+   "kind": "spell",
+   "status": "permanent",
+   "housing": 1,
+   "max_level": 13,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 2
+    },
+    {
+     "Laboratory": 3
+    },
+    {
+     "Laboratory": 6
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Spell Factory": 1
+   }
+  },
+  {
+   "gid": 26000001,
+   "name": "Healing",
+   "name_cn": "疗伤法术",
+   "kind": "spell",
+   "status": "permanent",
+   "housing": 2,
+   "max_level": 12,
+   "levels_req": [
+    {
+     "Laboratory": 2
+    },
+    {
+     "Laboratory": 2
+    },
+    {
+     "Laboratory": 4
+    },
+    {
+     "Laboratory": 5
+    },
+    {
+     "Laboratory": 6
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Spell Factory": 2
+   }
+  },
+  {
+   "gid": 26000002,
+   "name": "Rage",
+   "name_cn": "狂暴法术",
+   "kind": "spell",
+   "status": "permanent",
+   "housing": 2,
+   "max_level": 7,
+   "levels_req": [
+    {
+     "Laboratory": 3
+    },
+    {
+     "Laboratory": 3
+    },
+    {
+     "Laboratory": 4
+    },
+    {
+     "Laboratory": 5
+    },
+    {
+     "Laboratory": 6
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Spell Factory": 3
+   }
+  },
+  {
+   "gid": 26000003,
+   "name": "Jump",
+   "name_cn": "弹跳法术",
+   "kind": "spell",
+   "status": "permanent",
+   "housing": 2,
+   "max_level": 5,
+   "levels_req": [
+    {
+     "Laboratory": 4
+    },
+    {
+     "Laboratory": 5
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 13
+    }
+   ],
+   "unlock": {
+    "Spell Factory": 4
+   }
+  },
+  {
+   "gid": 26000005,
+   "name": "Freeze",
+   "name_cn": "冰冻法术",
+   "kind": "spell",
+   "status": "permanent",
+   "housing": 1,
+   "max_level": 8,
+   "levels_req": [
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Spell Factory": 4
+   }
+  },
+  {
+   "gid": 26000016,
+   "name": "Clone",
+   "name_cn": "镜像法术",
+   "kind": "spell",
+   "status": "permanent",
+   "housing": 3,
+   "max_level": 9,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Spell Factory": 5
+   }
+  },
+  {
+   "gid": 26000035,
+   "name": "Invisibility",
+   "name_cn": "隐形法术",
+   "kind": "spell",
+   "status": "permanent",
+   "housing": 1,
+   "max_level": 4,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    }
+   ],
+   "unlock": {
+    "Spell Factory": 6
+   }
+  },
+  {
+   "gid": 26000053,
+   "name": "Recall",
+   "name_cn": "回溯法术",
+   "kind": "spell",
+   "status": "permanent",
+   "housing": 2,
+   "max_level": 7,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Spell Factory": 7
+   }
+  },
+  {
+   "gid": 26000098,
+   "name": "Revive",
+   "name_cn": "复苏法术",
+   "kind": "spell",
+   "status": "permanent",
+   "housing": 2,
+   "max_level": 5,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Spell Factory": 8
+   }
+  },
+  {
+   "gid": 26000120,
+   "name": "Totem Spell",
+   "name_cn": "图腾法术",
+   "kind": "spell",
+   "status": "permanent",
+   "housing": 1,
+   "max_level": 4,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Spell Factory": 9
+   }
+  },
+  {
+   "gid": 26000009,
+   "name": "Poison",
+   "name_cn": "伤害药水法术",
+   "kind": "spell",
+   "status": "permanent",
+   "housing": 1,
+   "max_level": 12,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 6
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Dark Spell Factory": 1
+   }
+  },
+  {
+   "gid": 26000010,
+   "name": "Earthquake",
+   "name_cn": "地震法术",
+   "kind": "spell",
+   "status": "permanent",
+   "housing": 1,
+   "max_level": 8,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 6
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Dark Spell Factory": 2
+   }
+  },
+  {
+   "gid": 26000011,
+   "name": "Haste",
+   "name_cn": "急速法术",
+   "kind": "spell",
+   "status": "permanent",
+   "housing": 1,
+   "max_level": 7,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 7
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Dark Spell Factory": 3
+   }
+  },
+  {
+   "gid": 26000017,
+   "name": "Skeleton Spell",
+   "name_cn": "骷髅法术",
+   "kind": "spell",
+   "status": "permanent",
+   "housing": 1,
+   "max_level": 8,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 11
+    },
+    {
+     "Laboratory": 13
+    }
+   ],
+   "unlock": {
+    "Dark Spell Factory": 4
+   }
+  },
+  {
+   "gid": 26000028,
+   "name": "Bat Spell",
+   "name_cn": "蝙蝠法术",
+   "kind": "spell",
+   "status": "permanent",
+   "housing": 1,
+   "max_level": 8,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 8
+    },
+    {
+     "Laboratory": 9
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Dark Spell Factory": 5
+   }
+  },
+  {
+   "gid": 26000070,
+   "name": "Overgrowth",
+   "name_cn": "疯狂蔓生法术",
+   "kind": "spell",
+   "status": "permanent",
+   "housing": 2,
+   "max_level": 5,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 10
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Dark Spell Factory": 6
+   }
+  },
+  {
+   "gid": 26000109,
+   "name": "Ice Block",
+   "name_cn": "冰障法术",
+   "kind": "spell",
+   "status": "permanent",
+   "housing": 1,
+   "max_level": 6,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 12
+    },
+    {
+     "Laboratory": 13
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Dark Spell Factory": 7
+   }
+  },
+  {
+   "gid": 26000123,
+   "name": "AngrySpell",
+   "name_cn": "愤怒法术",
+   "kind": "spell",
+   "status": "permanent",
+   "housing": 1,
+   "max_level": 4,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 14
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    }
+   ],
+   "unlock": {
+    "Dark Spell Factory": 8
+   }
+  },
+  {
+   "gid": 28000000,
+   "name": "Barbarian King",
+   "name_cn": "野蛮人之王",
+   "kind": "hero",
+   "status": "permanent",
+   "housing": 25,
+   "max_level": 110,
+   "levels_req": [
+    {
+     "Town Hall": 4,
+     "Hero Hall": 1
+    },
+    {
+     "Town Hall": 7,
+     "Hero Hall": 1
+    },
+    {
+     "Town Hall": 7,
+     "Hero Hall": 1
+    },
+    {
+     "Town Hall": 7,
+     "Hero Hall": 1
+    },
+    {
+     "Town Hall": 7,
+     "Hero Hall": 1
+    },
+    {
+     "Town Hall": 7,
+     "Hero Hall": 1
+    },
+    {
+     "Town Hall": 7,
+     "Hero Hall": 1
+    },
+    {
+     "Town Hall": 7,
+     "Hero Hall": 1
+    },
+    {
+     "Town Hall": 7,
+     "Hero Hall": 1
+    },
+    {
+     "Town Hall": 7,
+     "Hero Hall": 1
+    },
+    {
+     "Town Hall": 8,
+     "Hero Hall": 2
+    },
+    {
+     "Town Hall": 8,
+     "Hero Hall": 2
+    },
+    {
+     "Town Hall": 8,
+     "Hero Hall": 2
+    },
+    {
+     "Town Hall": 8,
+     "Hero Hall": 2
+    },
+    {
+     "Town Hall": 8,
+     "Hero Hall": 2
+    },
+    {
+     "Town Hall": 8,
+     "Hero Hall": 2
+    },
+    {
+     "Town Hall": 8,
+     "Hero Hall": 2
+    },
+    {
+     "Town Hall": 8,
+     "Hero Hall": 2
+    },
+    {
+     "Town Hall": 8,
+     "Hero Hall": 2
+    },
+    {
+     "Town Hall": 8,
+     "Hero Hall": 2
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    }
+   ],
+   "item_slots": 2,
+   "has_alt_mode": false
+  },
+  {
+   "gid": 28000001,
+   "name": "Archer Queen",
+   "name_cn": "弓箭女皇",
+   "kind": "hero",
+   "status": "permanent",
+   "housing": 25,
+   "max_level": 110,
+   "levels_req": [
+    {
+     "Town Hall": 8,
+     "Hero Hall": 2
+    },
+    {
+     "Town Hall": 8,
+     "Hero Hall": 2
+    },
+    {
+     "Town Hall": 8,
+     "Hero Hall": 2
+    },
+    {
+     "Town Hall": 8,
+     "Hero Hall": 2
+    },
+    {
+     "Town Hall": 8,
+     "Hero Hall": 2
+    },
+    {
+     "Town Hall": 8,
+     "Hero Hall": 2
+    },
+    {
+     "Town Hall": 8,
+     "Hero Hall": 2
+    },
+    {
+     "Town Hall": 8,
+     "Hero Hall": 2
+    },
+    {
+     "Town Hall": 8,
+     "Hero Hall": 2
+    },
+    {
+     "Town Hall": 8,
+     "Hero Hall": 2
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    }
+   ],
+   "item_slots": 2,
+   "has_alt_mode": false
+  },
+  {
+   "gid": 28000002,
+   "name": "Grand Warden",
+   "name_cn": "大守护者",
+   "kind": "hero",
+   "status": "permanent",
+   "housing": 25,
+   "max_level": 85,
+   "levels_req": [
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    }
+   ],
+   "item_slots": 2,
+   "has_alt_mode": true
+  },
+  {
+   "gid": 28000004,
+   "name": "Royal Champion",
+   "name_cn": "飞盾战神",
+   "kind": "hero",
+   "status": "permanent",
+   "housing": 25,
+   "max_level": 55,
+   "levels_req": [
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    }
+   ],
+   "item_slots": 2,
+   "has_alt_mode": false
+  },
+  {
+   "gid": 28000006,
+   "name": "Minion Prince",
+   "name_cn": "亡灵王子",
+   "kind": "hero",
+   "status": "permanent",
+   "housing": 25,
+   "max_level": 95,
+   "levels_req": [
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 9,
+     "Hero Hall": 3
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 10,
+     "Hero Hall": 4
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 11,
+     "Hero Hall": 5
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 12,
+     "Hero Hall": 6
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 13,
+     "Hero Hall": 7
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 14,
+     "Hero Hall": 8
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    }
+   ],
+   "item_slots": 2,
+   "has_alt_mode": false
+  },
+  {
+   "gid": 28000007,
+   "name": "Dragon Duke",
+   "name_cn": "飞龙公爵",
+   "kind": "hero",
+   "status": "permanent",
+   "housing": 25,
+   "max_level": 25,
+   "levels_req": [
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 15,
+     "Hero Hall": 9
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 16,
+     "Hero Hall": 10
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 17,
+     "Hero Hall": 11
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    },
+    {
+     "Town Hall": 18,
+     "Hero Hall": 12
+    }
+   ],
+   "item_slots": 2,
+   "has_alt_mode": false
+  },
+  {
+   "gid": 73000000,
+   "name": "LASSI",
+   "name_cn": "莱希",
+   "kind": "pet",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 15,
+   "levels_req": [
+    {
+     "Pet House": 1
+    },
+    {
+     "Pet House": 1
+    },
+    {
+     "Pet House": 1
+    },
+    {
+     "Pet House": 1
+    },
+    {
+     "Pet House": 1
+    },
+    {
+     "Pet House": 1
+    },
+    {
+     "Pet House": 1
+    },
+    {
+     "Pet House": 1
+    },
+    {
+     "Pet House": 1
+    },
+    {
+     "Pet House": 1
+    },
+    {
+     "Pet House": 5
+    },
+    {
+     "Pet House": 5
+    },
+    {
+     "Pet House": 5
+    },
+    {
+     "Pet House": 5
+    },
+    {
+     "Pet House": 5
+    }
+   ]
+  },
+  {
+   "gid": 73000001,
+   "name": "Mighty Yak",
+   "name_cn": "大牦",
+   "kind": "pet",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 15,
+   "levels_req": [
+    {
+     "Pet House": 3
+    },
+    {
+     "Pet House": 3
+    },
+    {
+     "Pet House": 3
+    },
+    {
+     "Pet House": 3
+    },
+    {
+     "Pet House": 3
+    },
+    {
+     "Pet House": 3
+    },
+    {
+     "Pet House": 3
+    },
+    {
+     "Pet House": 3
+    },
+    {
+     "Pet House": 3
+    },
+    {
+     "Pet House": 3
+    },
+    {
+     "Pet House": 7
+    },
+    {
+     "Pet House": 7
+    },
+    {
+     "Pet House": 7
+    },
+    {
+     "Pet House": 7
+    },
+    {
+     "Pet House": 7
+    }
+   ]
+  },
+  {
+   "gid": 73000002,
+   "name": "Electro Owl",
+   "name_cn": "闪枭",
+   "kind": "pet",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 15,
+   "levels_req": [
+    {
+     "Pet House": 2
+    },
+    {
+     "Pet House": 2
+    },
+    {
+     "Pet House": 2
+    },
+    {
+     "Pet House": 2
+    },
+    {
+     "Pet House": 2
+    },
+    {
+     "Pet House": 2
+    },
+    {
+     "Pet House": 2
+    },
+    {
+     "Pet House": 2
+    },
+    {
+     "Pet House": 2
+    },
+    {
+     "Pet House": 2
+    },
+    {
+     "Pet House": 9
+    },
+    {
+     "Pet House": 9
+    },
+    {
+     "Pet House": 9
+    },
+    {
+     "Pet House": 9
+    },
+    {
+     "Pet House": 9
+    }
+   ]
+  },
+  {
+   "gid": 73000003,
+   "name": "Unicorn",
+   "name_cn": "独角",
+   "kind": "pet",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 15,
+   "levels_req": [
+    {
+     "Pet House": 4
+    },
+    {
+     "Pet House": 4
+    },
+    {
+     "Pet House": 4
+    },
+    {
+     "Pet House": 4
+    },
+    {
+     "Pet House": 4
+    },
+    {
+     "Pet House": 4
+    },
+    {
+     "Pet House": 4
+    },
+    {
+     "Pet House": 4
+    },
+    {
+     "Pet House": 4
+    },
+    {
+     "Pet House": 4
+    },
+    {
+     "Pet House": 11
+    },
+    {
+     "Pet House": 11
+    },
+    {
+     "Pet House": 11
+    },
+    {
+     "Pet House": 11
+    },
+    {
+     "Pet House": 11
+    }
+   ]
+  },
+  {
+   "gid": 73000004,
+   "name": "Phoenix",
+   "name_cn": "凤凰",
+   "kind": "pet",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 10,
+   "levels_req": [
+    {
+     "Pet House": 8
+    },
+    {
+     "Pet House": 8
+    },
+    {
+     "Pet House": 8
+    },
+    {
+     "Pet House": 8
+    },
+    {
+     "Pet House": 8
+    },
+    {
+     "Pet House": 8
+    },
+    {
+     "Pet House": 8
+    },
+    {
+     "Pet House": 8
+    },
+    {
+     "Pet House": 8
+    },
+    {
+     "Pet House": 8
+    }
+   ]
+  },
+  {
+   "gid": 73000007,
+   "name": "Poison Lizard",
+   "name_cn": "猛蜥",
+   "kind": "pet",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 15,
+   "levels_req": [
+    {
+     "Pet House": 7
+    },
+    {
+     "Pet House": 7
+    },
+    {
+     "Pet House": 7
+    },
+    {
+     "Pet House": 7
+    },
+    {
+     "Pet House": 7
+    },
+    {
+     "Pet House": 7
+    },
+    {
+     "Pet House": 7
+    },
+    {
+     "Pet House": 7
+    },
+    {
+     "Pet House": 7
+    },
+    {
+     "Pet House": 7
+    },
+    {
+     "Pet House": 11
+    },
+    {
+     "Pet House": 11
+    },
+    {
+     "Pet House": 11
+    },
+    {
+     "Pet House": 11
+    },
+    {
+     "Pet House": 11
+    }
+   ]
+  },
+  {
+   "gid": 73000008,
+   "name": "Diggy",
+   "name_cn": "地兽",
+   "kind": "pet",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 15,
+   "levels_req": [
+    {
+     "Pet House": 6
+    },
+    {
+     "Pet House": 6
+    },
+    {
+     "Pet House": 6
+    },
+    {
+     "Pet House": 6
+    },
+    {
+     "Pet House": 6
+    },
+    {
+     "Pet House": 6
+    },
+    {
+     "Pet House": 6
+    },
+    {
+     "Pet House": 6
+    },
+    {
+     "Pet House": 6
+    },
+    {
+     "Pet House": 6
+    },
+    {
+     "Pet House": 12
+    },
+    {
+     "Pet House": 12
+    },
+    {
+     "Pet House": 12
+    },
+    {
+     "Pet House": 12
+    },
+    {
+     "Pet House": 12
+    }
+   ]
+  },
+  {
+   "gid": 73000009,
+   "name": "Frosty",
+   "name_cn": "冰牙",
+   "kind": "pet",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 15,
+   "levels_req": [
+    {
+     "Pet House": 5
+    },
+    {
+     "Pet House": 5
+    },
+    {
+     "Pet House": 5
+    },
+    {
+     "Pet House": 5
+    },
+    {
+     "Pet House": 5
+    },
+    {
+     "Pet House": 5
+    },
+    {
+     "Pet House": 5
+    },
+    {
+     "Pet House": 5
+    },
+    {
+     "Pet House": 5
+    },
+    {
+     "Pet House": 5
+    },
+    {
+     "Pet House": 11
+    },
+    {
+     "Pet House": 11
+    },
+    {
+     "Pet House": 11
+    },
+    {
+     "Pet House": 11
+    },
+    {
+     "Pet House": 11
+    }
+   ]
+  },
+  {
+   "gid": 73000010,
+   "name": "Spirit Fox",
+   "name_cn": "灵狐",
+   "kind": "pet",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 10,
+   "levels_req": [
+    {
+     "Pet House": 9
+    },
+    {
+     "Pet House": 9
+    },
+    {
+     "Pet House": 9
+    },
+    {
+     "Pet House": 9
+    },
+    {
+     "Pet House": 9
+    },
+    {
+     "Pet House": 9
+    },
+    {
+     "Pet House": 9
+    },
+    {
+     "Pet House": 9
+    },
+    {
+     "Pet House": 9
+    },
+    {
+     "Pet House": 9
+    }
+   ]
+  },
+  {
+   "gid": 73000011,
+   "name": "Angry Jelly",
+   "name_cn": "愤怒水母",
+   "kind": "pet",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 10,
+   "levels_req": [
+    {
+     "Pet House": 10
+    },
+    {
+     "Pet House": 10
+    },
+    {
+     "Pet House": 10
+    },
+    {
+     "Pet House": 10
+    },
+    {
+     "Pet House": 10
+    },
+    {
+     "Pet House": 10
+    },
+    {
+     "Pet House": 10
+    },
+    {
+     "Pet House": 10
+    },
+    {
+     "Pet House": 10
+    },
+    {
+     "Pet House": 10
+    }
+   ]
+  },
+  {
+   "gid": 73000016,
+   "name": "Sneezy",
+   "name_cn": "阿啾",
+   "kind": "pet",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 10,
+   "levels_req": [
+    {
+     "Pet House": 11
+    },
+    {
+     "Pet House": 11
+    },
+    {
+     "Pet House": 11
+    },
+    {
+     "Pet House": 11
+    },
+    {
+     "Pet House": 11
+    },
+    {
+     "Pet House": 11
+    },
+    {
+     "Pet House": 11
+    },
+    {
+     "Pet House": 11
+    },
+    {
+     "Pet House": 11
+    },
+    {
+     "Pet House": 11
+    }
+   ]
+  },
+  {
+   "gid": 73000017,
+   "name": "Crow",
+   "name_cn": "贪婪渡鸦",
+   "kind": "pet",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 10,
+   "levels_req": [
+    {
+     "Pet House": 12
+    },
+    {
+     "Pet House": 12
+    },
+    {
+     "Pet House": 12
+    },
+    {
+     "Pet House": 12
+    },
+    {
+     "Pet House": 12
+    },
+    {
+     "Pet House": 12
+    },
+    {
+     "Pet House": 12
+    },
+    {
+     "Pet House": 12
+    },
+    {
+     "Pet House": 12
+    },
+    {
+     "Pet House": 12
+    }
+   ]
+  },
+  {
+   "gid": 90000000,
+   "name": "Barbarian Puppet",
+   "name_cn": "野蛮人木偶",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000000
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    }
+   ]
+  },
+  {
+   "gid": 90000001,
+   "name": "Rage Vial",
+   "name_cn": "狂暴药水瓶",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000000
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    }
+   ]
+  },
+  {
+   "gid": 90000002,
+   "name": "Archer Puppet",
+   "name_cn": "弓箭手木偶",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000001
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    }
+   ]
+  },
+  {
+   "gid": 90000003,
+   "name": "Invisibility Vial",
+   "name_cn": "隐形药水瓶",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000001
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    }
+   ]
+  },
+  {
+   "gid": 90000004,
+   "name": "Eternal Tome",
+   "name_cn": "永恒书卷",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000002
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    }
+   ]
+  },
+  {
+   "gid": 90000005,
+   "name": "Life Gem",
+   "name_cn": "生命宝石",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000002
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    }
+   ]
+  },
+  {
+   "gid": 90000006,
+   "name": "Seeking Shield",
+   "name_cn": "寻踪飞盾",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000004
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    }
+   ]
+  },
+  {
+   "gid": 90000007,
+   "name": "Royal Gem",
+   "name_cn": "皇家宝石",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000004
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    }
+   ]
+  },
+  {
+   "gid": 90000008,
+   "name": "Earthquake Boots",
+   "name_cn": "地震金靴",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000000
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    }
+   ]
+  },
+  {
+   "gid": 90000009,
+   "name": "Hog Rider Puppet",
+   "name_cn": "野猪骑士木偶",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000004
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    }
+   ]
+  },
+  {
+   "gid": 90000010,
+   "name": "Giant Gauntlet",
+   "name_cn": "巨型手套",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 27,
+   "heroes": [
+    28000000
+   ],
+   "rarity": "EPIC",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    }
+   ]
+  },
+  {
+   "gid": 90000011,
+   "name": "Vampstache",
+   "name_cn": "治疗胡须",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000000
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    }
+   ]
+  },
+  {
+   "gid": 90000012,
+   "name": "Haste Vial",
+   "name_cn": "急速药水瓶",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000004
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    }
+   ]
+  },
+  {
+   "gid": 90000013,
+   "name": "Rocket Spear",
+   "name_cn": "火箭飞矛",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 27,
+   "heroes": [
+    28000004
+   ],
+   "rarity": "EPIC",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    }
+   ]
+  },
+  {
+   "gid": 90000014,
+   "name": "Spiky Ball",
+   "name_cn": "尖刺足球",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 27,
+   "heroes": [
+    28000000
+   ],
+   "rarity": "EPIC",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    }
+   ]
+  },
+  {
+   "gid": 90000015,
+   "name": "Frozen Arrow",
+   "name_cn": "冰封箭矢",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 27,
+   "heroes": [
+    28000001
+   ],
+   "rarity": "EPIC",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    }
+   ]
+  },
+  {
+   "gid": 90000016,
+   "name": "Monolith Arrow",
+   "name_cn": "擎天箭矢",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 27,
+   "heroes": [
+    28000001
+   ],
+   "rarity": "EPIC",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    }
+   ]
+  },
+  {
+   "gid": 90000017,
+   "name": "Piercing Arrow",
+   "name_cn": "巨型箭矢",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000001
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 2
+    },
+    {
+     "Blacksmith": 2
+    },
+    {
+     "Blacksmith": 2
+    },
+    {
+     "Blacksmith": 2
+    },
+    {
+     "Blacksmith": 2
+    },
+    {
+     "Blacksmith": 2
+    },
+    {
+     "Blacksmith": 2
+    },
+    {
+     "Blacksmith": 2
+    },
+    {
+     "Blacksmith": 2
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    }
+   ]
+  },
+  {
+   "gid": 90000019,
+   "name": "Heroic Torch",
+   "name_cn": "英雄火炬",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 27,
+   "heroes": [
+    28000002
+   ],
+   "rarity": "EPIC",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    }
+   ]
+  },
+  {
+   "gid": 90000020,
+   "name": "Healer Puppet",
+   "name_cn": "天使木偶",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000001
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    }
+   ]
+  },
+  {
+   "gid": 90000022,
+   "name": "Fireball",
+   "name_cn": "巨大火球",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 27,
+   "heroes": [
+    28000002
+   ],
+   "rarity": "EPIC",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    }
+   ]
+  },
+  {
+   "gid": 90000024,
+   "name": "Rage Gem",
+   "name_cn": "狂暴宝石",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000002
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 4
+    },
+    {
+     "Blacksmith": 4
+    },
+    {
+     "Blacksmith": 4
+    },
+    {
+     "Blacksmith": 4
+    },
+    {
+     "Blacksmith": 4
+    },
+    {
+     "Blacksmith": 4
+    },
+    {
+     "Blacksmith": 4
+    },
+    {
+     "Blacksmith": 4
+    },
+    {
+     "Blacksmith": 4
+    },
+    {
+     "Blacksmith": 4
+    },
+    {
+     "Blacksmith": 4
+    },
+    {
+     "Blacksmith": 4
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    }
+   ]
+  },
+  {
+   "gid": 90000032,
+   "name": "Snake Bracelet",
+   "name_cn": "灵蛇手镯",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 27,
+   "heroes": [
+    28000000
+   ],
+   "rarity": "EPIC",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    }
+   ]
+  },
+  {
+   "gid": 90000034,
+   "name": "Healing Tome",
+   "name_cn": "治疗书卷",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000002
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 6
+    },
+    {
+     "Blacksmith": 6
+    },
+    {
+     "Blacksmith": 6
+    },
+    {
+     "Blacksmith": 6
+    },
+    {
+     "Blacksmith": 6
+    },
+    {
+     "Blacksmith": 6
+    },
+    {
+     "Blacksmith": 6
+    },
+    {
+     "Blacksmith": 6
+    },
+    {
+     "Blacksmith": 6
+    },
+    {
+     "Blacksmith": 6
+    },
+    {
+     "Blacksmith": 6
+    },
+    {
+     "Blacksmith": 6
+    },
+    {
+     "Blacksmith": 6
+    },
+    {
+     "Blacksmith": 6
+    },
+    {
+     "Blacksmith": 6
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    }
+   ]
+  },
+  {
+   "gid": 90000035,
+   "name": "Dark Crown",
+   "name_cn": "暗黑皇冠",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 27,
+   "heroes": [
+    28000006
+   ],
+   "rarity": "EPIC",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    }
+   ]
+  },
+  {
+   "gid": 90000039,
+   "name": "Magic Mirror",
+   "name_cn": "克隆魔镜",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 27,
+   "heroes": [
+    28000001
+   ],
+   "rarity": "EPIC",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    }
+   ]
+  },
+  {
+   "gid": 90000040,
+   "name": "Electro Boots",
+   "name_cn": "雷电战靴",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 27,
+   "heroes": [
+    28000004
+   ],
+   "rarity": "EPIC",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    }
+   ]
+  },
+  {
+   "gid": 90000041,
+   "name": "Lavaloon Puppet",
+   "name_cn": "熔岩气球玩偶",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 27,
+   "heroes": [
+    28000002
+   ],
+   "rarity": "EPIC",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    }
+   ]
+  },
+  {
+   "gid": 90000042,
+   "name": "Henchmen Puppet",
+   "name_cn": "护卫玩偶",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000006
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    }
+   ]
+  },
+  {
+   "gid": 90000043,
+   "name": "Dark Orb",
+   "name_cn": "暗黑魔球",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000006
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    }
+   ]
+  },
+  {
+   "gid": 90000044,
+   "name": "Metal Pants",
+   "name_cn": "铁甲短裤",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000006
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    }
+   ]
+  },
+  {
+   "gid": 90000047,
+   "name": "Noble Iron",
+   "name_cn": "贵族哑铃",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000006
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    }
+   ]
+  },
+  {
+   "gid": 90000048,
+   "name": "Action Figure",
+   "name_cn": "动作人偶",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 27,
+   "heroes": [
+    28000001
+   ],
+   "rarity": "EPIC",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    }
+   ]
+  },
+  {
+   "gid": 90000049,
+   "name": "Meteor Staff",
+   "name_cn": "陨石法杖",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 27,
+   "heroes": [
+    28000006
+   ],
+   "rarity": "EPIC",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    }
+   ]
+  },
+  {
+   "gid": 90000050,
+   "name": "Frost Charm",
+   "name_cn": "冷冽冰晶",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 27,
+   "heroes": [
+    28000004
+   ],
+   "rarity": "EPIC",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    }
+   ]
+  },
+  {
+   "gid": 90000051,
+   "name": "Stick Horse",
+   "name_cn": "木棍马驹",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 27,
+   "heroes": [
+    28000000
+   ],
+   "rarity": "EPIC",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    }
+   ]
+  },
+  {
+   "gid": 90000052,
+   "name": "Fire Heart",
+   "name_cn": "烈焰之心",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000007
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    }
+   ]
+  },
+  {
+   "gid": 90000053,
+   "name": "Rocket Backpack",
+   "name_cn": "火箭背包",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 27,
+   "heroes": [
+    28000007
+   ],
+   "rarity": "EPIC",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    }
+   ]
+  },
+  {
+   "gid": 90000056,
+   "name": "Stun Blaster",
+   "name_cn": "爆震器",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000007
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    }
+   ]
+  },
+  {
+   "gid": 90000057,
+   "name": "Flame Blower",
+   "name_cn": "助燃器",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000007
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    }
+   ]
+  },
+  {
+   "gid": 90000059,
+   "name": "ElectroAttack",
+   "name_cn": "雷电獠牙",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 18,
+   "heroes": [
+    28000007
+   ],
+   "rarity": "COMMON",
+   "levels_req": [
+    {
+     "Blacksmith": 10
+    },
+    {
+     "Blacksmith": 10
+    },
+    {
+     "Blacksmith": 10
+    },
+    {
+     "Blacksmith": 10
+    },
+    {
+     "Blacksmith": 10
+    },
+    {
+     "Blacksmith": 10
+    },
+    {
+     "Blacksmith": 10
+    },
+    {
+     "Blacksmith": 10
+    },
+    {
+     "Blacksmith": 10
+    },
+    {
+     "Blacksmith": 10
+    },
+    {
+     "Blacksmith": 10
+    },
+    {
+     "Blacksmith": 10
+    },
+    {
+     "Blacksmith": 10
+    },
+    {
+     "Blacksmith": 10
+    },
+    {
+     "Blacksmith": 10
+    },
+    {
+     "Blacksmith": 10
+    },
+    {
+     "Blacksmith": 10
+    },
+    {
+     "Blacksmith": 10
+    }
+   ]
+  },
+  {
+   "gid": 90000060,
+   "name": "Draconic Counter",
+   "name_cn": "反击卡组",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 27,
+   "heroes": [
+    28000007
+   ],
+   "rarity": "EPIC",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    }
+   ]
+  },
+  {
+   "gid": 90000061,
+   "name": "Cosmic Portal",
+   "name_cn": "传送吊坠",
+   "kind": "equipment",
+   "status": "permanent",
+   "housing": 0,
+   "max_level": 27,
+   "heroes": [
+    28000006
+   ],
+   "rarity": "EPIC",
+   "levels_req": [
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 1
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 3
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 5
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 7
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 8
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    },
+    {
+     "Blacksmith": 9
+    }
+   ]
+  }
+ ],
+ "obstacles": {
+  "8000000": [
+   2,
+   2
+  ],
+  "8000001": [
+   3,
+   3
+  ],
+  "8000002": [
+   2,
+   2
+  ],
+  "8000003": [
+   2,
+   2
+  ],
+  "8000004": [
+   2,
+   2
+  ],
+  "8000005": [
+   3,
+   3
+  ],
+  "8000006": [
+   2,
+   2
+  ],
+  "8000007": [
+   2,
+   2
+  ],
+  "8000008": [
+   2,
+   2
+  ],
+  "8000009": [
+   1,
+   1
+  ],
+  "8000010": [
+   2,
+   2
+  ],
+  "8000011": [
+   2,
+   2
+  ],
+  "8000012": [
+   2,
+   2
+  ],
+  "8000013": [
+   3,
+   3
+  ],
+  "8000014": [
+   2,
+   2
+  ],
+  "8000015": [
+   3,
+   3
+  ],
+  "8000016": [
+   2,
+   2
+  ],
+  "8000017": [
+   2,
+   2
+  ],
+  "8000018": [
+   2,
+   2
+  ],
+  "8000019": [
+   3,
+   3
+  ],
+  "8000020": [
+   3,
+   3
+  ],
+  "8000021": [
+   2,
+   2
+  ],
+  "8000022": [
+   1,
+   1
+  ],
+  "8000023": [
+   1,
+   1
+  ],
+  "8000024": [
+   2,
+   2
+  ],
+  "8000025": [
+   2,
+   2
+  ],
+  "8000026": [
+   3,
+   3
+  ],
+  "8000027": [
+   2,
+   2
+  ],
+  "8000028": [
+   2,
+   2
+  ],
+  "8000029": [
+   1,
+   1
+  ],
+  "8000030": [
+   2,
+   2
+  ],
+  "8000031": [
+   2,
+   2
+  ],
+  "8000032": [
+   2,
+   2
+  ],
+  "8000033": [
+   1,
+   1
+  ],
+  "8000034": [
+   3,
+   3
+  ],
+  "8000035": [
+   3,
+   3
+  ],
+  "8000036": [
+   2,
+   2
+  ],
+  "8000037": [
+   2,
+   2
+  ],
+  "8000038": [
+   2,
+   2
+  ],
+  "8000039": [
+   2,
+   2
+  ],
+  "8000040": [
+   2,
+   2
+  ],
+  "8000041": [
+   2,
+   2
+  ],
+  "8000042": [
+   3,
+   3
+  ],
+  "8000043": [
+   2,
+   2
+  ],
+  "8000044": [
+   2,
+   2
+  ],
+  "8000045": [
+   2,
+   2
+  ],
+  "8000046": [
+   3,
+   3
+  ],
+  "8000047": [
+   2,
+   2
+  ],
+  "8000048": [
+   1,
+   1
+  ],
+  "8000049": [
+   2,
+   2
+  ],
+  "8000050": [
+   2,
+   2
+  ],
+  "8000051": [
+   2,
+   2
+  ],
+  "8000052": [
+   3,
+   3
+  ],
+  "8000053": [
+   2,
+   2
+  ],
+  "8000054": [
+   3,
+   3
+  ],
+  "8000055": [
+   3,
+   3
+  ],
+  "8000056": [
+   2,
+   2
+  ],
+  "8000057": [
+   3,
+   3
+  ],
+  "8000058": [
+   2,
+   2
+  ],
+  "8000059": [
+   2,
+   2
+  ],
+  "8000060": [
+   2,
+   2
+  ],
+  "8000061": [
+   2,
+   2
+  ],
+  "8000062": [
+   2,
+   2
+  ],
+  "8000063": [
+   1,
+   1
+  ],
+  "8000064": [
+   1,
+   1
+  ],
+  "8000065": [
+   2,
+   2
+  ],
+  "8000066": [
+   1,
+   1
+  ],
+  "8000067": [
+   2,
+   2
+  ],
+  "8000068": [
+   2,
+   2
+  ],
+  "8000069": [
+   2,
+   2
+  ],
+  "8000070": [
+   2,
+   2
+  ],
+  "8000071": [
+   2,
+   2
+  ],
+  "8000072": [
+   2,
+   2
+  ],
+  "8000073": [
+   2,
+   2
+  ],
+  "8000074": [
+   2,
+   2
+  ],
+  "8000075": [
+   2,
+   2
+  ],
+  "8000076": [
+   2,
+   2
+  ],
+  "8000077": [
+   2,
+   2
+  ],
+  "8000078": [
+   2,
+   2
+  ],
+  "8000079": [
+   2,
+   2
+  ],
+  "8000080": [
+   2,
+   2
+  ],
+  "8000081": [
+   2,
+   2
+  ],
+  "8000082": [
+   2,
+   2
+  ],
+  "8000083": [
+   2,
+   2
+  ],
+  "8000084": [
+   2,
+   2
+  ],
+  "8000085": [
+   2,
+   2
+  ],
+  "8000086": [
+   2,
+   2
+  ],
+  "8000087": [
+   2,
+   2
+  ],
+  "8000088": [
+   2,
+   2
+  ],
+  "8000089": [
+   2,
+   2
+  ],
+  "8000090": [
+   2,
+   2
+  ],
+  "8000091": [
+   2,
+   2
+  ],
+  "8000092": [
+   3,
+   3
+  ],
+  "8000093": [
+   2,
+   2
+  ],
+  "8000094": [
+   2,
+   2
+  ],
+  "8000095": [
+   2,
+   2
+  ],
+  "8000096": [
+   2,
+   2
+  ],
+  "8000097": [
+   2,
+   2
+  ],
+  "8000098": [
+   2,
+   2
+  ],
+  "8000099": [
+   2,
+   2
+  ],
+  "8000100": [
+   2,
+   2
+  ],
+  "8000101": [
+   2,
+   2
+  ],
+  "8000102": [
+   2,
+   2
+  ],
+  "8000103": [
+   2,
+   2
+  ],
+  "8000104": [
+   2,
+   2
+  ],
+  "8000105": [
+   3,
+   3
+  ],
+  "8000106": [
+   3,
+   3
+  ],
+  "8000107": [
+   3,
+   3
+  ],
+  "8000108": [
+   2,
+   2
+  ],
+  "8000109": [
+   1,
+   1
+  ],
+  "8000110": [
+   2,
+   2
+  ],
+  "8000111": [
+   2,
+   2
+  ],
+  "8000112": [
+   1,
+   1
+  ],
+  "8000113": [
+   2,
+   2
+  ],
+  "8000114": [
+   2,
+   2
+  ],
+  "8000115": [
+   1,
+   1
+  ],
+  "8000116": [
+   2,
+   2
+  ],
+  "8000117": [
+   2,
+   2
+  ],
+  "8000118": [
+   2,
+   2
+  ],
+  "8000119": [
+   1,
+   1
+  ],
+  "8000120": [
+   2,
+   2
+  ],
+  "8000121": [
+   2,
+   2
+  ],
+  "8000122": [
+   3,
+   3
+  ],
+  "8000123": [
+   3,
+   3
+  ],
+  "8000124": [
+   4,
+   4
+  ],
+  "8000125": [
+   4,
+   4
+  ],
+  "8000126": [
+   1,
+   1
+  ],
+  "8000127": [
+   4,
+   4
+  ],
+  "8000128": [
+   2,
+   2
+  ],
+  "8000129": [
+   2,
+   2
+  ],
+  "8000130": [
+   2,
+   2
+  ],
+  "8000131": [
+   1,
+   1
+  ],
+  "8000132": [
+   2,
+   2
+  ],
+  "8000133": [
+   2,
+   2
+  ],
+  "8000134": [
+   2,
+   2
+  ],
+  "8000135": [
+   2,
+   2
+  ],
+  "8000136": [
+   2,
+   2
+  ],
+  "8000137": [
+   2,
+   2
+  ],
+  "8000138": [
+   2,
+   2
+  ],
+  "8000139": [
+   2,
+   2
+  ],
+  "8000140": [
+   2,
+   2
+  ]
+ },
+ "rules": {
+  "hero_slots": 4,
+  "max_super_troop_kinds": 2,
+  "map_tiles": 50,
+  "require_all_built_global": "FALSE"
+ }
+}

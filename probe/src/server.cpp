@@ -123,6 +123,32 @@ std::string handle(const std::string &line) {
   } else if (op == "cmd_log") {
     w.key("ok").boolean(true);
     e.cmd_log(w, req["clear"].boolean(false));
+  } else if (op == "cmd") {
+    // 通用命令：{"type": 命令类型, "hex": encode 字节}，在下一帧主线程提交
+    const std::string hex = req["hex"].str();
+    std::vector<std::uint8_t> bytes;
+    bool bad = hex.size() % 2 != 0 || hex.size() > (2u << 20);
+    auto nib = [](char ch) -> int {
+      if (ch >= '0' && ch <= '9') return ch - '0';
+      if (ch >= 'a' && ch <= 'f') return ch - 'a' + 10;
+      if (ch >= 'A' && ch <= 'F') return ch - 'A' + 10;
+      return -1;
+    };
+    for (std::size_t i = 0; !bad && i < hex.size(); i += 2) {
+      const int a = nib(hex[i]), b = nib(hex[i + 1]);
+      if (a < 0 || b < 0) bad = true;
+      else bytes.push_back(static_cast<std::uint8_t>(a << 4 | b));
+    }
+    if (bad) {
+      w.key("ok").boolean(false).key("error").str("bad hex");
+    } else {
+      w.key("ok").boolean(true).key("id").num(e.enqueue_raw(static_cast<int>(req["type"].i64()), std::move(bytes),
+                                                            static_cast<std::uintptr_t>(req["vtable"].i64(0)),
+                                                            static_cast<int>(req["size"].i64(0))));
+    }
+  } else if (op == "cmd_results") {
+    w.key("ok").boolean(true);
+    e.raw_results(w, req["clear"].boolean(false));
   } else if (op == "records") {
     w.key("ok").boolean(true).key("net_ready").boolean(net::ready());
     net::list_records(w);

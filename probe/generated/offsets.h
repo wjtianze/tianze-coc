@@ -76,6 +76,9 @@ inline constexpr std::uintptr_t VisitedHomeDataMessage_vtable = 0x174fde8;
 inline constexpr std::uintptr_t MessageFactory_create = 0xf3595c;
 inline constexpr std::uintptr_t Client_update = 0xb7fd60;
 inline constexpr std::uintptr_t Messaging_sendOne = 0x11ec954;
+inline constexpr std::uintptr_t LogicCommand_encodeBase = 0xd6d9a8;
+inline constexpr std::uintptr_t LogicCommand_decodeBase = 0xd6d9c0;
+inline constexpr std::uintptr_t operator_delete = 0x16b2300;
 
 inline constexpr int logic_units_per_tile_shift = 0x9;
 inline constexpr int LogicLevel_tileMapIndex = 0x42c;
@@ -154,6 +157,9 @@ inline constexpr int ByteStream_buffer = 0x38;
 inline constexpr int ByteStream_length = 0x18;
 inline constexpr int ByteStream_bitIndex = 0x1c;
 inline constexpr int ByteStream_ownedBuffer = 0x30;
+inline constexpr int LogicCommand_vt_encode = 0x5;
+inline constexpr int LogicCommand_vt_decode = 0x6;
+inline constexpr int LogicCommand_vt_getType = 0x4;
 
 // 命令构造函数参数寄存器 -> 字段偏移（核对用）
 // LogicPlaceAttackerCommand_fields: x1->0x10, w8->0x8, x8->0x0, w2->0x18, w3->0x1c, w4->0x20, w5->0x24
@@ -228,5 +234,8 @@ inline constexpr Fingerprint kFingerprints[] = {
   {"MessageFactory_create", 0xf3595c, {0xfd, 0x7b, 0xbe, 0xa9, 0xf3, 0x0b, 0x00, 0xf9}},
   {"Client_update", 0xb7fd60, {0xff, 0x03, 0x02, 0xd1, 0xeb, 0x2b, 0x01, 0x6d}},
   {"Messaging_sendOne", 0x11ec954, {0xff, 0x43, 0x02, 0xd1, 0xfd, 0x7b, 0x03, 0xa9}},
+  {"LogicCommand_encodeBase", 0xd6d9a8, {0x29, 0x00, 0x40, 0xf9, 0xe8, 0x03, 0x01, 0xaa}},
+  {"LogicCommand_decodeBase", 0xd6d9c0, {0xfd, 0x7b, 0xbe, 0xa9, 0xf3, 0x0b, 0x00, 0xf9}},
+  {"operator_delete", 0x16b2300, {0x90, 0x06, 0x00, 0x90, 0x11, 0x1a, 0x40, 0xf9}},
 };
 }  // namespace tz::off

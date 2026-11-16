@@ -10,6 +10,20 @@ class ProbeError(RuntimeError):
     pass
 
 
+_CMD_TYPES: dict[int, dict] | None = None
+
+
+def command_types() -> dict[int, dict]:
+    """命令类型 -> {vtable, size}（静态扫描结果）。"""
+    global _CMD_TYPES
+    if _CMD_TYPES is None:
+        from pathlib import Path
+        p = Path(__file__).resolve().parent / "data" / "command_types.json"
+        d = json.loads(p.read_text(encoding="utf-8"))["commands"] if p.exists() else {}
+        _CMD_TYPES = {int(k): v[0] for k, v in d.items() if v}
+    return _CMD_TYPES
+
+
 class ProbeClient:
     def __init__(self, host: str = "127.0.0.1", port: int = 27650, timeout: float = 30.0):
         self.host, self.port, self.timeout = host, port, timeout
@@ -103,3 +117,15 @@ class ProbeClient:
     def peek(self, addr: int, length: int = 64) -> bytes | None:
         h = self.call("peek", addr=addr, len=length).get("hex")
         return bytes.fromhex(h) if h else None
+
+    # ---- 通用命令通道（主村/战斗）：按 命令类型 + encode 字节 提交任意命令
+    def cmd(self, cmd_type: int, payload: bytes) -> int:
+        """排队一条命令（下一帧在主线程走客户端提交路径），返回请求 id。字节格式同 cmd_log 的 enc 字段。
+        命令类的虚表/大小自动取自 data/command_types.json（tools/re/cmd_vtables.py 生成）。"""
+        vt = command_types().get(cmd_type, {})
+        return int(self.call("cmd", type=cmd_type, hex=payload.hex(), vtable=vt.get("vtable", 0),
+                             size=vt.get("size", 0))["id"])
+
+    def cmd_results(self, clear: bool = False) -> dict:
+        """{"pending": n, "results": [{id,type,status,code,tick}]}；status: submitted / executed / rejected[:原因]。"""
+        return self.call("cmd_results", clear=clear)

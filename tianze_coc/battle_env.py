@@ -9,6 +9,13 @@
 
 单位规则（见 docs/units.md）：只能部署"部落战/排位战可携带"的单位（永久 + 超级兵）；
 限时兵种/法术在 Python 侧与探针侧两层拒绝。
+
+公平观测（fair_view，默认开）：进攻方看不到的信息从观测里删掉——陷阱一律不可见，
+特斯拉电磁塔在受到伤害（现身）之前不可见。禁止开挂。
+
+开战前决策（prepare）：根据对手阵型选定本局要用的攻城机器、切换大守护者模式；之后只能部署选定的那台。
+
+实时模式（realtime）：不锁步，按真实时间推进（联机打真人友谊战时使用）；step 发出动作后等待 realtime_interval_s。
 """
 from __future__ import annotations
 
@@ -42,6 +49,9 @@ class EnvConfig:
     battle_wait_timeout_s: float = 600.0
     step_timeout_ms: int = 15000
     layout_path: Path = field(default_factory=lambda: DATA / "layout.json")
+    fair_view: bool = True  # 进攻方视角：隐藏陷阱与未现身的特斯拉
+    realtime: bool = False  # True：不锁步，按真实时间推进
+    realtime_interval_s: float = 0.25
 
 
 @dataclass
@@ -65,6 +75,9 @@ class TianzeBattleEnv:
         self._cc_deployed = False
         self._siege_deployed = False  # 规则：一局只能部署一台攻城机器（自己的或援军的）
         self.last_obs: ObservationV1 | None = None
+        self._chosen_siege: int | None = None
+        self._revealed: set[int] = set()  # 已现身的隐藏建筑（对象全局 ID）
+        self._hidden_data = _hidden_structure_ids()
 
     # ------------------------------------------------------------ 生命周期
     def handshake(self) -> dict:
@@ -90,7 +103,7 @@ class TianzeBattleEnv:
                 raise EnvError("等待进攻战斗开始超时（请在游戏内发起一场进攻，或提供 battle_starter）")
             time.sleep(0.25)
         self.client.config(
-            lockstep=True,
+            lockstep=not self.cfg.realtime,
             turbo=self.cfg.turbo,
             submit_mode=self.cfg.submit_mode,
             allowed_ids=self.catalog.allowed_deploy_ids(),
@@ -101,9 +114,48 @@ class TianzeBattleEnv:
         self._deployed_units.clear()
         self._cc_deployed = False
         self._siege_deployed = False
-        obs = ObservationV1.from_wire(self.client.observe(objects=self.cfg.include_objects)["obs"])
+        self._chosen_siege = None
+        self._revealed.clear()
+        obs = self._fair(ObservationV1.from_wire(self.client.observe(objects=self.cfg.include_objects)["obs"]))
         self._check_army_rules(obs)
         self.last_obs = obs
+        return obs
+
+    # ------------------------------------------------------------ 开战前决策
+    def prepare(self, siege: int | None = None, warden_mode: int | None = None, hero: int = 28000002) -> StepInfo:
+        """开战前（部署任何单位之前）：选定本局攻城机器（自己的或援军的 GlobalID），切换大守护者模式。"""
+        obs = self.last_obs
+        if obs is None:
+            raise EnvError("请先 reset()")
+        if self._deployed_units or self._heroes_deployed or self._siege_deployed:
+            raise EnvError("已经部署过单位，不能再做开战前决策")
+        if siege is not None:
+            have = {**obs.army_sieges, **{g: c for g, c in obs.cc_units.items()
+                                          if (u := self.catalog.get(g)) is not None and u.kind == "siege"}}
+            if have.get(siege, 0) <= 0:
+                raise EnvError(f"军队和援军中都没有攻城机器 {siege}")
+            self._chosen_siege = siege
+        acts = [ActionV1("hero_mode", hero, flag=warden_mode)] if warden_mode is not None else []
+        _, info, _ = self.step(acts, subticks=1)
+        return info
+
+    # ------------------------------------------------------------ 公平观测
+    def _fair(self, obs: ObservationV1) -> ObservationV1:
+        if not self.cfg.fair_view or not obs.entities:
+            return obs
+        keep = []
+        for e in obs.entities:
+            if e.data_id in self._hidden_data and e.global_id not in self._revealed:
+                hp, mx = e.fields.get("hp"), e.fields.get("hp_max")
+                if self._hidden_data[e.data_id] == "building" and hp is not None and mx and hp < mx:
+                    self._revealed.add(e.global_id)  # 特斯拉受伤 = 已现身
+                else:
+                    continue
+            keep.append(e)
+        obs.entities = keep
+        if isinstance(obs.raw, dict) and "objects" in obs.raw:  # 原始观测也去掉，防止绕过
+            ids = {e.global_id for e in keep}
+            obs.raw = {**obs.raw, "objects": [o for o in obs.raw["objects"] if int(o.get("gid", -1)) in ids]}
         return obs
 
     def close(self) -> None:
@@ -158,6 +210,8 @@ class TianzeBattleEnv:
             return "坐标超出地图"
         if a.kind in ("siege", "cc_siege") and self._siege_deployed:
             return "本局已部署过攻城机器（一局只能部署一台）"
+        if a.kind in ("siege", "cc_siege") and self._chosen_siege is not None and a.unit != self._chosen_siege:
+            return "开战前已选定其他攻城机器"
         if a.kind == "troop" and obs.army_units.get(a.unit, 0) <= 0:
             return "军队中没有剩余该单位"
         if a.kind == "siege" and obs.army_sieges.get(a.unit, obs.army_units.get(a.unit, 0)) <= 0:
@@ -217,8 +271,16 @@ class TianzeBattleEnv:
                 self._cc_deployed = True
             if a.kind in ("siege", "cc_siege"):
                 self._siege_deployed = True
-        resp = self.client.step(subticks or self.cfg.decision_subticks, wire, objects=self.cfg.include_objects,
-                                timeout_ms=self.cfg.step_timeout_ms)
+        if self.cfg.realtime:
+            resp = {"results": [], "completed": True}
+            if wire:
+                self.client.call("act", actions=wire)
+            time.sleep(self.cfg.realtime_interval_s)
+            o = self.client.observe(objects=self.cfg.include_objects)
+            resp["obs"], resp["results"] = o.get("obs"), o.get("results", [])
+        else:
+            resp = self.client.step(subticks or self.cfg.decision_subticks, wire, objects=self.cfg.include_objects,
+                                    timeout_ms=self.cfg.step_timeout_ms)
         results = [ActionResultV1.from_wire(r) for r in resp.get("results", [])]
         for r in results:
             a = sent.get(r.id)
@@ -235,10 +297,20 @@ class TianzeBattleEnv:
                 self._deployed_units.add(a.unit)
         if resp.get("obs") is None:
             raise EnvError("探针未返回观测（超时）")
-        obs = ObservationV1.from_wire(resp["obs"])
+        obs = self._fair(ObservationV1.from_wire(resp["obs"]))
         self.last_obs = obs
         done = obs.battle_over or not obs.in_battle
         return obs, StepInfo(results, local_rej, bool(resp.get("completed"))), done
+
+
+def _hidden_structure_ids() -> dict[int, str]:
+    """进攻方看不到的防守物：GlobalID -> 类别（trap / building）。来自 progression.json 的 hidden 标记。"""
+    try:
+        from .assets.progression import Progression
+
+        return {d["gid"]: d["category"] for d in Progression.load().data["structures"] if d.get("hidden")}
+    except (OSError, ValueError, KeyError):
+        return {}
 
 
 def tiles_to_logic(t: float) -> int:

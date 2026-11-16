@@ -75,6 +75,16 @@ class Engine {
   void on_submit(void *cmd);
   void cmd_log(json::Writer &w, bool clear);
 
+  // ---- 通用命令通道（主村/战斗均可）：按 命令类型 + encode 字节 构造任意命令并走客户端提交路径。
+  // 字节格式即命令 encode() 的输出（首个 int 为执行 tick，提交时由命令管理器重设），
+  // 与 cmd_log 抓到的 "enc" 字段完全一致，因此可以"抓一次 UI 操作 -> 改字段 -> 重放"。
+  // vtable/size：命令类虚表（相对 libg）与对象大小，来自 tools/re/cmd_vtables.py 的静态扫描；
+  // 客户端 UI 命令不在 createCommand 工厂里，需要按虚表直接构造。vtable=0 时只用工厂。
+  long long enqueue_raw(int type, std::vector<std::uint8_t> bytes, std::uintptr_t vtable = 0, int size = 0);
+  void service_raw();  // 每帧（ClientInstance::update，主线程）调用：每帧最多提交一条
+  void raw_results(json::Writer &w, bool clear);
+  static int generic_exec_wrapper(void *cmd, void *level);
+
  private:
   Engine() = default;
   bool resolve_base();
@@ -92,6 +102,9 @@ class Engine {
   void write_objects(std::uintptr_t level, json::Writer &w, bool raw);
   void *make_cmd_vtable(ActionKind kind);
   void serve_snapshot_locked(std::uintptr_t gm);
+  std::uintptr_t scratch_stream();                             // 主线程：取一个可复用的 ByteStream
+  bool encode_cmd(void *cmd, std::vector<std::uint8_t> &out);  // 主线程
+  void *generic_vtable(void *cmd, int type);                   // 为某类型命令复制虚表并包装 execute
 
   std::atomic<bool> ready_{false};
   std::uintptr_t base_ = 0;
@@ -132,9 +145,36 @@ class Engine {
     bool ours;
     int data_gid;
     std::string hex;
+    std::string enc;  // 命令 encode() 的完整字节
   };
   std::deque<SpyEntry> spy_;
-  std::mutex spy_mu_;  // 独立的锁：on_submit 会在注入命令时（已持有 mu_）被调用，不能再申请 mu_
+  std::mutex spy_mu_;
+
+  struct RawCmd {
+    long long id = 0;
+    int type = 0;
+    std::vector<std::uint8_t> bytes;
+    std::uintptr_t vtable = 0;
+    int size = 0;
+  };
+  struct RawResult {
+    long long id;
+    int type;
+    std::string status;  // submitted / executed / rejected:原因
+    int code;            // executed/rejected：引擎 execute 返回值；submitted：decode 消耗的字节数
+    long long tick;
+  };
+  std::deque<RawCmd> raw_pending_;      // 受 mu_ 保护
+  std::vector<RawResult> raw_results_;  // 受 mu_ 保护
+  std::unordered_map<std::uintptr_t, long long> raw_cmd_ids_;  // 命令对象 -> 请求 id（受 mu_ 保护）
+  long long raw_seq_ = 0;
+  struct GenericVt {
+    int type;
+    std::uintptr_t *copy;  // 指向虚表第 0 槽
+    std::uintptr_t orig_exec;
+  };
+  std::vector<GenericVt> generic_vts_;  // 只在主线程读写
+  std::uintptr_t scratch_msg_ = 0;  // 独立的锁：on_submit 会在注入命令时（已持有 mu_）被调用，不能再申请 mu_
 };
 
 }  // namespace tz
