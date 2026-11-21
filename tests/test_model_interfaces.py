@@ -132,8 +132,8 @@ class AccountEditorTest(unittest.TestCase):
                     for inp, k in (d.get("merge") or {}).get("inputs", {}).items():
                         used[P.structure(inp)["gid"]] = used.get(P.structure(inp)["gid"], 0) + k * c.get(d["gid"], 0)
                 for d in P.data["structures"]:
-                    if d["gid"] == TH_GID or P.max_structure_level(d["gid"], th) <= 0:
-                        continue
+                    if d["gid"] == TH_GID or d["category"] == "hero_flag" or P.max_structure_level(d["gid"], th) <= 0:
+                        continue  # 战旗是可选的阵型对象，不受"上一本上限"约束
                     hi = d["max_count"][th - 1]
                     lo = min(d["max_count"][th - 2], hi) if P.max_structure_level(d["gid"], th - 1) > 0 else 0
                     n = c.get(d["gid"], 0) + used.get(d["gid"], 0)
@@ -172,6 +172,35 @@ class AccountEditorTest(unittest.TestCase):
         a.max_out()
         next(s for s in a.structures if s.gid == hh).level = P.max_structure_level(hh, 15) - 1
         self.assertTrue(any(e.code == "not_maxed" for e in a.validate()))
+
+    def test_hero_flags(self):
+        """英雄战旗：7 本起数量 = 英雄殿堂等级对应的英雄槽数（7/9/11/13 本各 +1，19 本 4 面），每个基地都插满；
+        驻守英雄不重复，英雄不够时是空战旗。英雄槽同时也是进攻可带英雄数。"""
+        flag = P.structure("Hero Flag")
+        self.assertEqual((flag["width"], flag["height"]), (2, 2))
+        self.assertEqual([flag["max_count"][t - 1] for t in (4, 6, 7, 8, 9, 11, 13, 19)], [0, 0, 1, 1, 2, 3, 4, 4])
+        for th in (5, 9, 12, 19):
+            a = blank(th)
+            a.randomize(th, random.Random(th))
+            flags = [s for s in a.structures if s.kind == "heroFlags"]
+            self.assertEqual(len(flags), a.hero_slots() if th >= 7 else 0)  # 4~6 本英雄只进攻，没有战旗
+            self.assertEqual(capacity(a).hero_slots, a.hero_slots())
+            hs = [s.raw.get("m_defendingHero_0") for s in flags if s.raw.get("m_defendingHero_0")]
+            self.assertEqual(len(hs), len(set(hs)))
+            self.assertEqual(a.validate(), [], th)
+        a = blank(19)
+        a.max_out()
+        flags = [s for s in a.structures if s.kind == "heroFlags"]
+        self.assertEqual(len(flags), 4)
+        j = a.home_json()
+        self.assertEqual(len(j["heroFlags"]), 4)
+        self.assertNotIn("lvl", j["heroFlags"][0])
+        lay = L.random_layout(a, random.Random(2))
+        self.assertEqual(L.validate(lay, a), [])  # 战旗参与摆放与重叠检查
+        flags[1].raw["m_defendingHero_0"] = flags[0].raw["m_defendingHero_0"]
+        self.assertTrue(any(e.code == "hero_flag" for e in a.validate()))
+        a.structures.remove(flags[2])
+        self.assertTrue(any("应为 4 面" in e.message for e in a.validate()))
 
     def test_lab_violation(self):
         a = blank(18)
@@ -261,6 +290,9 @@ class ArmyTest(unittest.TestCase):
         a.max_out()
         c = capacity(a)
         self.assertEqual((c.troops, c.spells, c.sieges, c.hero_slots, c.cc_level), (352, 11, 3, 4, 15))
+        lo = blank(9)
+        lo.max_out()
+        self.assertEqual(capacity(lo).hero_slots, 2)  # 9 本英雄殿堂 3 级：2 个英雄槽
 
     def test_rules(self):
         bk, aq, gw = ugid("Barbarian King"), ugid("Archer Queen"), ugid("Grand Warden")
@@ -501,7 +533,9 @@ class VillageExportTest(unittest.TestCase):
 
     @staticmethod
     def key(acc):
-        return sorted((s.gid, s.level, s.supercharge, bool(s.raw.get("construction"))) for s in acc.structures)
+        # 导出格式没有坐标，也不含英雄战旗（战旗只有位置，属于阵型），比较时排除
+        return sorted((s.gid, s.level, s.supercharge, bool(s.raw.get("construction"))) for s in acc.structures
+                      if s.kind != "heroFlags")
 
     def test_random_accounts_roundtrip(self):
         from tianze_coc import village_export as ve

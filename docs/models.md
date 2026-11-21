@@ -166,3 +166,14 @@
 `village_export.to_account(json)` / `from_account(account)` 互转：等级 1 起；`cnt` 计数；`lvl: 0` 的建造中建筑作为占地、已消耗合并原料的
 1 级建筑保留（标记 construction，导出写回 0）；`supercharge` ↔ minilvl，`gear_up` ↔ gearup；守卫 ↔ guardian_manager，
 `building_variants` ↔ 大本营条目的 building_variant；其余字段（夜世界、装饰、皮肤、助手等）原样往返。导出格式没有坐标，导入时自动摆到空地。
+
+## 附：英雄战旗（2026-11-21 真机录制）
+
+- 村庄 JSON 的 `heroFlags`：`{"data": 94000000, "id": 510000000 起, "m_defendingHero_0": 英雄, "x", "y"}`，2×2（hero_flags.csv），无等级。
+  放置命令为 6797（UI 侦听：`tick, x, i32 94000000, y, 0, 0`）。
+- 作用（真机核对）：插了战旗的防守英雄开局就在战旗旁巡逻；没插的留在英雄殿堂里，开局时场上没有该英雄。所以战旗是阵型的一部分。
+- 数量：7 本起 = 英雄槽数，由英雄殿堂等级决定（globals `TAVERN_LEVEL_TO_HERO_SLOT_COUNT`：殿堂 1/3/5/7 级 → 1/2/3/4 个），
+  即 7/9/11/13 本各一面、19 本 4 面；4~6 本的英雄只能用于进攻、没有战旗（`rules.hero_flag_min_th`）。每个基地都插满（用户说明）；驻守英雄从已解锁英雄里随机选、不重复，英雄不够时多出的是空战旗（无 m_defendingHero_0）。
+  英雄槽同时是进攻可带英雄数（`army.capacity().hero_slots`，不再写死 4）。`validate` 检查战旗数与驻守英雄。
+- 游戏导出格式里没有战旗（它只有位置和驻守英雄）：`village_export.to_account` 导入时按规则插满，位置和驻守哪个英雄由摆阵模型决定。
+- 真机核对（随机基地）：7 本 1 面、19 本 4 面战旗，驻守英雄开局都出现在各自战旗旁。

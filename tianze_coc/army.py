@@ -78,7 +78,9 @@ def capacity(account: Account) -> Capacity:
                 cc_level = max(cc_level, s.level)
             else:
                 tot[k] += v
-    return Capacity(tot["troops"], tot["spells"], tot["sieges"], p.rules["hero_slots"],
+    # 英雄槽按英雄殿堂等级（没有村庄时按上限）
+    slots = account.hero_slots() if account.home is not None else p.rules["hero_slots"]
+    return Capacity(tot["troops"], tot["spells"], tot["sieges"], slots,
                     cc["troops"], cc["spells"], cc["sieges"], cc_level)
 
 

@@ -2967,6 +2967,41 @@
    ],
    "hidden": true,
    "require_built_on_th_up": true
+  },
+  {
+   "gid": 94000000,
+   "name": "Hero Flag",
+   "name_cn": "英雄战旗",
+   "category": "hero_flag",
+   "width": 2,
+   "height": 2,
+   "max_level": 1,
+   "level_th": [
+    1
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    2,
+    2,
+    3,
+    3,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "hidden": false,
+   "require_built_on_th_up": false
   }
  ],
  "units": [
@@ -13383,6 +13418,19 @@
  },
  "rules": {
   "hero_slots": 4,
+  "hero_slot_levels": [
+   1,
+   3,
+   5,
+   7
+  ],
+  "hero_slot_counts": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "hero_flag_min_th": 7,
   "max_super_troop_kinds": 2,
   "map_tiles": 50,
   "strength_max_squad_types": [

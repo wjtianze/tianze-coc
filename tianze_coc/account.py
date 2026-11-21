@@ -24,6 +24,7 @@ from . import home_payload as hp
 from .assets.progression import Progression
 
 TH_GID = 1000001
+STRUCT_KINDS = ("buildings", "traps", "heroFlags")  # 村庄 JSON 中带坐标的阵型对象列表
 WALL_GID = 1000010
 BUILD_MIN, BUILD_MAX = 3, 47  # 主村可建造区域：格子 [3, 47)，即 44×44
 
@@ -48,7 +49,10 @@ class Structure:
     def to_json(self) -> dict:
         d = dict(self.raw)
         d["data"] = self.gid
-        d["lvl"] = self.level - 1
+        if self.kind == "heroFlags":
+            d.pop("lvl", None)  # 战旗没有等级
+        else:
+            d["lvl"] = self.level - 1
         d["x"], d["y"] = self.x, self.y
         if self.supercharge > 0:
             d["minilvl"] = self.supercharge
@@ -73,8 +77,8 @@ class Account:
         self.home = copy.deepcopy(home) if home is not None else None
         self.structures: list[Structure] = []
         if home is not None:
-            for kind in ("buildings", "traps"):
-                for b in home.get(kind, []):
+            for kind in STRUCT_KINDS:
+                for b in home.get(kind, []) or []:
                     if "x" not in b or "data" not in b:
                         continue
                     self.structures.append(Structure(b["data"], int(b.get("lvl", 0)) + 1, b["x"], b["y"], kind, dict(b),
@@ -187,8 +191,8 @@ class Account:
                 # 游戏规定先建齐当前本的建筑才能升本：每种建筑（含城墙、陷阱）不少于上一本上限；
                 # 合并原料按等效数量（自身 + 已合并进成品的份数）计；被大本营合并消耗的取较小值。
                 for d in p.data["structures"]:
-                    if d["gid"] == TH_GID or p.max_structure_level(d["gid"], th - 1) <= 0:
-                        continue  # 上一本还不能建（例如 1～2 本的部落城堡只是废墟）
+                    if d["gid"] == TH_GID or d["category"] == "hero_flag" or p.max_structure_level(d["gid"], th - 1) <= 0:
+                        continue  # 上一本还不能建（例如 1～2 本的部落城堡只是废墟）；战旗是可选的
                     need = min(d["max_count"][th - 2], d["max_count"][th - 1])
                     have = counts.get(d["gid"], 0) + used.get(d["gid"], 0)
                     if have < need:
@@ -203,6 +207,7 @@ class Account:
                     if need and have < need:
                         out.append(Violation("not_maxed", f"升到 {th} 本前需先把{d['name_cn']}升到 {need} 级（{th - 1} 本满级），"
                                              f"现为 {have} 级", d["gid"]))
+            out += self._check_hero_flags()
             out += self.overlaps()
         if check_units:
             blv = self.building_levels() if self.home is not None else None
@@ -279,7 +284,7 @@ class Account:
         lv = level if level is not None else max(1, self.prog.max_structure_level(gid, max(self.th, 1)))
         if x is None or y is None:
             x, y = self.free_spot(d["width"], d["height"])
-        kind = "traps" if d["category"] == "trap" else "buildings"
+        kind = {"trap": "traps", "hero_flag": "heroFlags"}.get(d["category"], "buildings")
         pool = getattr(self, "_raw_pool", {}).get(gid)
         raw = dict(pool.pop(0)) if pool else {"data": gid, "id": self._next_id(kind)}
         raw.pop("minilvl", None)  # 复用条目时不继承原有的超级充能
@@ -310,7 +315,8 @@ class Account:
             self.set_th(th)
         t = self.th
         for d in _placement_order(self.prog):
-            if d["gid"] == TH_GID or (d["category"] == "wall" and not walls) or (d["category"] == "trap" and not traps):
+            if d["gid"] == TH_GID or d["category"] == "hero_flag" or (d["category"] == "wall" and not walls) \
+                    or (d["category"] == "trap" and not traps):
                 continue
             # 合并建筑：成品按上限建；原料在 _fix_merges 中按占用扣减
             n = self._target_count(d, t) if self.prog.max_structure_level(d["gid"], t) > 0 else 0
@@ -328,6 +334,59 @@ class Account:
             self.set_unit_level(gid, cap)
         for s in self.structures:
             s.supercharge = self.supercharge_cap(s) if supercharge else 0
+        self.place_hero_flags(rng)
+
+    # ------------------------------------------------------------------ 英雄战旗
+    def home_heroes(self) -> list[int]:
+        """已解锁的主世界英雄（可以插战旗守家的）。"""
+        return [g for g, u in self.prog.units.items() if u["kind"] == "hero" and self.unit_levels.get(g, 0) > 0]
+
+    def hero_slots(self) -> int:
+        """英雄槽数 = 进攻可带英雄数 = 英雄战旗数，由英雄殿堂等级决定（globals TAVERN_LEVEL_TO_HERO_SLOT_COUNT）。"""
+        r = self.prog.rules
+        hall = self.building_levels().get("Hero Hall", 0)
+        levels, counts = r.get("hero_slot_levels", [1]), r.get("hero_slot_counts", [r.get("hero_slots", 4)])
+        return max((n for lv, n in zip(levels, counts) if hall >= lv), default=0)
+
+    def hero_flag_count(self) -> int:
+        """英雄战旗数：7 本起 = 英雄槽数（4~6 本英雄只能进攻，没有战旗）。"""
+        return self.hero_slots() if self.th >= self.prog.rules.get("hero_flag_min_th", 7) else 0
+
+    def place_hero_flags(self, rng: random.Random | None = None) -> None:
+        """插满战旗（数量 = 英雄槽数）：驻守英雄从已解锁的英雄里随机选、不重复，英雄不够时多出的是空战旗。
+        位置先放空地，正式位置由摆阵决定。"""
+        flag = next((d for d in self.prog.data["structures"] if d["category"] == "hero_flag"), None)
+        if flag is None:
+            return
+        self.structures = [s for s in self.structures if s.kind != "heroFlags"]
+        rng = rng or random.Random()
+        heroes = self.home_heroes()
+        rng.shuffle(heroes)
+        for k in range(self.hero_flag_count()):
+            s = self.add_structure(flag["gid"], 1, rng=rng)
+            if k < len(heroes):
+                s.raw["m_defendingHero_0"] = heroes[k]
+
+    def _check_hero_flags(self) -> list[Violation]:
+        out = []
+        heroes = set(self.home_heroes())
+        seen = set()
+        n = sum(1 for s in self.structures if s.kind == "heroFlags")
+        if n != self.hero_flag_count():
+            out.append(Violation("hero_flag", f"英雄战旗应为 {self.hero_flag_count()} 面（7 本起 = 英雄殿堂等级对应的英雄槽数），"
+                                              f"现有 {n} 面"))
+        for s in self.structures:
+            if s.kind != "heroFlags":
+                continue
+            h = s.raw.get("m_defendingHero_0")
+            if h is None:
+                continue  # 空战旗
+            if h not in heroes:
+                out.append(Violation("hero_flag", f"英雄战旗驻守的英雄 {h} 未解锁或不存在", s.gid))
+            elif h in seen:
+                out.append(Violation("hero_flag", f"英雄 {h} 插了不止一面战旗", s.gid))
+            seen.add(h)
+        return out
 
     def supercharge_cap(self, s: Structure) -> int:
         """该建筑当前能充的超级充能小等级数（0 = 不能充：没有充能、大本营不够或建筑未达本本满级）。"""
@@ -407,6 +466,8 @@ class Account:
             if cap > 0:
                 prev = self.prog.max_unit_level(gid, blv_prev) if t >= 2 else 0
                 self.set_unit_level(gid, _pick_level(rng, prev, cap, p))
+        # 英雄战旗：插满（数量 = 英雄殿堂等级对应的英雄槽数），插了的英雄开局在战旗旁巡逻
+        self.place_hero_flags(rng)
         # 超级充能：达到本本满级的可充能建筑，每座独立以 SUPERCHARGE_PROB（随进度增加）充 1~满 个小等级
         for s in self.structures:
             cap_sc = self.supercharge_cap(s)
@@ -430,7 +491,7 @@ class Account:
         consumed: dict[str, int] = {}
         structs = self.prog.data["structures"]
         for d in structs:  # 合并成品
-            if d["gid"] == TH_GID or not d.get("merge"):
+            if d["gid"] == TH_GID or d["category"] == "hero_flag" or not d.get("merge"):
                 continue
             lo, hi = self._count_range(d, t, require_all_built)
             n = _pick(rng, lo, hi, p) if hi > 0 else 0
@@ -438,7 +499,7 @@ class Account:
             for inp, k in d["merge"]["inputs"].items():
                 consumed[inp] = consumed.get(inp, 0) + k * n
         for d in structs:  # 其余建筑（含合并原料、城墙、陷阱）
-            if d["gid"] == TH_GID or d.get("merge"):
+            if d["gid"] == TH_GID or d["category"] == "hero_flag" or d.get("merge"):
                 continue
             lo, hi = self._count_range(d, t, require_all_built)
             used = consumed.get(d["name"], 0)
@@ -497,7 +558,7 @@ class Account:
         raise ValueError(f"地图上没有 {w}×{h} 的空地")
 
     def _next_id(self, kind: str) -> int:
-        base = 504000000 if kind == "traps" else 500000000
+        base = {"traps": 504000000, "heroFlags": 510000000}.get(kind, 500000000)
         used = {int(s.raw.get("id", 0)) for s in self.structures}
         i = base
         while i in used:
@@ -508,7 +569,7 @@ class Account:
     def home_json(self, clear_obstacles: bool = False) -> dict:
         """生成新的村庄 JSON（保留原 JSON 的其他字段）。"""
         home = copy.deepcopy(self.home) if self.home is not None else {}
-        for kind in ("buildings", "traps"):
+        for kind in STRUCT_KINDS:
             home[kind] = [s.to_json() for s in self.structures if s.kind == kind]
         if clear_obstacles:
             home["obstacles"] = []

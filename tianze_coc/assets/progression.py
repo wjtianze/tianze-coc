@@ -130,6 +130,36 @@ def build_progression(src: AssetSource, lang: str = "cn") -> dict:
         s["require_built_on_th_up"] = e["name"] != "Town Hall"
         structures.append(s)
 
+    # ---- 英雄槽（globals.csv TAVERN_LEVEL_TO_HERO_SLOT_COUNT：英雄殿堂等级门槛 -> 槽数，19.32 为 1/3/5/7 级 -> 1/2/3/4）
+    #      = 进攻可带英雄数 = 英雄战旗数（用户说明：战旗按殿堂等级解锁，所有基地都插满）
+    gl = src.table("assets/logic/globals.csv").by_name().get("TAVERN_LEVEL_TO_HERO_SLOT_COUNT")
+    slot_levels = [_int(lv.get("NumberArray")) for lv in gl.levels] if gl else [1]
+    slot_counts = [_int(lv.get("AltNumberArray")) for lv in gl.levels] if gl else [4]
+
+    def slots_at(hall: int) -> int:
+        return max((n for lv_, n in zip(slot_levels, slot_counts) if hall >= lv_), default=0)
+
+    HERO_FLAG_MIN_TH = 7  # 用户说明：7 本才有第一面战旗，4~6 本的英雄只能用于进攻（数据表中没有现成字段）
+    hall_row = bld["Hero Hall"][1] if "Hero Hall" in bld else None
+    hall_th = _per_level(hall_row, "TownHallLevel") if hall_row else []
+
+    # ---- 英雄战旗（hero_flags.csv，19.32 联调）：2×2 的阵型对象，村庄 JSON 的 heroFlags 列表
+    #      {"data", "id", "m_defendingHero_0": 英雄（可没有，空战旗）, "x", "y"}。插了战旗的英雄开局就在战旗旁巡逻，
+    #      没插的留在英雄殿堂里（真机核对）。数量 = 英雄殿堂等级对应的英雄槽数，每个基地都插满。
+    if src.exists("assets/logic/hero_flags.csv"):
+        for i, r in enumerate(src.table("assets/logic/hero_flags.csv").rows):
+            if r.get("VillageType") not in ("", "0"):
+                continue
+            structures.append({
+                "gid": 94_000_000 + i, "name": "Hero Flag", "name_cn": loc.get(r.get("TID"), "英雄战旗"),
+                "category": "hero_flag", "width": _int(r.get("Width"), 2), "height": _int(r.get("Height"), 2),
+                "max_level": 1, "level_th": [1],
+                "max_count": [slots_at(max((k + 1 for k, t_ in enumerate(hall_th) if t_ <= th), default=0))
+                              if th >= HERO_FLAG_MIN_TH else 0 for th in range(1, th_max + 1)],
+                "hidden": False, "require_built_on_th_up": False,
+            })
+            break
+
     # ---- 进攻单位
     ucat = build_catalog(src, lang)
     chars = src.table("assets/logic/characters.csv").by_name()
@@ -208,7 +238,9 @@ def build_progression(src: AssetSource, lang: str = "cn") -> dict:
         "battle_modifiers": load_table(src),
         "structures": structures, "units": units, "obstacles": obstacles,
         "rules": {
-            "hero_slots": 4,  # 进攻时最多 4 名英雄（active_army_loadout 的英雄槽数）
+            "hero_slots": max(slot_counts),  # 英雄槽上限（实际按英雄殿堂等级，见 hero_slot_levels）
+            "hero_slot_levels": slot_levels, "hero_slot_counts": slot_counts,  # 殿堂等级门槛 -> 槽数
+            "hero_flag_min_th": HERO_FLAG_MIN_TH,  # 7 本起才有英雄战旗（4~6 本英雄只进攻）
             "max_super_troop_kinds": 2,  # 同时最多激活 2 种超级兵
             "map_tiles": 50,
             # 各大本营 StrengthMaxSquadTypes（townhall_levels.csv，"实力"统计用）；**不是**配兵上限：军队里小队种类不限（用户确认）

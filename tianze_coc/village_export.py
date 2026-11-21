@@ -12,6 +12,8 @@
   所以作为 1 级建筑进入 Account 并标记 raw["construction"]=True（导出时写回 lvl 0）；精制台等没有 lvl 字段的按 1 级。
 - "supercharge" = 超级充能小等级（内部村庄 JSON 的 minilvl），"gear_up" = 已改装（内部 gearup）。
 - 导出格式没有坐标：建筑先自动摆到空地上，正式坐标由摆阵模型给出（layout.Layout）。
+  英雄战旗也不在导出格式里（它只有位置和驻守英雄，属于阵型）：导入时按规则插满（Account.place_hero_flags），
+  位置和驻守哪个英雄由摆阵模型决定。
 - 不认识的字段原样保存在 Account.export_extra 里，导出时写回（夜世界、装饰、皮肤等）。
 """
 from __future__ import annotations
@@ -83,6 +85,8 @@ def to_account(src: str | Path | dict, prog: Progression | None = None) -> Accou
     if data.get("guardians"):
         acc.home["guardian_manager"] = {"m_pGuardians": [{"m_pGuardian": g["data"], "m_pGuardianUpgradeLevel": int(g["lvl"]) - 1}
                                                          for g in data["guardians"]]}
+    # 导出格式里没有英雄战旗；每个基地都插满（7 本起 = 英雄槽数），先自动补上，位置和驻守英雄由摆阵模型决定
+    acc.place_hero_flags()
     variants = data.get("building_variants") or []
     if variants:
         th_s = next(s for s in acc.structures if s.gid == TH_GID)
