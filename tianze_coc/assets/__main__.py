@@ -16,7 +16,7 @@ STATUS_CN = {
     "internal": "内部/不可部署",
     "builder_base": "夜世界",
 }
-KIND_CN = {"troop": "兵种", "siege": "攻城机器", "spell": "法术", "hero": "英雄", "equipment": "英雄装备", "pet": "战宠"}
+KIND_CN = {"troop": "兵种", "squad": "小队", "siege": "攻城机器", "spell": "法术", "hero": "英雄", "equipment": "英雄装备", "pet": "战宠"}
 
 
 def to_markdown(cat: dict) -> str:

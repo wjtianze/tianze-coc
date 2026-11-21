@@ -1,4 +1,4 @@
-"""真机验证：1～最高本逐本随机生成双方账号、阵型、援军、配兵，离线开局并部署，检查能否正常进行。
+"""真机验证：1～最高本逐本随机生成双方账号、阵型、援军、配兵，离线开局并部署，检查能否正常进行、进攻方等级是否生效。
 
     python tools/th_sweep.py --home <OwnHomeData录制> --template <EnemyHomeData录制> [--ths 1-18] [--modes normal,esports]
 
@@ -34,6 +34,27 @@ def parse_range(s: str) -> list[int]:
     return out
 
 
+_HP: dict[int, list[int]] | None = None
+
+
+def _hitpoints() -> dict[int, list[int]]:
+    """characters.csv：GlobalID -> 每级 Hitpoints。"""
+    global _HP
+    if _HP is None:
+        from tianze_coc.assets.csv_codec import AssetSource
+        from tianze_coc.local_config import LocalConfig
+
+        _HP = {}
+        for i, r in enumerate(AssetSource(LocalConfig.load().original_apk).table("assets/logic/characters.csv").rows):
+            gid = r.int("GlobalID", -1)
+            gid = gid if gid > 0 else 4_000_000 + i
+            try:
+                _HP[gid] = [int(lv.get("Hitpoints") or 0) for lv in r.levels]
+            except ValueError:
+                pass
+    return _HP
+
+
 def one(home: Path, tpl_path: Path, th: int, mode: str, seed: int) -> dict:
     rng = random.Random(seed)
     tpl = tpl_path.read_bytes()
@@ -66,11 +87,32 @@ def one(home: Path, tpl_path: Path, th: int, mode: str, seed: int) -> dict:
         done = False
         steps = 0
         executed = 0
+        # 进攻方等级核对：每种普通兵第一次下出后，血量上限必须等于数据表里注入等级的血量（×100）
+        hp_table = _hitpoints()
+        level_bad, level_checked, pending = [], 0, set()
         while acts and not done and steps < 400:
             batch, acts = acts[:1], acts[1:]
             obs, info, done = env.step(batch, subticks=2)
             executed += sum(1 for r in info.results if r.status == "executed")
             steps += 1
+            pending.add(batch[0].unit)
+            for g in list(pending):
+                u = att.prog.units.get(g)
+                if u is None or u["kind"] != "troop" or u["status"] != "permanent" or g not in hp_table:
+                    pending.discard(g)
+                    continue
+                seen = [e.fields.get("hp_max") for e in obs.entities
+                        if e.object_type == 1 and e.data_id == g and e.fields.get("team") == 0]
+                if seen:
+                    pending.discard(g)
+                    lv = att.unit_levels.get(g, 0)
+                    want = hp_table[g][lv - 1] * 100
+                    level_checked += 1
+                    if max(seen) != want:
+                        level_bad.append((g, lv, max(seen), want))
+        res["levels_checked"], res["levels_ok"] = level_checked, not level_bad
+        if level_bad:
+            res["level_bad"] = level_bad[:5]
         t0 = time.time()
         while not done and time.time() - t0 < 120:
             obs, info, done = env.step([], subticks=200)

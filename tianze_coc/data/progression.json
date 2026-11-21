@@ -1,10 +1,50 @@
 {
  "schema": "tianze-coc/progression/v1",
  "build_tag": "18_647_2",
- "th_max": 18,
+ "th_max": 19,
  "battle_modifiers": {
   "Hard Mode": {
    "tid": "TID_CHALLENGE_TITLE_HARD_MODE",
+   "effects": [
+    {
+     "side": "defender",
+     "target": "building",
+     "building_class": "Any Building",
+     "spells": true,
+     "damage_pct": 130,
+     "hp_pct": 100
+    },
+    {
+     "side": "attacker",
+     "target": "hero",
+     "building_class": "",
+     "spells": false,
+     "damage_pct": 75,
+     "hp_pct": 75
+    },
+    {
+     "side": "defender",
+     "target": "hero",
+     "building_class": "",
+     "spells": false,
+     "damage_pct": 130,
+     "hp_pct": 130
+    },
+    {
+     "side": "defender",
+     "target": "guardian",
+     "building_class": "",
+     "spells": false,
+     "damage_pct": 125,
+     "hp_pct": 125
+    }
+   ],
+   "common_equipment_minus": 3,
+   "epic_equipment_minus": 6,
+   "legendary_equipment_minus": 0
+  },
+  "Minus One": {
+   "tid": "TID_MODE_TITLE_MINUS_ONE",
    "effects": [
     {
      "side": "defender",
@@ -35,15 +75,16 @@
      "target": "guardian",
      "building_class": "",
      "spells": false,
-     "damage_pct": 120,
-     "hp_pct": 120
+     "damage_pct": 125,
+     "hp_pct": 125
     }
    ],
-   "common_equipment_minus": 3,
-   "epic_equipment_minus": 6
+   "common_equipment_minus": 0,
+   "epic_equipment_minus": 0,
+   "legendary_equipment_minus": 0
   },
-  "Minus One": {
-   "tid": "TID_MODE_TITLE_MINUS_ONE",
+  "Minus Two": {
+   "tid": "TID_MODE_TITLE_MINUS_TWO",
    "effects": [
     {
      "side": "defender",
@@ -58,8 +99,8 @@
      "target": "hero",
      "building_class": "",
      "spells": false,
-     "damage_pct": 80,
-     "hp_pct": 80
+     "damage_pct": 85,
+     "hp_pct": 85
     },
     {
      "side": "defender",
@@ -74,15 +115,16 @@
      "target": "guardian",
      "building_class": "",
      "spells": false,
-     "damage_pct": 120,
-     "hp_pct": 120
+     "damage_pct": 115,
+     "hp_pct": 115
     }
    ],
    "common_equipment_minus": 0,
-   "epic_equipment_minus": 0
+   "epic_equipment_minus": 0,
+   "legendary_equipment_minus": 0
   },
-  "Minus Two": {
-   "tid": "TID_MODE_TITLE_MINUS_TWO",
+  "Minus Three": {
+   "tid": "TID_MODE_TITLE_MINUS_THREE",
    "effects": [
     {
      "side": "defender",
@@ -118,46 +160,8 @@
     }
    ],
    "common_equipment_minus": 0,
-   "epic_equipment_minus": 0
-  },
-  "Minus Three": {
-   "tid": "TID_MODE_TITLE_MINUS_THREE",
-   "effects": [
-    {
-     "side": "defender",
-     "target": "building",
-     "building_class": "Any Building",
-     "spells": true,
-     "damage_pct": 110,
-     "hp_pct": 100
-    },
-    {
-     "side": "attacker",
-     "target": "hero",
-     "building_class": "",
-     "spells": false,
-     "damage_pct": 95,
-     "hp_pct": 95
-    },
-    {
-     "side": "defender",
-     "target": "hero",
-     "building_class": "",
-     "spells": false,
-     "damage_pct": 110,
-     "hp_pct": 110
-    },
-    {
-     "side": "defender",
-     "target": "guardian",
-     "building_class": "",
-     "spells": false,
-     "damage_pct": 105,
-     "hp_pct": 105
-    }
-   ],
-   "common_equipment_minus": 0,
-   "epic_equipment_minus": 0
+   "epic_equipment_minus": 0,
+   "legendary_equipment_minus": 0
   }
  },
  "structures": [
@@ -168,7 +172,7 @@
    "category": "building",
    "width": 4,
    "height": 4,
-   "max_level": 18,
+   "max_level": 19,
    "level_th": [
     1,
     2,
@@ -187,9 +191,11 @@
     15,
     16,
     17,
-    18
+    18,
+    19
    ],
    "max_count": [
+    1,
     1,
     1,
     1,
@@ -221,7 +227,7 @@
    "category": "building",
    "width": 3,
    "height": 3,
-   "max_level": 14,
+   "max_level": 15,
    "level_th": [
     3,
     4,
@@ -236,9 +242,11 @@
     15,
     16,
     17,
-    18
+    18,
+    19
    ],
    "max_count": [
+    1,
     1,
     1,
     1,
@@ -274,7 +282,8 @@
      50,
      50,
      55,
-     55
+     55,
+     60
     ],
     "spells": [
      0,
@@ -290,6 +299,7 @@
      3,
      3,
      3,
+     4,
      4
     ],
     "sieges": [
@@ -306,6 +316,7 @@
      1,
      2,
      2,
+     2,
      2
     ]
    },
@@ -319,7 +330,7 @@
    "category": "building",
    "width": 3,
    "height": 3,
-   "max_level": 19,
+   "max_level": 20,
    "level_th": [
     1,
     2,
@@ -339,7 +350,8 @@
     15,
     16,
     17,
-    18
+    18,
+    19
    ],
    "max_count": [
     1,
@@ -350,6 +362,7 @@
     2,
     2,
     3,
+    4,
     4,
     4,
     4,
@@ -373,7 +386,7 @@
    "category": "building",
    "width": 3,
    "height": 3,
-   "max_level": 19,
+   "max_level": 20,
    "level_th": [
     1,
     2,
@@ -393,7 +406,8 @@
     15,
     16,
     17,
-    18
+    18,
+    19
    ],
    "max_count": [
     1,
@@ -404,6 +418,7 @@
     2,
     2,
     3,
+    4,
     4,
     4,
     4,
@@ -427,7 +442,7 @@
    "category": "building",
    "width": 3,
    "height": 3,
-   "max_level": 13,
+   "max_level": 14,
    "level_th": [
     7,
     7,
@@ -441,7 +456,8 @@
     15,
     16,
     17,
-    18
+    18,
+    19
    ],
    "max_count": [
     0,
@@ -450,6 +466,7 @@
     0,
     0,
     0,
+    1,
     1,
     1,
     1,
@@ -475,7 +492,7 @@
    "category": "building",
    "width": 3,
    "height": 3,
-   "max_level": 17,
+   "max_level": 18,
    "level_th": [
     1,
     2,
@@ -493,7 +510,8 @@
     11,
     12,
     14,
-    16
+    16,
+    18
    ],
    "max_count": [
     1,
@@ -504,6 +522,7 @@
     6,
     6,
     6,
+    7,
     7,
     7,
     7,
@@ -527,7 +546,7 @@
    "category": "building",
    "width": 3,
    "height": 3,
-   "max_level": 17,
+   "max_level": 18,
    "level_th": [
     1,
     2,
@@ -545,7 +564,8 @@
     11,
     12,
     14,
-    16
+    16,
+    18
    ],
    "max_count": [
     1,
@@ -556,6 +576,7 @@
     6,
     6,
     6,
+    7,
     7,
     7,
     7,
@@ -579,7 +600,7 @@
    "category": "building",
    "width": 3,
    "height": 3,
-   "max_level": 11,
+   "max_level": 12,
    "level_th": [
     7,
     7,
@@ -591,7 +612,8 @@
     11,
     12,
     14,
-    16
+    16,
+    18
    ],
    "max_count": [
     0,
@@ -602,6 +624,7 @@
     0,
     1,
     2,
+    3,
     3,
     3,
     3,
@@ -660,6 +683,7 @@
     4,
     4,
     4,
+    4,
     4
    ],
    "hidden": false,
@@ -691,7 +715,7 @@
    "category": "building",
    "width": 3,
    "height": 3,
-   "max_level": 16,
+   "max_level": 17,
    "level_th": [
     3,
     4,
@@ -708,11 +732,13 @@
     15,
     16,
     17,
-    18
+    18,
+    19
    ],
    "max_count": [
     0,
     0,
+    1,
     1,
     1,
     1,
@@ -782,6 +808,7 @@
     1,
     1,
     1,
+    1,
     1
    ],
    "hidden": false,
@@ -830,6 +857,7 @@
     1,
     1,
     1,
+    1,
     1
    ],
    "hidden": false,
@@ -844,7 +872,7 @@
    "category": "building",
    "width": 3,
    "height": 3,
-   "max_level": 9,
+   "max_level": 10,
    "level_th": [
     5,
     6,
@@ -854,13 +882,15 @@
     11,
     13,
     15,
-    16
+    16,
+    17
    ],
    "max_count": [
     0,
     0,
     0,
     0,
+    1,
     1,
     1,
     1,
@@ -883,6 +913,7 @@
      4,
      6,
      8,
+     10,
      10,
      10,
      10,
@@ -919,6 +950,7 @@
     0,
     0,
     0,
+    1,
     1,
     1,
     1,
@@ -984,6 +1016,7 @@
     1,
     1,
     1,
+    1,
     1
    ],
    "hidden": false,
@@ -1010,7 +1043,7 @@
    "category": "building",
    "width": 4,
    "height": 4,
-   "max_level": 12,
+   "max_level": 13,
    "level_th": [
     4,
     8,
@@ -1023,12 +1056,14 @@
     15,
     16,
     17,
-    18
+    18,
+    19
    ],
    "max_count": [
     0,
     0,
     0,
+    1,
     1,
     1,
     1,
@@ -1090,6 +1125,7 @@
     1,
     1,
     1,
+    1,
     1
    ],
    "hidden": false,
@@ -1135,6 +1171,7 @@
     1,
     1,
     1,
+    1,
     1
    ],
    "hidden": false,
@@ -1149,7 +1186,7 @@
    "category": "building",
    "width": 2,
    "height": 2,
-   "max_level": 8,
+   "max_level": 9,
    "level_th": [
     1,
     14,
@@ -1158,9 +1195,11 @@
     15,
     16,
     17,
-    18
+    18,
+    19
    ],
    "max_count": [
+    5,
     5,
     5,
     5,
@@ -1214,6 +1253,7 @@
     1,
     1,
     1,
+    1,
     1
    ],
    "hidden": false,
@@ -1250,6 +1290,7 @@
     1,
     1,
     1,
+    1,
     1
    ],
    "hidden": false,
@@ -1264,7 +1305,7 @@
    "category": "wall",
    "width": 1,
    "height": 1,
-   "max_level": 19,
+   "max_level": 20,
    "level_th": [
     2,
     2,
@@ -1284,7 +1325,8 @@
     15,
     16,
     17,
-    18
+    18,
+    19
    ],
    "max_count": [
     0,
@@ -1304,10 +1346,11 @@
     325,
     325,
     325,
-    325
+    325,
+    350
    ],
    "hidden": false,
-   "require_built_on_th_up": false
+   "require_built_on_th_up": true
   },
   {
    "gid": 1000008,
@@ -1358,12 +1401,13 @@
     7,
     7,
     7,
+    7,
     7
    ],
    "hidden": false,
    "housing": {},
    "building_class": "Defense",
-   "require_built_on_th_up": false
+   "require_built_on_th_up": true
   },
   {
    "gid": 1000009,
@@ -1414,12 +1458,13 @@
     8,
     8,
     9,
+    9,
     9
    ],
    "hidden": false,
    "housing": {},
    "building_class": "Defense",
-   "require_built_on_th_up": false
+   "require_built_on_th_up": true
   },
   {
    "gid": 1000013,
@@ -1467,11 +1512,17 @@
     4,
     4,
     4,
+    4,
     4
    ],
    "hidden": false,
    "housing": {},
    "building_class": "Defense",
+   "supercharge": {
+    "level": 18,
+    "max": 2,
+    "th": 18
+   },
    "require_built_on_th_up": true
   },
   {
@@ -1481,7 +1532,7 @@
    "category": "building",
    "width": 3,
    "height": 3,
-   "max_level": 16,
+   "max_level": 17,
    "level_th": [
     4,
     4,
@@ -1498,7 +1549,8 @@
     15,
     16,
     17,
-    18
+    18,
+    19
    ],
    "max_count": [
     0,
@@ -1518,7 +1570,8 @@
     4,
     4,
     4,
-    4
+    4,
+    5
    ],
    "hidden": false,
    "housing": {},
@@ -1570,12 +1623,13 @@
     5,
     5,
     5,
+    6,
     6
    ],
    "hidden": false,
    "housing": {},
    "building_class": "Defense",
-   "require_built_on_th_up": false
+   "require_built_on_th_up": true
   },
   {
    "gid": 1000019,
@@ -1584,7 +1638,7 @@
    "category": "building",
    "width": 2,
    "height": 2,
-   "max_level": 17,
+   "max_level": 18,
    "level_th": [
     7,
     7,
@@ -1602,7 +1656,8 @@
     15,
     16,
     17,
-    18
+    18,
+    19
    ],
    "max_count": [
     0,
@@ -1616,6 +1671,7 @@
     4,
     4,
     4,
+    5,
     5,
     5,
     5,
@@ -1655,6 +1711,7 @@
     1,
     1,
     1,
+    2,
     2,
     2,
     2,
@@ -1712,11 +1769,17 @@
     2,
     2,
     2,
+    2,
     2
    ],
    "hidden": false,
    "housing": {},
    "building_class": "Defense",
+   "supercharge": {
+    "level": 13,
+    "max": 2,
+    "th": 18
+   },
    "require_built_on_th_up": true
   },
   {
@@ -1726,7 +1789,7 @@
    "category": "building",
    "width": 3,
    "height": 3,
-   "max_level": 13,
+   "max_level": 14,
    "level_th": [
     9,
     9,
@@ -1740,7 +1803,8 @@
     15,
     16,
     17,
-    18
+    18,
+    19
    ],
    "max_count": [
     0,
@@ -1760,11 +1824,13 @@
     4,
     4,
     4,
+    4,
     4
    ],
    "hidden": false,
    "housing": {},
    "ammo": [
+    1500,
     1500,
     1500,
     1500,
@@ -1822,6 +1888,7 @@
     3,
     3,
     3,
+    3,
     3
    ],
    "hidden": false,
@@ -1841,6 +1908,11 @@
     1000
    ],
    "building_class": "Defense",
+   "supercharge": {
+    "level": 12,
+    "max": 2,
+    "th": 18
+   },
    "require_built_on_th_up": true
   },
   {
@@ -1878,6 +1950,7 @@
     1,
     1,
     0,
+    0,
     0
    ],
    "hidden": false,
@@ -1892,7 +1965,7 @@
     30
    ],
    "building_class": "Defense",
-   "require_built_on_th_up": false
+   "require_built_on_th_up": true
   },
   {
    "gid": 1000067,
@@ -1929,6 +2002,7 @@
     2,
     2,
     2,
+    2,
     2
    ],
    "hidden": false,
@@ -1943,6 +2017,11 @@
     90
    ],
    "building_class": "Defense",
+   "supercharge": {
+    "level": 7,
+    "max": 2,
+    "th": 18
+   },
    "require_built_on_th_up": true
   },
   {
@@ -1974,6 +2053,7 @@
     0,
     0,
     0,
+    2,
     2,
     2,
     2,
@@ -2017,11 +2097,17 @@
     1,
     1,
     1,
+    1,
     1
    ],
    "hidden": false,
    "housing": {},
    "building_class": "Defense",
+   "supercharge": {
+    "level": 5,
+    "max": 2,
+    "th": 17
+   },
    "require_built_on_th_up": true
   },
   {
@@ -2031,12 +2117,13 @@
    "category": "building",
    "width": 3,
    "height": 3,
-   "max_level": 4,
+   "max_level": 5,
    "level_th": [
     16,
     16,
     17,
-    18
+    18,
+    19
    ],
    "max_count": [
     0,
@@ -2055,6 +2142,7 @@
     0,
     0,
     2,
+    3,
     3,
     3
    ],
@@ -2072,7 +2160,7 @@
      "Archer Tower": false
     }
    },
-   "require_built_on_th_up": false
+   "require_built_on_th_up": true
   },
   {
    "gid": 1000085,
@@ -2081,12 +2169,13 @@
    "category": "building",
    "width": 3,
    "height": 3,
-   "max_level": 4,
+   "max_level": 5,
    "level_th": [
     16,
     16,
     17,
-    18
+    18,
+    19
    ],
    "max_count": [
     0,
@@ -2106,6 +2195,7 @@
     0,
     2,
     3,
+    3,
     3
    ],
    "hidden": false,
@@ -2122,7 +2212,7 @@
      "Cannon": false
     }
    },
-   "require_built_on_th_up": false
+   "require_built_on_th_up": true
   },
   {
    "gid": 1000079,
@@ -2131,11 +2221,12 @@
    "category": "building",
    "width": 3,
    "height": 3,
-   "max_level": 3,
+   "max_level": 4,
    "level_th": [
     17,
     17,
-    18
+    18,
+    19
    ],
    "max_count": [
     0,
@@ -2154,6 +2245,7 @@
     0,
     0,
     0,
+    1,
     1,
     1
    ],
@@ -2174,7 +2266,7 @@
      "Cannon": true
     }
    },
-   "require_built_on_th_up": false
+   "require_built_on_th_up": true
   },
   {
    "gid": 1000089,
@@ -2207,11 +2299,17 @@
     0,
     0,
     2,
+    2,
     2
    ],
    "hidden": false,
    "housing": {},
    "building_class": "Defense",
+   "supercharge": {
+    "level": 3,
+    "max": 2,
+    "th": 18
+   },
    "require_built_on_th_up": true
   },
   {
@@ -2244,11 +2342,17 @@
     0,
     0,
     0,
+    1,
     1
    ],
    "hidden": false,
    "housing": {},
    "building_class": "Defense",
+   "supercharge": {
+    "level": 2,
+    "max": 2,
+    "th": 18
+   },
    "require_built_on_th_up": true
   },
   {
@@ -2281,6 +2385,7 @@
     0,
     0,
     0,
+    2,
     2
    ],
    "hidden": false,
@@ -2297,7 +2402,12 @@
      "Wizard Tower": false
     }
    },
-   "require_built_on_th_up": false
+   "supercharge": {
+    "level": 2,
+    "max": 2,
+    "th": 18
+   },
+   "require_built_on_th_up": true
   },
   {
    "gid": 1000097,
@@ -2328,11 +2438,187 @@
     0,
     0,
     0,
+    0,
     1
    ],
    "hidden": false,
    "housing": {},
    "building_class": "Defense",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000105,
+   "name": "Guardian Building",
+   "name_cn": "守卫神殿",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 1,
+   "level_th": [
+    19
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Army",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000106,
+   "name": "Squad Barracks",
+   "name_cn": "小队训练营",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 12,
+   "level_th": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Army",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000107,
+   "name": "Spiky Tower",
+   "name_cn": "尖刺塔",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 2,
+   "level_th": [
+    19,
+    19
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Defense",
+   "require_built_on_th_up": true
+  },
+  {
+   "gid": 1000108,
+   "name": "Firecracker Tower",
+   "name_cn": "烟花炮手塔",
+   "category": "building",
+   "width": 3,
+   "height": 3,
+   "max_level": 2,
+   "level_th": [
+    19,
+    19
+   ],
+   "max_count": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2
+   ],
+   "hidden": false,
+   "housing": {},
+   "building_class": "Defense",
+   "merge": {
+    "inputs": {
+     "Archer Tower": 1,
+     "Scattershot": 1
+    },
+    "input_levels": {
+     "Archer Tower": 21,
+     "Scattershot": 7
+    },
+    "input_geared": {
+     "Archer Tower": false,
+     "Scattershot": false
+    }
+   },
    "require_built_on_th_up": true
   },
   {
@@ -2377,10 +2663,11 @@
     8,
     8,
     8,
+    8,
     8
    ],
    "hidden": true,
-   "require_built_on_th_up": false
+   "require_built_on_th_up": true
   },
   {
    "gid": 12000001,
@@ -2389,7 +2676,7 @@
    "category": "trap",
    "width": 1,
    "height": 1,
-   "max_level": 13,
+   "max_level": 14,
    "level_th": [
     1,
     7,
@@ -2403,7 +2690,8 @@
     15,
     16,
     17,
-    18
+    18,
+    19
    ],
    "max_count": [
     0,
@@ -2423,10 +2711,11 @@
     9,
     9,
     9,
-    9
+    9,
+    10
    ],
    "hidden": true,
-   "require_built_on_th_up": false
+   "require_built_on_th_up": true
   },
   {
    "gid": 12000005,
@@ -2435,7 +2724,7 @@
    "category": "trap",
    "width": 1,
    "height": 1,
-   "max_level": 13,
+   "max_level": 14,
    "level_th": [
     1,
     5,
@@ -2449,7 +2738,8 @@
     15,
     16,
     17,
-    18
+    18,
+    19
    ],
    "max_count": [
     0,
@@ -2469,10 +2759,11 @@
     7,
     7,
     7,
+    8,
     8
    ],
    "hidden": true,
-   "require_built_on_th_up": false
+   "require_built_on_th_up": true
   },
   {
    "gid": 12000002,
@@ -2514,10 +2805,11 @@
     7,
     7,
     8,
+    8,
     8
    ],
    "hidden": true,
-   "require_built_on_th_up": false
+   "require_built_on_th_up": true
   },
   {
    "gid": 12000006,
@@ -2555,10 +2847,11 @@
     8,
     8,
     9,
+    9,
     9
    ],
    "hidden": true,
-   "require_built_on_th_up": false
+   "require_built_on_th_up": true
   },
   {
    "gid": 12000008,
@@ -2567,13 +2860,14 @@
    "category": "trap",
    "width": 1,
    "height": 1,
-   "max_level": 5,
+   "max_level": 6,
    "level_th": [
     1,
     8,
     9,
     10,
-    18
+    18,
+    19
    ],
    "max_count": [
     0,
@@ -2593,10 +2887,11 @@
     4,
     4,
     4,
+    4,
     4
    ],
    "hidden": true,
-   "require_built_on_th_up": false
+   "require_built_on_th_up": true
   },
   {
    "gid": 12000016,
@@ -2629,10 +2924,11 @@
     1,
     1,
     1,
+    1,
     1
    ],
    "hidden": true,
-   "require_built_on_th_up": false
+   "require_built_on_th_up": true
   },
   {
    "gid": 12000020,
@@ -2666,10 +2962,11 @@
     0,
     0,
     1,
+    1,
     1
    ],
    "hidden": true,
-   "require_built_on_th_up": false
+   "require_built_on_th_up": true
   }
  ],
  "units": [
@@ -2680,7 +2977,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 1,
-   "max_level": 13,
+   "max_level": 14,
    "levels_req": [
     {
      "Laboratory": 1
@@ -2720,6 +3017,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -2734,7 +3034,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 1,
-   "max_level": 14,
+   "max_level": 15,
    "levels_req": [
     {
      "Laboratory": 1
@@ -2777,6 +3077,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -2791,7 +3094,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 5,
-   "max_level": 14,
+   "max_level": 15,
    "levels_req": [
     {
      "Laboratory": 1
@@ -2834,6 +3137,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -2848,7 +3154,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 1,
-   "max_level": 10,
+   "max_level": 11,
    "levels_req": [
     {
      "Laboratory": 1
@@ -2879,6 +3185,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -2893,7 +3202,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 2,
-   "max_level": 14,
+   "max_level": 15,
    "levels_req": [
     {
      "Laboratory": 1
@@ -2936,6 +3245,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -2950,7 +3262,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 5,
-   "max_level": 13,
+   "max_level": 14,
    "levels_req": [
     {
      "Laboratory": 1
@@ -2990,6 +3302,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -3004,7 +3319,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 4,
-   "max_level": 14,
+   "max_level": 15,
    "levels_req": [
     {
      "Laboratory": 1
@@ -3047,6 +3362,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -3061,7 +3379,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 14,
-   "max_level": 11,
+   "max_level": 12,
    "levels_req": [
     {
      "Laboratory": 1
@@ -3095,6 +3413,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -3109,7 +3430,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 20,
-   "max_level": 13,
+   "max_level": 14,
    "levels_req": [
     {
      "Laboratory": 1
@@ -3149,6 +3470,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -3163,7 +3487,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 25,
-   "max_level": 13,
+   "max_level": 14,
    "levels_req": [
     {
      "Laboratory": 1
@@ -3203,6 +3527,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -3217,7 +3544,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 10,
-   "max_level": 12,
+   "max_level": 13,
    "levels_req": [
     {
      "Laboratory": 1
@@ -3254,6 +3581,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -3268,7 +3598,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 6,
-   "max_level": 12,
+   "max_level": 13,
    "levels_req": [
     {
      "Laboratory": 1
@@ -3305,6 +3635,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -3319,7 +3652,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 30,
-   "max_level": 9,
+   "max_level": 10,
    "levels_req": [
     {
      "Laboratory": 1
@@ -3347,6 +3680,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -3361,7 +3697,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 18,
-   "max_level": 8,
+   "max_level": 9,
    "levels_req": [
     {
      "Laboratory": 1
@@ -3386,6 +3722,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -3400,7 +3739,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 25,
-   "max_level": 6,
+   "max_level": 7,
    "levels_req": [
     {
      "Laboratory": 1
@@ -3419,6 +3758,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -3433,7 +3775,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 32,
-   "max_level": 5,
+   "max_level": 6,
    "levels_req": [
     {
      "Laboratory": 1
@@ -3449,6 +3791,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -3463,7 +3808,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 20,
-   "max_level": 4,
+   "max_level": 5,
    "levels_req": [
     {
      "Laboratory": 1
@@ -3476,6 +3821,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -3490,7 +3838,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 16,
-   "max_level": 4,
+   "max_level": 5,
    "levels_req": [
     {
      "Laboratory": 1
@@ -3503,6 +3851,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -3517,7 +3868,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 40,
-   "max_level": 3,
+   "max_level": 4,
    "levels_req": [
     {
      "Laboratory": 1
@@ -3527,6 +3878,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -3541,7 +3895,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 2,
-   "max_level": 14,
+   "max_level": 15,
    "levels_req": [
     {
      "Laboratory": 1
@@ -3584,6 +3938,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -3598,7 +3955,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 5,
-   "max_level": 15,
+   "max_level": 16,
    "levels_req": [
     {
      "Laboratory": 1
@@ -3644,6 +4001,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -3658,7 +4018,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 8,
-   "max_level": 12,
+   "max_level": 13,
    "levels_req": [
     {
      "Laboratory": 1
@@ -3695,6 +4055,9 @@
     },
     {
      "Laboratory": 15
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -3709,7 +4072,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 30,
-   "max_level": 15,
+   "max_level": 16,
    "levels_req": [
     {
      "Laboratory": 1
@@ -3755,6 +4118,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -3769,7 +4135,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 12,
-   "max_level": 8,
+   "max_level": 9,
    "levels_req": [
     {
      "Laboratory": 1
@@ -3794,6 +4160,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -3808,7 +4177,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 30,
-   "max_level": 8,
+   "max_level": 9,
    "levels_req": [
     {
      "Laboratory": 1
@@ -3833,6 +4202,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -3847,7 +4219,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 6,
-   "max_level": 10,
+   "max_level": 11,
    "levels_req": [
     {
      "Laboratory": 1
@@ -3878,6 +4250,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -3934,7 +4309,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 6,
-   "max_level": 4,
+   "max_level": 5,
    "levels_req": [
     {
      "Laboratory": 1
@@ -3947,6 +4322,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -3988,7 +4366,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 16,
-   "max_level": 6,
+   "max_level": 7,
    "levels_req": [
     {
      "Laboratory": 1
@@ -4007,6 +4385,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -4048,8 +4429,11 @@
    "kind": "troop",
    "status": "super_troop",
    "housing": 5,
-   "max_level": 9,
+   "max_level": 10,
    "levels_req": [
+    {
+     "Laboratory": 1
+    },
     {
      "Laboratory": 1
     },
@@ -4093,8 +4477,11 @@
    "kind": "troop",
    "status": "super_troop",
    "housing": 12,
-   "max_level": 10,
+   "max_level": 11,
    "levels_req": [
+    {
+     "Laboratory": 1
+    },
     {
      "Laboratory": 1
     },
@@ -4141,8 +4528,11 @@
    "kind": "troop",
    "status": "super_troop",
    "housing": 10,
-   "max_level": 10,
+   "max_level": 11,
    "levels_req": [
+    {
+     "Laboratory": 1
+    },
     {
      "Laboratory": 1
     },
@@ -4189,8 +4579,11 @@
    "kind": "troop",
    "status": "super_troop",
    "housing": 3,
-   "max_level": 6,
+   "max_level": 7,
    "levels_req": [
+    {
+     "Laboratory": 1
+    },
     {
      "Laboratory": 1
     },
@@ -4225,8 +4618,11 @@
    "kind": "troop",
    "status": "super_troop",
    "housing": 8,
-   "max_level": 10,
+   "max_level": 11,
    "levels_req": [
+    {
+     "Laboratory": 1
+    },
     {
      "Laboratory": 1
     },
@@ -4273,8 +4669,11 @@
    "kind": "troop",
    "status": "super_troop",
    "housing": 8,
-   "max_level": 9,
+   "max_level": 10,
    "levels_req": [
+    {
+     "Laboratory": 1
+    },
     {
      "Laboratory": 1
     },
@@ -4318,8 +4717,11 @@
    "kind": "troop",
    "status": "super_troop",
    "housing": 10,
-   "max_level": 10,
+   "max_level": 11,
    "levels_req": [
+    {
+     "Laboratory": 1
+    },
     {
      "Laboratory": 1
     },
@@ -4366,8 +4768,11 @@
    "kind": "troop",
    "status": "super_troop",
    "housing": 40,
-   "max_level": 11,
+   "max_level": 12,
    "levels_req": [
+    {
+     "Laboratory": 1
+    },
     {
      "Laboratory": 1
     },
@@ -4417,8 +4822,11 @@
    "kind": "troop",
    "status": "super_troop",
    "housing": 15,
-   "max_level": 12,
+   "max_level": 13,
    "levels_req": [
+    {
+     "Laboratory": 10
+    },
     {
      "Laboratory": 10
     },
@@ -4471,8 +4879,11 @@
    "kind": "troop",
    "status": "super_troop",
    "housing": 24,
-   "max_level": 12,
+   "max_level": 13,
    "levels_req": [
+    {
+     "Laboratory": 1
+    },
     {
      "Laboratory": 1
     },
@@ -4525,8 +4936,11 @@
    "kind": "troop",
    "status": "super_troop",
    "housing": 35,
-   "max_level": 8,
+   "max_level": 9,
    "levels_req": [
+    {
+     "Laboratory": 1
+    },
     {
      "Laboratory": 1
     },
@@ -4567,8 +4981,11 @@
    "kind": "troop",
    "status": "super_troop",
    "housing": 12,
-   "max_level": 11,
+   "max_level": 12,
    "levels_req": [
+    {
+     "Laboratory": 1
+    },
     {
      "Laboratory": 1
     },
@@ -4618,8 +5035,11 @@
    "kind": "troop",
    "status": "super_troop",
    "housing": 12,
-   "max_level": 12,
+   "max_level": 13,
    "levels_req": [
+    {
+     "Laboratory": 1
+    },
     {
      "Laboratory": 1
     },
@@ -4672,8 +5092,11 @@
    "kind": "troop",
    "status": "super_troop",
    "housing": 20,
-   "max_level": 12,
+   "max_level": 13,
    "levels_req": [
+    {
+     "Laboratory": 1
+    },
     {
      "Laboratory": 1
     },
@@ -4726,8 +5149,11 @@
    "kind": "troop",
    "status": "super_troop",
    "housing": 40,
-   "max_level": 8,
+   "max_level": 9,
    "levels_req": [
+    {
+     "Laboratory": 10
+    },
     {
      "Laboratory": 10
     },
@@ -4768,8 +5194,11 @@
    "kind": "troop",
    "status": "super_troop",
    "housing": 40,
-   "max_level": 8,
+   "max_level": 9,
    "levels_req": [
+    {
+     "Laboratory": 1
+    },
     {
      "Laboratory": 1
     },
@@ -4810,8 +5239,11 @@
    "kind": "troop",
    "status": "super_troop",
    "housing": 30,
-   "max_level": 10,
+   "max_level": 11,
    "levels_req": [
+    {
+     "Laboratory": 1
+    },
     {
      "Laboratory": 1
     },
@@ -5023,7 +5455,7 @@
    "kind": "siege",
    "status": "permanent",
    "housing": 1,
-   "max_level": 5,
+   "max_level": 6,
    "levels_req": [
     {
      "Laboratory": 9
@@ -5039,6 +5471,9 @@
     },
     {
      "Laboratory": 14
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -5113,7 +5548,7 @@
    "kind": "troop",
    "status": "permanent",
    "housing": 26,
-   "max_level": 4,
+   "max_level": 5,
    "levels_req": [
     {
      "Laboratory": 1
@@ -5126,6 +5561,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -5161,13 +5599,323 @@
    "visual_offset": 0
   },
   {
+   "gid": 4000195,
+   "name": "Barcher Squad",
+   "name_cn": "野蛮人弓箭手小队",
+   "kind": "squad",
+   "status": "permanent",
+   "housing": 15,
+   "max_level": 3,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 17
+    },
+    {
+     "Laboratory": 17
+    }
+   ],
+   "unlock": {
+    "Squad Barracks": 1
+   },
+   "donatable": false,
+   "visual_offset": 0
+  },
+  {
+   "gid": 4000196,
+   "name": "Giant Wizard Squad",
+   "name_cn": "巨人法师小队",
+   "kind": "squad",
+   "status": "permanent",
+   "housing": 25,
+   "max_level": 3,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 17
+    },
+    {
+     "Laboratory": 17
+    }
+   ],
+   "unlock": {
+    "Squad Barracks": 2
+   },
+   "donatable": false,
+   "visual_offset": 0
+  },
+  {
+   "gid": 4000197,
+   "name": "Wall Breaker Squad",
+   "name_cn": "炸弹人小队",
+   "kind": "squad",
+   "status": "permanent",
+   "housing": 8,
+   "max_level": 3,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 17
+    },
+    {
+     "Laboratory": 17
+    }
+   ],
+   "unlock": {
+    "Squad Barracks": 3
+   },
+   "donatable": false,
+   "visual_offset": 0
+  },
+  {
+   "gid": 4000198,
+   "name": "Minion Squad",
+   "name_cn": "亡灵小队",
+   "kind": "squad",
+   "status": "permanent",
+   "housing": 12,
+   "max_level": 3,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 17
+    },
+    {
+     "Laboratory": 17
+    }
+   ],
+   "unlock": {
+    "Squad Barracks": 4
+   },
+   "donatable": false,
+   "visual_offset": 0
+  },
+  {
+   "gid": 4000199,
+   "name": "Balloon Squad",
+   "name_cn": "气球兵小队",
+   "kind": "squad",
+   "status": "permanent",
+   "housing": 16,
+   "max_level": 3,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 17
+    },
+    {
+     "Laboratory": 17
+    }
+   ],
+   "unlock": {
+    "Squad Barracks": 5
+   },
+   "donatable": false,
+   "visual_offset": 0
+  },
+  {
+   "gid": 4000200,
+   "name": "Golemwitch Squad",
+   "name_cn": "女巫戈仑小队",
+   "kind": "squad",
+   "status": "permanent",
+   "housing": 55,
+   "max_level": 3,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 17
+    },
+    {
+     "Laboratory": 17
+    }
+   ],
+   "unlock": {
+    "Squad Barracks": 6
+   },
+   "donatable": false,
+   "visual_offset": 0
+  },
+  {
+   "gid": 4000201,
+   "name": "Hog Rider Squad",
+   "name_cn": "野猪骑士小队",
+   "kind": "squad",
+   "status": "permanent",
+   "housing": 48,
+   "max_level": 3,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 17
+    },
+    {
+     "Laboratory": 17
+    }
+   ],
+   "unlock": {
+    "Squad Barracks": 7
+   },
+   "donatable": false,
+   "visual_offset": 0
+  },
+  {
+   "gid": 4000202,
+   "name": "Miner Squad",
+   "name_cn": "掘地矿工小队",
+   "kind": "squad",
+   "status": "permanent",
+   "housing": 48,
+   "max_level": 3,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 17
+    },
+    {
+     "Laboratory": 17
+    }
+   ],
+   "unlock": {
+    "Squad Barracks": 8
+   },
+   "donatable": false,
+   "visual_offset": 0
+  },
+  {
+   "gid": 4000203,
+   "name": "Healer Squad",
+   "name_cn": "天使小队",
+   "kind": "squad",
+   "status": "permanent",
+   "housing": 70,
+   "max_level": 3,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 17
+    },
+    {
+     "Laboratory": 17
+    }
+   ],
+   "unlock": {
+    "Squad Barracks": 9
+   },
+   "donatable": false,
+   "visual_offset": 0
+  },
+  {
+   "gid": 4000204,
+   "name": "PEKKA Etitan Squad",
+   "name_cn": "皮卡泰坦小队",
+   "kind": "squad",
+   "status": "permanent",
+   "housing": 46,
+   "max_level": 3,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 17
+    },
+    {
+     "Laboratory": 17
+    }
+   ],
+   "unlock": {
+    "Squad Barracks": 10
+   },
+   "housing_levels": [
+    46,
+    46,
+    44
+   ],
+   "donatable": false,
+   "visual_offset": 0
+  },
+  {
+   "gid": 4000205,
+   "name": "Dragon Squad",
+   "name_cn": "飞龙小队",
+   "kind": "squad",
+   "status": "permanent",
+   "housing": 85,
+   "max_level": 3,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 17
+    },
+    {
+     "Laboratory": 17
+    }
+   ],
+   "unlock": {
+    "Squad Barracks": 11
+   },
+   "donatable": false,
+   "visual_offset": 0
+  },
+  {
+   "gid": 4000206,
+   "name": "Baby Dragon Squad",
+   "name_cn": "飞龙宝宝小队",
+   "kind": "squad",
+   "status": "permanent",
+   "housing": 26,
+   "max_level": 3,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 17
+    },
+    {
+     "Laboratory": 17
+    }
+   ],
+   "unlock": {
+    "Squad Barracks": 12
+   },
+   "housing_levels": [
+    26,
+    26,
+    24
+   ],
+   "donatable": false,
+   "visual_offset": 0
+  },
+  {
    "gid": 26000000,
    "name": "Lightning",
    "name_cn": "雷电法术",
    "kind": "spell",
    "status": "permanent",
    "housing": 1,
-   "max_level": 13,
+   "max_level": 14,
    "levels_req": [
     {
      "Laboratory": 1
@@ -5207,6 +5955,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -5220,7 +5971,7 @@
    "kind": "spell",
    "status": "permanent",
    "housing": 2,
-   "max_level": 12,
+   "max_level": 13,
    "levels_req": [
     {
      "Laboratory": 2
@@ -5257,6 +6008,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -5503,7 +6257,7 @@
    "kind": "spell",
    "status": "permanent",
    "housing": 1,
-   "max_level": 4,
+   "max_level": 5,
    "levels_req": [
     {
      "Laboratory": 1
@@ -5516,6 +6270,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -5529,7 +6286,7 @@
    "kind": "spell",
    "status": "permanent",
    "housing": 1,
-   "max_level": 12,
+   "max_level": 13,
    "levels_req": [
     {
      "Laboratory": 1
@@ -5566,6 +6323,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -5617,7 +6377,7 @@
    "kind": "spell",
    "status": "permanent",
    "housing": 1,
-   "max_level": 7,
+   "max_level": 8,
    "levels_req": [
     {
      "Laboratory": 1
@@ -5639,6 +6399,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -5690,7 +6453,7 @@
    "kind": "spell",
    "status": "permanent",
    "housing": 1,
-   "max_level": 8,
+   "max_level": 9,
    "levels_req": [
     {
      "Laboratory": 1
@@ -5715,6 +6478,9 @@
     },
     {
      "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
     }
    ],
    "unlock": {
@@ -5809,13 +6575,39 @@
    }
   },
   {
+   "gid": 26000153,
+   "name": "Heroic Spell",
+   "name_cn": "英勇法术",
+   "kind": "spell",
+   "status": "permanent",
+   "housing": 2,
+   "max_level": 4,
+   "levels_req": [
+    {
+     "Laboratory": 1
+    },
+    {
+     "Laboratory": 15
+    },
+    {
+     "Laboratory": 16
+    },
+    {
+     "Laboratory": 17
+    }
+   ],
+   "unlock": {
+    "Spell Factory": 10
+   }
+  },
+  {
    "gid": 28000000,
    "name": "Barbarian King",
    "name_cn": "野蛮人之王",
    "kind": "hero",
    "status": "permanent",
    "housing": 25,
-   "max_level": 110,
+   "max_level": 115,
    "levels_req": [
     {
      "Town Hall": 4,
@@ -6256,6 +7048,26 @@
     {
      "Town Hall": 18,
      "Hero Hall": 12
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
     }
    ],
    "item_slots": 2,
@@ -6268,7 +7080,7 @@
    "kind": "hero",
    "status": "permanent",
    "housing": 25,
-   "max_level": 110,
+   "max_level": 115,
    "levels_req": [
     {
      "Town Hall": 8,
@@ -6709,6 +7521,26 @@
     {
      "Town Hall": 18,
      "Hero Hall": 12
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
     }
    ],
    "item_slots": 2,
@@ -6721,7 +7553,7 @@
    "kind": "hero",
    "status": "permanent",
    "housing": 25,
-   "max_level": 85,
+   "max_level": 90,
    "levels_req": [
     {
      "Town Hall": 11,
@@ -7062,6 +7894,26 @@
     {
      "Town Hall": 18,
      "Hero Hall": 12
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
     }
    ],
    "item_slots": 2,
@@ -7074,7 +7926,7 @@
    "kind": "hero",
    "status": "permanent",
    "housing": 25,
-   "max_level": 55,
+   "max_level": 60,
    "levels_req": [
     {
      "Town Hall": 13,
@@ -7295,6 +8147,26 @@
     {
      "Town Hall": 18,
      "Hero Hall": 12
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
     }
    ],
    "item_slots": 2,
@@ -7307,7 +8179,7 @@
    "kind": "hero",
    "status": "permanent",
    "housing": 25,
-   "max_level": 95,
+   "max_level": 100,
    "levels_req": [
     {
      "Town Hall": 9,
@@ -7688,6 +8560,26 @@
     {
      "Town Hall": 18,
      "Hero Hall": 12
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
     }
    ],
    "item_slots": 2,
@@ -7700,7 +8592,7 @@
    "kind": "hero",
    "status": "permanent",
    "housing": 25,
-   "max_level": 25,
+   "max_level": 30,
    "levels_req": [
     {
      "Town Hall": 15,
@@ -7801,6 +8693,26 @@
     {
      "Town Hall": 18,
      "Hero Hall": 12
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
+    },
+    {
+     "Town Hall": 19,
+     "Hero Hall": 13
     }
    ],
    "item_slots": 2,
@@ -8287,7 +9199,7 @@
    "kind": "pet",
    "status": "permanent",
    "housing": 0,
-   "max_level": 10,
+   "max_level": 15,
    "levels_req": [
     {
      "Pet House": 10
@@ -8318,6 +9230,21 @@
     },
     {
      "Pet House": 10
+    },
+    {
+     "Pet House": 12
+    },
+    {
+     "Pet House": 12
+    },
+    {
+     "Pet House": 12
+    },
+    {
+     "Pet House": 12
+    },
+    {
+     "Pet House": 12
     }
    ]
   },
@@ -9713,7 +10640,7 @@
   },
   {
    "gid": 90000017,
-   "name": "Piercing Arrow",
+   "name": "Giant Arrow",
    "name_cn": "巨型箭矢",
    "kind": "equipment",
    "status": "permanent",
@@ -12342,12 +13269,12 @@
    2
   ],
   "8000114": [
-   2,
-   2
-  ],
-  "8000115": [
    1,
    1
+  ],
+  "8000115": [
+   2,
+   2
   ],
   "8000116": [
    2,
@@ -12358,44 +13285,44 @@
    2
   ],
   "8000118": [
-   2,
-   2
-  ],
-  "8000119": [
    1,
    1
+  ],
+  "8000119": [
+   2,
+   2
   ],
   "8000120": [
    2,
    2
   ],
   "8000121": [
-   2,
-   2
+   3,
+   3
   ],
   "8000122": [
    3,
    3
   ],
   "8000123": [
-   3,
-   3
+   4,
+   4
   ],
   "8000124": [
    4,
    4
   ],
   "8000125": [
-   4,
-   4
-  ],
-  "8000126": [
    1,
    1
   ],
-  "8000127": [
+  "8000126": [
    4,
    4
+  ],
+  "8000127": [
+   2,
+   2
   ],
   "8000128": [
    2,
@@ -12406,12 +13333,12 @@
    2
   ],
   "8000130": [
-   2,
-   2
-  ],
-  "8000131": [
    1,
    1
+  ],
+  "8000131": [
+   2,
+   2
   ],
   "8000132": [
    2,
@@ -12448,12 +13375,40 @@
   "8000140": [
    2,
    2
+  ],
+  "8000141": [
+   2,
+   2
   ]
  },
  "rules": {
   "hero_slots": 4,
   "max_super_troop_kinds": 2,
   "map_tiles": 50,
-  "require_all_built_global": "FALSE"
+  "strength_max_squad_types": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   1,
+   1,
+   1,
+   1,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   3
+  ],
+  "require_all_built_global": "FALSE",
+  "maxed_before_th_up": [
+   "Hero Hall"
+  ]
  }
 }

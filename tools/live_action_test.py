@@ -37,6 +37,13 @@ PLANS = {
         ("回溯法术", ActionV1("spell", 26000053, 5.5, 28.0)),
         ("重新部署回溯单位", ActionV1("recalled", x=4.0, y=32.0, flag=0, extra=0)),
     ],
+    "th19_new": [
+        ("小队 野蛮人弓箭手小队", ActionV1("troop", 4000195, 4.0, 25.0)),
+        ("再下一个小队", ActionV1("troop", 4000195, 4.0, 30.0)),
+        ("英勇法术", ActionV1("spell", 26000153, 6.0, 27.0)),
+        ("英雄 野蛮人之王", ActionV1("hero", 28000000, 4.0, 20.0)),
+        ("技能 野蛮人之王", ActionV1("ability", 28000000)),
+    ],
     "siege_release": [
         ("攻城钻机", ActionV1("siege", 4000092, 4.0, 25.0)),
         ("攻城钻机释放", ActionV1("ability", 4000092)),
@@ -70,7 +77,7 @@ def main() -> None:
         subprocess.run(cfg.adb_cmd("shell", "monkey", "-p", cfg.package, "-c", "android.intent.category.LAUNCHER", "1"),
                        capture_output=True)
         wait_home()
-    starter = OfflineStarter(R / "th18.OwnHomeData.bin", R / "th18_friendly.EnemyHomeData.bin",
+    starter = OfflineStarter(R / "th19_after_ops.OwnHomeData.bin", R / "th19_friendly.EnemyHomeData.bin",
                              enemy_kind="EnemyHomeData", block_outgoing=True, allow_types=[10108], timeout_s=40)
     env = TianzeBattleEnv(EnvConfig(include_objects=True, turbo=8, battle_wait_timeout_s=40), battle_starter=starter)
     env.client.cmd_log(clear=True)

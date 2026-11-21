@@ -1,9 +1,9 @@
 {
  "schema": "tianze-coc/defense-catalog/v1",
  "build_tag": "18_647_2",
- "th_max": 18,
+ "th_max": 19,
  "summary": {
-  "building:allowed": 42,
+  "building:allowed": 46,
   "wall:allowed": 1,
   "building:excluded": 30,
   "trap:allowed": 8,
@@ -13,7 +13,8 @@
   "spell_tower_mode:allowed": 4,
   "guardian:allowed": 3,
   "guardian:excluded": 7,
-  "seasonal:excluded": 11,
+  "th_variant:allowed": 3,
+  "seasonal:excluded": 14,
   "seasonal:allowed": 3,
   "hero:allowed": 6,
   "cc_troop:allowed": 49
@@ -24,11 +25,11 @@
    "name": "Town Hall",
    "name_cn": "大本营",
    "th_min": 1,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "1": 1
    },
-   "max_level": 18,
+   "max_level": 19,
    "level_th": {
     "1": 0,
     "2": 1,
@@ -47,7 +48,8 @@
     "15": 14,
     "16": 15,
     "17": 16,
-    "18": 17
+    "18": 17,
+    "19": 18
    },
    "note": "",
    "status": "allowed"
@@ -57,11 +59,11 @@
    "name": "Clan Castle",
    "name_cn": "部落城堡",
    "th_min": 3,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "1": 1
    },
-   "max_level": 14,
+   "max_level": 15,
    "level_th": {
     "1": 3,
     "2": 4,
@@ -76,7 +78,8 @@
     "11": 15,
     "12": 16,
     "13": 17,
-    "14": 18
+    "14": 18,
+    "15": 19
    },
    "note": "",
    "status": "allowed"
@@ -86,14 +89,14 @@
    "name": "Gold Storage",
    "name_cn": "储金罐",
    "th_min": 1,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "1": 1,
     "3": 2,
     "8": 3,
     "9": 4
    },
-   "max_level": 19,
+   "max_level": 20,
    "level_th": {
     "1": 1,
     "2": 2,
@@ -109,7 +112,8 @@
     "16": 15,
     "17": 16,
     "18": 17,
-    "19": 18
+    "19": 18,
+    "20": 19
    },
    "note": "",
    "status": "allowed"
@@ -119,14 +123,14 @@
    "name": "Elixir Storage",
    "name_cn": "圣水瓶",
    "th_min": 1,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "1": 1,
     "3": 2,
     "8": 3,
     "9": 4
    },
-   "max_level": 19,
+   "max_level": 20,
    "level_th": {
     "1": 1,
     "2": 2,
@@ -142,7 +146,8 @@
     "16": 15,
     "17": 16,
     "18": 17,
-    "19": 18
+    "19": 18,
+    "20": 19
    },
    "note": "",
    "status": "allowed"
@@ -152,11 +157,11 @@
    "name": "Dark Elixir Storage",
    "name_cn": "暗黑重油罐",
    "th_min": 7,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "7": 1
    },
-   "max_level": 13,
+   "max_level": 14,
    "level_th": {
     "1": 7,
     "3": 8,
@@ -167,7 +172,8 @@
     "10": 15,
     "11": 16,
     "12": 17,
-    "13": 18
+    "13": 18,
+    "14": 19
    },
    "note": "",
    "status": "allowed"
@@ -177,7 +183,7 @@
    "name": "Gold Mine",
    "name_cn": "金矿",
    "th_min": 1,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "1": 1,
     "2": 2,
@@ -187,7 +193,7 @@
     "6": 6,
     "9": 7
    },
-   "max_level": 17,
+   "max_level": 18,
    "level_th": {
     "1": 1,
     "2": 2,
@@ -200,7 +206,8 @@
     "14": 11,
     "15": 12,
     "16": 14,
-    "17": 16
+    "17": 16,
+    "18": 18
    },
    "note": "",
    "status": "allowed"
@@ -210,7 +217,7 @@
    "name": "Elixir Collector",
    "name_cn": "圣水收集器",
    "th_min": 1,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "1": 1,
     "2": 2,
@@ -220,7 +227,7 @@
     "6": 6,
     "9": 7
    },
-   "max_level": 17,
+   "max_level": 18,
    "level_th": {
     "1": 1,
     "2": 2,
@@ -233,7 +240,8 @@
     "14": 11,
     "15": 12,
     "16": 14,
-    "17": 16
+    "17": 16,
+    "18": 18
    },
    "note": "",
    "status": "allowed"
@@ -243,13 +251,13 @@
    "name": "Dark Elixir Drill",
    "name_cn": "暗黑重油钻井",
    "th_min": 7,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "7": 1,
     "8": 2,
     "9": 3
    },
-   "max_level": 11,
+   "max_level": 12,
    "level_th": {
     "1": 7,
     "4": 9,
@@ -257,7 +265,8 @@
     "8": 11,
     "9": 12,
     "10": 14,
-    "11": 16
+    "11": 16,
+    "12": 18
    },
    "note": "",
    "status": "allowed"
@@ -267,7 +276,7 @@
    "name": "Army Camp",
    "name_cn": "兵营",
    "th_min": 1,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "1": 1,
     "3": 2,
@@ -299,11 +308,11 @@
    "name": "Laboratory",
    "name_cn": "实验室",
    "th_min": 3,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "3": 1
    },
-   "max_level": 16,
+   "max_level": 17,
    "level_th": {
     "1": 3,
     "2": 4,
@@ -320,7 +329,8 @@
     "13": 15,
     "14": 16,
     "15": 17,
-    "16": 18
+    "16": 18,
+    "17": 19
    },
    "note": "",
    "status": "allowed"
@@ -330,7 +340,7 @@
    "name": "Barracks",
    "name_cn": "训练营",
    "th_min": 1,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "1": 1
    },
@@ -362,7 +372,7 @@
    "name": "Dark Barracks",
    "name_cn": "暗黑训练营",
    "th_min": 7,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "7": 1
    },
@@ -387,11 +397,11 @@
    "name": "Spell Factory",
    "name_cn": "法术工厂",
    "th_min": 5,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "5": 1
    },
-   "max_level": 9,
+   "max_level": 10,
    "level_th": {
     "1": 5,
     "2": 6,
@@ -401,7 +411,8 @@
     "6": 11,
     "7": 13,
     "8": 15,
-    "9": 16
+    "9": 16,
+    "10": 17
    },
    "note": "",
    "status": "allowed"
@@ -411,7 +422,7 @@
    "name": "Dark Spell Factory",
    "name_cn": "暗黑法术工厂",
    "th_min": 8,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "8": 1
    },
@@ -432,7 +443,7 @@
    "name": "Siege Workshop",
    "name_cn": "攻城机器工坊",
    "th_min": 12,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "12": 1
    },
@@ -453,11 +464,11 @@
    "name": "Hero Hall",
    "name_cn": "英雄殿堂",
    "th_min": 4,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "4": 1
    },
-   "max_level": 12,
+   "max_level": 13,
    "level_th": {
     "1": 4,
     "2": 8,
@@ -470,7 +481,8 @@
     "9": 15,
     "10": 16,
     "11": 17,
-    "12": 18
+    "12": 18,
+    "13": 19
    },
    "note": "",
    "status": "allowed"
@@ -480,7 +492,7 @@
    "name": "Pet House",
    "name_cn": "战宠小屋",
    "th_min": 14,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "14": 1
    },
@@ -500,7 +512,7 @@
    "name": "Blacksmith",
    "name_cn": "铁匠铺",
    "th_min": 8,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "8": 1
    },
@@ -525,18 +537,19 @@
    "name": "Builders Hut",
    "name_cn": "建筑工人小屋",
    "th_min": 1,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "1": 5
    },
-   "max_level": 8,
+   "max_level": 9,
    "level_th": {
     "1": 1,
     "2": 14,
     "5": 15,
     "6": 16,
     "7": 17,
-    "8": 18
+    "8": 18,
+    "9": 19
    },
    "note": "高等级建筑工人小屋会出战（防守建筑工人）",
    "status": "allowed"
@@ -546,7 +559,7 @@
    "name": "BOBs Hut",
    "name_cn": "小博木屋",
    "th_min": 1,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "1": 1
    },
@@ -562,7 +575,7 @@
    "name": "Helper Hut",
    "name_cn": "帮手小屋",
    "th_min": 9,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "9": 1
    },
@@ -578,7 +591,7 @@
    "name": "Wall",
    "name_cn": "城墙",
    "th_min": 2,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "2": 25,
     "3": 50,
@@ -590,9 +603,10 @@
     "9": 250,
     "10": 275,
     "11": 300,
-    "14": 325
+    "14": 325,
+    "19": 350
    },
-   "max_level": 19,
+   "max_level": 20,
    "level_th": {
     "1": 2,
     "3": 3,
@@ -610,7 +624,8 @@
     "16": 15,
     "17": 16,
     "18": 17,
-    "19": 18
+    "19": 18,
+    "20": 19
    },
    "note": "",
    "status": "allowed"
@@ -620,7 +635,7 @@
    "name": "Cannon",
    "name_cn": "加农炮",
    "th_min": 1,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "1": 1,
     "2": 2,
@@ -655,7 +670,7 @@
    "name": "Archer Tower",
    "name_cn": "箭塔",
    "th_min": 2,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "2": 1,
     "4": 2,
@@ -692,7 +707,7 @@
    "name": "Mortar",
    "name_cn": "迫击炮",
    "th_min": 3,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "3": 1,
     "6": 2,
@@ -726,14 +741,15 @@
    "name": "Air Defense",
    "name_cn": "防空火箭",
    "th_min": 4,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "4": 1,
     "6": 2,
     "7": 3,
-    "9": 4
+    "9": 4,
+    "19": 5
    },
-   "max_level": 16,
+   "max_level": 17,
    "level_th": {
     "1": 4,
     "3": 5,
@@ -749,7 +765,8 @@
     "13": 15,
     "14": 16,
     "15": 17,
-    "16": 18
+    "16": 18,
+    "17": 19
    },
    "note": "",
    "status": "allowed"
@@ -759,7 +776,7 @@
    "name": "Wizard Tower",
    "name_cn": "法师塔",
    "th_min": 5,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "5": 1,
     "6": 2,
@@ -792,14 +809,14 @@
    "name": "Hidden Tesla",
    "name_cn": "特斯拉电磁塔",
    "th_min": 7,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "7": 2,
     "8": 3,
     "9": 4,
     "12": 5
    },
-   "max_level": 17,
+   "max_level": 18,
    "level_th": {
     "1": 7,
     "4": 8,
@@ -812,7 +829,8 @@
     "14": 15,
     "15": 16,
     "16": 17,
-    "17": 18
+    "17": 18,
+    "18": 19
    },
    "note": "",
    "status": "allowed"
@@ -822,7 +840,7 @@
    "name": "Air Sweeper",
    "name_cn": "空气炮",
    "th_min": 6,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "6": 1,
     "9": 2
@@ -844,7 +862,7 @@
    "name": "Bomb Tower",
    "name_cn": "炸弹塔",
    "th_min": 8,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "8": 1,
     "10": 2
@@ -871,13 +889,13 @@
    "name": "X-Bow",
    "name_cn": "十字连弩",
    "th_min": 9,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "9": 2,
     "10": 3,
     "11": 4
    },
-   "max_level": 13,
+   "max_level": 14,
    "level_th": {
     "1": 9,
     "4": 10,
@@ -888,7 +906,8 @@
     "10": 15,
     "11": 16,
     "12": 17,
-    "13": 18
+    "13": 18,
+    "14": 19
    },
    "note": "",
    "status": "allowed"
@@ -898,7 +917,7 @@
    "name": "Inferno Tower",
    "name_cn": "地狱之塔",
    "th_min": 10,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "10": 2,
     "12": 3
@@ -945,7 +964,7 @@
    "name": "Scattershot",
    "name_cn": "投石炮",
    "th_min": 13,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "13": 2
    },
@@ -966,7 +985,7 @@
    "name": "Spell Tower",
    "name_cn": "法术塔",
    "th_min": 15,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "15": 2
    },
@@ -983,7 +1002,7 @@
    "name": "Monolith",
    "name_cn": "擎天巨柱",
    "th_min": 15,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "15": 1
    },
@@ -1002,16 +1021,17 @@
    "name": "Multi Archer Tower",
    "name_cn": "多人箭塔",
    "th_min": 16,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "16": 2,
     "17": 3
    },
-   "max_level": 4,
+   "max_level": 5,
    "level_th": {
     "1": 16,
     "3": 17,
-    "4": 18
+    "4": 18,
+    "5": 19
    },
    "note": "由 21级箭塔 + 21级箭塔 合并而成",
    "status": "allowed"
@@ -1021,16 +1041,17 @@
    "name": "Ricochet Cannon",
    "name_cn": "跳弹加农炮",
    "th_min": 16,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "16": 2,
     "17": 3
    },
-   "max_level": 4,
+   "max_level": 5,
    "level_th": {
     "1": 16,
     "3": 17,
-    "4": 18
+    "4": 18,
+    "5": 19
    },
    "note": "由 21级加农炮 + 21级加农炮 合并而成",
    "status": "allowed"
@@ -1040,14 +1061,15 @@
    "name": "Multi Gear Tower",
    "name_cn": "复合机械塔",
    "th_min": 17,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "17": 1
    },
-   "max_level": 3,
+   "max_level": 4,
    "level_th": {
     "1": 17,
-    "3": 18
+    "3": 18,
+    "4": 19
    },
    "note": "由 21级箭塔（已改装） + 21级加农炮（已改装） 合并而成",
    "status": "allowed"
@@ -1057,7 +1079,7 @@
    "name": "Firespitter",
    "name_cn": "火焰喷射器",
    "th_min": 17,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "17": 2
    },
@@ -1074,7 +1096,7 @@
    "name": "Revenge Tower",
    "name_cn": "反击之塔",
    "th_min": 18,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "18": 1
    },
@@ -1090,7 +1112,7 @@
    "name": "Super Wizard Tower",
    "name_cn": "超级法师塔",
    "th_min": 18,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "18": 2
    },
@@ -1105,10 +1127,10 @@
    "category": "building",
    "name": "Crafting Station",
    "name_cn": "精制台",
-   "th_min": 18,
-   "th_max": 18,
+   "th_min": 19,
+   "th_max": 19,
    "max_count": {
-    "18": 1
+    "19": 1
    },
    "max_level": 1,
    "level_th": {
@@ -1538,11 +1560,86 @@
    "status": "excluded"
   },
   {
+   "category": "building",
+   "name": "Guardian Building",
+   "name_cn": "守卫神殿",
+   "th_min": 19,
+   "th_max": 19,
+   "max_count": {
+    "19": 1
+   },
+   "max_level": 1,
+   "level_th": {
+    "1": 19
+   },
+   "note": "承载守卫（见“守卫”）；19 本起大本营本身不再住守卫",
+   "status": "allowed"
+  },
+  {
+   "category": "building",
+   "name": "Squad Barracks",
+   "name_cn": "小队训练营",
+   "th_min": 8,
+   "th_max": 19,
+   "max_count": {
+    "8": 1
+   },
+   "max_level": 12,
+   "level_th": {
+    "1": 8,
+    "2": 9,
+    "3": 10,
+    "4": 11,
+    "5": 12,
+    "6": 13,
+    "7": 14,
+    "8": 15,
+    "9": 16,
+    "10": 17,
+    "11": 18,
+    "12": 19
+   },
+   "note": "生产小队（进攻方单位，见单位表）；防守时只是普通建筑",
+   "status": "allowed"
+  },
+  {
+   "category": "building",
+   "name": "Spiky Tower",
+   "name_cn": "尖刺塔",
+   "th_min": 19,
+   "th_max": 19,
+   "max_count": {
+    "19": 2
+   },
+   "max_level": 2,
+   "level_th": {
+    "1": 19
+   },
+   "note": "",
+   "status": "allowed"
+  },
+  {
+   "category": "building",
+   "name": "Firecracker Tower",
+   "name_cn": "烟花炮手塔",
+   "th_min": 19,
+   "th_max": 19,
+   "max_count": {
+    "19": 2
+   },
+   "max_level": 2,
+   "level_th": {
+    "1": 19
+   },
+   "note": "由 21级箭塔 + 7级投石炮 合并而成",
+   "status": "allowed"
+  },
+  {
    "category": "trap",
    "name": "Bomb",
    "name_cn": "隐形炸弹",
    "th_min": 3,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "3": 2,
     "5": 4,
@@ -1575,15 +1672,16 @@
    "name": "Spring Trap",
    "name_cn": "隐形弹簧",
    "th_min": 4,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "4": 2,
     "6": 4,
     "8": 6,
     "12": 8,
-    "13": 9
+    "13": 9,
+    "19": 10
    },
-   "max_level": 13,
+   "max_level": 14,
    "level_th": {
     "1": 1,
     "2": 7,
@@ -1597,7 +1695,8 @@
     "10": 15,
     "11": 16,
     "12": 17,
-    "13": 18
+    "13": 18,
+    "14": 19
    },
    "note": "",
    "status": "allowed"
@@ -1607,7 +1706,7 @@
    "name": "Air Bomb",
    "name_cn": "空中炸弹",
    "th_min": 5,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "5": 2,
     "8": 4,
@@ -1616,7 +1715,7 @@
     "14": 7,
     "18": 8
    },
-   "max_level": 13,
+   "max_level": 14,
    "level_th": {
     "1": 1,
     "2": 5,
@@ -1629,7 +1728,8 @@
     "10": 15,
     "11": 16,
     "12": 17,
-    "13": 18
+    "13": 18,
+    "14": 19
    },
    "note": "",
    "status": "allowed"
@@ -1639,7 +1739,7 @@
    "name": "Giant Bomb",
    "name_cn": "巨型炸弹",
    "th_min": 6,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "6": 1,
     "7": 2,
@@ -1672,7 +1772,7 @@
    "name": "Seeking Air Mine",
    "name_cn": "搜空地雷",
    "th_min": 7,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "7": 1,
     "8": 2,
@@ -1702,19 +1802,20 @@
    "name": "Skeleton Trap",
    "name_cn": "骷髅陷阱",
    "th_min": 8,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "8": 2,
     "10": 3,
     "14": 4
    },
-   "max_level": 5,
+   "max_level": 6,
    "level_th": {
     "1": 1,
     "2": 8,
     "3": 9,
     "4": 10,
-    "5": 18
+    "5": 18,
+    "6": 19
    },
    "note": "",
    "status": "allowed"
@@ -1724,7 +1825,7 @@
    "name": "Tornado Trap",
    "name_cn": "飓风陷阱",
    "th_min": 11,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "11": 1
    },
@@ -1741,7 +1842,7 @@
    "name": "Giga Bomb",
    "name_cn": "终极炸弹",
    "th_min": 17,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "17": 1
    },
@@ -1800,7 +1901,7 @@
    "name": "FreezeBomb",
    "name_cn": "冰冻陷阱",
    "th_min": 5,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "5": 1
    },
@@ -1816,7 +1917,7 @@
    "name": "ShrinkTrap",
    "name_cn": "玲珑陷阱",
    "th_min": 4,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "4": 1
    },
@@ -1966,7 +2067,7 @@
    "name": "SpellTowerInvisibility",
    "name_cn": "隐形法术塔",
    "th_min": 15,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "15": 2
    },
@@ -1980,7 +2081,7 @@
    "name": "SpellTowerPoison",
    "name_cn": "伤害药水法术塔",
    "th_min": 15,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "15": 2
    },
@@ -1994,7 +2095,7 @@
    "name": "SpellTowerRage",
    "name_cn": "狂暴法术塔",
    "th_min": 15,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "15": 2
    },
@@ -2026,9 +2127,9 @@
    "max_count": {
     "17": 1
    },
-   "max_level": 5,
+   "max_level": 1,
    "level_th": {},
-   "note": "17 本大本营自带武器，共 5 级；DPS 40/45/50/55/60，射程 12 格",
+   "note": "17 本大本营自带武器，共 1 级；DPS 60，射程 12 格",
    "status": "allowed"
   },
   {
@@ -2050,7 +2151,7 @@
    "name": "SpellTowerEarthquake",
    "name_cn": "地震法术塔",
    "th_min": 15,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {
     "15": 2
    },
@@ -2064,11 +2165,11 @@
    "name": "InfernoArtillery",
    "name_cn": "远袭者",
    "th_min": 18,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {},
    "max_level": 5,
    "level_th": {},
-   "note": "守护单位：Longshot；大本营 HousesGuardians=TRUE 的等级才有守卫；防守时从可用守卫中选 1 个出战",
+   "note": "守护单位：Longshot；大本营 HousesGuardians=TRUE 的等级（18本）由大本营承载；19本由守卫神殿承载；防守时从可用守卫中选 1 个出战",
    "status": "allowed"
   },
   {
@@ -2076,11 +2177,11 @@
    "name": "MeleeAreaaaa",
    "name_cn": "粉碎者",
    "th_min": 18,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {},
-   "max_level": 5,
+   "max_level": 10,
    "level_th": {},
-   "note": "守护单位：Smasher；大本营 HousesGuardians=TRUE 的等级才有守卫；防守时从可用守卫中选 1 个出战",
+   "note": "守护单位：Smasher；大本营 HousesGuardians=TRUE 的等级（18本）由大本营承载；19本由守卫神殿承载；防守时从可用守卫中选 1 个出战",
    "status": "allowed"
   },
   {
@@ -2160,11 +2261,11 @@
    "name": "Logger",
    "name_cn": "滚木手",
    "th_min": 18,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {},
    "max_level": 5,
    "level_th": {},
-   "note": "守护单位：Guardian Logger；大本营 HousesGuardians=TRUE 的等级才有守卫；防守时从可用守卫中选 1 个出战",
+   "note": "守护单位：Guardian Logger；大本营 HousesGuardians=TRUE 的等级（18本）由大本营承载；19本由守卫神殿承载；防守时从可用守卫中选 1 个出战",
    "status": "allowed"
   },
   {
@@ -2180,83 +2281,125 @@
    "status": "excluded"
   },
   {
+   "category": "th_variant",
+   "name": "Wizard Town Hall",
+   "name_cn": "法师大本营",
+   "th_min": 19,
+   "th_max": 19,
+   "max_count": {
+    "19": 1
+   },
+   "max_level": 2,
+   "level_th": {},
+   "note": "Town Hall 19 级的可切换模式，防守方三选一；需要本账号 法师（Wizard）达到 15 级才能切换；能力：WizardTownHallVariantAbility、WizardTownHallSpawnAbility",
+   "status": "allowed"
+  },
+  {
+   "category": "th_variant",
+   "name": "Archer Town Hall",
+   "name_cn": "弓箭手大本营",
+   "th_min": 19,
+   "th_max": 19,
+   "max_count": {
+    "19": 1
+   },
+   "max_level": 2,
+   "level_th": {},
+   "note": "Town Hall 19 级的可切换模式，防守方三选一；需要本账号 弓箭手（Archer）达到 15 级才能切换；能力：ArcherTownHallVariantAbility、ArcherTownHallSpawnAbility",
+   "status": "allowed"
+  },
+  {
+   "category": "th_variant",
+   "name": "Barbarian Town Hall",
+   "name_cn": "野蛮人大本营",
+   "th_min": 19,
+   "th_max": 19,
+   "max_count": {
+    "19": 1
+   },
+   "max_level": 2,
+   "level_th": {},
+   "note": "Town Hall 19 级的可切换模式，防守方三选一；默认模式，无解锁条件；能力：BarbarianTownHallVariantAbility、BarbarianTownHallSpawnAbility",
+   "status": "allowed"
+  },
+  {
    "category": "seasonal",
    "name": "HookTower",
    "name_cn": "钩索塔",
-   "th_min": 18,
-   "th_max": 18,
+   "th_min": 19,
+   "th_max": 19,
    "max_count": {
-    "18": 1
+    "19": 1
    },
    "max_level": 0,
    "level_th": {},
-   "note": "属于旧赛季 Season1，模拟器只用最新赛季 Season4",
+   "note": "属于旧赛季 Season1，模拟器只用最新赛季 Season5",
    "status": "excluded"
   },
   {
    "category": "seasonal",
    "name": "SunBeam",
    "name_cn": "圣光灯塔",
-   "th_min": 18,
-   "th_max": 18,
+   "th_min": 19,
+   "th_max": 19,
    "max_count": {
-    "18": 1
+    "19": 1
    },
    "max_level": 0,
    "level_th": {},
-   "note": "属于旧赛季 Season2，模拟器只用最新赛季 Season4",
+   "note": "属于旧赛季 Season2，模拟器只用最新赛季 Season5",
    "status": "excluded"
   },
   {
    "category": "seasonal",
    "name": "LogLobber",
    "name_cn": "炸弹蜂巢",
-   "th_min": 18,
-   "th_max": 18,
+   "th_min": 19,
+   "th_max": 19,
    "max_count": {
-    "18": 1
+    "19": 1
    },
    "max_level": 0,
    "level_th": {},
-   "note": "属于旧赛季 Season2，模拟器只用最新赛季 Season4",
+   "note": "属于旧赛季 Season2，模拟器只用最新赛季 Season5",
    "status": "excluded"
   },
   {
    "category": "seasonal",
    "name": "FlameSpinner",
    "name_cn": "旋转喷火器",
-   "th_min": 18,
-   "th_max": 18,
+   "th_min": 19,
+   "th_max": 19,
    "max_count": {
-    "18": 1
+    "19": 1
    },
    "max_level": 0,
    "level_th": {},
-   "note": "属于旧赛季 Season1，模拟器只用最新赛季 Season4",
+   "note": "属于旧赛季 Season1，模拟器只用最新赛季 Season5",
    "status": "excluded"
   },
   {
    "category": "seasonal",
    "name": "CrusherMortar",
    "name_cn": "碎岩迫击炮",
-   "th_min": 18,
-   "th_max": 18,
+   "th_min": 19,
+   "th_max": 19,
    "max_count": {
-    "18": 1
+    "19": 1
    },
    "max_level": 0,
    "level_th": {},
-   "note": "属于旧赛季 Season1，模拟器只用最新赛季 Season4",
+   "note": "属于旧赛季 Season1，模拟器只用最新赛季 Season5",
    "status": "excluded"
   },
   {
    "category": "seasonal",
    "name": "LazyLaser",
    "name_cn": "",
-   "th_min": 18,
-   "th_max": 18,
+   "th_min": 19,
+   "th_max": 19,
    "max_count": {
-    "18": 1
+    "19": 1
    },
    "max_level": 0,
    "level_th": {},
@@ -2267,10 +2410,10 @@
    "category": "seasonal",
    "name": "SlowdownTower",
    "name_cn": "",
-   "th_min": 18,
-   "th_max": 18,
+   "th_min": 19,
+   "th_max": 19,
    "max_count": {
-    "18": 1
+    "19": 1
    },
    "max_level": 0,
    "level_th": {},
@@ -2281,98 +2424,140 @@
    "category": "seasonal",
    "name": "HeroBooster",
    "name_cn": "英雄警钟",
-   "th_min": 18,
-   "th_max": 18,
+   "th_min": 19,
+   "th_max": 19,
    "max_count": {
-    "18": 1
+    "19": 1
    },
    "max_level": 0,
    "level_th": {},
-   "note": "属于旧赛季 Season2，模拟器只用最新赛季 Season4",
+   "note": "属于旧赛季 Season2，模拟器只用最新赛季 Season5",
    "status": "excluded"
   },
   {
    "category": "seasonal",
    "name": "SDRoaster",
    "name_cn": "熔岩火炮",
-   "th_min": 18,
-   "th_max": 18,
+   "th_min": 19,
+   "th_max": 19,
    "max_count": {
-    "18": 1
+    "19": 1
    },
    "max_level": 0,
    "level_th": {},
-   "note": "属于旧赛季 Season3，模拟器只用最新赛季 Season4",
+   "note": "属于旧赛季 Season3，模拟器只用最新赛季 Season5",
    "status": "excluded"
   },
   {
    "category": "seasonal",
    "name": "SDAirBombs",
    "name_cn": "空中炸弹发射器",
-   "th_min": 18,
-   "th_max": 18,
+   "th_min": 19,
+   "th_max": 19,
    "max_count": {
-    "18": 1
+    "19": 1
    },
    "max_level": 0,
    "level_th": {},
-   "note": "属于旧赛季 Season3，模拟器只用最新赛季 Season4",
+   "note": "属于旧赛季 Season3，模拟器只用最新赛季 Season5",
    "status": "excluded"
   },
   {
    "category": "seasonal",
    "name": "SDLavaLauncher",
    "name_cn": "熔岩发射器",
-   "th_min": 18,
-   "th_max": 18,
+   "th_min": 19,
+   "th_max": 19,
    "max_count": {
-    "18": 1
+    "19": 1
    },
    "max_level": 0,
    "level_th": {},
-   "note": "属于旧赛季 Season3，模拟器只用最新赛季 Season4",
+   "note": "属于旧赛季 Season3，模拟器只用最新赛季 Season5",
    "status": "excluded"
   },
   {
    "category": "seasonal",
    "name": "Inferno Candle",
    "name_cn": "火热蜡烛",
-   "th_min": 18,
-   "th_max": 18,
+   "th_min": 19,
+   "th_max": 19,
    "max_count": {
-    "18": 1
+    "19": 1
    },
    "max_level": 0,
    "level_th": {},
-   "note": "最新赛季 Season4 的精工防御，防守方三选一（每个阵型 1 座精制台）",
-   "status": "allowed"
+   "note": "属于旧赛季 Season4，模拟器只用最新赛季 Season5",
+   "status": "excluded"
   },
   {
    "category": "seasonal",
    "name": "Headhunter Tower",
    "name_cn": "英雄猎台",
-   "th_min": 18,
-   "th_max": 18,
+   "th_min": 19,
+   "th_max": 19,
    "max_count": {
-    "18": 1
+    "19": 1
    },
    "max_level": 0,
    "level_th": {},
-   "note": "最新赛季 Season4 的精工防御，防守方三选一（每个阵型 1 座精制台）",
-   "status": "allowed"
+   "note": "属于旧赛季 Season4，模拟器只用最新赛季 Season5",
+   "status": "excluded"
   },
   {
    "category": "seasonal",
    "name": "Cake Thrower",
    "name_cn": "蛋糕投掷器",
-   "th_min": 18,
-   "th_max": 18,
+   "th_min": 19,
+   "th_max": 19,
    "max_count": {
-    "18": 1
+    "19": 1
    },
    "max_level": 0,
    "level_th": {},
-   "note": "最新赛季 Season4 的精工防御，防守方三选一（每个阵型 1 座精制台）",
+   "note": "属于旧赛季 Season4，模拟器只用最新赛季 Season5",
+   "status": "excluded"
+  },
+  {
+   "category": "seasonal",
+   "name": "Rocket Artillery Tower",
+   "name_cn": "火箭炮",
+   "th_min": 19,
+   "th_max": 19,
+   "max_count": {
+    "19": 1
+   },
+   "max_level": 0,
+   "level_th": {},
+   "note": "最新赛季 Season5 的精工防御，防守方三选一（每个阵型 1 座精制台）",
+   "status": "allowed"
+  },
+  {
+   "category": "seasonal",
+   "name": "Minion Hive Launcher",
+   "name_cn": "迷你亡灵巢穴",
+   "th_min": 19,
+   "th_max": 19,
+   "max_count": {
+    "19": 1
+   },
+   "max_level": 0,
+   "level_th": {},
+   "note": "最新赛季 Season5 的精工防御，防守方三选一（每个阵型 1 座精制台）",
+   "status": "allowed"
+  },
+  {
+   "category": "seasonal",
+   "name": "Goblin Thrower Tower",
+   "name_cn": "哥布林发射器",
+   "th_min": 19,
+   "th_max": 19,
+   "max_count": {
+    "19": 1
+   },
+   "max_level": 0,
+   "level_th": {},
+   "note": "最新赛季 Season5 的精工防御，防守方三选一（每个阵型 1 座精制台）",
    "status": "allowed"
   },
   {
@@ -2380,9 +2565,9 @@
    "name": "Barbarian King",
    "name_cn": "野蛮人之王",
    "th_min": 4,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {},
-   "max_level": 110,
+   "max_level": 115,
    "level_th": {
     "1": 4,
     "2": 7,
@@ -2396,7 +2581,8 @@
     "86": 15,
     "91": 16,
     "96": 17,
-    "101": 18
+    "101": 18,
+    "111": 19
    },
    "note": "英雄大厅中的防守英雄（携带装备，但战宠不参与防守）；属性按大本营缩放（ScaleByTH）：4本50% 5本75%，6 本起 100%",
    "status": "allowed"
@@ -2406,9 +2592,9 @@
    "name": "Archer Queen",
    "name_cn": "弓箭女皇",
    "th_min": 8,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {},
-   "max_level": 110,
+   "max_level": 115,
    "level_th": {
     "1": 8,
     "11": 9,
@@ -2420,7 +2606,8 @@
     "86": 15,
     "91": 16,
     "96": 17,
-    "101": 18
+    "101": 18,
+    "111": 19
    },
    "note": "英雄大厅中的防守英雄（携带装备，但战宠不参与防守）",
    "status": "allowed"
@@ -2430,9 +2617,9 @@
    "name": "Grand Warden",
    "name_cn": "大守护者",
    "th_min": 11,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {},
-   "max_level": 85,
+   "max_level": 90,
    "level_th": {
     "1": 11,
     "21": 12,
@@ -2441,7 +2628,8 @@
     "61": 15,
     "66": 16,
     "71": 17,
-    "76": 18
+    "76": 18,
+    "86": 19
    },
    "note": "英雄大厅中的防守英雄（携带装备，但战宠不参与防守）",
    "status": "allowed"
@@ -2451,16 +2639,17 @@
    "name": "Royal Champion",
    "name_cn": "飞盾战神",
    "th_min": 13,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {},
-   "max_level": 55,
+   "max_level": 60,
    "level_th": {
     "1": 13,
     "26": 14,
     "31": 15,
     "41": 16,
     "46": 17,
-    "51": 18
+    "51": 18,
+    "56": 19
    },
    "note": "英雄大厅中的防守英雄（携带装备，但战宠不参与防守）",
    "status": "allowed"
@@ -2470,9 +2659,9 @@
    "name": "Minion Prince",
    "name_cn": "亡灵王子",
    "th_min": 9,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {},
-   "max_level": 95,
+   "max_level": 100,
    "level_th": {
     "1": 9,
     "11": 10,
@@ -2483,7 +2672,8 @@
     "61": 15,
     "71": 16,
     "81": 17,
-    "91": 18
+    "91": 18,
+    "96": 19
    },
    "note": "英雄大厅中的防守英雄（携带装备，但战宠不参与防守）",
    "status": "allowed"
@@ -2493,14 +2683,15 @@
    "name": "Dragon Duke",
    "name_cn": "飞龙公爵",
    "th_min": 15,
-   "th_max": 18,
+   "th_max": 19,
    "max_count": {},
-   "max_level": 25,
+   "max_level": 30,
    "level_th": {
     "1": 15,
     "11": 16,
     "16": 17,
-    "21": 18
+    "21": 18,
+    "26": 19
    },
    "note": "英雄大厅中的防守英雄（携带装备，但战宠不参与防守）",
    "status": "allowed"

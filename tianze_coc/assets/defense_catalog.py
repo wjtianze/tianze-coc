@@ -17,7 +17,7 @@ from .unit_catalog import ALLOWED_STATUSES, UnitCatalog, build_catalog
 
 @dataclass
 class DefenseEntry:
-    category: str  # building / wall / trap / th_weapon / spell_tower_mode / guardian / seasonal / hero / cc_troop / other
+    category: str  # building / wall / trap / th_weapon / spell_tower_mode / th_variant / guardian / seasonal / hero / cc_troop / other
     name: str
     name_cn: str
     th_min: int | None = None
@@ -95,6 +95,8 @@ def build_defense_catalog(src: AssetSource, lang: str = "cn") -> dict:
     def tid(row: CsvRow) -> str:
         return loc.get(row.get("TID"), "")
 
+    chars_tid = {r.name: r.get("TID") for r in src.table("assets/logic/characters.csv").rows}
+
     # ---- 合并规则（MergeRequirement，格式 "建筑:等级:改装状态;..."）
     bld_table = src.table("assets/logic/buildings.csv")
     bld = bld_table.by_name()
@@ -164,6 +166,10 @@ def build_defense_catalog(src: AssetSource, lang: str = "cn") -> dict:
             e.note = (e.note + "；" if e.note else "") + "高等级建筑工人小屋会出战（防守建筑工人）"
         if row.name == "Crafting Station":
             e.note = "放置当季精工防御（见“精工防御”）"
+        if row.name == "Guardian Building":
+            e.note = "承载守卫（见“守卫”）；19 本起大本营本身不再住守卫"
+        if row.name == "Squad Barracks":
+            e.note = "生产小队（进攻方单位，见单位表）；防守时只是普通建筑"
         out.append(e)
 
     # ---- 陷阱
@@ -210,12 +216,37 @@ def build_defense_catalog(src: AssetSource, lang: str = "cn") -> dict:
             e = DefenseEntry("guardian", row.name, loc.get(row.get("TID"), ""), max_level=len(row.levels),
                              note=f"守护单位：{row.get('CharacterDatas')}")
             th_rows = bld["Town Hall"].levels
-            g_th = [i for i, lv in enumerate(th_rows, 1) if lv.get("HousesGuardians", "").upper() == "TRUE"]
+            g_th = {i for i, lv in enumerate(th_rows, 1) if lv.get("HousesGuardians", "").upper() == "TRUE"}
+            # 19.32 起 19 本的大本营不再住守卫（HousesGuardians=FALSE），改由新建筑"守卫神殿"（Guardian Building）承载
+            gb = {l for l, c in cols.get("Guardian Building", {}).items() if c > 0}
             if row.flag("Deprecated"):
                 e.status, e.note = "excluded", "Deprecated=TRUE（未上线/已移除）"
             else:
-                e.th_min, e.th_max = (min(g_th), max(g_th)) if g_th else (None, None)
-                e.note += "；大本营 HousesGuardians=TRUE 的等级才有守卫；防守时从可用守卫中选 1 个出战"
+                g_all = g_th | gb
+                e.th_min, e.th_max = (min(g_all), max(g_all)) if g_all else (None, None)
+                where = []
+                if g_th:
+                    where.append("大本营 HousesGuardians=TRUE 的等级（" + "、".join(f"{x}本" for x in sorted(g_th)) + "）由大本营承载")
+                if gb:
+                    where.append("、".join(f"{x}本" for x in sorted(gb)) + "由守卫神殿承载")
+                e.note += "；" + "；".join(where) + "；防守时从可用守卫中选 1 个出战"
+            out.append(e)
+
+    # ---- 大本营模式（19.32 新增，building_variants.csv）：野蛮人/弓箭手/法师大本营，三选一
+    if src.exists("assets/logic/building_variants.csv"):
+        for row in src.table("assets/logic/building_variants.csv").rows:
+            target = row.get("Building")
+            # MinBuildingLevel/MaxBuildingLevel 是 0 起的建筑等级序号（18 = 19 级大本营）
+            lo_b, hi_b = row.int("MinBuildingLevel") + 1, row.int("MaxBuildingLevel") + 1
+            e = DefenseEntry("th_variant", row.name, loc.get(row.get("TID"), ""), lo_b, hi_b, {lo_b: 1},
+                             max_level=len(row.levels))
+            need = row.get("RequiredCharacter")
+            req = (f"需要本账号 {loc.get(chars_tid.get(need, ''), need)}（{need}）达到 {row.int('RequiredCharacterLevel')} 级才能切换"
+                   if need else "默认模式，无解锁条件")
+            abil = [lv.get("SpecialAbilities") for lv in row.levels if lv.get("SpecialAbilities")]
+            e.note = f"{target} {lo_b} 级的可切换模式，防守方三选一；{req}；能力：{'、'.join(abil)}"
+            if row.flag("Deprecated"):
+                e.status, e.note = "excluded", "Deprecated=TRUE"
             out.append(e)
 
     # ---- 季节性防御（工艺站）
@@ -291,7 +322,7 @@ def build_defense_catalog(src: AssetSource, lang: str = "cn") -> dict:
 
 
 CATEGORY_CN = {"building": "建筑", "wall": "城墙", "trap": "陷阱", "th_weapon": "大本营武器",
-               "spell_tower_mode": "法术塔模式", "guardian": "守卫", "seasonal": "精工防御（季节性防御）",
+               "spell_tower_mode": "法术塔模式", "th_variant": "大本营模式", "guardian": "守卫", "seasonal": "精工防御（季节性防御）",
                "hero": "防守英雄", "cc_troop": "部落援军"}
 
 

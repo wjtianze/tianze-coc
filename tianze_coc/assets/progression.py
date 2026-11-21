@@ -12,9 +12,9 @@
 - 英雄：第 L 级需要大本营 RequiredTownHallLevel[L] 且英雄大厅 RequiredHeroTavernLevel[L]。
 - 战宠：第 L 级需要战宠小屋 LaboratoryLevel[L]。
 - 英雄装备：第 L 级需要铁匠铺 RequiredBlacksmithLevel[L]；只能给 AllowedCharacters 中的英雄使用。
-- 升本"先建齐"规则（用户要求，可关闭）：大本营 T 级时，每种普通建筑的数量 ≥ T-1 本的数量上限。
-  注意：18.647 的 globals.csv 中 REQUIRE_ALL_BUILDINGS_PLACED_FOR_TOWN_HALL_UPGRADE = FALSE，
-  因此这是比游戏本身更严格的规则；城墙、陷阱、合并建筑及其原料不参与此规则。
+- 升本"先建齐"规则（用户要求：游戏规定先建齐当前本的建筑才能升本，可关闭）：大本营 T 级时，每种建筑（含城墙、陷阱）
+  的数量 ≥ T-1 本的数量上限；合并原料按"自身 + 已合并进成品的份数"计。
+  注意：globals.csv 中 REQUIRE_ALL_BUILDINGS_PLACED_FOR_TOWN_HALL_UPGRADE = FALSE，规则以用户说明为准。
 """
 from __future__ import annotations
 
@@ -80,7 +80,16 @@ def build_progression(src: AssetSource, lang: str = "cn") -> dict:
             levels[p[0]] = _int(p[1]) if len(p) > 1 else 0
             geared[p[0]] = len(p) > 2 and p[2] == "1"  # 原料须为已改装版本（如复合机械塔 = 改装箭塔 + 改装加农炮）
         merges[name] = {"inputs": inputs, "input_levels": levels, "input_geared": geared}
-    merge_related = set(merges) | {i for m in merges.values() for i in m["inputs"]}
+
+    # ---- 超级充能（mini_levels.csv）：buildings.csv 的 MiniLevels 列（按等级）指向充能表，只有填了的那一级能充；
+    #      充能需要大本营 ≥ RequiredTownHallLevel。19.32 出了新等级的建筑（金矿、防空火箭、特斯拉……）新的最高级没填，
+    #      不能充（真机核对：地狱之塔 minilvl 2 生命 +200 有效；金矿、防空火箭写 minilvl 无效）。
+    mini_tables: dict[str, dict] = {}
+    if src.exists("assets/logic/mini_levels.csv"):
+        for r in src.table("assets/logic/mini_levels.csv").rows:
+            need = _int(r.get("RequiredTownHallLevel"))
+            if 0 < need <= th_max:  # 法师塔填 100 = 未开放
+                mini_tables[r.name] = {"max": len(r.levels), "th": need}
 
     structures = []
     for e in dcat["entries"]:
@@ -111,9 +120,14 @@ def build_progression(src: AssetSource, lang: str = "cn") -> dict:
             s["building_class"] = row.get("BuildingClass")
         if e["name"] in merges:
             s["merge"] = merges[e["name"]]
-        # 升本"先建齐"规则适用范围
-        s["require_built_on_th_up"] = (e["category"] == "building" and e["name"] not in merge_related
-                                       and e["name"] != "Town Hall" and "被合并消耗" not in (e.get("note") or ""))
+        if e["category"] == "building":
+            sc_levels = {i + 1: mini_tables[lv.get("MiniLevels")] for i, lv in enumerate(row.levels)
+                         if lv.get("MiniLevels") in mini_tables}
+            if sc_levels:
+                lvl_, tab = max(sc_levels.items())
+                s["supercharge"] = {"level": lvl_, **tab}  # 只能在该等级上充，最多 max 级，需要 th 本；minilvl 从 1 起
+        # 升本"先建齐"规则适用范围：除大本营外全部（合并原料按等效数量，见 Account.validate）
+        s["require_built_on_th_up"] = e["name"] != "Town Hall"
         structures.append(s)
 
     # ---- 进攻单位
@@ -138,7 +152,7 @@ def build_progression(src: AssetSource, lang: str = "cn") -> dict:
         kind = u["kind"]
         d = {"gid": u["global_id"], "name": u["name"], "name_cn": u["name_cn"], "kind": kind,
              "status": u["status"], "housing": u.get("housing_space", 0), "max_level": u.get("max_level", 0)}
-        if kind in ("troop", "siege"):
+        if kind in ("troop", "squad", "siege"):
             row = chars[u["name"]]
             d["levels_req"] = [{"Laboratory": v} for v in _per_level(row, "LaboratoryLevel")]
             d["unlock"] = {u["production_building"]: u["required_building_level"]} if u.get("production_building") else {}
@@ -167,7 +181,11 @@ def build_progression(src: AssetSource, lang: str = "cn") -> dict:
         else:
             continue
         d["max_level"] = len(d["levels_req"])
-        if kind in ("troop", "siege"):
+        if u.get("housing_levels"):
+            d["housing_levels"] = u["housing_levels"]  # 每级人口（19.32：PEKKA 雷霆小队、飞龙宝宝小队 3 级人口减少）
+        if kind == "squad":
+            d["donatable"] = False  # 小队 DisableDonate=TRUE
+        if kind in ("troop", "squad", "siege"):
             vis = _int(chars[u["name"]].levels[0].get("VisualLevel"), 1) if u["name"] in chars else 1
             d["visual_offset"] = max(0, vis - 1)  # CSV 第 1 行对应的游戏显示等级 - 1（超级兵从原兵种的某级起编号）
         if u["status"] == "super_troop" and u["name"] in super_of:
@@ -193,7 +211,12 @@ def build_progression(src: AssetSource, lang: str = "cn") -> dict:
             "hero_slots": 4,  # 进攻时最多 4 名英雄（active_army_loadout 的英雄槽数）
             "max_super_troop_kinds": 2,  # 同时最多激活 2 种超级兵
             "map_tiles": 50,
+            # 各大本营 StrengthMaxSquadTypes（townhall_levels.csv，"实力"统计用）；**不是**配兵上限：军队里小队种类不限（用户确认）
+            "strength_max_squad_types": [_int(r.get("StrengthMaxSquadTypes")) for r in sorted(
+                (r for r in src.table("assets/logic/townhall_levels.csv").rows if r.name.isdigit()), key=lambda r: int(r.name))],
             "require_all_built_global": g.get("REQUIRE_ALL_BUILDINGS_PLACED_FOR_TOWN_HALL_UPGRADE", {}).get("BooleanValue", ""),
+            # 升本前必须升满（用户说明的游戏规则）：t 本时这些建筑不低于 t-1 本的满级
+            "maxed_before_th_up": ["Hero Hall"],
         },
     }
 
@@ -237,7 +260,7 @@ class Progression:
                 return 0
         best = 0
         for i, req in enumerate(u["levels_req"]):
-            if i == 0 and u["kind"] in ("troop", "siege", "spell"):
+            if i == 0 and u["kind"] in ("troop", "squad", "siege", "spell"):
                 # 1 级只要解锁（生产建筑等级）即可；实验室要求只针对升级（实验室 3 本才有，低本兵种也是 1 级）
                 req = {b: n for b, n in req.items() if b != "Laboratory"}
             if all(buildings.get(b, 0) >= need for b, need in req.items()):
@@ -273,7 +296,7 @@ def _lab_cap_rows(u: dict, cc_level: int) -> int:
 def cc_level_cap(prog: "Progression", gid: int, cc_level: int) -> int:
     """接收方部落城堡 cc_level 级时该援军的最高等级（CSV 行序号，1 起；0 = 不能请求）。"""
     u = prog.units.get(gid)
-    if not u or cc_level <= 0:
+    if not u or cc_level <= 0 or u["kind"] == "squad":  # 小队不能捐赠
         return 0
     if u["kind"] == "siege":
         need_ws = (u.get("unlock") or {}).get("Siege Workshop", 1)

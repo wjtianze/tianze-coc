@@ -18,8 +18,10 @@ namespace {
 
 using UpdateFn = bool (*)(void *game_mode);
 using NewFn = void *(*)(std::size_t);
-using TroopCtor = void (*)(void *self, void *data, int x, int y, int flag, int extra);
-using SpellCtor = void (*)(void *self, void *data, int flag, int extra, int x, int y, int extra2);
+// 19.32 起放兵/法术构造函数末尾各多一个布尔字段（放兵 +0x28、法术 +0x2c，UI 常规路径都传 0）；
+// 旧版构造函数不读多出的寄存器，所以统一多传一个 0。
+using TroopCtor = void (*)(void *self, void *data, int x, int y, int flag, int extra, int flag2);
+using SpellCtor = void (*)(void *self, void *data, int flag, int extra, int x, int y, int extra2, int flag2);
 using HeroCtor = void (*)(void *self, void *data, int x, int y);
 using AddCommandFn = void (*)(void *command_manager, void **cmd);
 using SubmitFn = void (*)(void **cmd);
@@ -217,7 +219,7 @@ std::uintptr_t Engine::portal_data() {
     const std::uintptr_t item = rdp(rdp(table + off::LogicDataTable_items));
     const std::uintptr_t vt = item ? rdp(item) : 0;
     const std::uintptr_t fn = vt ? rdp(vt + 8 * off::LogicData_vt_getDataType) : 0;
-    if (!fn || fn < base_ || fn > base_ + 0x1900000) continue;  // 虚函数必须落在 libg 内
+    if (!fn || fn < base_ || fn > base_ + off::kLibgCodeEnd) continue;  // 虚函数必须落在 libg 内
     if (reinterpret_cast<DataTypeFn>(fn)(reinterpret_cast<void *>(item)) == off::data_type_alliance_portal) {
       portal_data_ = item;
       break;
@@ -270,14 +272,14 @@ bool Engine::submit_one(std::uintptr_t gm, const Action &a, ActionResult &res) {
       cmd = new_fn(off::LogicPlaceAttackerCommand_size);
       // flag=1 时从部落城堡的攻城机器中取第 extra 台（见放兵 execute 与 avatar 援军攻城机器查找）
       reinterpret_cast<TroopCtor>(base_ + off::LogicPlaceAttackerCommand_ctor)(
-          cmd, d, a.x, a.y, a.kind == ActionKind::CcSiege ? 1 : 0, a.kind == ActionKind::CcSiege ? a.extra : 0);
+          cmd, d, a.x, a.y, a.kind == ActionKind::CcSiege ? 1 : 0, a.kind == ActionKind::CcSiege ? a.extra : 0, 0);
       break;
     case ActionKind::Spell:
     case ActionKind::CcSpell:
       cmd = new_fn(off::LogicCastSpellCommand_size);
       // flag=1：从部落援军中扣除，extra=援军法术等级（execute 按 数据+等级 匹配援军项）；最后一个参数与游戏一致传 -1
       reinterpret_cast<SpellCtor>(base_ + off::LogicCastSpellCommand_ctor)(
-          cmd, d, a.kind == ActionKind::CcSpell ? 1 : 0, a.kind == ActionKind::CcSpell ? a.extra : 0, a.x, a.y, -1);
+          cmd, d, a.kind == ActionKind::CcSpell ? 1 : 0, a.kind == ActionKind::CcSpell ? a.extra : 0, a.x, a.y, -1, 0);
       break;
     case ActionKind::Hero:
       cmd = new_fn(off::LogicPlaceHeroCommand_size);
@@ -335,6 +337,12 @@ void Engine::inject_pending(std::uintptr_t gm) {
   }
 }
 
+// 战斗结束：battleOver(+0xc)；19.32 起还有更早置位的"已结束"字节（置位后游戏不再调用 updateSubTick）
+static bool battle_over_flag(std::uintptr_t gm) {
+  if (rd_or<std::uint8_t>(gm + off::LogicGameMode_battleOver, 0) != 0) return true;
+  return off::LogicGameMode_battleEnded >= 0 && rd_or<std::uint8_t>(gm + off::LogicGameMode_battleEnded, 0) != 0;
+}
+
 bool Engine::on_update_sub_tick(void *game_mode) {
   if (!g_game_thread_known.exchange(true)) g_game_thread = pthread_self();
   const auto gm = reinterpret_cast<std::uintptr_t>(game_mode);
@@ -345,7 +353,7 @@ bool Engine::on_update_sub_tick(void *game_mode) {
   serve_snapshot_locked(gm);
   if (lockstep_ && battle && budget_ <= 0) {
     // 冻结：不推进逻辑，但画面线程照常运行
-    return rd_or<std::uint8_t>(gm + off::LogicGameMode_battleOver, 0) != 0;
+    return battle_over_flag(gm);
   }
   int runs = 1;
   if (lockstep_ && battle) runs = static_cast<int>(std::min<long long>(turbo_, budget_));
@@ -359,7 +367,7 @@ bool Engine::on_update_sub_tick(void *game_mode) {
       --budget_;
       ++subticks_done_;
     }
-    if (rd_or<std::uint8_t>(gm + off::LogicGameMode_battleOver, 0) != 0) {
+    if (battle_over_flag(gm)) {
       battle_over_seen_ = true;
       budget_ = 0;
       break;
@@ -377,7 +385,7 @@ void Engine::on_submit(void *cmd) {
   for (int k = 0; k < kCmdClasses; ++k)
     if (reinterpret_cast<std::uintptr_t>(vt_copy_[k]) == vt) e.ours = true;
   const std::uintptr_t fn = vt ? rdp(vt + 4 * 8) : 0;  // 槽 4：getCommandType
-  e.type = (fn > base_ && fn < base_ + 0x1900000) ? reinterpret_cast<int (*)(void *)>(fn)(cmd) : -1;
+  e.type = (fn > base_ && fn < base_ + off::kLibgCodeEnd) ? reinterpret_cast<int (*)(void *)>(fn)(cmd) : -1;
   const std::uintptr_t data = rdp(c + 0x10);
   e.data_gid = data ? rd_or<int>(data + off::LogicData_globalId, -1) : -1;
   std::uint8_t raw[0x40] = {};
@@ -438,7 +446,7 @@ bool Engine::encode_cmd(void *cmd, std::vector<std::uint8_t> &out) {
   if (!bs || !cmd) return false;
   const std::uintptr_t vt = rdp(reinterpret_cast<std::uintptr_t>(cmd));
   const std::uintptr_t fn = vt ? rdp(vt + 8 * off::LogicCommand_vt_encode) : 0;
-  if (!fn || fn < base_ || fn > base_ + 0x1900000) return false;
+  if (!fn || fn < base_ || fn > base_ + off::kLibgCodeEnd) return false;
   reset_stream(bs);
   reinterpret_cast<CmdStreamFn>(fn)(cmd, reinterpret_cast<void *>(bs));
   // 写入时 offset 即已写字节数
@@ -518,7 +526,7 @@ void Engine::service_raw() {
     // 按虚表直接构造：清零 -> 写虚表 -> 执行 tick = -1（与基类构造函数一致）；成员由 decode 填写
     const std::uintptr_t vt = base_ + rc.vtable;
     const std::uintptr_t type_fn = rdp(vt + 8 * off::LogicCommand_vt_getType);
-    if (!type_fn || type_fn < base_ || type_fn > base_ + 0x1900000 ||
+    if (!type_fn || type_fn < base_ || type_fn > base_ + off::kLibgCodeEnd ||
         reinterpret_cast<int (*)(void *)>(type_fn)(nullptr) != rc.type)
       return fail("vtable_type_mismatch");
     const std::size_t sz = static_cast<std::size_t>(std::max(rc.size, 0x40)) + 0x40;
@@ -594,6 +602,27 @@ void Engine::service_snapshot() {
   const std::uintptr_t gm = current_game_mode();
   std::lock_guard<std::mutex> lk(mu_);
   serve_snapshot_locked(gm);
+}
+
+// 刚升大本营的账号有数天的强化：标志为真时，放兵/英雄等级 = max(账号等级, 大本营保底等级)，18/19 本即满级。
+// 离线自对弈要用注入的等级，所以开局后把它清掉（游戏的计时逻辑只会在到期时清零、不会重新置位）。
+void Engine::attacker_boost(const json::Value &req, json::Writer &w) {
+  std::lock_guard<std::mutex> lk(mu_);
+  const std::uintptr_t gm = current_game_mode();
+  const std::uintptr_t level = gm ? rdp(gm + off::LogicGameMode_level) : 0;
+  w.key("ok").boolean(level != 0).key("avatars").begin_arr();
+  for (const int slot : {off::LogicLevel_avatarA, off::LogicLevel_avatarB}) {
+    const std::uintptr_t av = level ? rdp(level + slot) : 0;
+    std::uint8_t cur[2] = {0, 0};
+    const bool ok = av && safe_read(av + off::LogicAvatar_boostMaxArmy, &cur[0], 1) &&
+                    safe_read(av + off::LogicAvatar_boostMaxHeroes, &cur[1], 1);
+    if (ok && req.has("army")) *reinterpret_cast<volatile std::uint8_t *>(av + off::LogicAvatar_boostMaxArmy) = req["army"].boolean() ? 1 : 0;
+    if (ok && req.has("heroes")) *reinterpret_cast<volatile std::uint8_t *>(av + off::LogicAvatar_boostMaxHeroes) = req["heroes"].boolean() ? 1 : 0;
+    w.begin_obj().key("slot").num(static_cast<long long>(slot)).key("present").boolean(ok);
+    if (ok) w.key("army_before").boolean(cur[0] != 0).key("heroes_before").boolean(cur[1] != 0);
+    w.end_obj();
+  }
+  w.end_arr();
 }
 
 void Engine::configure(const json::Value &cfg, json::Writer &w) {
@@ -760,7 +789,7 @@ void Engine::write_snapshot(std::uintptr_t gm, json::Writer &w, bool include_obj
   w.begin_obj();
   w.key("gm_state").num(static_cast<long long>(rd_or<int>(gm + off::LogicGameMode_state, -1)));
   w.key("in_battle").boolean(in_battle(gm));
-  w.key("battle_over").boolean(rd_or<std::uint8_t>(gm + off::LogicGameMode_battleOver, 0) != 0);
+  w.key("battle_over").boolean(battle_over_flag(gm));
   if (level) {
     w.key("tick").num(static_cast<long long>(rd_or<int>(level + off::LogicLevel_currentTick, -1)));
     w.key("level_state").num(static_cast<long long>(rd_or<int>(rdp(level + off::LogicLevel_statePtr), -1)));

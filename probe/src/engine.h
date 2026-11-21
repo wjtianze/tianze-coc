@@ -84,6 +84,8 @@ class Engine {
   void service_raw();  // 每帧（ClientInstance::update，主线程）调用：每帧最多提交一条
   void raw_results(json::Writer &w, bool clear);
   static int generic_exec_wrapper(void *cmd, void *level);
+  // 大本营升级强化（军队满级 / 英雄满级）：读取或设置战斗中两个 avatar 槽上的标志
+  void attacker_boost(const json::Value &req, json::Writer &w);
 
  private:
   Engine() = default;

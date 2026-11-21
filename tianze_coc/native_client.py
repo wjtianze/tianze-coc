@@ -122,6 +122,11 @@ class ProbeClient:
         """进入客户端的消息日志：[[时间ms, 类型, 长度, 是否我们重放的], ...]。"""
         return self.call("inbox", clear=clear)["inbox"]
 
+    def attacker_boost(self, army: bool | None = None, heroes: bool | None = None) -> dict:
+        """读取/设置战斗中 avatar 上的"大本营升级强化"标志（军队满级、英雄满级）。参数为 None 时只读取。"""
+        kw = {k: v for k, v in (("army", army), ("heroes", heroes)) if v is not None}
+        return self.call("attacker_boost", **kw)
+
     def peek(self, addr: int, length: int = 64) -> bytes | None:
         h = self.call("peek", addr=addr, len=length).get("hex")
         return bytes.fromhex(h) if h else None

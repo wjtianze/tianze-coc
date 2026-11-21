@@ -47,6 +47,7 @@ PRODUCTION_KIND = {
     "Siege Workshop": "siege",
     "Spell Factory": "spell",
     "Dark Spell Factory": "spell",
+    "Squad Barracks": "squad",  # 19.32 新增：小队（squads.csv 定义成员与出场队形，本身是 characters.csv 里的一行）
 }
 
 # 生产建筑 -> 该建筑在 buildings.csv 中的名字（法术工厂在 buildings.csv 里叫 Spell Forge / Mini Spell Factory）
@@ -56,6 +57,14 @@ BUILDING_FOR_PRODUCTION = {
     "Siege Workshop": ("Siege Workshop",),
     "Spell Factory": ("Spell Forge", "Spell Factory"),
     "Dark Spell Factory": ("Mini Spell Factory", "Dark Spell Factory"),
+    "Squad Barracks": ("Squad Barracks",),
+}
+
+
+# 用户审核决定禁用的单位（数据表里没有能区分它们的字段，只能按名单）：名字 -> 原因
+USER_EXCLUDED = {
+    "Shield Brooch": "用户审核禁用（2026-11-21，19.32 新装备）",
+    "Blizzard Axe": "用户审核禁用（2026-11-21，19.32 新装备）",
 }
 
 
@@ -63,7 +72,7 @@ BUILDING_FOR_PRODUCTION = {
 class UnitEntry:
     name: str
     global_id: int
-    kind: str  # troop / siege / spell / hero / pet
+    kind: str  # troop / squad / siege / spell / hero / pet / equipment
     status: str
     reason: str
     housing_space: int = 0
@@ -73,6 +82,7 @@ class UnitEntry:
     tid: str = ""
     name_cn: str = ""
     flags: dict[str, bool] = field(default_factory=dict)
+    housing_levels: list[int] = field(default_factory=list)  # 19.32 起人口可按等级变化（只在各级不同时记录；放在最后，避免打乱按位置传参）
 
     @property
     def permanent(self) -> bool:
@@ -85,7 +95,7 @@ class UnitEntry:
 
     @property
     def deployable_kind(self) -> bool:
-        return self.kind in ("troop", "siege", "spell", "hero")
+        return self.kind in ("troop", "squad", "siege", "spell", "hero")
 
 
 def _global_id(row: CsvRow, table: int, index: int) -> int:
@@ -151,6 +161,7 @@ def build_catalog(src: AssetSource, lang: str = "cn") -> dict:
                     reason=reason,
                     housing_space=row.int("HousingSpace"),
                     max_level=len(row.levels),
+                    housing_levels=hl if len(set(hl := [int(lv.get("HousingSpace") or 0) for lv in row.levels])) > 1 else [],
                     production_building=row.get("ProductionBuilding"),
                     required_building_level=_required_level(row, kind),
                     tid=row.get("TID"),
@@ -208,6 +219,8 @@ def build_catalog(src: AssetSource, lang: str = "cn") -> dict:
             owners = [x for x in row.get("AllowedCharacters").split(";") if x]
             if row.flag("Deprecated"):
                 status, reason = INTERNAL, "Deprecated=TRUE"
+            elif row.name in USER_EXCLUDED:
+                status, reason = INTERNAL, USER_EXCLUDED[row.name]
             elif not owners or not all(o in home_heroes for o in owners):
                 status, reason = INTERNAL, f"归属 {owners} 不是主村英雄"
             elif row.get("TID") in seen_tid:

@@ -15,6 +15,9 @@ from pathlib import Path
 
 def decode_sc_csv(raw: bytes) -> bytes:
     """解码一个 CSV 资源；已是明文时原样返回。"""
+    if raw[:4] == b"Sig:":
+        # 19.32 起资源前面加了 "Sig:" + 64 字节签名，其后仍是原来的 LZMA 数据
+        raw = raw[4 + 64:]
     if raw[:1] == b"]" and len(raw) > 9:
         fixed = raw[:9] + b"\0\0\0\0" + raw[9:]
         return lzma.LZMADecompressor(format=lzma.FORMAT_ALONE).decompress(fixed)

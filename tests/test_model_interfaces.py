@@ -17,8 +17,8 @@ from tianze_coc.battle_env import EnvConfig, TianzeBattleEnv
 from tianze_coc.contracts import EntityV1, ObservationV1
 
 REC = Path(__file__).resolve().parent.parent / "tianze_coc" / "data" / "records"
-OWN = REC / "th18.OwnHomeData.bin"
-ENEMY = REC / "th18_friendly.EnemyHomeData.bin"
+OWN = REC / "th19_after_ops.OwnHomeData.bin"
+ENEMY = REC / "th19_friendly.EnemyHomeData.bin"
 P = Progression.load()
 
 
@@ -48,8 +48,8 @@ class VIntTest(unittest.TestCase):
 class CommandEncodingTest(unittest.TestCase):
     def test_encoders_reproduce_captured_ui_bytes(self):
         fns = {"move": hc.enc_move, "loadout_remove": hc.enc_loadout_remove, "loadout_add": hc.enc_loadout_add,
-               "set_equipment": hc.enc_set_equipment, "set_equipment_dd": hc.enc_set_equipment,
-               "set_equipment_rc": hc.enc_set_equipment, "set_pet": hc.enc_set_pet, "set_hero": hc.enc_set_hero,
+               "loadout_add_squad": hc.enc_loadout_add, "set_equipment": hc.enc_set_equipment,
+               "set_equipment_slot1": hc.enc_set_equipment, "set_pet": hc.enc_set_pet, "set_hero": hc.enc_set_hero,
                "hero_mode": hc.enc_hero_mode, "defense_cc": hc.enc_defense_cc}
         for k, (args, want) in hc.CAPTURED.items():
             self.assertEqual(fns[k](*args).hex(), want, k)
@@ -71,19 +71,107 @@ class ProgressionRulesTest(unittest.TestCase):
         self.assertEqual(P.max_count("Firespitter", 18), 2)
         self.assertEqual(P.max_count("Wall", 18), 325)
 
+    def test_counts_th19(self):
+        self.assertEqual(P.th_max, 19)
+        self.assertEqual(P.max_count("Wall", 19), 350)
+        for n, c in (("Spiky Tower", 2), ("Firecracker Tower", 2), ("Guardian Building", 1), ("Crafting Station", 1)):
+            self.assertEqual((P.max_count(n, 18), P.max_count(n, 19)), (0, c), n)  # 19.32 起精制台在 19 本
+        self.assertEqual(P.max_count("Squad Barracks", 8), 1)
+        squad = P.units[ugid("Barcher Squad")]
+        self.assertEqual((squad["kind"], squad["unlock"]), ("squad", {"Squad Barracks": 1}))
+        self.assertEqual(P.max_unit_level(ugid("Barcher Squad"), {"Squad Barracks": 1, "Laboratory": 16}), 1)
+        self.assertEqual(P.max_unit_level(ugid("Barcher Squad"), {"Squad Barracks": 1, "Laboratory": 17}), 3)
+
 
 class AccountEditorTest(unittest.TestCase):
     def test_max_out_is_legal(self):
-        for th in (9, 14, 18):
+        for th in (9, 14, 18, 19):
             a = blank(th)
             a.max_out()
             self.assertEqual(a.validate(), [], th)
 
     def test_random_accounts_are_legal(self):
-        for th in (7, 12, 16, 18):
+        for th in (7, 12, 16, 18, 19):
             a = blank(th)
             a.randomize(th, random.Random(th), progress=0.5)
             self.assertEqual(a.validate(), [], th)
+
+    def test_random_level_distribution_steady_rush(self):
+        """稳本：多数等级在"上一本满级 ~ 本本满级"；速本：只有关键建筑（军事类）跟上，防御等停在更早。"""
+        from tianze_coc.account import RUSH, STEADY, _is_key
+
+        def ratio(style, key):
+            hit = tot = 0
+            for i in range(15):
+                a = blank(19)
+                a.randomize(19, random.Random(i), style=style)
+                self.assertEqual(a.validate(), [])
+                for s in a.structures:
+                    d = P.structure(s.gid)
+                    prev = P.max_structure_level(s.gid, 18)
+                    if d is None or s.gid == TH_GID or prev <= 0 or _is_key(d) != key:
+                        continue
+                    tot += 1
+                    hit += s.level >= prev
+            return hit / tot
+
+        self.assertGreater(ratio(STEADY, False), 0.8)
+        self.assertGreater(ratio(STEADY, True), 0.8)
+        self.assertLess(ratio(RUSH, False), 0.4)
+        self.assertGreater(ratio(RUSH, True), 0.8)
+
+    def test_random_counts_between_prev_and_cur_max(self):
+        """每种建筑（含城墙、陷阱、合并原料的等效数量）都在 [上一本上限, 本本上限] 之间。"""
+        for th in (3, 8, 13, 17, 19):
+            for i in range(8):
+                a = blank(th)
+                a.randomize(th, random.Random(100 * th + i))
+                c = a.counts()
+                used = {}
+                for d in P.data["structures"]:
+                    for inp, k in (d.get("merge") or {}).get("inputs", {}).items():
+                        used[P.structure(inp)["gid"]] = used.get(P.structure(inp)["gid"], 0) + k * c.get(d["gid"], 0)
+                for d in P.data["structures"]:
+                    if d["gid"] == TH_GID or P.max_structure_level(d["gid"], th) <= 0:
+                        continue
+                    hi = d["max_count"][th - 1]
+                    lo = min(d["max_count"][th - 2], hi) if P.max_structure_level(d["gid"], th - 1) > 0 else 0
+                    n = c.get(d["gid"], 0) + used.get(d["gid"], 0)
+                    self.assertTrue(lo <= n <= hi, (th, d["name"], lo, n, hi))
+        a = blank(19)
+        a.max_out()
+        walls = [s for s in a.structures if s.gid == gid("Wall")]
+        for s in walls[324:]:  # 只剩 324 段，少于 18 本上限 325
+            a.structures.remove(s)
+        self.assertTrue(any(e.code == "not_all_built" and e.gid == gid("Wall") for e in a.validate()))  # 城墙也要建齐
+
+    def test_low_levels_per_item(self):
+        """每项独立地有机会取很低的等级：同一账号里可以有满级熔岩猎犬 + 1 级气球。"""
+        hound, balloon = ugid("Lava Hound"), ugid("Balloon")
+        lows = combo = 0
+        for i in range(300):
+            a = blank(19)
+            a.randomize(19, random.Random(i), style="steady")
+            lows += a.unit_levels.get(balloon) == 1
+            combo += a.unit_levels.get(balloon) == 1 and a.unit_levels.get(hound) == P.units[hound]["max_level"]
+        self.assertGreater(lows, 0)
+        self.assertGreater(combo, 0)
+
+    def test_hero_hall_maxed_before_th_up(self):
+        """英雄殿堂没升满不能升大本营：t 本时殿堂 ≥ t-1 本满级；随机账号大多直接升到本本满级。"""
+        hh = gid("Hero Hall")
+        full = 0
+        for i in range(40):
+            a = blank(16)
+            a.randomize(16, random.Random(i))
+            lv = max(s.level for s in a.structures if s.gid == hh)
+            self.assertGreaterEqual(lv, P.max_structure_level(hh, 15))
+            full += lv == P.max_structure_level(hh, 16)
+        self.assertGreater(full, 25)
+        a = blank(16)
+        a.max_out()
+        next(s for s in a.structures if s.gid == hh).level = P.max_structure_level(hh, 15) - 1
+        self.assertTrue(any(e.code == "not_maxed" for e in a.validate()))
 
     def test_lab_violation(self):
         a = blank(18)
@@ -101,6 +189,15 @@ class AccountEditorTest(unittest.TestCase):
         errs = a.validate()
         self.assertTrue(any(e.code == "not_all_built" and e.gid == gid("Firespitter") for e in errs))
         self.assertFalse(any(e.code == "not_all_built" for e in a.validate(require_all_built=False)))
+
+    def test_merge_rule_th19(self):
+        """19 本：箭塔是多人箭塔、复合机械塔、烟花炮手塔三种合并建筑的原料；投石炮被烟花炮手塔消耗。"""
+        a = blank(19)
+        a.max_out()
+        self.assertEqual(a.counts().get(gid("Archer Tower"), 0), 0)
+        self.assertEqual(a.counts().get(gid("Scattershot"), 0), 0)
+        a.add_structure(gid("Scattershot"))
+        self.assertTrue(any(e.code == "merge_inputs" for e in a.validate()))
 
     def test_merge_rule(self):
         a = blank(18)
@@ -159,6 +256,12 @@ class ArmyTest(unittest.TestCase):
         c = capacity(self.a)
         self.assertEqual((c.troops, c.spells, c.sieges, c.hero_slots), (352, 11, 3, 4))
 
+    def test_capacity_th19(self):
+        a = blank(19)
+        a.max_out()
+        c = capacity(a)
+        self.assertEqual((c.troops, c.spells, c.sieges, c.hero_slots, c.cc_level), (352, 11, 3, 4, 15))
+
     def test_rules(self):
         bk, aq, gw = ugid("Barbarian King"), ugid("Archer Queen"), ugid("Grand Warden")
         good = Army({ugid("Barbarian"): 352}, {}, {}, [HeroPick(gw, mode=1)])
@@ -182,6 +285,67 @@ class ArmyTest(unittest.TestCase):
             self.assertLessEqual(k, 2)
             seen_super += k > 0
         self.assertGreater(seen_super, 0)
+
+    def test_squads_in_army(self):
+        a = blank(19)
+        a.max_out()
+        sq = ugid("Barcher Squad")
+        self.assertEqual(validate(Army({sq: 2, ugid("Barbarian"): 322}), a), [])  # 15×2 + 322 = 352
+        self.assertTrue(validate(Army({sq: 2, ugid("Barbarian"): 323}), a))  # 超人口
+        # 种类数不限（用户确认）；人口按等级：满级 PEKKA 雷霆小队 3 级人口 44（1 级 46）
+        allsq = {g: 1 for g, u in P.units.items() if u["kind"] == "squad"}
+        pe = ugid("PEKKA Etitan Squad")
+        self.assertEqual(a.unit_levels[pe], 3)
+        from tianze_coc.army import housing
+        self.assertEqual(housing(Army({pe: 1}), P, a.unit_levels)["troops"], 44)
+        used = housing(Army(dict(allsq)), P, a.unit_levels)["troops"]
+        self.assertEqual(validate(Army({**allsq, ugid("Barbarian"): 352 - used}), a), [])
+
+    def test_random_army_includes_squads(self):
+        from tianze_coc.army import random_army
+
+        a = blank(19)
+        a.max_out()
+        rng = random.Random(1)
+        seen = 0
+        for _ in range(30):
+            army = random_army(a, rng)
+            self.assertEqual(validate(army, a), [])
+            seen += any(P.units[g]["kind"] == "squad" for g in army.troops)
+        self.assertGreater(seen, 0)
+
+    def test_army_respects_army_buildings(self):
+        """配兵受进攻方军事建筑约束：解锁（训练营/法术工厂/攻城工坊/战宠小屋/小队训练营…）、
+        容量（兵营/法术工厂/攻城工坊/部落城堡）、等级上限（实验室/战宠小屋/铁匠铺/部落城堡）。"""
+        from tianze_coc.army import random_army
+        from tianze_coc.assets.progression import cc_level_cap
+
+        for th in (3, 7, 11, 15, 19):
+            for i in range(4):
+                a = blank(th)
+                a.randomize(th, random.Random(th * 10 + i))
+                self.assertIn("Army Camp", a.army_buildings())
+                blv, cap = a.building_levels(), capacity(a)
+                army = random_army(a, random.Random(i))
+                self.assertEqual(validate(army, a), [])
+                for g in list(army.troops) + list(army.spells) + list(army.sieges) + [h.pet for h in army.heroes if h.pet]:
+                    u = P.units[g]
+                    if not u.get("derived_level"):
+                        self.assertGreater(P.max_unit_level(g, blv), 0, (th, u["name"]))
+                        self.assertLessEqual(a.unit_levels.get(g, 0), P.max_unit_level(g, blv), (th, u["name"]))
+                h = {"troops": 0, "spells": 0}
+                from tianze_coc.army import housing
+                h = housing(army, P, a.unit_levels)
+                self.assertLessEqual(h["troops"], cap.troops)
+                self.assertLessEqual(h["spells"], cap.spells)
+                self.assertLessEqual(len(army.sieges), cap.sieges)
+                for g, n, lv in army.cc:
+                    self.assertLessEqual(lv, cc_level_cap(P, g, cap.cc_level))
+        # 建筑不够时直接拒绝：没有攻城工坊就不能带攻城机器
+        a = blank(19)
+        a.max_out()
+        a.structures = [s for s in a.structures if s.gid != gid("Siege Workshop")]
+        self.assertTrue(any("未解锁" in e for e in validate(Army(sieges={ugid("Wall Wrecker"): 1}), a)))
 
     def test_super_troops(self):
         sb, sa, sg = ugid("Super Barbarian"), ugid("Super Archer"), ugid("Super Giant")
@@ -233,6 +397,15 @@ class RecordedPayloadTest(unittest.TestCase):
         self.assertEqual((d["troops"], d["spells"], d["sieges"], d["heroes"], d["cc"]),
                          ({4000000: 10}, {26000000: 2}, {4000051: 1}, [28000000], [(4000005, 2, 12)]))
         self.assertTrue(ap.roundtrip_ok(nb))
+
+    def test_attacker_army_is_army_all(self):
+        """19.32：防守方也有完整列表链（取最后一条为进攻方）；本局军队以 army_all 为准（真机核对）。"""
+        b = ENEMY.read_bytes()
+        self.assertGreaterEqual(len(ac.find_chains(b)), 1)
+        f = ap.parse(b)
+        self.assertIsNotNone(f.army_all)
+        nb = ap.patch(b, heroes=[28000000])
+        self.assertEqual(ap.parse(nb).army_all.entries, f.army_all.entries)  # 只改英雄不动军队
 
 
 if __name__ == "__main__":
@@ -307,9 +480,50 @@ class BattleModifierTest(unittest.TestCase):
         self.assertEqual((hard["common_equipment_minus"], hard["epic_equipment_minus"]), (3, 6))
         att = [e for e in t["Minus One"]["effects"] if e["side"] == "attacker" and e["target"] == "hero"][0]
         self.assertEqual((att["damage_pct"], att["hp_pct"]), (80, 80))
+        # 19.32 难度上调（真机测得进攻方英雄生命上限比例 0.90/0.85/0.80 与表一致）
+        hard_att = [e for e in hard["effects"] if e["side"] == "attacker" and e["target"] == "hero"][0]
+        hard_bld = [e for e in hard["effects"] if e["side"] == "defender" and e["target"] == "building"][0]
+        self.assertEqual((hard_att["hp_pct"], hard_bld["damage_pct"]), (75, 130))
+        m3 = [e for e in t["Minus Three"]["effects"] if e["side"] == "attacker" and e["target"] == "hero"][0]
+        self.assertEqual(m3["hp_pct"], 90)
 
     @unittest.skipUnless(ENEMY.exists(), "没有本地录制")
-    def test_recorded_friendly_is_normal(self):
+    def test_recorded_friendly_mode(self):
         from tianze_coc import battle_modifier as bm
 
-        self.assertEqual(bm.mode_of(ENEMY.read_bytes()), "normal")
+        b = ENEMY.read_bytes()
+        self.assertEqual(bm.mode_of(b), "esports")  # 19.32 录制的是选了"电竞"的友谊战
+        self.assertEqual(bm.mode_of(bm.set_modifier(b, "normal")), "normal")
+
+
+class VillageExportTest(unittest.TestCase):
+    """游戏"导出村庄数据"JSON <-> Account（摆阵、配兵模型的输入格式）。"""
+
+    @staticmethod
+    def key(acc):
+        return sorted((s.gid, s.level, s.supercharge, bool(s.raw.get("construction"))) for s in acc.structures)
+
+    def test_random_accounts_roundtrip(self):
+        from tianze_coc import village_export as ve
+
+        for th in (2, 9, 14, 18, 19):
+            a = blank(th)
+            a.randomize(th, random.Random(th))
+            d = ve.from_account(a)
+            self.assertTrue(all("lvl" in e and "cnt" in e for e in d["buildings"] if "types" not in e))
+            b = ve.to_account(d)
+            self.assertEqual(self.key(b), self.key(a), th)
+            self.assertEqual({g: v for g, v in b.unit_levels.items() if v}, {g: v for g, v in a.unit_levels.items() if v})
+            self.assertEqual(b.validate(), [], th)
+
+    @unittest.skipUnless((REC / "export_sample.json").exists(), "没有本地导出样例（含玩家标签，不进仓库）")
+    def test_game_export_sample(self):
+        from tianze_coc import village_export as ve
+
+        a = ve.to_account(REC / "export_sample.json")
+        self.assertEqual(a.th, 19)
+        self.assertEqual(a.validate(), [])  # 建造中的烟花炮手塔已消耗箭塔和投石炮，必须计入
+        self.assertEqual(sum(1 for s in a.structures if s.supercharge), 2)
+        self.assertEqual(sum(1 for s in a.structures if s.gid == gid("Wall")), 350)
+        b = ve.to_account(ve.from_account(a))
+        self.assertEqual(self.key(b), self.key(a))

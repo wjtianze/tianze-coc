@@ -49,8 +49,19 @@ def only(xs, what):
     return xs[0]
 
 
-def func_by_string(r: ElfRe, needle: bytes, exact=False) -> int:
-    """引用该字符串的唯一函数。字符串可能被尾部合并，故同时搜索前缀位置的引用。"""
+def follow_wrapper(r: ElfRe, fn: int) -> int:
+    """19.32 起有些函数变成了只转调一次的薄包装（例如 submit(cmd) -> submit2(&cmd, 0)，第二个参数被忽略）。
+    包装函数 ≤ 12 条指令、只含一个 bl 时返回被包装的函数；否则原样返回。"""
+    seq = insns(r, fn, r.func_end(fn))
+    calls = [bl_target(i) for i in seq if bl_target(i)]
+    if len(seq) <= 12 and len(calls) == 1:
+        return calls[0]
+    return fn
+
+
+def func_by_string(r: ElfRe, needle: bytes, exact=False, virtual=False) -> int:
+    """引用该字符串的唯一函数。字符串可能被尾部合并，故同时搜索前缀位置的引用。
+    virtual=True 时只保留出现在虚表里的函数（19.32 起同一条日志字符串被内联进了多个非虚函数）。"""
     funcs = set()
     for sva in r.find_strings(needle, exact=exact):
         o = r.v2o(sva)
@@ -59,7 +70,27 @@ def func_by_string(r: ElfRe, needle: bytes, exact=False) -> int:
             b -= 1
         for t, s in r.xrefs_range(r.o2v(b), sva + 1):
             funcs.add(r.func_of(s))
+    if virtual:
+        funcs = {f for f in funcs if f in inv_relocs(r)}
     return only(funcs, f"字符串 {needle!r}")
+
+
+def func_by_string_cleanest(r: ElfRe, needle: bytes) -> int:
+    """同 func_by_string；不唯一时（19.32：另一处是被误并进大函数的引用）取引用字符串最少的那个。"""
+    try:
+        return func_by_string(r, needle)
+    except LocateError:
+        funcs = set()
+        for sva in r.find_strings(needle, exact=False):
+            b = r.v2o(sva)
+            while r.data[b - 1] != 0:
+                b -= 1
+            for _, x in r.xrefs_range(r.o2v(b), sva + 1):
+                funcs.add(r.func_of(x))
+        ranked = sorted(funcs, key=lambda f: len(list(r.strings_in_func(f))))
+        if len(ranked) > 1 and len(list(r.strings_in_func(ranked[0]))) == len(list(r.strings_in_func(ranked[1]))):
+            raise
+        return ranked[0]
 
 
 def vtable_containing(r: ElfRe, func: int) -> tuple[int, int]:
@@ -132,7 +163,7 @@ def locate(r: ElfRe) -> dict:
     new_sites = [k for k, (a, t) in enumerate(bls) if t == o["operator_new"]]
     k = new_sites[0]
     o["LogicPlaceAttackerCommand_ctor"] = bls[k + 1][1]
-    o["ClientCommand_submit"] = bls[k + 2][1]
+    o["ClientCommand_submit"] = follow_wrapper(r, bls[k + 2][1])
     # new 之前的三个格子函数：getTile, Tile::isDeployable, TileMap::isValidAttackPos
     o["LogicTileMap_getTile"], o["LogicTile_canDeploy"], o["LogicTileMap_isValidAttackPos"] = (
         bls[k - 3][1], bls[k - 2][1], bls[k - 1][1])
@@ -150,11 +181,26 @@ def locate(r: ElfRe) -> dict:
         raise LocateError(f"deployAllTroops 入口特征变化: {first}")
     s["LogicLevel_width"] = int(mm.group(1), 0)
     s["LogicLevel_height"] = s["LogicLevel_width"] + 4
-    for i in seq:
-        mm = re.match(r"ldr\s+w8, \[x22, #(0x[0-9a-f]+)\]", f"{i.mnemonic} {i.op_str}")
-        if mm and i.address > o["DebugUtil_deployAllTroops"] + 0x150:
+    # 人口：放兵提交之后紧接着累加。18.647：ldr w8,[x22,#0xd0]（单个整数）；
+    # 19.32：bl getHousingSpace(data, 等级)，人口按等级取 [+0xd0] 数组（长度在 +0xc8）
+    after = [i for i in seq if i.address > bls[k + 2][0]][:6]
+    for i in after:
+        mm = re.match(r"w8, \[x2\d, #(0x[0-9a-f]+)\]$", i.op_str)
+        if i.mnemonic == "ldr" and mm:
             s["LogicCombatItemData_housingSpace"] = int(mm.group(1), 0)
             break
+        if bl_target(i):
+            h = insns(r, bl_target(i), n=2)
+            m1 = re.match(r"w8, \[x0, #(0x[0-9a-f]+)\]$", h[0].op_str)
+            m2 = re.match(r"x9, \[x0, #(0x[0-9a-f]+)\]$", h[1].op_str)
+            if m1 and m2:
+                s["LogicCombatItemData_housingSpaceCount"] = int(m1.group(1), 0)
+                s["LogicCombatItemData_housingSpace"] = int(m2.group(1), 0)
+                notes["LogicCombatItemData_housingSpace"] = "19.32 起是每级人口数组的指针（按等级-1 取，越界取末项）"
+                o["LogicCombatItemData_getHousingSpace"] = bl_target(i)
+            break
+    if "LogicCombatItemData_housingSpace" not in s:
+        raise LocateError("deployAllTroops 中未找到人口字段")
 
     # 数据表：mov w0,#表号; bl getTable；表对象 +8 数组, +0x14 数量
     for a, b in zip(seq, seq[1:]):
@@ -227,12 +273,22 @@ def locate(r: ElfRe) -> dict:
     o["LogicGameMode_updateOneSubTick"] = one
     o["LogicGameMode_updateSubTick"] = only([r.func_of(x) for x in r.callers(one)], "updateSubTick")
     st = insns(r, o["LogicGameMode_updateSubTick"], r.func_end(o["LogicGameMode_updateSubTick"]))
-    lvl = [i for i in st if i.mnemonic == "ldr" and re.match(r"x\d+, \[x19, #0x10\]", i.op_str)]
+    # updateOneSubTick 之后：ldr x8,[x19,#level]; add x0,x8,#0x60（level 内的 tick 计数器）
+    lvl = [int(a.op_str.split("#")[1].rstrip("]"), 0) for a, b in zip(st, st[1:])
+           if a.mnemonic == "ldr" and re.match(r"x8, \[x19, #0x[0-9a-f]+\]$", a.op_str)
+           and b.mnemonic == "add" and b.op_str.startswith("x0, x8, #")]
     if not lvl:
         raise LocateError("updateSubTick 中未找到 GameMode->level")
-    s["LogicGameMode_level"] = 0x10
+    s["LogicGameMode_level"] = lvl[0]  # 18.647: 0x10；19.32: 0x18
     s["LogicGameMode_state"] = 0
     s["LogicGameMode_battleOver"] = 0xC
+    # 19.32 新增"战斗已结束"字节（updateSubTick 里 state==2 时还检查它）：置位后游戏不再调用 updateSubTick，
+    # 而 battleOver(+0xc) 要到结算时才置位。探针锁步时两者任一置位都视为战斗结束。18.647 没有该字段，记为 -1。
+    ended = sorted({int(i.op_str.split("#")[1].rstrip("]"), 0) for i in st
+                    if i.mnemonic == "ldrb" and re.match(r"w\d+, \[x19, #0x[0-9a-f]+\]$", i.op_str)
+                    and int(i.op_str.split("#")[1].rstrip("]"), 0) not in (0, 0xC)
+                    and int(i.op_str.split("#")[1].rstrip("]"), 0) < 0x20})
+    s["LogicGameMode_battleEnded"] = ended[0] if len(ended) == 1 else -1
     s["LogicLevel_battleEndFlag"] = next(int(i.op_str.split("#")[1].rstrip("]"), 0) for i in st
                                          if i.mnemonic == "ldrb" and re.match(r"w9, \[x8, #", i.op_str))
 
@@ -268,7 +324,7 @@ def locate(r: ElfRe) -> dict:
                         ("PlaceAlliancePortal", b"Replay LogicPlaceAlliancePortalCommand load failed!"),
                         ("TriggerHeroAbility", b"Replay LogicTriggerHeroAbility load failed! Hero"),
                         ("PlaceRecalledUnits", b"Replay LogicPlaceRecalledUnitsCommand load failed!")):
-        load = func_by_string(r, needle)
+        load = func_by_string(r, needle, virtual=True)
         vt, slot = vtable_containing(r, load)
         ctor = vtable_writer(r, vt)
         o[f"Logic{key}Command_vtable"] = vt
@@ -303,7 +359,7 @@ def locate(r: ElfRe) -> dict:
                         ("loadLiveReplay", b"loadLiveReplay called from invalid state"),
                         ("loadNpcDuelState", b"loadNpcDuelState called from invalid state"),
                         ("loadVisitState", b"loadVisitState called from invalid state")):
-        o[f"LogicGameMode_{key}"] = func_by_string(r, needle)
+        o[f"LogicGameMode_{key}"] = func_by_string_cleanest(r, needle)
     o["LogicGameObjectManager_addGameObject"] = func_by_string(
         r, b"LogicGameObjectManager::addGameObject with global ID %d, global ID already taken")
     o["LogicNpcAttack_placeOneUnit"] = func_by_string(r, b"LogicNpcAttack::placeOneUnit - No attack position found!")
@@ -316,8 +372,16 @@ def locate(r: ElfRe) -> dict:
     s["LogicGameObject_globalId"] = 0x30
     s["LogicGameObject_vt_getType"] = 0xA0 // 8
     s["LogicData_globalId"] = 0x18
-    s["LogicLevel_gameObjectManagers"] = 0x68
-    s["LogicLevel_villageIndex"] = 0x420
+    # Level::getGameObjectManager 形如：ldrsw x8,[x0,#村庄序号]; add x8,x0,x8,lsl #3; ldr x8,[x8,#GOM数组]; add x0,x8,#..; ret
+    # （18.647：0x420/0x68；19.32：0x490/0x68）
+    acc = set()
+    for fn in r.functions:
+        if r.func_end(fn) - fn != 20:
+            continue
+        q = insns(r, fn, n=5)
+        if len(q) == 5 and q[0].mnemonic == "ldrsw" and q[0].op_str.startswith("x8, [x0, #")                 and q[1].op_str == "x8, x0, x8, lsl #3" and q[2].mnemonic == "ldr" and q[2].op_str.startswith("x8, [x8, #")                 and q[3].mnemonic == "add" and q[3].op_str.startswith("x0, x8, #") and q[4].mnemonic == "ret":
+            acc.add((int(q[0].op_str.split("#")[1].rstrip("]"), 0), int(q[2].op_str.split("#")[1].rstrip("]"), 0)))
+    s["LogicLevel_villageIndex"], s["LogicLevel_gameObjectManagers"] = only(acc, "Level::getGameObjectManager 访问器")
     s["LogicArrayList_data"] = 0
     s["LogicArrayList_count"] = 0xC
 
@@ -346,6 +410,75 @@ def locate(r: ElfRe) -> dict:
     pp = insns(r, o["LogicLevel_placeAlliancePortal"], r.func_end(o["LogicLevel_placeAlliancePortal"]))
     pbl = [bl_target(i) for i in pp if bl_target(i)]
     o["LogicLevel_getAttackerAvatar"] = pbl[0]
+    # getAttackerAvatar：ldr x8,[x0,#statePtr]; ...; add x8,x0,#A; ldr x0,[x8]; ret; add x8,x0,#B; ...
+    # 战斗里两个 avatar 槽（19.32：+0x48 / +0x50，按关卡状态取其一）
+    ga = insns(r, o["LogicLevel_getAttackerAvatar"], n=10)
+    slots = [int(i.op_str.split("#")[1], 0) for i in ga if i.mnemonic == "add" and re.match(r"x8, x0, #0x[0-9a-f]+$", i.op_str)]
+    if len(slots) != 2:
+        raise LocateError(f"getAttackerAvatar 特征变化: {slots}")
+    s["LogicLevel_avatarA"], s["LogicLevel_avatarB"] = slots
+    # 大本营升级强化（军队满级 / 英雄满级，持续数天）：avatar 上的两个布尔标志。
+    # 领取强化的函数同时引用 TH_UPGRADE/HERO_BOOST/POWER_BOOST：mov w8,#1; strb w8,[xN,#英雄标志]；
+    # 并调用 setter：ldrb w9,[x0,#军队标志]; and w8,w1,#1; cmp w9,w8; ...; strb w8,[x0,#军队标志]。
+    # 放兵时标志为真则等级 = max(账号等级, 按大本营的保底等级)，18/19 本保底即满级（真机核对，见 th19_adaptation.md）。
+    claim = only([f for f in set(r.func_of(x) for sva in r.find_strings(b"TH_UPGRADE", exact=True)
+                                  for _, x in r.xrefs_range(sva, sva + 1))
+                  if {"HERO_BOOST", "POWER_BOOST"} <= {st for _, st in r.strings_in_func(f)}], "领取升本强化的函数")
+    cq = insns(r, claim, r.func_end(claim))
+    hero_flag = army_flag = None
+    for a_, b_ in zip(cq, cq[1:]):
+        if a_.mnemonic == "mov" and a_.op_str == "w8, #1" and b_.mnemonic == "strb" and b_.op_str.startswith("w8, [x"):
+            hero_flag = hero_flag or int(b_.op_str.split("#")[1].rstrip("]"), 0)
+        t_ = bl_target(b_)
+        if t_ and army_flag is None:
+            h = insns(r, t_, n=5)
+            if (h[0].mnemonic == "ldrb" and h[0].op_str.startswith("w9, [x0, #") and h[1].op_str == "w8, w1, #1"
+                    and h[4].mnemonic == "strb"):
+                army_flag = int(h[0].op_str.split("#")[1].rstrip("]"), 0)
+    if hero_flag is None or army_flag is None:
+        raise LocateError(f"升本强化标志未找到: hero={hero_flag} army={army_flag}")
+    s["LogicAvatar_boostMaxArmy"], s["LogicAvatar_boostMaxHeroes"] = army_flag, hero_flag
+    # 两个强化的计时器：领取函数里调用 `ldr x0,[x0,#计时器]; mov w2,wzr; b 设定时长` 形式的小函数（先英雄后军队）。
+    timer_offs = []
+    for i in cq:
+        t_ = bl_target(i)
+        if not t_:
+            continue
+        h = insns(r, t_, n=3)
+        mm = re.match(r"x0, \[x0, #(0x[0-9a-f]+)\]$", h[0].op_str)
+        if h[0].mnemonic == "ldr" and mm and h[1].op_str == "w2, wzr" and h[2].mnemonic == "b":
+            off_ = int(mm.group(1), 0)
+            if off_ not in timer_offs:
+                timer_offs.append(off_)
+    if len(timer_offs) < 2:
+        raise LocateError(f"升本强化计时器未找到: {timer_offs}")
+    timer_offs = timer_offs[:2]  # 依次是英雄、军队（第三个是资源加速，不影响战斗）
+    s["LogicAvatar_boostHeroTimer"], s["LogicAvatar_boostArmyTimer"] = timer_offs
+    # 计时器的三个 avatar 变量编号（结束 tick、结束时间、暂停剩余）：avatar 构造函数里
+    # mov w2,#a; mov w3,#b; mov w4,#c; ... bl 计时器构造; ... str xN,[x19,#计时器]。对局数据里进攻方 avatar 的变量数组
+    # （int32 n + n×int32）存着这几个值；清零后载入对局时强化不会恢复（真机核对，见 attacker_payload.clear_th_boost）。
+    var_ids = {}
+    for fn in r.functions:
+        if r.func_end(fn) - fn > 6000:
+            continue
+        q = insns(r, fn, r.func_end(fn))
+        for k, i in enumerate(q):
+            mm = re.match(r"x\d+, \[x\d+, #(0x[0-9a-f]+)\]$", i.op_str)
+            if i.mnemonic != "str" or not mm or int(mm.group(1), 0) not in timer_offs:
+                continue
+            regs = {}
+            for j in q[max(0, k - 10):k]:
+                m2 = re.match(r"(w[234]), #(0x[0-9a-f]+|\d+)$", j.op_str)
+                if j.mnemonic == "mov" and m2:
+                    regs[m2.group(1)] = int(m2.group(2), 0)
+            if len(regs) == 3:
+                var_ids[int(mm.group(1), 0)] = [regs["w2"], regs["w3"], regs["w4"]]
+        if len(var_ids) == 2:
+            break
+    if len(var_ids) != 2:
+        raise LocateError(f"升本强化计时器的变量编号未找到: {var_ids}")
+    s["avatar_var_boostArmy"] = var_ids[s["LogicAvatar_boostArmyTimer"]]
+    s["avatar_var_boostHeroes"] = var_ids[s["LogicAvatar_boostHeroTimer"]]
     for i in pp:
         if i.mnemonic == "cmp" and re.match(r"w0, #0x[0-9a-f]+$", i.op_str):
             s["data_type_alliance_portal"] = int(i.op_str.split("#")[1], 0)
@@ -380,7 +513,7 @@ def locate(r: ElfRe) -> dict:
     # ---- 英雄模式切换（大守护者 地面/空中）：类型 ID 由真机命令侦听得到（UI 切换模式时发出），
     #      再按结构校验：getCommandType 返回该值、构造函数 (this, heroData@0x10, mode@0x18)
     for fn in r.functions:
-        if r.func_end(fn) - fn == 8 and const_return(r, fn) == SPY_TYPE_HERO_MODE:
+        if r.func_end(fn) - fn == 8 and const_return(r, fn) in SPY_TYPES_HERO_MODE:
             for p in inv_relocs(r).get(fn, []):
                 vt = p - 4 * 8
                 for ctor in sorted(set(r.func_of(x) for x in r.xrefs(vt))):
@@ -388,13 +521,21 @@ def locate(r: ElfRe) -> dict:
                     if f.get("x1") == 0x10 and f.get("w2") == 0x18:
                         o["LogicHeroModeCommand_ctor"] = ctor
                         o["LogicHeroModeCommand_vtable"] = vt
-                        s["LogicHeroModeCommand_type"] = SPY_TYPE_HERO_MODE
+                        s["LogicHeroModeCommand_type"] = const_return(r, fn)
                         s["LogicHeroModeCommand_size"] = 0x20
     if "LogicHeroModeCommand_ctor" not in o:
         raise LocateError("未找到英雄模式切换命令（游戏更新后需用 cmd_log 重新侦听其类型 ID）")
 
     # ---- 消息系统
-    recv = func_by_string(r, b"NpcDataMessage received but GameMode is null!")
+    # 19.32 起这条日志也出现在几个小的辅助函数里；分发函数是同时引用四类消息日志的那个大函数
+    recv_cands = []
+    for sva in r.find_strings(b"NpcDataMessage received but GameMode is null!", exact=False):
+        for _, x in r.xrefs_range(sva, sva + 1):
+            recv_cands.append(r.func_of(x))
+    anchors = ("EnemyHomeDataMessage - Unknown attack source", "OwnHomeData should not be leased",
+               "VisitedHomeDataMessage received but GameMode is null!")
+    recv = only([f for f in set(recv_cands)
+                 if all(any(a in st for _, st in r.strings_in_func(f)) for a in anchors)], "MessageManager::receiveMessage")
     o["MessageManager_receiveMessage"] = recv
     # 辅助函数形如：adrp/ldr x0,[g]; cbz x0; ldr x1,[x1]; mov w2,wzr; b deliver
     deliver, gmm = set(), set()
@@ -409,7 +550,8 @@ def locate(r: ElfRe) -> dict:
                 and q[2].mnemonic == "cbz" and q[3].op_str == "x1, [x1]" and q[4].op_str == "w2, wzr"
                 and q[5].mnemonic == "b"):
             tgt = int(q[5].op_str[1:], 0)
-            if r.func_end(tgt) == recv:  # deliver 紧挨在 receiveMessage 之前
+            # 18.647 中 deliver 紧挨在 receiveMessage 之前；19.32 不再相邻，但这种辅助函数全库只有一个
+            if True:
                 deliver.add(tgt)
                 gmm.add(int(q[0].op_str.split("#")[1], 0) + int(q[1].op_str.split("#")[1].rstrip("]"), 0))
     o["MessageManager_deliver"] = only(deliver, "MessageManager::deliver")
@@ -433,7 +575,7 @@ def locate(r: ElfRe) -> dict:
         ob = r.v2o(sva)
         while r.data[ob - 1] != 0:
             ob -= 1
-        site_va[k] = [x for _, x in r.xrefs_range(r.o2v(ob), sva + 1)][0]
+        site_va[k] = [x for _, x in r.xrefs_range(r.o2v(ob), sva + 1) if r.func_of(x) == recv][0]
     fend = r.func_end(recv)
     for a, ts in entries.items():
         if a == default or len(ts) != 1:
@@ -505,14 +647,23 @@ def locate(r: ElfRe) -> dict:
     # ---- 登录状态（离线启动）：LoginOk 处理函数开头
     #   adrp x21,..; ldr x8,[x21,#off] -> 登录状态对象；ldr w9,[x8]; cmp w9,#2；ldrb w9,[x8,#0x4d]; cbz -> "without proper validation"
     lok = func_by_string(r, b"LoginOkMessage received without proper validation.")
-    q = insns(r, lok, n=20)
-    page = next(int(i.op_str.split("#")[1], 0) for i in q if i.mnemonic == "adrp" and i.op_str.startswith("x21,"))
-    ld = next(i for i in q if i.mnemonic == "ldr" and i.op_str.startswith("x8, [x21, #"))
-    o["g_loginState"] = page + int(ld.op_str.split("#")[1].rstrip("]"), 0)
-    cmp = next(i for i in q if i.mnemonic == "cmp" and i.op_str.startswith("w9, #"))
-    s["LoginState_awaitingValue"] = int(cmp.op_str.split("#")[1], 0)
-    vb = next(i for i in q if i.mnemonic == "ldrb" and i.op_str.startswith("w9, [x8, #"))
-    s["LoginState_validatedFlag"] = int(vb.op_str.split("#")[1].rstrip("]"), 0)
+    # 18.647 在函数开头；19.32 前面多了一段引用计数释放，所以在整个函数里找这一组指令
+    q = insns(r, lok, r.func_end(lok))
+    found = None
+    for k in range(len(q) - 4):
+        a, b, c, d, e = q[k:k + 5]
+        mm = re.match(r"x8, \[(x\d+), #(0x[0-9a-f]+)\]$", a.op_str)
+        if (a.mnemonic == "ldr" and mm and b.mnemonic == "ldr" and b.op_str == "w9, [x8]"
+                and c.mnemonic == "cmp" and c.op_str.startswith("w9, #") and d.mnemonic == "b.ne"
+                and e.mnemonic == "ldrb" and e.op_str.startswith("w9, [x8, #")):
+            reg = mm.group(1)
+            adrp = next(i for i in reversed(q[:k]) if i.mnemonic == "adrp" and i.op_str.startswith(reg + ","))
+            found = (int(adrp.op_str.split("#")[1], 0) + int(mm.group(2), 0),
+                     int(c.op_str.split("#")[1], 0), int(e.op_str.split("#")[1].rstrip("]"), 0))
+            break
+    if found is None:
+        raise LocateError("LoginOk 处理函数中未找到登录状态检查")
+    o["g_loginState"], s["LoginState_awaitingValue"], s["LoginState_validatedFlag"] = found
     o["LoginOk_handler"] = lok
     # 删除析构（槽 2）形如 `b operator delete`
     dd = insns(r, r.ptr(pa_vt + 2 * 8), n=1)[0]
@@ -522,7 +673,9 @@ def locate(r: ElfRe) -> dict:
     return {"functions": o, "struct": s, "notes": notes}
 
 
-SPY_TYPE_HERO_MODE = 7398  # 18.647：真机侦听到的 UI 切换大守护者模式命令
+# 各版本 UI 切换大守护者模式的命令类型：18.647 = 7398（真机侦听）；19.32.7 = 7216（execute/encode/decode 与 7398 指令序列一致，待真机侦听复核）。
+# 结构校验（构造函数 this, heroData@0x10, mode@0x18）保证同一个 libg 里只会命中其中一个。
+SPY_TYPES_HERO_MODE = (7398, 7216)
 
 
 def inv_relocs(r: ElfRe) -> dict[int, list[int]]:
@@ -534,6 +687,20 @@ def inv_relocs(r: ElfRe) -> dict[int, list[int]]:
     return r._inv_relocs
 
 
+def code_end(data: bytes) -> int:
+    """所有可执行 PT_LOAD 段的最高结束地址（探针用来判断虚函数指针是否落在 libg 代码内）。
+    18.647 = 0x18b3aa8；19.32 的第二个可执行段延伸到 0x19f7218，原先写死的 0x1900000 不够用。"""
+    import struct
+    phoff = struct.unpack_from("<Q", data, 0x20)[0]
+    n = struct.unpack_from("<H", data, 0x38)[0]
+    end = 0
+    for k in range(n):
+        typ, flags, _, va, _, _, memsz, _ = struct.unpack_from("<IIQQQQQQ", data, phoff + 56 * k)
+        if typ == 1 and flags & 1:
+            end = max(end, va + memsz)
+    return end
+
+
 def prologue(r: ElfRe, va: int) -> str:
     return r.read(va, 16).hex()
 
@@ -541,7 +708,8 @@ def prologue(r: ElfRe, va: int) -> str:
 def emit_header(info: dict, path: Path) -> None:
     lines = ["// 由 tools/re/find_offsets.py 自动生成，请勿手改。", "#pragma once", "#include <cstdint>", "",
              "namespace tz::off {", f'inline constexpr const char *kLibgSha256 = "{info["libg_sha256"]}";',
-             f'inline constexpr const char *kBuildTag = "{info.get("build_tag", "")}";', ""]
+             f'inline constexpr const char *kBuildTag = "{info.get("build_tag", "")}";',
+             f'inline constexpr std::uintptr_t kLibgCodeEnd = {info["code_end"]:#x};  // 可执行段上界', ""]
     for k, v in info["functions"].items():
         lines.append(f"inline constexpr std::uintptr_t {k} = {v:#x};")
     lines.append("")
@@ -589,7 +757,39 @@ EXPECTED_STRUCT_18_647 = {
     "LogicPlaceRecalledUnitsCommand_type": 7654, "LogicBattleLog_townHallDestroyed": 0x1B9,
     "LogicAvatar_allianceUnits": 0x1D0, "data_type_alliance_portal": 0xF, "LogicCombatItemData_vt_getUnitType": 23,
     "LogicCharacter_isDead": 0x17F, "ByteStream_offset": 0x14, "ByteStream_buffer": 0x38,
-    "LogicCommand_vt_encode": 5, "LogicCommand_vt_decode": 6,
+    "LogicCommand_vt_encode": 5, "LogicCommand_vt_decode": 6, "LogicGameMode_battleEnded": -1,
+}
+
+
+EXPECTED_19_32 = {
+    "LogicCommandManager_createCommand": 0xE66A3C, "operator_new": 0x17EF070,
+    "LogicPlaceAttackerCommand_ctor": 0xE74558, "ClientCommand_submit": 0xC3DF8C,
+    "LogicCommandManager_addCommand": 0xE68608, "LogicCommandManager_update": 0xE687F0,
+    "LogicGameMode_updateSubTick": 0x10B1958, "LogicGameMode_updateOneSubTick": 0x10B1A64,
+    "LogicCastSpellCommand_ctor": 0xE5CA58, "LogicPlaceHeroCommand_ctor": 0xE759D0,
+    "g_clientInstance": 0x197D568, "LogicGameMode_loadNpcAttackState": 0x10B4230,
+    "LogicPlaceAlliancePortalCommand_ctor": 0xE73E2C, "LogicTriggerHeroAbilityCommand_ctor": 0xE90168,
+    "LogicPlaceRecalledUnitsCommand_ctor": 0xE76ED4, "LogicBattleLog_getStars": 0xDEA24C,
+    "MessageManager_receiveMessage": 0xC6682C, "MessageManager_deliver": 0xC65E50, "g_messageManager": 0x19771C8,
+    "MessageFactory_create": 0x1050CB4, "Client_update": 0xC3EBC8, "g_clientState": 0x18CC330,
+    "Messaging_sendOne": 0x13462D4, "EnemyHomeDataMessage_vtable": 0x1895AE8, "NpcDataMessage_vtable": 0x1895F48,
+    "OwnHomeDataMessage_vtable": 0x1895FE8,
+}
+EXPECTED_STRUCT_19_32 = {
+    "msg_EnemyHomeData": 21940, "msg_NpcData": 24346, "msg_OwnHomeData": 25195,
+    "LogicPlaceAlliancePortalCommand_type": 7840, "LogicTriggerHeroAbilityCommand_type": 7060,
+    "LogicPlaceRecalledUnitsCommand_type": 7760, "LogicBattleLog_townHallDestroyed": 0x1e1,
+    "LogicAvatar_allianceUnits": 0x1d0, "data_type_alliance_portal": 0xf,
+    "LogicCombatItemData_vt_getUnitType": 0x18, "LogicCharacter_isDead": 0x18f, "ByteStream_offset": 0x14,
+    "ByteStream_buffer": 0x38, "LogicCommand_vt_encode": 0x5, "LogicCommand_vt_decode": 0x6,
+    "LogicHeroModeCommand_type": 7216, "LogicLevel_villageIndex": 0x490, "LogicGameMode_level": 0x18,
+    "LogicGameMode_battleEnded": 0xd, "LogicAvatar_boostMaxArmy": 0x248, "LogicAvatar_boostMaxHeroes": 0x249,
+    "LogicLevel_avatarA": 0x48, "LogicLevel_avatarB": 0x50,
+}
+# libg SHA-256 -> (函数, 结构) 手工核对值；--expect 按被分析 libg 的哈希自动选择
+EXPECTED_BY_SHA = {
+    "2b9d4c917a15c33eca6b994a35d56f8007ebe1d83c40c634e93b5f9259795d1c": (EXPECTED_18_647, EXPECTED_STRUCT_18_647),
+    "9098a88e4bf50a2926a7cae8f972bbb6030e6673509144c0c62203a4db713cbf": (EXPECTED_19_32, EXPECTED_STRUCT_19_32),
 }
 
 
@@ -597,12 +797,14 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("libg")
     ap.add_argument("--build-tag", default="")
-    ap.add_argument("--expect", action="store_true", help="与 18.647 手工核对值比较")
+    ap.add_argument("--expect", action="store_true", help="与该版本的手工核对值比较（按 libg 哈希选择）")
+    ap.add_argument("--check-only", action="store_true", help="只推导与核对，不写出文件（回归测试用）")
     a = ap.parse_args()
     r = ElfRe(a.libg)
     info = locate(r)
     info["libg_sha256"] = hashlib.sha256(r.data).hexdigest()
     info["build_tag"] = a.build_tag
+    info["code_end"] = code_end(r.data)
     hooks = ("LogicGameMode_updateSubTick", "Client_update", "Messaging_sendOne", "ClientCommand_submit",
              "MessageManager_receiveMessage", "LogicDataTables_getTable")
     info["prologues"] = {k: prologue(r, info["functions"][k]) for k in hooks}
@@ -610,17 +812,21 @@ def main() -> None:
                             if not k.endswith("_vtable") and not k.startswith("g_")}
     for k in hooks:  # inline hook 要求前 4 条指令不含 PC 相对寻址
         for i in insns(r, info["functions"][k], n=4):
-            if i.mnemonic in ("adr", "adrp", "b", "bl", "cbz", "cbnz", "tbz", "tbnz") or i.mnemonic.startswith("b.") \
-                    or (i.mnemonic.startswith("ldr") and "#0x" in i.op_str and "[" not in i.op_str):
+            if i.mnemonic in ("adr", "adrp", "b", "bl", "cbz", "cbnz", "tbz", "tbnz") or i.mnemonic.startswith("b.")                     or (i.mnemonic.startswith("ldr") and "#0x" in i.op_str and "[" not in i.op_str):
                 raise LocateError(f"{k} 前 16 字节包含 PC 相对指令 {i.mnemonic} {i.op_str}，需要重定位支持")
     if a.expect:
-        bad = {k: (hex(info["functions"].get(k, -1)), hex(v)) for k, v in EXPECTED_18_647.items()
+        if info["libg_sha256"] not in EXPECTED_BY_SHA:
+            raise SystemExit(f"没有该 libg（{info['libg_sha256']}）的手工核对值")
+        ef, es = EXPECTED_BY_SHA[info["libg_sha256"]]
+        bad = {k: (hex(info["functions"].get(k, -1)), hex(v)) for k, v in ef.items()
                if info["functions"].get(k) != v}
-        bad.update({k: (info["struct"].get(k), v) for k, v in EXPECTED_STRUCT_18_647.items()
+        bad.update({k: (info["struct"].get(k), v) for k, v in es.items()
                     if info["struct"].get(k) != v})
         if bad:
             raise SystemExit(f"与手工核对值不一致: {bad}")
-        print("与 18.647 手工核对值一致")
+        print("与手工核对值一致")
+    if a.check_only:
+        return
     out_json = ROOT / "tianze_coc" / "data" / "engine_offsets.json"
     out_h = ROOT / "probe" / "generated" / "offsets.h"
     out_json.write_text(json.dumps(info, indent=1, default=lambda x: x), encoding="utf-8")
@@ -629,7 +835,7 @@ def main() -> None:
     for k, v in info["functions"].items():
         print(f"  {k:42s} {v:#x}")
     for k, v in info["struct"].items():
-        print(f"  {k:42s} {v if isinstance(v, dict) else hex(v)}")
+        print(f"  {k:42s} {v if isinstance(v, (dict, list)) else hex(v)}")
 
 
 if __name__ == "__main__":

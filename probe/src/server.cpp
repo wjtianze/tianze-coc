@@ -208,6 +208,8 @@ std::string handle(const std::string &line) {
     void *a = h ? dlsym(h, req["name"].str().c_str()) : nullptr;
     w.key("ok").boolean(a != nullptr).key("addr").num(static_cast<long long>(reinterpret_cast<std::uintptr_t>(a)));
     if (!a) w.key("error").str("symbol not found");
+  } else if (op == "attacker_boost") {
+    e.attacker_boost(req, w);
   } else if (op == "peek") {
     // 校准用：读取任意地址（安全读取，非法地址返回 null）
     const auto addr = static_cast<std::uintptr_t>(req["addr"].i64());

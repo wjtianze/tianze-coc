@@ -27,9 +27,10 @@ TH_GID = 1000001
 WALL_GID = 1000010
 BUILD_MIN, BUILD_MAX = 3, 47  # 主村可建造区域：格子 [3, 47)，即 44×44
 
-# avatar 中的等级列表 <-> 单位种类
-LEVEL_LISTS = {"troop": "unit_levels", "siege": "siege_levels", "spell": "spell_levels", "hero": "hero_levels",
-               "pet": "pet_levels", "equipment": "equipment_levels"}
+# avatar 中的等级列表 -> 写回时由它负责的单位种类
+# （小队是 characters.csv 里的行，等级与兵种同在 unit_levels；19.32 待有小队的账号录制后复核）
+LEVEL_LISTS = {"unit_levels": ("troop", "squad"), "siege_levels": ("siege",), "spell_levels": ("spell",),
+               "hero_levels": ("hero",), "pet_levels": ("pet",), "equipment_levels": ("equipment",)}
 
 
 @dataclass
@@ -42,12 +43,17 @@ class Structure:
     y: int
     kind: str = "buildings"  # 村庄 JSON 中所在的列表：buildings / traps
     raw: dict = field(default_factory=dict)  # 原始 JSON（保留其他字段：改装模式、各阵型槽坐标等）
+    supercharge: int = 0  # 超级充能小等级（村庄 JSON 的 minilvl；导出格式里叫 supercharge）
 
     def to_json(self) -> dict:
         d = dict(self.raw)
         d["data"] = self.gid
         d["lvl"] = self.level - 1
         d["x"], d["y"] = self.x, self.y
+        if self.supercharge > 0:
+            d["minilvl"] = self.supercharge
+        else:
+            d.pop("minilvl", None)
         return d
 
 
@@ -71,7 +77,8 @@ class Account:
                 for b in home.get(kind, []):
                     if "x" not in b or "data" not in b:
                         continue
-                    self.structures.append(Structure(b["data"], int(b.get("lvl", 0)) + 1, b["x"], b["y"], kind, dict(b)))
+                    self.structures.append(Structure(b["data"], int(b.get("lvl", 0)) + 1, b["x"], b["y"], kind, dict(b),
+                                                     int(b.get("minilvl", 0) or 0)))
         self.unit_levels: dict[int, int] = dict(unit_levels)  # gid -> 1 起等级
 
     # ------------------------------------------------------------------ 解析
@@ -83,7 +90,7 @@ class Account:
         levels: dict[int, int] = {}
         if side in ("own", "attacker"):
             chain = ac.find_chain(payload)
-            for name in LEVEL_LISTS.values():
+            for name in LEVEL_LISTS:
                 sl = chain.get(name)
                 if sl:
                     for gid, v in sl.entries:
@@ -104,6 +111,17 @@ class Account:
         for s in self.structures:
             out[s.gid] = out.get(s.gid, 0) + 1
         return out
+
+    def army_buildings(self) -> dict[str, list[int]]:
+        """军事建筑（buildings.csv 中 BuildingClass=Army：兵营、训练营、暗黑训练营、法术工厂、攻城工坊、部落城堡、
+        实验室、英雄殿堂、战宠小屋、铁匠铺、小队训练营……）-> 各座等级。配兵的解锁、容量与等级上限都由它们决定，
+        也是配兵模型的输入。"""
+        out: dict[str, list[int]] = {}
+        for s in self.structures:
+            d = self.prog.structure(s.gid)
+            if d and d.get("building_class") == "Army":
+                out.setdefault(d["name"], []).append(s.level)
+        return {k: sorted(v) for k, v in out.items()}
 
     def building_levels(self) -> dict[str, int]:
         """建筑名 -> 最高等级（用于单位等级上限判断）；含 'Town Hall'。"""
@@ -160,17 +178,31 @@ class Account:
                 cap = p.max_structure_level(s.gid, th)
                 if not 1 <= s.level <= cap:
                     out.append(Violation("structure_level", f"{d['name_cn']} {s.level} 级超过 {th} 本上限 {cap} 级", s.gid))
+                if s.supercharge:
+                    sc = d.get("supercharge")
+                    if not sc or th < sc["th"] or s.level != sc["level"] or not 0 < s.supercharge <= sc["max"]:
+                        out.append(Violation("supercharge", f"{d['name_cn']} 超级充能 {s.supercharge} 不合法（需大本营 ≥ "
+                                             f"{sc['th'] if sc else '—'}、建筑达到 {sc['level'] if sc else '—'} 级、最多 {sc['max'] if sc else 0} 级）", s.gid))
             if require_all_built and th >= 2:
+                # 游戏规定先建齐当前本的建筑才能升本：每种建筑（含城墙、陷阱）不少于上一本上限；
+                # 合并原料按等效数量（自身 + 已合并进成品的份数）计；被大本营合并消耗的取较小值。
                 for d in p.data["structures"]:
-                    if not d["require_built_on_th_up"]:
-                        continue
-                    if p.max_structure_level(d["gid"], th - 1) <= 0:
-                        continue  # 上一本还只是废墟（例如 1～2 本的部落城堡），不要求建齐
+                    if d["gid"] == TH_GID or p.max_structure_level(d["gid"], th - 1) <= 0:
+                        continue  # 上一本还不能建（例如 1～2 本的部落城堡只是废墟）
                     need = min(d["max_count"][th - 2], d["max_count"][th - 1])
-                    have = counts.get(d["gid"], 0)
+                    have = counts.get(d["gid"], 0) + used.get(d["gid"], 0)
                     if have < need:
+                        extra = f"（含合并进成品的 {used[d['gid']]} 座）" if used.get(d["gid"]) else ""
                         out.append(Violation("not_all_built", f"升到 {th} 本前需先建齐 {need} 座{d['name_cn']}（{th - 1} 本上限），"
-                                             f"现有 {have} 座", d["gid"]))
+                                             f"现有 {have} 座{extra}", d["gid"]))
+                # 升本前必须升满的建筑（英雄殿堂）：不低于上一本满级
+                for name in p.rules.get("maxed_before_th_up", []):
+                    d = p.structure(name)
+                    need = p.max_structure_level(name, th - 1) if d else 0
+                    have = max((s.level for s in self.structures if d and s.gid == d["gid"]), default=0)
+                    if need and have < need:
+                        out.append(Violation("not_maxed", f"升到 {th} 本前需先把{d['name_cn']}升到 {need} 级（{th - 1} 本满级），"
+                                             f"现为 {have} 级", d["gid"]))
             out += self.overlaps()
         if check_units:
             blv = self.building_levels() if self.home is not None else None
@@ -250,6 +282,7 @@ class Account:
         kind = "traps" if d["category"] == "trap" else "buildings"
         pool = getattr(self, "_raw_pool", {}).get(gid)
         raw = dict(pool.pop(0)) if pool else {"data": gid, "id": self._next_id(kind)}
+        raw.pop("minilvl", None)  # 复用条目时不继承原有的超级充能
         s = Structure(gid, lv, x, y, kind, raw)
         self.structures.append(s)
         return s
@@ -271,8 +304,8 @@ class Account:
             self.set_unit_level(gid, min(self.unit_levels[gid], cap))
 
     def max_out(self, th: int | None = None, walls: bool = True, traps: bool = True,
-                rng: random.Random | None = None) -> None:
-        """一键满级：大本营 th（默认当前），所有建筑建满并升到最高级，所有单位升到最高级。"""
+                rng: random.Random | None = None, supercharge: bool = True) -> None:
+        """一键满级：大本营 th（默认当前），所有建筑建满并升到最高级（可超级充能的充满），所有单位升到最高级。"""
         if th is not None:
             self.set_th(th)
         t = self.th
@@ -293,12 +326,45 @@ class Account:
                 heroes_ok = any(self.prog.max_unit_level(h, blv) > 0 for h in u.get("heroes", []))
                 cap = cap if heroes_ok else 0
             self.set_unit_level(gid, cap)
+        for s in self.structures:
+            s.supercharge = self.supercharge_cap(s) if supercharge else 0
+
+    def supercharge_cap(self, s: Structure) -> int:
+        """该建筑当前能充的超级充能小等级数（0 = 不能充：没有充能、大本营不够或建筑未达本本满级）。"""
+        d = self.prog.structure(s.gid)
+        sc = (d or {}).get("supercharge")
+        if not sc or self.th < sc["th"] or s.level != sc["level"]:
+            return 0  # 需大本营 ≥ 所需等级，且建筑处在可充能的那一级（buildings.csv 的 MiniLevels）
+        return sc["max"]
 
     def randomize(self, th: int, rng: random.Random | None = None, require_all_built: bool = True,
-                  progress: float | None = None) -> None:
+                  progress: float | None = None, style: str | None = None) -> None:
         """随机生成一个 th 本的合法账号：建筑数量/等级、单位等级都在规则内随机。
-        progress ∈ [0,1] 控制整体发育程度（None 则每项独立随机）。"""
+
+        数量（用户要求，游戏规定先建齐当前本的建筑才能升本）：每种建筑（含城墙、陷阱）的数量在
+        "上一本上限 ~ 本本上限"之间；合并建筑的原料按"自身 + 已合并进成品的份数"计算（见 _random_counts）。
+        等级分布模拟真实玩家：
+        - 稳本 STEADY（多数）：每项等级主要落在"上一本满级 ~ 本本满级"之间，整体进度 progress 决定偏向哪一端。
+        - 速本 RUSH（少数，概率 RUSH_PROB）：只有关键建筑（大本营与军事类：兵营、实验室、部落城堡、英雄殿堂等）
+          按稳本升级；防御、资源、城墙、陷阱停留在 RUSH_LAG 本以前到上一本之间。单位等级由实验室等建筑决定。
+        - 全满 FULL（概率 FULL_MAX_PROB）：建筑建满升满、单位满级、可超级充能的充满。
+        - 超级充能：达到本本满级的可充能建筑各自独立地以一定概率充 1~满 个小等级。
+        - 不论稳本速本，每个建筑、每个单位都**各自独立**以 LOW_TAIL 的概率取更低的等级（最低可到 1 级），
+          所以会出现"满级熔岩猎犬 + 1 级气球"这类组合（见 _pick_level）。
+        progress ∈ [0,1]：本本内的发育进度（None 则每个账号随机一个）。style：None 则按 RUSH_PROB 随机。"""
         rng = rng or random.Random()
+        p = rng.random() if progress is None else progress
+        if style is None and rng.random() < FULL_MAX_PROB:
+            style = FULL
+        self.style = style or (RUSH if rng.random() < RUSH_PROB else STEADY)
+        if self.style == FULL:  # 一部分账号全满（建筑、单位、超级充能），用户要求
+            self._raw_pool = {}
+            for s in self.structures:
+                self._raw_pool.setdefault(s.gid, []).append(s.raw)
+            self.structures = []
+            self.add_structure(TH_GID, th, rng=rng)
+            self.max_out(th, rng=rng)
+            return
         # 复用原有条目（保留编号和大本营/建筑的附加字段，例如 18 本大本营的守卫配置）；
         # 联调发现全新生成的大本营条目会让客户端在开局时崩溃。
         self._raw_pool = {}
@@ -307,21 +373,30 @@ class Account:
         self.structures = []
         self.add_structure(TH_GID, th, rng=rng)
         t = th
+        counts = self._random_counts(t, rng, p, require_all_built)
         for d in _placement_order(self.prog):
-            if d["gid"] == TH_GID:
+            n = counts.get(d["gid"], 0)
+            if d["gid"] == TH_GID or n <= 0:
                 continue
-            hi = self._target_count(d, t)
-            lo = (min(d["max_count"][t - 2], hi) if (require_all_built and t >= 2 and d["require_built_on_th_up"]
-                                                     and self.prog.max_structure_level(d["gid"], t - 1) > 0) else 0)
-            if hi <= 0 or self.prog.max_structure_level(d["gid"], t) <= 0:
-                continue  # 该本还不能建（例如 1～2 本的部落城堡只是废墟）
-            n = hi if progress is None and d["category"] == "wall" else _pick(rng, lo, hi, progress)
             cap = self.prog.max_structure_level(d["gid"], t)
-            floor_lv = max(1, self.prog.max_structure_level(d["gid"], t - 1) // 2) if t >= 2 else 1
+            prev = self.prog.max_structure_level(d["gid"], t - 1) if t >= 2 else 0
+            if self.style == RUSH and not _is_key(d) and prev > 0:
+                # 速本的非关键建筑：停在 RUSH_LAG 本以前 ~ 上一本满级之间
+                cap = prev
+                prev = self.prog.max_structure_level(d["gid"], max(1, t - RUSH_LAG))
             for _ in range(n):
-                self.add_structure(d["gid"], _pick(rng, min(floor_lv, cap), cap, progress), rng=rng)
-        self._fix_merges()
+                if d["name"] in self.prog.rules.get("maxed_before_th_up", []):
+                    # 英雄殿堂：升本前必须升满，所以至少是上一本满级；并且大多直接升到本本满级（用户要求）
+                    full = self.prog.max_structure_level(d["gid"], t)
+                    floor_ = self.prog.max_structure_level(d["gid"], t - 1) if t >= 2 else 1
+                    lv = full if rng.random() < HERO_HALL_MAX_PROB else rng.randint(max(1, min(floor_, full)), full)
+                else:
+                    lv = _pick_level(rng, prev, cap, p)
+                self.add_structure(d["gid"], lv, rng=rng)
         blv = self.building_levels()
+        # 上一本时各建筑能达到的等级（单位等级下限：上一本建筑满级时单位能到的等级）
+        blv_prev = {k: min(v, self.prog.max_structure_level(k, t - 1) if t >= 2 else 0) for k, v in blv.items()}
+        blv_prev["Town Hall"] = t - 1
         self.unit_levels = {}
         for gid, u in self.prog.units.items():
             if u.get("derived_level"):
@@ -330,7 +405,53 @@ class Account:
             if u["kind"] == "equipment" and not any(self.prog.max_unit_level(h, blv) > 0 for h in u.get("heroes", [])):
                 cap = 0
             if cap > 0:
-                self.set_unit_level(gid, _pick(rng, 1, cap, progress))
+                prev = self.prog.max_unit_level(gid, blv_prev) if t >= 2 else 0
+                self.set_unit_level(gid, _pick_level(rng, prev, cap, p))
+        # 超级充能：达到本本满级的可充能建筑，每座独立以 SUPERCHARGE_PROB（随进度增加）充 1~满 个小等级
+        for s in self.structures:
+            cap_sc = self.supercharge_cap(s)
+            if cap_sc and rng.random() < SUPERCHARGE_PROB * (0.5 + p):
+                s.supercharge = max(1, min(cap_sc, round(1 + rng.random() ** (1 - p * 0.8) * (cap_sc - 1))))
+
+    def _count_range(self, d: dict, t: int, require_all_built: bool = True) -> tuple[int, int]:
+        """该建筑在 t 本的数量区间 [上一本上限, 本本上限]（合并原料为"等效数量"：自身 + 已合并进成品的份数）。
+        上一本还不能建（废墟、新解锁）时下限为 0；大本营升级时被合并消耗的（如天鹰火炮）上限会更小，取两者较小值。"""
+        if self.prog.max_structure_level(d["gid"], t) <= 0:
+            return 0, 0
+        hi = d["max_count"][t - 1]
+        lo = 0
+        if require_all_built and t >= 2 and self.prog.max_structure_level(d["gid"], t - 1) > 0:
+            lo = min(d["max_count"][t - 2], hi)
+        return lo, hi
+
+    def _random_counts(self, t: int, rng: random.Random, p: float, require_all_built: bool = True) -> dict[int, int]:
+        """先定合并成品的数量，再定原料：原料的等效数量（自身 + Σ份数×成品数）落在 [上一本上限, 本本上限]。"""
+        out: dict[int, int] = {}
+        consumed: dict[str, int] = {}
+        structs = self.prog.data["structures"]
+        for d in structs:  # 合并成品
+            if d["gid"] == TH_GID or not d.get("merge"):
+                continue
+            lo, hi = self._count_range(d, t, require_all_built)
+            n = _pick(rng, lo, hi, p) if hi > 0 else 0
+            out[d["gid"]] = n
+            for inp, k in d["merge"]["inputs"].items():
+                consumed[inp] = consumed.get(inp, 0) + k * n
+        for d in structs:  # 其余建筑（含合并原料、城墙、陷阱）
+            if d["gid"] == TH_GID or d.get("merge"):
+                continue
+            lo, hi = self._count_range(d, t, require_all_built)
+            used = consumed.get(d["name"], 0)
+            lo = max(lo, used)
+            if hi <= 0 or hi < lo:
+                out[d["gid"]] = max(0, hi - used)
+                continue
+            if self.style == RUSH and not _is_key(d):
+                p_n = p / 2
+            else:
+                p_n = p
+            out[d["gid"]] = _pick(rng, lo, hi, p_n) - used
+        return out
 
     def _target_count(self, d: dict, t: int) -> int:
         """建满时的数量：合并原料要给成品留出份额。"""
@@ -436,15 +557,15 @@ class Account:
         if side in ("own", "attacker"):
             chain = ac.find_chain(out)
             reps = []
-            for kind, name in LEVEL_LISTS.items():
+            for name, kinds in LEVEL_LISTS.items():
                 sl = chain.get(name)
                 if sl is None:
                     continue
-                reps.append((sl, _merge_levels(sl.entries, self.unit_levels, self.prog, kind)))
+                reps.append((sl, _merge_levels(sl.entries, self.unit_levels, self.prog, kinds)))
             out = ac.splice(out, reps)
         elif side == "defender":
             lists = _defender_lists(out)
-            reps = [(sl, _merge_levels(sl.entries, self.unit_levels, self.prog, kind)) for kind, sl in lists.items()]
+            reps = [(sl, _merge_levels(sl.entries, self.unit_levels, self.prog, (kind,))) for kind, sl in lists.items()]
             out = ac.splice(out, reps)
         return out
 
@@ -464,6 +585,36 @@ def _placement_order(prog: Progression) -> list[dict]:
     return sorted(prog.data["structures"], key=lambda d: (d["category"] == "wall", -d["width"] * d["height"]))
 
 
+STEADY, RUSH, FULL = "steady", "rush", "full"
+FULL_MAX_PROB = 0.1  # 全满账号（建筑、单位、超级充能全满）的比例
+SUPERCHARGE_PROB = 0.4  # 满级可充能建筑被充能的基础概率（乘以 0.5+进度）
+RUSH_PROB = 0.2  # 速本玩家占比（较少）
+RUSH_LAG = 3  # 速本非关键建筑最低停在几本以前的满级
+LOW_TAIL = 0.1  # 每个建筑/单位独立地取"低于上一本满级"等级的概率
+HERO_HALL_MAX_PROB = 0.75  # 英雄殿堂直接升到本本满级的概率（其余按一般规则随机）
+
+
+def _is_key(d: dict) -> bool:
+    """速本也会优先升级的关键建筑：大本营与军事类建筑（兵营、实验室、部落城堡、英雄殿堂、铁匠铺……）。"""
+    return d.get("building_class") in ("Town Hall", "Army")
+
+
+def _pick_level(rng: random.Random, prev: int, cap: int, progress: float) -> int:
+    """等级：主要在 [上一本满级, cap] 之间、按进度偏向一端。每项独立地以 LOW_TAIL 概率取更低的等级：
+    一半贴近上一本满级（三角分布），一半在 [1, 上一本满级-1] 均匀，所以 1 级这种很低的等级也有机会出现。"""
+    if cap <= 0:
+        return 0
+    lo = max(1, min(prev, cap))
+    if lo > 1 and rng.random() < LOW_TAIL:
+        if rng.random() < 0.5:
+            return max(1, min(lo - 1, round(rng.triangular(1, lo - 1, lo - 1))))
+        return rng.randint(1, lo - 1)
+    if cap == lo:
+        return cap
+    x = min(1.0, max(0.0, rng.gauss(progress, 0.22)))
+    return lo + round(x * (cap - lo))
+
+
 def _pick(rng: random.Random, lo: int, hi: int, progress: float | None) -> int:
     if hi <= lo:
         return max(lo, hi) if hi >= lo else hi
@@ -481,14 +632,14 @@ def _req_text(u: dict, level: int) -> str:
     return ""
 
 
-def _merge_levels(entries: list[tuple[int, int]], levels: dict[int, int], prog: Progression, kind: str):
+def _merge_levels(entries: list[tuple[int, int]], levels: dict[int, int], prog: Progression, kinds: tuple[str, ...]):
     """按原列表顺序写回等级；属于该种类的新单位追加在末尾；等级为 0 的移除（原列表中不认识的条目保持原样）。"""
     out = []
     seen = set()
     for gid, v in entries:
         seen.add(gid)
         u = prog.units.get(gid)
-        if u is None or u["kind"] != kind:
+        if u is None or u["kind"] not in kinds:
             out.append((gid, v))  # 夜世界/内部单位等：保持原样
             continue
         lv = levels.get(gid, 0)
@@ -496,7 +647,7 @@ def _merge_levels(entries: list[tuple[int, int]], levels: dict[int, int], prog: 
             out.append((gid, lv - 1))
     for gid, lv in sorted(levels.items()):
         u = prog.units.get(gid)
-        if gid in seen or u is None or u["kind"] != kind or lv <= 0 or u.get("derived_level"):
+        if gid in seen or u is None or u["kind"] not in kinds or lv <= 0 or u.get("derived_level"):
             continue
         out.append((gid, lv - 1))
     return out
@@ -590,9 +741,9 @@ def _defender_lists(payload: bytes) -> dict[str, ac.SlotList]:
                 o = sl.end
                 continue
         elif "equipment" not in out:
-            sl = ac.parse_list(payload, o, ac.TABLE_EQUIPMENT)
-            if sl and len(sl.entries) >= 2 and sl.end <= end:
+            sl = ac.find_equipment_list(payload, o, end)
+            if sl is not None:
                 out["equipment"] = sl
-                break
+            break
         o += 1
     return out

@@ -82,8 +82,18 @@ def capacity(account: Account) -> Capacity:
                     cc["troops"], cc["spells"], cc["sieges"], cc_level)
 
 
-def housing(army: Army, prog: Progression) -> dict[str, int]:
-    h = lambda m: sum(prog.units[g]["housing"] * n for g, n in m.items() if g in prog.units)  # noqa: E731
+def unit_housing(prog: Progression, gid: int, level: int = 0) -> int:
+    """单位人口；19.32 起部分单位（PEKKA 雷霆小队、飞龙宝宝小队）人口随等级变化，给出等级（1 起）时按该级取。"""
+    u = prog.units[gid]
+    hl = u.get("housing_levels")
+    if hl and level > 0:
+        return hl[min(level, len(hl)) - 1]
+    return u["housing"]
+
+
+def housing(army: Army, prog: Progression, levels: dict[int, int] | None = None) -> dict[str, int]:
+    lv = levels or {}
+    h = lambda m: sum(unit_housing(prog, g, lv.get(g, 0)) * n for g, n in m.items() if g in prog.units)  # noqa: E731
     return {"troops": h(army.troops), "spells": h(army.spells), "sieges": sum(army.sieges.values())}
 
 
@@ -94,16 +104,24 @@ def validate(army: Army, account: Account) -> list[str]:
     cap = capacity(account)
     lv = account.unit_levels
 
+    # 有村庄时直接按军事建筑判断解锁（训练营/暗黑训练营/法术工厂/攻城工坊/小队训练营/战宠小屋/英雄殿堂/铁匠铺……）
+    blv = account.building_levels() if account.home is not None else None
+
     def unit(g: int, kinds: tuple[str, ...], what: str) -> dict | None:
         u = p.units.get(g)
         if u is None or u["kind"] not in kinds:
             errs.append(f"{what} {g} 不是部落战/排位战可携带的{'/'.join(kinds)}")
             return None
+        if blv is not None and not u.get("derived_level") and p.max_unit_level(g, blv) <= 0:
+            need = "、".join(f"{b} {n} 级" for b, n in ((u.get("unlock") or {}) | (u["levels_req"][0] if u["levels_req"] else {})).items()
+                            if b != "Laboratory")
+            errs.append(f"{u['name_cn'] or u['name']} 在当前建筑下未解锁（需要 {need}）")
+            return None
         return u
 
     supers = set()
     for g, n in army.troops.items():
-        u = unit(g, ("troop",), "兵种")
+        u = unit(g, ("troop", "squad"), "兵种/小队")  # 小队（19.32）与兵种同槽、占兵营人口，种类数不限（用户确认）
         if u is None or n <= 0:
             continue
         if u["status"] == "super_troop":
@@ -123,7 +141,7 @@ def validate(army: Army, account: Account) -> list[str]:
         u = unit(g, ("siege",), "攻城机器")
         if u and n > 0 and lv.get(g, 0) <= 0:
             errs.append(f"{u['name_cn']} 未解锁")
-    hs = housing(army, p)
+    hs = housing(army, p, lv)
     if hs["troops"] > cap.troops:
         errs.append(f"兵种人口 {hs['troops']} 超过兵营容量 {cap.troops}")
     if hs["spells"] > cap.spells:
@@ -263,11 +281,19 @@ def can_boost(account: Account, gid: int) -> bool:
 
 def random_army(account: Account, rng, fill: float = 1.0, max_kinds: int = 6, cc: bool = True) -> Army:
     """随机合法配兵（基线 / 数据增广）：按容量随机挑几种兵和法术。"""
+    return _random_army(account, rng, fill, max_kinds, cc)
+
+
+def _random_army(account: Account, rng, fill: float = 1.0, max_kinds: int = 6, cc: bool = True) -> Army:
+    """随机合法配兵（基线 / 数据增广）：按容量随机挑几种兵和法术。"""
     p = account.prog
     cap = capacity(account)
     lv = account.unit_levels
     army = Army()
-    troops = [u for g, u in p.units.items() if u["kind"] == "troop" and u["status"] == "permanent" and lv.get(g, 0) > 0]
+    # 兵种与小队（19.32：小队种类数不限，与兵种一起参与随机）
+    troops = [u for g, u in p.units.items() if u["kind"] in ("troop", "squad") and u["status"] == "permanent"
+              and lv.get(g, 0) > 0]
+    hs = lambda u: unit_housing(p, u["gid"], lv.get(u["gid"], 0))  # noqa: E731
     boostable = [u for g, u in p.units.items() if u["kind"] == "troop" and u["status"] == "super_troop"
                  and can_boost(account, g)]
     # 超级兵：随机 0~2 种（同时最多激活 max_super_troop_kinds 种）
@@ -282,16 +308,16 @@ def random_army(account: Account, rng, fill: float = 1.0, max_kinds: int = 6, cc
     tot_w = sum(weights)
     for u, w in zip(picks, weights):
         share = int(room * w / tot_w)
-        n = share // u["housing"]
+        n = share // hs(u)
         if n > 0:
             army.troops[u["gid"]] = army.troops.get(u["gid"], 0) + n
-    used = sum(p.units[g]["housing"] * n for g, n in army.troops.items())
-    filler = sorted(picks, key=lambda u: u["housing"])
+    used = sum(unit_housing(p, g, lv.get(g, 0)) * n for g, n in army.troops.items())
+    filler = sorted(picks, key=hs)
     for u in filler:
-        k = (room - used) // u["housing"]
+        k = (room - used) // hs(u)
         if k > 0:
             army.troops[u["gid"]] = army.troops.get(u["gid"], 0) + k
-            used += k * u["housing"]
+            used += k * hs(u)
     room = cap.spells
     rng.shuffle(spells)
     for u in spells:

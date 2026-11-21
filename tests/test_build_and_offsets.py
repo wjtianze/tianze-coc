@@ -57,7 +57,7 @@ class BuildTest(unittest.TestCase):
         tmp.write_bytes(self.libg)
         try:
             r = subprocess.run([sys.executable, "-I", str(ROOT / "tools" / "re" / "find_offsets.py"), str(tmp),
-                                "--build-tag", "18_647_2", "--expect"], capture_output=True, text=True,
+                                "--expect", "--check-only"], capture_output=True, text=True,
                                encoding="utf-8", errors="replace")
             self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
         finally:

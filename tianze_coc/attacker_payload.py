@@ -3,7 +3,8 @@
 除 avatar_codec 中的数量列表（unit_counts / spell_counts / siege_counts）外，进攻方 avatar 还有
 （18.647 真机录制中定位，均以内容/结构锚定，不依赖绝对偏移）：
 
-- army_all：  int32 n + n×{int32 GlobalID, VInt 数量}，兵种+法术+攻城机器的合并清单，内容与三个数量列表之并相同；
+- army_all：  int32 n + n×{int32 GlobalID, VInt 数量}，兵种(含小队)+法术+攻城机器的合并清单，**引擎按它生成本局军队**。
+              18.647 中内容与三个数量列表之并相同；19.32 起数量列表是"当前配兵"，友谊战等用别的军队时两者不同；
 - pets：      int32 n + n×{int32 英雄, int32 战宠或 0}，英雄携带的战宠；
 - items_hero：VInt n + n×{int32 装备, int32 英雄}，英雄当前装备；
 - items_slot：VInt n + n×{int32 装备, VInt 槽位(0/1)}，紧跟 items_hero；
@@ -93,18 +94,22 @@ def parse(buf: bytes) -> AttackerFields:
     lo = chain["pet_levels"].end
     hi = eq.start if eq else len(buf)
     # army_all：内容 = 三个数量列表之并
-    want = sorted(chain["unit_counts"].entries + chain["spell_counts"].entries + chain["siege_counts"].entries)
-    army_all = None
+    # 18.647 中 army_all 的内容 = 三个数量列表之并；19.32 起数量列表是"当前配兵"，army_all 才是本局实际军队
+    # （真机核对：友谊战用友谊战军队，引擎里的军队与 army_all 一致），所以按结构定位：
+    # 战宠列表之前、最后一个只含兵种(4)/法术(26)表且数量都 > 0 的列表。
     pets = None
     for o in range(lo, hi - 4):
-        if army_all is None and want:
-            sl = ac.parse_list(buf, o)
-            if sl and sl.entries and sorted(sl.entries) == want:
+        r = _parse_pairs_i32(buf, o, 28, 73)
+        if r and any(b for _, b in r[1]):
+            pets = r
+            break
+    army_all = None
+    for o in range(lo, (pets[0].start if pets else hi) - 4):
+        sl = ac.parse_list(buf, o)
+        if (sl and sl.entries and sl.end <= (pets[0].start if pets else hi)
+                and all(_tbl(g) in (4, 26) and c > 0 for g, c in sl.entries)):
+            if army_all is None or sl.start >= army_all.end or len(sl.entries) > len(army_all.entries):
                 army_all = sl
-        if pets is None:
-            r = _parse_pairs_i32(buf, o, 28, 73)
-            if r and any(b for _, b in r[1]):
-                pets = r
     items_hero = items_slot = heroes = cc = None
     if eq is not None:
         p = eq.end
@@ -192,6 +197,16 @@ def roundtrip_ok(buf: bytes) -> bool:
     return bool(checks) and all(checks)
 
 
+def _split_army(entries: list[tuple[int, int]]):
+    """army_all -> (兵种+小队, 法术, 攻城机器)。攻城机器与兵种同在表 4，按成长规则表的种类区分。"""
+    from .assets.progression import Progression
+    kinds = {g: u["kind"] for g, u in Progression.load().units.items()}
+    t = [(g, n) for g, n in entries if _tbl(g) == 4 and kinds.get(g) != "siege"]
+    s = [(g, n) for g, n in entries if _tbl(g) == 26]
+    g_ = [(g, n) for g, n in entries if _tbl(g) == 4 and kinds.get(g) == "siege"]
+    return t, s, g_
+
+
 def patch(buf: bytes, *, troops: dict[int, int] | None = None, spells: dict[int, int] | None = None,
           sieges: dict[int, int] | None = None, heroes: list[int] | None = None,
           pets: dict[int, int] | None = None, equipment: dict[int, list[int]] | None = None,
@@ -202,15 +217,20 @@ def patch(buf: bytes, *, troops: dict[int, int] | None = None, spells: dict[int,
     f = parse(buf)
     reps: list[tuple[int, int, bytes]] = []
     ch = f.chain
-    new_t = list(troops.items()) if troops is not None else ch["unit_counts"].entries
-    new_s = list(spells.items()) if spells is not None else ch["spell_counts"].entries
-    new_g = list(sieges.items()) if sieges is not None else ch["siege_counts"].entries
-    for name, ents in (("unit_counts", new_t), ("spell_counts", new_s), ("siege_counts", new_g)):
-        sl = ch[name]
-        reps.append((sl.start, sl.end, ac.encode_list([(g, n) for g, n in ents if n > 0])))
     if f.army_all is not None:
-        allents = [(g, n) for g, n in new_t + new_s + new_g if n > 0]
-        reps.append((f.army_all.start, f.army_all.end, ac.encode_list(allents)))
+        cur_t, cur_s, cur_g = _split_army(f.army_all.entries)  # 本局实际军队（19.32 起与数量列表可能不同）
+    else:
+        cur_t, cur_s, cur_g = ch["unit_counts"].entries, ch["spell_counts"].entries, ch["siege_counts"].entries
+    new_t = list(troops.items()) if troops is not None else cur_t
+    new_s = list(spells.items()) if spells is not None else cur_s
+    new_g = list(sieges.items()) if sieges is not None else cur_g
+    if troops is not None or spells is not None or sieges is not None:
+        for name, ents in (("unit_counts", new_t), ("spell_counts", new_s), ("siege_counts", new_g)):
+            sl = ch[name]
+            reps.append((sl.start, sl.end, ac.encode_list([(g, n) for g, n in ents if n > 0])))
+        if f.army_all is not None:
+            allents = [(g, n) for g, n in new_t + new_s + new_g if n > 0]
+            reps.append((f.army_all.start, f.army_all.end, ac.encode_list(allents)))
     if pets is not None:
         if f.pets is None:
             raise ValueError("负载中没有找到战宠分配字段")
@@ -272,3 +292,60 @@ def _group(pairs):
     for i, h in pairs:
         out.setdefault(h, []).append(i)
     return out
+
+
+# ---------------------------------------------------------------------- 大本营升级强化
+def _boost_vars() -> list[int]:
+    """两个强化计时器在 avatar 变量数组里的编号（engine_offsets.json，由 find_offsets 从 avatar 构造函数推导）。"""
+    import json
+
+    from .local_config import DATA
+    s = json.loads((DATA / "engine_offsets.json").read_text(encoding="utf-8"))["struct"]
+    return list(s.get("avatar_var_boostArmy", [])) + list(s.get("avatar_var_boostHeroes", []))
+
+
+def find_variables(buf: bytes, start: int, ids: list[int]) -> int | None:
+    """start 之后第一个 avatar 变量数组（int32 n + n×int32）的位置。
+    avatar 的变量数组紧跟在列表链之后几百字节内（19.32：防守方 @链+~600、进攻方 @链+~1150），共约 210 个变量
+    （游戏判断强化时要求至少 0x8d 个）。识别条件：n ≥ 128、大部分为 0、超过 10 亿的值不超过 8 个，且每个计时器的"结束时间"变量为 0 或 Unix 时间戳。"""
+    need = max(max(ids) + 1, 128)
+    end_vars = ids[1::3]  # 每个计时器三个变量：结束 tick、结束时间、暂停剩余
+    for o in range(start, min(len(buf) - 4, start + 4000)):
+        n = _be(buf, o)
+        if not (need <= n <= 2000 and o + 4 + 4 * n <= len(buf)):
+            continue
+        vals = [_be(buf, o + 4 + 4 * k) for k in range(n)]
+        if sum(1 for v in vals if v == 0) < n // 2 or sum(1 for v in vals if abs(v) >= 1_000_000_000) > 8:
+            continue  # 变量大多为 0，超过 10 亿的只有少数时间戳
+        if all(vals[k] == 0 or 1_400_000_000 < vals[k] < 2_200_000_000 for k in end_vars):
+            return o
+    return None
+
+
+def clear_th_boost(buf: bytes) -> bytes:
+    """去掉进攻方的"大本营升级强化"（刚升本送的数天军队满级 / 英雄满级）。
+
+    强化开着时，放兵/英雄等级 = max(账号等级, 大本营保底等级)，18/19 本即满级，注入的等级全部无效
+    （出兵栏角标也显示满级）。它存在进攻方 avatar 的变量数组里：两个计时器各三个变量
+    （结束 tick、结束时间、暂停剩余），载入对局时只要计时器还在运行就会重新开启。把它们清零即可（真机核对）。"""
+    ids = _boost_vars()
+    if not ids:
+        return buf
+    try:
+        chain = ac.find_chain(buf)  # 最后一条链 = 进攻方
+    except ValueError:
+        return buf  # 不是村庄负载（测试用的人造数据等）
+    o = find_variables(buf, chain["pet_levels"].end, ids)
+    if o is None:
+        return buf  # 找不到时原样返回；环境开局后的兜底检查（TianzeBattleEnv._clear_th_boost）会发现并处理
+    out = bytearray(buf)
+    for k in ids:
+        struct.pack_into(">i", out, o + 4 + 4 * k, 0)
+    return bytes(out)
+
+
+def th_boost_active(buf: bytes) -> bool:
+    ids = _boost_vars()
+    chain = ac.find_chain(buf)
+    o = find_variables(buf, chain["pet_levels"].end, ids) if ids else None
+    return o is not None and any(_be(buf, o + 4 + 4 * k) for k in ids)

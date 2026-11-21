@@ -63,7 +63,9 @@ def load_table(src) -> dict:
         if r.get("Name"):
             cur = out.setdefault(r["Name"], {"tid": r.get("TID", ""), "effects": [],
                                              "common_equipment_minus": int(r.get("CommonEquipmentMinusLevels") or 0),
-                                             "epic_equipment_minus": int(r.get("EpicEquipmentMinusLevels") or 0)})
+                                             "epic_equipment_minus": int(r.get("EpicEquipmentMinusLevels") or 0),
+                                             # 19.32 新增列（传奇装备，如暴雪战斧）；当前各模式均为空
+                                             "legendary_equipment_minus": int(r.get("LegendaryEquipmentMinusLevels") or 0)})
         if cur is None:
             continue
         t = lambda k: r.get(k, "").upper() == "TRUE"  # noqa: E731

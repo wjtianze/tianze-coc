@@ -121,7 +121,7 @@ long long now_ms() {
 int type_of(void *msg) {
   const std::uintptr_t vt = rdp(reinterpret_cast<std::uintptr_t>(msg));
   const std::uintptr_t fn = vt ? rdp(vt + 8 * off::PiranhaMessage_vt_getType) : 0;
-  if (!fn || fn < g_base || fn > g_base + 0x1900000) return -1;
+  if (!fn || fn < g_base || fn > g_base + off::kLibgCodeEnd) return -1;
   return reinterpret_cast<GetTypeFn>(fn)(msg);
 }
 

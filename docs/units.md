@@ -6,10 +6,10 @@
 | 状态 | 数量 |
 | --- | --- |
 | 夜世界 | 26 |
-| 内部/不可部署 | 212 |
-| 永久 | 120 |
+| 内部/不可部署 | 224 |
+| 永久 | 133 |
 | 超级兵 | 17 |
-| 限时（禁用） | 56 |
+| 限时（禁用） | 58 |
 
 ## 可用角色（部落战/排位战可携带）
 
@@ -32,7 +32,7 @@
 | 英雄装备 | -1 | Spiky Ball | 尖刺足球 | 0 | 永久 | 英雄装备（Barbarian King） |
 | 英雄装备 | -1 | Frozen Arrow | 冰封箭矢 | 0 | 永久 | 英雄装备（Archer Queen） |
 | 英雄装备 | -1 | Monolith Arrow | 擎天箭矢 | 0 | 永久 | 英雄装备（Archer Queen） |
-| 英雄装备 | -1 | Piercing Arrow | 巨型箭矢 | 0 | 永久 | 英雄装备（Archer Queen） |
+| 英雄装备 | -1 | Giant Arrow | 巨型箭矢 | 0 | 永久 | 英雄装备（Archer Queen） |
 | 英雄装备 | -1 | Heroic Torch | 英雄火炬 | 0 | 永久 | 英雄装备（Grand Warden） |
 | 英雄装备 | -1 | Healer Puppet | 天使木偶 | 0 | 永久 | 英雄装备（Archer Queen） |
 | 英雄装备 | -1 | Fireball | 巨大火球 | 0 | 永久 | 英雄装备（Grand Warden） |
@@ -103,6 +103,19 @@
 | 法术 | 26000109 | Ice Block | 冰障法术 | 1 | 永久 | Dark Spell Factory 7 级可生产 |
 | 法术 | 26000120 | Totem Spell | 图腾法术 | 1 | 永久 | Spell Factory 9 级可生产 |
 | 法术 | 26000123 | AngrySpell | 愤怒法术 | 1 | 永久 | Dark Spell Factory 8 级可生产 |
+| 法术 | 26000153 | Heroic Spell | 英勇法术 | 2 | 永久 | Spell Factory 10 级可生产 |
+| 小队 | 4000195 | Barcher Squad | 野蛮人弓箭手小队 | 15 | 永久 | Squad Barracks 1 级可生产 |
+| 小队 | 4000196 | Giant Wizard Squad | 巨人法师小队 | 25 | 永久 | Squad Barracks 2 级可生产 |
+| 小队 | 4000197 | Wall Breaker Squad | 炸弹人小队 | 8 | 永久 | Squad Barracks 3 级可生产 |
+| 小队 | 4000198 | Minion Squad | 亡灵小队 | 12 | 永久 | Squad Barracks 4 级可生产 |
+| 小队 | 4000199 | Balloon Squad | 气球兵小队 | 16 | 永久 | Squad Barracks 5 级可生产 |
+| 小队 | 4000200 | Golemwitch Squad | 女巫戈仑小队 | 55 | 永久 | Squad Barracks 6 级可生产 |
+| 小队 | 4000201 | Hog Rider Squad | 野猪骑士小队 | 48 | 永久 | Squad Barracks 7 级可生产 |
+| 小队 | 4000202 | Miner Squad | 掘地矿工小队 | 48 | 永久 | Squad Barracks 8 级可生产 |
+| 小队 | 4000203 | Healer Squad | 天使小队 | 70 | 永久 | Squad Barracks 9 级可生产 |
+| 小队 | 4000204 | PEKKA Etitan Squad | 皮卡泰坦小队 | 46 | 永久 | Squad Barracks 10 级可生产 |
+| 小队 | 4000205 | Dragon Squad | 飞龙小队 | 85 | 永久 | Squad Barracks 11 级可生产 |
+| 小队 | 4000206 | Baby Dragon Squad | 飞龙宝宝小队 | 26 | 永久 | Squad Barracks 12 级可生产 |
 | 兵种 | 4000000 | Barbarian | 野蛮人 | 1 | 永久 | Barracks 1 级可生产 |
 | 兵种 | 4000001 | Archer | 弓箭手 | 1 | 永久 | Barracks 2 级可生产 |
 | 兵种 | 4000002 | Goblin | 哥布林 | 1 | 永久 | Barracks 4 级可生产 |
@@ -213,3 +226,5 @@
 | 兵种 | 4000185 | Elephant Rider | 大象骑士 | 24 | 限时（禁用） | EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用） |
 | 兵种 | 4000190 | UndeadWrestler | 送葬者大雪怪 | 80 | 限时（禁用） | EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用） |
 | 兵种 | 4000194 | Totem Thrower | 图腾投手 | 28 | 限时（禁用） | EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用） |
+| 兵种 | 4000208 | Christmas Yeti | 冰霜大雪怪 | 26 | 限时（禁用） | EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用） |
+| 兵种 | 4000210 | FireGoat | 狂角公羊 | 28 | 限时（禁用） | EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用） |

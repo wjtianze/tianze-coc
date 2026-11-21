@@ -18,14 +18,15 @@
   "15": 100,
   "16": 100,
   "17": 100,
-  "18": 100
+  "18": 100,
+  "19": 100
  },
  "build_tag": "18_647_2",
  "summary": {
-  "permanent": 120,
-  "internal": 212,
+  "permanent": 133,
+  "internal": 224,
   "super_troop": 17,
-  "temporary_event": 56,
+  "temporary_event": 58,
   "builder_base": 26
  },
  "units": [
@@ -36,7 +37,7 @@
    "status": "permanent",
    "reason": "Barracks 1 级可生产",
    "housing_space": 1,
-   "max_level": 13,
+   "max_level": 14,
    "production_building": "Barracks",
    "required_building_level": 1,
    "tid": "TID_BARBARIAN",
@@ -48,7 +49,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Archer",
@@ -57,7 +59,7 @@
    "status": "permanent",
    "reason": "Barracks 2 级可生产",
    "housing_space": 1,
-   "max_level": 14,
+   "max_level": 15,
    "production_building": "Barracks",
    "required_building_level": 2,
    "tid": "TID_ARCHER",
@@ -69,7 +71,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Giant",
@@ -78,7 +81,7 @@
    "status": "permanent",
    "reason": "Barracks 3 级可生产",
    "housing_space": 5,
-   "max_level": 14,
+   "max_level": 15,
    "production_building": "Barracks",
    "required_building_level": 3,
    "tid": "TID_GIANT",
@@ -90,7 +93,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Goblin",
@@ -99,7 +103,7 @@
    "status": "permanent",
    "reason": "Barracks 4 级可生产",
    "housing_space": 1,
-   "max_level": 10,
+   "max_level": 11,
    "production_building": "Barracks",
    "required_building_level": 4,
    "tid": "TID_GOBLIN",
@@ -111,7 +115,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Wall Breaker",
@@ -120,7 +125,7 @@
    "status": "permanent",
    "reason": "Barracks 5 级可生产",
    "housing_space": 2,
-   "max_level": 14,
+   "max_level": 15,
    "production_building": "Barracks",
    "required_building_level": 5,
    "tid": "TID_WALL_BREAKER",
@@ -132,7 +137,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Balloon",
@@ -141,7 +147,7 @@
    "status": "permanent",
    "reason": "Barracks 6 级可生产",
    "housing_space": 5,
-   "max_level": 13,
+   "max_level": 14,
    "production_building": "Barracks",
    "required_building_level": 6,
    "tid": "TID_GOBLIN_BALLOON",
@@ -153,7 +159,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Wizard",
@@ -162,7 +169,7 @@
    "status": "permanent",
    "reason": "Barracks 7 级可生产",
    "housing_space": 4,
-   "max_level": 14,
+   "max_level": 15,
    "production_building": "Barracks",
    "required_building_level": 7,
    "tid": "TID_WIZARD",
@@ -174,7 +181,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Healer",
@@ -183,7 +191,7 @@
    "status": "permanent",
    "reason": "Barracks 8 级可生产",
    "housing_space": 14,
-   "max_level": 11,
+   "max_level": 12,
    "production_building": "Barracks",
    "required_building_level": 8,
    "tid": "TID_HEALER",
@@ -195,7 +203,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Dragon",
@@ -204,7 +213,7 @@
    "status": "permanent",
    "reason": "Barracks 9 级可生产",
    "housing_space": 20,
-   "max_level": 13,
+   "max_level": 14,
    "production_building": "Barracks",
    "required_building_level": 9,
    "tid": "TID_DRAGON",
@@ -216,7 +225,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "PEKKA",
@@ -225,7 +235,7 @@
    "status": "permanent",
    "reason": "Barracks 10 级可生产",
    "housing_space": 25,
-   "max_level": 13,
+   "max_level": 14,
    "production_building": "Barracks",
    "required_building_level": 10,
    "tid": "TID_PEKKA",
@@ -237,7 +247,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Baby Dragon",
@@ -246,7 +257,7 @@
    "status": "permanent",
    "reason": "Barracks 11 级可生产",
    "housing_space": 10,
-   "max_level": 12,
+   "max_level": 13,
    "production_building": "Barracks",
    "required_building_level": 11,
    "tid": "TID_BABY_DRAGON",
@@ -258,7 +269,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Miner",
@@ -267,7 +279,7 @@
    "status": "permanent",
    "reason": "Barracks 12 级可生产",
    "housing_space": 6,
-   "max_level": 12,
+   "max_level": 13,
    "production_building": "Barracks",
    "required_building_level": 12,
    "tid": "TID_MINER",
@@ -279,7 +291,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Electro Dragon",
@@ -288,7 +301,7 @@
    "status": "permanent",
    "reason": "Barracks 13 级可生产",
    "housing_space": 30,
-   "max_level": 9,
+   "max_level": 10,
    "production_building": "Barracks",
    "required_building_level": 13,
    "tid": "TID_LIGHTNINGDRAGON",
@@ -300,7 +313,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Yeti",
@@ -309,7 +323,7 @@
    "status": "permanent",
    "reason": "Barracks 14 级可生产",
    "housing_space": 18,
-   "max_level": 8,
+   "max_level": 9,
    "production_building": "Barracks",
    "required_building_level": 14,
    "tid": "TID_CHARACTER_YETI",
@@ -321,7 +335,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Yetimite",
@@ -330,7 +345,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 2,
-   "max_level": 8,
+   "max_level": 9,
    "production_building": "",
    "required_building_level": 1,
    "tid": "TID_CHARACTER_YETIMITE",
@@ -342,7 +357,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Dragon Rider",
@@ -351,7 +367,7 @@
    "status": "permanent",
    "reason": "Barracks 15 级可生产",
    "housing_space": 25,
-   "max_level": 6,
+   "max_level": 7,
    "production_building": "Barracks",
    "required_building_level": 15,
    "tid": "TID_CHARACTER_MECHA_DRAGON",
@@ -363,7 +379,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Electro Titan",
@@ -372,7 +389,7 @@
    "status": "permanent",
    "reason": "Barracks 16 级可生产",
    "housing_space": 32,
-   "max_level": 5,
+   "max_level": 6,
    "production_building": "Barracks",
    "required_building_level": 16,
    "tid": "TID_CHARACTER_ELECTRO_TITAN",
@@ -384,7 +401,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Root Rider",
@@ -393,7 +411,7 @@
    "status": "permanent",
    "reason": "Barracks 17 级可生产",
    "housing_space": 20,
-   "max_level": 4,
+   "max_level": 5,
    "production_building": "Barracks",
    "required_building_level": 17,
    "tid": "TID_CHARACTER_TREANT",
@@ -405,7 +423,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Thrower",
@@ -414,7 +433,7 @@
    "status": "permanent",
    "reason": "Barracks 18 级可生产",
    "housing_space": 16,
-   "max_level": 4,
+   "max_level": 5,
    "production_building": "Barracks",
    "required_building_level": 18,
    "tid": "TID_CHARACTER_THROWER",
@@ -426,7 +445,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Meteor Golem",
@@ -435,7 +455,7 @@
    "status": "permanent",
    "reason": "Barracks 19 级可生产",
    "housing_space": 40,
-   "max_level": 3,
+   "max_level": 4,
    "production_building": "Barracks",
    "required_building_level": 19,
    "tid": "TID_METEOR_GOLEM",
@@ -447,7 +467,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Meteormite",
@@ -456,7 +477,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 20,
-   "max_level": 3,
+   "max_level": 4,
    "production_building": "",
    "required_building_level": 0,
    "tid": "TID_METEOR_GOLEM_SMALL",
@@ -468,7 +489,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Defensive Meteor Golem",
@@ -477,7 +499,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 40,
-   "max_level": 3,
+   "max_level": 4,
    "production_building": "",
    "required_building_level": 0,
    "tid": "TID_METEOR_GOLEM",
@@ -489,7 +511,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Defensive Meteormite",
@@ -498,7 +521,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 20,
-   "max_level": 3,
+   "max_level": 4,
    "production_building": "",
    "required_building_level": 0,
    "tid": "TID_METEOR_GOLEM_SMALL",
@@ -510,7 +533,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Minion",
@@ -519,7 +543,7 @@
    "status": "permanent",
    "reason": "Dark Barracks 1 级可生产",
    "housing_space": 2,
-   "max_level": 14,
+   "max_level": 15,
    "production_building": "Dark Barracks",
    "required_building_level": 1,
    "tid": "TID_GARGOYLE",
@@ -531,7 +555,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Hog Rider",
@@ -540,7 +565,7 @@
    "status": "permanent",
    "reason": "Dark Barracks 2 级可生产",
    "housing_space": 5,
-   "max_level": 15,
+   "max_level": 16,
    "production_building": "Dark Barracks",
    "required_building_level": 2,
    "tid": "TID_BOARRIDER",
@@ -552,7 +577,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Valkyrie",
@@ -561,7 +587,7 @@
    "status": "permanent",
    "reason": "Dark Barracks 3 级可生产",
    "housing_space": 8,
-   "max_level": 12,
+   "max_level": 13,
    "production_building": "Dark Barracks",
    "required_building_level": 3,
    "tid": "TID_WARRIORGIRL",
@@ -573,7 +599,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Golem",
@@ -582,7 +609,7 @@
    "status": "permanent",
    "reason": "Dark Barracks 4 级可生产",
    "housing_space": 30,
-   "max_level": 15,
+   "max_level": 16,
    "production_building": "Dark Barracks",
    "required_building_level": 4,
    "tid": "TID_GOLEM",
@@ -594,7 +621,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Golemite",
@@ -603,7 +631,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 6,
-   "max_level": 15,
+   "max_level": 16,
    "production_building": "",
    "required_building_level": 1,
    "tid": "TID_GOLEM_SEC",
@@ -615,7 +643,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Witch",
@@ -624,7 +653,7 @@
    "status": "permanent",
    "reason": "Dark Barracks 5 级可生产",
    "housing_space": 12,
-   "max_level": 8,
+   "max_level": 9,
    "production_building": "Dark Barracks",
    "required_building_level": 5,
    "tid": "TID_WARLOCK",
@@ -636,7 +665,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Skeleton",
@@ -657,7 +687,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Lava Hound",
@@ -666,7 +697,7 @@
    "status": "permanent",
    "reason": "Dark Barracks 6 级可生产",
    "housing_space": 30,
-   "max_level": 8,
+   "max_level": 9,
    "production_building": "Dark Barracks",
    "required_building_level": 6,
    "tid": "TID_AD_SEEKER",
@@ -678,7 +709,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Lava Pup",
@@ -699,7 +731,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Defensive Lava Hound",
@@ -708,7 +741,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 30,
-   "max_level": 8,
+   "max_level": 9,
    "production_building": "",
    "required_building_level": 0,
    "tid": "TID_AD_SEEKER",
@@ -720,7 +753,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Bowler",
@@ -729,7 +763,7 @@
    "status": "permanent",
    "reason": "Dark Barracks 7 级可生产",
    "housing_space": 6,
-   "max_level": 10,
+   "max_level": 11,
    "production_building": "Dark Barracks",
    "required_building_level": 7,
    "tid": "TID_BOWLER",
@@ -741,7 +775,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Ice Golem",
@@ -762,7 +797,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Defensive Ice Golem",
@@ -783,7 +819,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Headhunter",
@@ -792,7 +829,7 @@
    "status": "permanent",
    "reason": "Dark Barracks 9 级可生产",
    "housing_space": 6,
-   "max_level": 4,
+   "max_level": 5,
    "production_building": "Dark Barracks",
    "required_building_level": 9,
    "tid": "TID_CHARACTER_HEADHUNTER",
@@ -804,7 +841,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Apprentice Warden",
@@ -825,7 +863,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Druid",
@@ -834,7 +873,7 @@
    "status": "permanent",
    "reason": "Dark Barracks 11 级可生产",
    "housing_space": 16,
-   "max_level": 6,
+   "max_level": 7,
    "production_building": "Dark Barracks",
    "required_building_level": 11,
    "tid": "TID_CHARACTER_SHAPESHIFTER_DRUID",
@@ -846,7 +885,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Bear",
@@ -855,7 +895,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 16,
-   "max_level": 6,
+   "max_level": 7,
    "production_building": "",
    "required_building_level": 0,
    "tid": "TID_CHARACTER_SHAPESHIFTER_DRUID_BEAR",
@@ -867,7 +907,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Furnace",
@@ -888,7 +929,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Firemite Spawn",
@@ -909,7 +951,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Furnace_DEF",
@@ -930,7 +973,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Firemite Spawn_DEF",
@@ -951,7 +995,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Super Barbarian",
@@ -960,7 +1005,7 @@
    "status": "super_troop",
    "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
    "housing_space": 5,
-   "max_level": 9,
+   "max_level": 10,
    "production_building": "Barracks",
    "required_building_level": 1,
    "tid": "TID_CHARACTER_ELITE_BARBARIAN",
@@ -972,7 +1017,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": true,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Super Archer",
@@ -981,7 +1027,7 @@
    "status": "super_troop",
    "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
    "housing_space": 12,
-   "max_level": 10,
+   "max_level": 11,
    "production_building": "Barracks",
    "required_building_level": 2,
    "tid": "TID_CHARACTER_MAGIC_ARCHER",
@@ -993,7 +1039,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": true,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Super Giant",
@@ -1002,7 +1049,7 @@
    "status": "super_troop",
    "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
    "housing_space": 10,
-   "max_level": 10,
+   "max_level": 11,
    "production_building": "Barracks",
    "required_building_level": 3,
    "tid": "TID_CHARACTER_ELITE_GIANT",
@@ -1014,7 +1061,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": true,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Sneaky Goblin",
@@ -1023,7 +1071,7 @@
    "status": "super_troop",
    "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
    "housing_space": 3,
-   "max_level": 6,
+   "max_level": 7,
    "production_building": "Barracks",
    "required_building_level": 4,
    "tid": "TID_CHARACTER_ELITE_GOBLIN",
@@ -1035,7 +1083,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": true,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Super Wall Breaker",
@@ -1044,7 +1093,7 @@
    "status": "super_troop",
    "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
    "housing_space": 8,
-   "max_level": 10,
+   "max_level": 11,
    "production_building": "Barracks",
    "required_building_level": 5,
    "tid": "TID_CHARACTER_ELITE_WALLBREAKER",
@@ -1056,7 +1105,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": true,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Rocket Balloon",
@@ -1065,7 +1115,7 @@
    "status": "super_troop",
    "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
    "housing_space": 8,
-   "max_level": 9,
+   "max_level": 10,
    "production_building": "Barracks",
    "required_building_level": 6,
    "tid": "TID_CHARACTER_HASTY_BALLOON",
@@ -1077,7 +1127,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": true,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Super Wizard",
@@ -1086,7 +1137,7 @@
    "status": "super_troop",
    "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
    "housing_space": 10,
-   "max_level": 10,
+   "max_level": 11,
    "production_building": "Barracks",
    "required_building_level": 7,
    "tid": "TID_SUPER_WIZARD",
@@ -1098,7 +1149,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": true,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Super Dragon",
@@ -1107,7 +1159,7 @@
    "status": "super_troop",
    "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
    "housing_space": 40,
-   "max_level": 11,
+   "max_level": 12,
    "production_building": "Barracks",
    "required_building_level": 9,
    "tid": "TID_SUPER_DRAGON",
@@ -1119,7 +1171,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": true,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Inferno Dragon",
@@ -1128,7 +1181,7 @@
    "status": "super_troop",
    "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
    "housing_space": 15,
-   "max_level": 12,
+   "max_level": 13,
    "production_building": "Barracks",
    "required_building_level": 11,
    "tid": "TID_CHARACTER_INFERNO_DRAGON",
@@ -1140,7 +1193,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": true,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Super Miner",
@@ -1149,7 +1203,7 @@
    "status": "super_troop",
    "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
    "housing_space": 24,
-   "max_level": 12,
+   "max_level": 13,
    "production_building": "Barracks",
    "required_building_level": 12,
    "tid": "TID_SUPER_MINER",
@@ -1161,7 +1215,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": true,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Super Yeti",
@@ -1170,7 +1225,7 @@
    "status": "super_troop",
    "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
    "housing_space": 35,
-   "max_level": 8,
+   "max_level": 9,
    "production_building": "Barracks",
    "required_building_level": 14,
    "tid": "TID_CHARACTER_SUPER_YETI",
@@ -1182,7 +1237,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": true,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Electromite",
@@ -1191,7 +1247,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 3,
-   "max_level": 8,
+   "max_level": 9,
    "production_building": "",
    "required_building_level": 1,
    "tid": "TID_CHARACTER_ELECTROMITE",
@@ -1203,7 +1259,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Super Minion",
@@ -1212,7 +1269,7 @@
    "status": "super_troop",
    "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
    "housing_space": 12,
-   "max_level": 11,
+   "max_level": 12,
    "production_building": "Dark Barracks",
    "required_building_level": 1,
    "tid": "TID_SUPER_MINION",
@@ -1224,7 +1281,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": true,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Defensive Super Minion",
@@ -1233,7 +1291,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 12,
-   "max_level": 11,
+   "max_level": 12,
    "production_building": "",
    "required_building_level": 1,
    "tid": "TID_SUPER_MINION",
@@ -1245,7 +1303,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Super Hog Rider",
@@ -1254,7 +1313,7 @@
    "status": "super_troop",
    "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
    "housing_space": 12,
-   "max_level": 12,
+   "max_level": 13,
    "production_building": "Dark Barracks",
    "required_building_level": 2,
    "tid": "TID_CHARACTER_SUPER_HOG_RIDER",
@@ -1266,7 +1325,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": true,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Super Hog",
@@ -1275,7 +1335,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 5,
-   "max_level": 12,
+   "max_level": 13,
    "production_building": "Dark Barracks",
    "required_building_level": 0,
    "tid": "TID_CHARACTER_RIDERLESS_HOG",
@@ -1287,7 +1347,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Super Rider",
@@ -1296,7 +1357,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 5,
-   "max_level": 12,
+   "max_level": 13,
    "production_building": "Dark Barracks",
    "required_building_level": 0,
    "tid": "TID_CHARACTER_HOGLESS_RIDER",
@@ -1308,7 +1369,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Super Valkyrie",
@@ -1317,7 +1379,7 @@
    "status": "super_troop",
    "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
    "housing_space": 20,
-   "max_level": 12,
+   "max_level": 13,
    "production_building": "Dark Barracks",
    "required_building_level": 3,
    "tid": "TID_CHARACTER_SUPER_VALKYRIE",
@@ -1329,7 +1391,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": true,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Super Witch",
@@ -1338,7 +1401,7 @@
    "status": "super_troop",
    "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
    "housing_space": 40,
-   "max_level": 8,
+   "max_level": 9,
    "production_building": "Dark Barracks",
    "required_building_level": 5,
    "tid": "TID_CHARACTER_SUPER_WITCH",
@@ -1350,7 +1413,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": true,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Big Boy",
@@ -1371,7 +1435,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Ice Hound",
@@ -1380,7 +1445,7 @@
    "status": "super_troop",
    "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
    "housing_space": 40,
-   "max_level": 8,
+   "max_level": 9,
    "production_building": "Dark Barracks",
    "required_building_level": 6,
    "tid": "TID_ICE_HOUND",
@@ -1392,7 +1457,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": true,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Ice Hound Pup",
@@ -1413,7 +1479,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Defensive Ice Hound",
@@ -1422,7 +1489,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 40,
-   "max_level": 8,
+   "max_level": 9,
    "production_building": "",
    "required_building_level": 6,
    "tid": "TID_ICE_HOUND",
@@ -1434,7 +1501,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Super Bowler",
@@ -1443,7 +1511,7 @@
    "status": "super_troop",
    "reason": "EnabledBySuperLicence=TRUE（超级兵，激活后部落战/排位战可用）",
    "housing_space": 30,
-   "max_level": 10,
+   "max_level": 11,
    "production_building": "Dark Barracks",
    "required_building_level": 7,
    "tid": "TID_SUPER_BOWLER",
@@ -1455,7 +1523,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": true,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Wall Wrecker",
@@ -1476,7 +1545,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Battle Blimp",
@@ -1497,7 +1567,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Stone Slammer",
@@ -1518,7 +1589,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Siege Barracks",
@@ -1539,7 +1611,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Log Launcher",
@@ -1560,7 +1633,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Flame Flinger",
@@ -1569,7 +1643,7 @@
    "status": "permanent",
    "reason": "Siege Workshop 6 级可生产",
    "housing_space": 1,
-   "max_level": 5,
+   "max_level": 6,
    "production_building": "Siege Workshop",
    "required_building_level": 6,
    "tid": "TID_CHARACTER_SIEGE_MACHINE_CATAPULT",
@@ -1581,7 +1655,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Battle Drill",
@@ -1602,7 +1677,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Troop Launcher",
@@ -1623,7 +1699,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Longshot",
@@ -1644,7 +1721,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Smasher",
@@ -1653,7 +1731,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 25,
-   "max_level": 5,
+   "max_level": 10,
    "production_building": "",
    "required_building_level": 0,
    "tid": "TID_MELEE_AREA_GUARDIAN",
@@ -1665,7 +1743,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Ice Wizard",
@@ -1686,7 +1765,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Battle Ram",
@@ -1707,7 +1787,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Battle Ram Barbarian",
@@ -1728,7 +1809,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Royal Ghost",
@@ -1749,7 +1831,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Pumpkin Barbarian Armored",
@@ -1760,7 +1843,7 @@
    "housing_space": 1,
    "max_level": 13,
    "production_building": "Barracks",
-   "required_building_level": 1,
+   "required_building_level": 0,
    "tid": "TID_PUMPKIN_BARBARIAN",
    "name_cn": "南瓜野蛮人",
    "flags": {
@@ -1770,7 +1853,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Pumpkin Barbarian Bare",
@@ -1791,7 +1875,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Giant Skeleton",
@@ -1802,7 +1887,7 @@
    "housing_space": 20,
    "max_level": 13,
    "production_building": "Barracks",
-   "required_building_level": 3,
+   "required_building_level": 0,
    "tid": "TID_GIANT_SKELETON",
    "name_cn": "骷髅巨人",
    "flags": {
@@ -1812,7 +1897,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Skeleton Barrel",
@@ -1823,7 +1909,7 @@
    "housing_space": 5,
    "max_level": 13,
    "production_building": "Barracks",
-   "required_building_level": 6,
+   "required_building_level": 0,
    "tid": "TID_CHARACTER_SKELETON_BARREL",
    "name_cn": "骷髅飞桶",
    "flags": {
@@ -1833,7 +1919,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "MECHA",
@@ -1854,7 +1941,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Party Wizard",
@@ -1875,7 +1963,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Ram Rider",
@@ -1896,7 +1985,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Barcher",
@@ -1907,7 +1997,7 @@
    "housing_space": 3,
    "max_level": 13,
    "production_building": "Barracks",
-   "required_building_level": 1,
+   "required_building_level": 0,
    "tid": "TID_CHARACTER_BARCHER",
    "name_cn": "野蛮箭手",
    "flags": {
@@ -1917,7 +2007,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Witch Golem",
@@ -1928,7 +2019,7 @@
    "housing_space": 41,
    "max_level": 13,
    "production_building": "Barracks",
-   "required_building_level": 1,
+   "required_building_level": 0,
    "tid": "TID_CHARACTER_GRAVE_GOLEM",
    "name_cn": "女巫戈仑",
    "flags": {
@@ -1938,7 +2029,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Witch Golem Skeleton",
@@ -1959,7 +2051,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Witch Golem Big Boy",
@@ -1980,7 +2073,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Hog Wizard",
@@ -1991,7 +2085,7 @@
    "housing_space": 7,
    "max_level": 13,
    "production_building": "Barracks",
-   "required_building_level": 1,
+   "required_building_level": 0,
    "tid": "TID_CHARACTER_HOG_WIZARD",
    "name_cn": "野猪法师",
    "flags": {
@@ -2001,7 +2095,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Lavaloon",
@@ -2012,7 +2107,7 @@
    "housing_space": 21,
    "max_level": 13,
    "production_building": "Barracks",
-   "required_building_level": 1,
+   "required_building_level": 0,
    "tid": "TID_CHARACTER_LAVALOON",
    "name_cn": "熔岩气球",
    "flags": {
@@ -2022,7 +2117,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Lavaloon Pup",
@@ -2043,7 +2139,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "COOKIE",
@@ -2064,7 +2161,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Firecracker",
@@ -2085,7 +2183,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Azure Dragon",
@@ -2106,7 +2205,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Barbarian Kicker",
@@ -2127,7 +2227,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Giant Thrower",
@@ -2148,7 +2249,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Broom Witch",
@@ -2169,7 +2271,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Witch Spirit",
@@ -2190,7 +2293,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Ice Minion",
@@ -2201,7 +2305,7 @@
    "housing_space": 4,
    "max_level": 13,
    "production_building": "Barracks",
-   "required_building_level": 1,
+   "required_building_level": 0,
    "tid": "TID_ICEMINION",
    "name_cn": "寒冰亡灵",
    "flags": {
@@ -2211,7 +2315,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Tax Collector",
@@ -2232,7 +2337,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Snake Barrel",
@@ -2243,7 +2349,7 @@
    "housing_space": 8,
    "max_level": 13,
    "production_building": "Barracks",
-   "required_building_level": 1,
+   "required_building_level": 0,
    "tid": "TID_CHARACTER_SNAKE_BARREL",
    "name_cn": "灵蛇飞桶",
    "flags": {
@@ -2253,7 +2359,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Snake",
@@ -2274,7 +2381,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Giant Giant",
@@ -2295,7 +2403,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "KANE",
@@ -2316,7 +2425,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Reborn KANE",
@@ -2327,7 +2437,7 @@
    "housing_space": 75,
    "max_level": 16,
    "production_building": "Barracks",
-   "required_building_level": 1,
+   "required_building_level": 0,
    "tid": "TID_CHARACTER_APRIL25TBRM",
    "name_cn": "皮卡凯恩",
    "flags": {
@@ -2337,7 +2447,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Disarmer",
@@ -2358,7 +2469,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Defensive Disarmer",
@@ -2379,7 +2491,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "YEETer",
@@ -2400,7 +2513,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Tribal Tag Team",
@@ -2421,7 +2535,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Defensive YEETer",
@@ -2442,7 +2557,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Defensive Tribal Tag Team",
@@ -2463,7 +2579,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Event Meteor Golem",
@@ -2484,7 +2601,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Event Meteormite",
@@ -2505,7 +2623,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Tutorial Goblin",
@@ -2526,7 +2645,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Tutorial Barbarian",
@@ -2547,7 +2667,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Golden Dragon",
@@ -2568,7 +2689,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "MOMMA",
@@ -2589,7 +2711,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Mega COOKIE",
@@ -2610,7 +2733,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Defending Builder",
@@ -2619,7 +2743,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 1,
-   "max_level": 7,
+   "max_level": 8,
    "production_building": "",
    "required_building_level": 0,
    "tid": "",
@@ -2631,7 +2755,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Icemite",
@@ -2652,7 +2777,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Booger",
@@ -2673,7 +2799,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Spell Shielded Skeleton",
@@ -2694,7 +2821,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Spell Unshielded Skeleton",
@@ -2715,7 +2843,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Spell Bat",
@@ -2724,7 +2853,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 1,
-   "max_level": 1,
+   "max_level": 2,
    "production_building": "",
    "required_building_level": 1,
    "tid": "TID_BAT",
@@ -2736,7 +2865,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BouncingFrostmite",
@@ -2757,7 +2887,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Totem",
@@ -2766,7 +2897,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 1,
-   "max_level": 4,
+   "max_level": 5,
    "production_building": "",
    "required_building_level": 0,
    "tid": "TID_GOLEM",
@@ -2778,7 +2909,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Trap Skeleton",
@@ -2799,7 +2931,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Trap Air Skeleton",
@@ -2820,7 +2953,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Trap Minion",
@@ -2841,7 +2975,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BK Equipment Snake",
@@ -2862,7 +2997,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "MP Equipment Henchman",
@@ -2883,7 +3019,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "GW Equipment Lavaloon",
@@ -2904,7 +3041,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "GW Equipment Lavaloon Pup",
@@ -2925,7 +3063,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Prototype3",
@@ -2946,7 +3085,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Ruin Witch",
@@ -2955,7 +3095,7 @@
    "status": "permanent",
    "reason": "Dark Barracks 13 级可生产",
    "housing_space": 26,
-   "max_level": 4,
+   "max_level": 5,
    "production_building": "Dark Barracks",
    "required_building_level": 13,
    "tid": "TID_CHARACTER_RUIN_WITCH",
@@ -2967,7 +3107,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Prototype4",
@@ -2988,7 +3129,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Prototype5",
@@ -3009,7 +3151,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Prototype6",
@@ -3030,7 +3173,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Prototype7",
@@ -3051,7 +3195,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Ruin Knight",
@@ -3059,8 +3204,8 @@
    "kind": "troop",
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
-   "housing_space": 20,
-   "max_level": 4,
+   "housing_space": 18,
+   "max_level": 5,
    "production_building": "",
    "required_building_level": 0,
    "tid": "TID_CHARACTER_RUIN_KNIGHT",
@@ -3072,7 +3217,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Prototype8",
@@ -3093,7 +3239,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Prototype9",
@@ -3114,7 +3261,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Prototype10",
@@ -3135,7 +3283,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Prototype11",
@@ -3156,7 +3305,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Prototype12",
@@ -3177,7 +3327,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Prototype13",
@@ -3198,7 +3349,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Prototype14",
@@ -3219,7 +3371,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Prototype15",
@@ -3240,7 +3393,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Prototype16",
@@ -3261,7 +3415,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Prototype17",
@@ -3282,7 +3437,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Unused2",
@@ -3303,7 +3459,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Unused3",
@@ -3324,7 +3481,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Guardian Eagle",
@@ -3345,7 +3503,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Guardian Giga Inferno",
@@ -3366,7 +3525,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Guardian Assassins",
@@ -3387,7 +3547,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Guardian Reviver",
@@ -3408,7 +3569,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Unused4",
@@ -3429,7 +3591,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "DEPRECATED",
@@ -3450,7 +3613,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BB Raged Barbarian",
@@ -3471,7 +3635,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BB Sneaky Archer",
@@ -3492,7 +3657,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BB Boxer Giant",
@@ -3513,7 +3679,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BB Beta Minion",
@@ -3534,7 +3701,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BB Bomber",
@@ -3555,7 +3723,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BB Baby Dragon",
@@ -3576,7 +3745,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BB Cannon Cart",
@@ -3597,7 +3767,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BB Night Witch",
@@ -3618,7 +3789,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BB Bat",
@@ -3639,7 +3811,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BB Enraged Bat",
@@ -3660,7 +3833,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BB Drop Ship",
@@ -3681,7 +3855,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BB Drop Ship Skeleton",
@@ -3702,7 +3877,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BB Power PEKKA",
@@ -3723,7 +3899,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BB Hog Glider",
@@ -3744,7 +3921,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BB Hog Rider",
@@ -3765,7 +3943,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BB Electrofire Wizard",
@@ -3786,7 +3965,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BB Zappy",
@@ -3807,7 +3987,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BB MovingCannonSecondary",
@@ -3828,7 +4009,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Guardian Sniffer",
@@ -3849,7 +4031,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Guardian Builder",
@@ -3870,7 +4053,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Guardian Logger",
@@ -3891,7 +4075,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Guardian Returner",
@@ -3912,7 +4097,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Elephant",
@@ -3933,7 +4119,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Rider",
@@ -3954,7 +4141,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Air Troop Launcher",
@@ -3975,7 +4163,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "UnusedSiegePrototype",
@@ -3996,7 +4185,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Elephant Rider",
@@ -4017,7 +4207,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Undead Wrestler Big Boy",
@@ -4038,7 +4229,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Ruin Witch_DEF",
@@ -4047,7 +4239,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 26,
-   "max_level": 4,
+   "max_level": 5,
    "production_building": "Dark Barracks",
    "required_building_level": 13,
    "tid": "TID_CHARACTER_RUIN_WITCH",
@@ -4059,7 +4251,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "UndeadWrestler",
@@ -4080,7 +4273,8 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Tiny Totem",
@@ -4101,7 +4295,8 @@
     "EnabledByCalendar": false,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Totem Thrower",
@@ -4122,7 +4317,412 @@
     "EnabledByCalendar": true,
     "EnabledBySuperLicence": false,
     "IsFlying": false
-   }
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "Barcher Squad",
+   "global_id": 4000195,
+   "kind": "squad",
+   "status": "permanent",
+   "reason": "Squad Barracks 1 级可生产",
+   "housing_space": 15,
+   "max_level": 3,
+   "production_building": "Squad Barracks",
+   "required_building_level": 1,
+   "tid": "TID_BARCHER_SQUAD",
+   "name_cn": "野蛮人弓箭手小队",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "Giant Wizard Squad",
+   "global_id": 4000196,
+   "kind": "squad",
+   "status": "permanent",
+   "reason": "Squad Barracks 2 级可生产",
+   "housing_space": 25,
+   "max_level": 3,
+   "production_building": "Squad Barracks",
+   "required_building_level": 2,
+   "tid": "TID_GIANT_WIZARD_SQUAD",
+   "name_cn": "巨人法师小队",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "Wall Breaker Squad",
+   "global_id": 4000197,
+   "kind": "squad",
+   "status": "permanent",
+   "reason": "Squad Barracks 3 级可生产",
+   "housing_space": 8,
+   "max_level": 3,
+   "production_building": "Squad Barracks",
+   "required_building_level": 3,
+   "tid": "TID_WALL_BREAKER_SQUAD",
+   "name_cn": "炸弹人小队",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "Minion Squad",
+   "global_id": 4000198,
+   "kind": "squad",
+   "status": "permanent",
+   "reason": "Squad Barracks 4 级可生产",
+   "housing_space": 12,
+   "max_level": 3,
+   "production_building": "Squad Barracks",
+   "required_building_level": 4,
+   "tid": "TID_MINION_SQUAD",
+   "name_cn": "亡灵小队",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "Balloon Squad",
+   "global_id": 4000199,
+   "kind": "squad",
+   "status": "permanent",
+   "reason": "Squad Barracks 5 级可生产",
+   "housing_space": 16,
+   "max_level": 3,
+   "production_building": "Squad Barracks",
+   "required_building_level": 5,
+   "tid": "TID_BALLOON_SQUAD",
+   "name_cn": "气球兵小队",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "Golemwitch Squad",
+   "global_id": 4000200,
+   "kind": "squad",
+   "status": "permanent",
+   "reason": "Squad Barracks 6 级可生产",
+   "housing_space": 55,
+   "max_level": 3,
+   "production_building": "Squad Barracks",
+   "required_building_level": 6,
+   "tid": "TID_GOLEMWITCH_SQUAD",
+   "name_cn": "女巫戈仑小队",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "Hog Rider Squad",
+   "global_id": 4000201,
+   "kind": "squad",
+   "status": "permanent",
+   "reason": "Squad Barracks 7 级可生产",
+   "housing_space": 48,
+   "max_level": 3,
+   "production_building": "Squad Barracks",
+   "required_building_level": 7,
+   "tid": "TID_HOG_RIDER_SQUAD",
+   "name_cn": "野猪骑士小队",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "Miner Squad",
+   "global_id": 4000202,
+   "kind": "squad",
+   "status": "permanent",
+   "reason": "Squad Barracks 8 级可生产",
+   "housing_space": 48,
+   "max_level": 3,
+   "production_building": "Squad Barracks",
+   "required_building_level": 8,
+   "tid": "TID_MINER_SQUAD",
+   "name_cn": "掘地矿工小队",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "Healer Squad",
+   "global_id": 4000203,
+   "kind": "squad",
+   "status": "permanent",
+   "reason": "Squad Barracks 9 级可生产",
+   "housing_space": 70,
+   "max_level": 3,
+   "production_building": "Squad Barracks",
+   "required_building_level": 9,
+   "tid": "TID_HEALER_SQUAD",
+   "name_cn": "天使小队",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "PEKKA Etitan Squad",
+   "global_id": 4000204,
+   "kind": "squad",
+   "status": "permanent",
+   "reason": "Squad Barracks 10 级可生产",
+   "housing_space": 46,
+   "max_level": 3,
+   "production_building": "Squad Barracks",
+   "required_building_level": 10,
+   "tid": "TID_PEKKA_ETITAN_SQUAD",
+   "name_cn": "皮卡泰坦小队",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   },
+   "housing_levels": [
+    46,
+    46,
+    44
+   ]
+  },
+  {
+   "name": "Dragon Squad",
+   "global_id": 4000205,
+   "kind": "squad",
+   "status": "permanent",
+   "reason": "Squad Barracks 11 级可生产",
+   "housing_space": 85,
+   "max_level": 3,
+   "production_building": "Squad Barracks",
+   "required_building_level": 11,
+   "tid": "TID_DRAGON_SQUAD",
+   "name_cn": "飞龙小队",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "Baby Dragon Squad",
+   "global_id": 4000206,
+   "kind": "squad",
+   "status": "permanent",
+   "reason": "Squad Barracks 12 级可生产",
+   "housing_space": 26,
+   "max_level": 3,
+   "production_building": "Squad Barracks",
+   "required_building_level": 12,
+   "tid": "TID_BABY_DRAGON_SQUAD",
+   "name_cn": "飞龙宝宝小队",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   },
+   "housing_levels": [
+    26,
+    26,
+    24
+   ]
+  },
+  {
+   "name": "Seasonal Defense Spear Goblin",
+   "global_id": 4000207,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_SPEAR_GOBLIN",
+   "name_cn": "哥布林投矛手",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "Christmas Yeti",
+   "global_id": 4000208,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 26,
+   "max_level": 19,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_CHRISTMAS_YETI",
+   "name_cn": "冰霜大雪怪",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "ChristmasYetiMite",
+   "global_id": 4000209,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 1,
+   "max_level": 19,
+   "production_building": "",
+   "required_building_level": 1,
+   "tid": "TID_CHARACTER_CHRISTMAS_YETI_MITE",
+   "name_cn": "小冰怪",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "FireGoat",
+   "global_id": 4000210,
+   "kind": "troop",
+   "status": "temporary_event",
+   "reason": "EnabledByCalendar=TRUE（限时兵种/法术，部落战与排位战不可用）",
+   "housing_space": 28,
+   "max_level": 19,
+   "production_building": "Barracks",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_FIRE_GOAT",
+   "name_cn": "狂角公羊",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": false,
+    "IsSecondaryTroop": false,
+    "EnabledByCalendar": true,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "FireGoatMini",
+   "global_id": 4000211,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 5,
+   "max_level": 19,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_FIRE_GOAT_MINI",
+   "name_cn": "小公羊",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "FireGoatAdult",
+   "global_id": 4000212,
+   "kind": "troop",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 28,
+   "max_level": 19,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "TID_CHARACTER_FIRE_GOAT",
+   "name_cn": "狂角公羊",
+   "flags": {
+    "Deprecated": false,
+    "DisableProduction": true,
+    "IsSecondaryTroop": true,
+    "EnabledByCalendar": false,
+    "EnabledBySuperLicence": false,
+    "IsFlying": false
+   },
+   "housing_levels": []
   },
   {
    "name": "Lightning",
@@ -4131,7 +4731,7 @@
    "status": "permanent",
    "reason": "Spell Factory 1 级可生产",
    "housing_space": 1,
-   "max_level": 13,
+   "max_level": 14,
    "production_building": "Spell Factory",
    "required_building_level": 1,
    "tid": "TID_LIGHTNING_STORM",
@@ -4139,7 +4739,8 @@
    "flags": {
     "DisableProduction": false,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Healing",
@@ -4148,7 +4749,7 @@
    "status": "permanent",
    "reason": "Spell Factory 2 级可生产",
    "housing_space": 2,
-   "max_level": 12,
+   "max_level": 13,
    "production_building": "Spell Factory",
    "required_building_level": 2,
    "tid": "TID_HEALING_WAVE",
@@ -4156,7 +4757,8 @@
    "flags": {
     "DisableProduction": false,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Rage",
@@ -4173,7 +4775,8 @@
    "flags": {
     "DisableProduction": false,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Jump",
@@ -4190,7 +4793,8 @@
    "flags": {
     "DisableProduction": false,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Freeze",
@@ -4207,7 +4811,8 @@
    "flags": {
     "DisableProduction": false,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Clone",
@@ -4224,7 +4829,8 @@
    "flags": {
     "DisableProduction": false,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Invisibility",
@@ -4241,7 +4847,8 @@
    "flags": {
     "DisableProduction": false,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Recall",
@@ -4258,7 +4865,8 @@
    "flags": {
     "DisableProduction": false,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Revive",
@@ -4275,7 +4883,8 @@
    "flags": {
     "DisableProduction": false,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Totem Spell",
@@ -4284,7 +4893,7 @@
    "status": "permanent",
    "reason": "Spell Factory 9 级可生产",
    "housing_space": 1,
-   "max_level": 4,
+   "max_level": 5,
    "production_building": "Spell Factory",
    "required_building_level": 9,
    "tid": "TID_TOTEM_SPELL",
@@ -4292,7 +4901,8 @@
    "flags": {
     "DisableProduction": false,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Poison",
@@ -4301,7 +4911,7 @@
    "status": "permanent",
    "reason": "Dark Spell Factory 1 级可生产",
    "housing_space": 1,
-   "max_level": 12,
+   "max_level": 13,
    "production_building": "Dark Spell Factory",
    "required_building_level": 1,
    "tid": "TID_POISON_CLOUD",
@@ -4309,7 +4919,8 @@
    "flags": {
     "DisableProduction": false,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Earthquake",
@@ -4326,7 +4937,8 @@
    "flags": {
     "DisableProduction": false,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Haste",
@@ -4335,7 +4947,7 @@
    "status": "permanent",
    "reason": "Dark Spell Factory 3 级可生产",
    "housing_space": 1,
-   "max_level": 7,
+   "max_level": 8,
    "production_building": "Dark Spell Factory",
    "required_building_level": 3,
    "tid": "TID_SPEEDUP",
@@ -4343,7 +4955,8 @@
    "flags": {
     "DisableProduction": false,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Skeleton Spell",
@@ -4360,7 +4973,8 @@
    "flags": {
     "DisableProduction": false,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Bat Spell",
@@ -4369,7 +4983,7 @@
    "status": "permanent",
    "reason": "Dark Spell Factory 5 级可生产",
    "housing_space": 1,
-   "max_level": 8,
+   "max_level": 9,
    "production_building": "Dark Spell Factory",
    "required_building_level": 5,
    "tid": "TID_SPELL_BATS",
@@ -4377,7 +4991,8 @@
    "flags": {
     "DisableProduction": false,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Overgrowth",
@@ -4394,7 +5009,8 @@
    "flags": {
     "DisableProduction": false,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Ice Block",
@@ -4411,7 +5027,8 @@
    "flags": {
     "DisableProduction": false,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "xmas",
@@ -4428,7 +5045,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Santas Surprise",
@@ -4445,7 +5063,8 @@
    "flags": {
     "DisableProduction": false,
     "EnabledByCalendar": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Slow",
@@ -4462,7 +5081,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BoostDefences",
@@ -4479,7 +5099,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Eternal Tome Aura",
@@ -4496,7 +5117,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Life Gem Aura",
@@ -4513,7 +5135,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Eagle Artillery Hit Spell",
@@ -4530,7 +5153,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "MiniGrowth",
@@ -4547,7 +5171,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "FreezeTrap",
@@ -4564,7 +5189,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Lava Launcher Hit Spell",
@@ -4581,7 +5207,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "TroopRage",
@@ -4598,7 +5225,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "ShrinkTrap",
@@ -4615,7 +5243,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Birthday2017",
@@ -4632,7 +5261,8 @@
    "flags": {
     "DisableProduction": false,
     "EnabledByCalendar": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "IceGolemFreeze",
@@ -4649,7 +5279,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "ElectroDragonDie",
@@ -4658,7 +5289,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 0,
-   "max_level": 12,
+   "max_level": 13,
    "production_building": "",
    "required_building_level": 0,
    "tid": "",
@@ -4666,7 +5297,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Tornado Trap",
@@ -4683,7 +5315,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "TroopHaste",
@@ -4700,7 +5333,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "ProtoSpell2",
@@ -4717,7 +5351,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "IceGolemFreeze_DEF",
@@ -4734,7 +5369,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Scattershot Hit Spell",
@@ -4751,7 +5387,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BatRage",
@@ -4768,7 +5405,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "TH13 Frost",
@@ -4785,7 +5423,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Electro Titan Aura",
@@ -4794,7 +5433,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 0,
-   "max_level": 5,
+   "max_level": 6,
    "production_building": "",
    "required_building_level": 0,
    "tid": "",
@@ -4802,7 +5441,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "EliteValkyrieRage",
@@ -4819,7 +5459,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "IceHoundFreeze",
@@ -4828,7 +5469,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 0,
-   "max_level": 4,
+   "max_level": 5,
    "production_building": "",
    "required_building_level": 0,
    "tid": "",
@@ -4836,7 +5477,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "TH14 Poison",
@@ -4853,7 +5495,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "FireSpiritExplosion",
@@ -4862,7 +5505,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 0,
-   "max_level": 5,
+   "max_level": 6,
    "production_building": "",
    "required_building_level": 0,
    "tid": "",
@@ -4870,7 +5513,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "PhoenixImmortality",
@@ -4887,7 +5531,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "TroopImmortality",
@@ -4904,7 +5549,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "AreaStun",
@@ -4921,7 +5567,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "DrillerSurfacing",
@@ -4938,7 +5585,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "TH15 Poison",
@@ -4955,7 +5603,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Spell Tower Poison",
@@ -4972,7 +5621,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "SuperHogRiderSummonHog",
@@ -4981,7 +5631,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 0,
-   "max_level": 12,
+   "max_level": 13,
    "production_building": "",
    "required_building_level": 0,
    "tid": "",
@@ -4989,7 +5639,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Spell Tower Rage",
@@ -5006,7 +5657,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "SuperHogRiderSummonRider",
@@ -5015,7 +5667,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 0,
-   "max_level": 12,
+   "max_level": 13,
    "production_building": "",
    "required_building_level": 0,
    "tid": "",
@@ -5023,7 +5675,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Spell Tower Invisibility",
@@ -5040,7 +5693,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "GraveGolemSummonBigBoy",
@@ -5057,7 +5711,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "HogWizardDamageAura",
@@ -5074,7 +5729,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Unused1",
@@ -5091,7 +5747,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "COOKIEAura",
@@ -5108,7 +5765,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "GrandWardenRangeRing",
@@ -5125,7 +5783,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "PoisonLizardAttack",
@@ -5142,7 +5801,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "RamRiderDestroyWalls",
@@ -5159,7 +5819,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "SlowBomb",
@@ -5176,7 +5837,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "VisualRage",
@@ -5193,7 +5855,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Baby Dragon Flaming Sneeze",
@@ -5210,7 +5873,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Power PEKKA Overcharge",
@@ -5227,7 +5891,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Drop Ship Skeleton Bomb",
@@ -5244,7 +5909,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Night Witch Bat Swarm",
@@ -5261,7 +5927,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Cannon Cart Mortar Mode Splash",
@@ -5278,7 +5945,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Apprentice Aura",
@@ -5295,7 +5963,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "PetJump",
@@ -5312,7 +5981,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "PetSpeedUp",
@@ -5329,7 +5999,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "FireSpiritBurn",
@@ -5346,7 +6017,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "TreantWallDamageAura",
@@ -5363,7 +6035,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "SiegeInvisibility",
@@ -5380,7 +6053,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Heroic Torch Aura",
@@ -5397,7 +6071,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Blizzard",
@@ -5414,7 +6089,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BagOfFrostmites",
@@ -5431,7 +6107,8 @@
    "flags": {
     "DisableProduction": false,
     "EnabledByCalendar": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "TroopCatapultSummonTroop",
@@ -5448,7 +6125,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "LavaloonSpawnPup",
@@ -5465,7 +6143,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Firecracker Hit Spell",
@@ -5482,7 +6161,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Earthquake Boots Spell",
@@ -5499,7 +6179,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Fireball Hit Spell",
@@ -5516,7 +6197,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Rage Gem Aura",
@@ -5533,7 +6215,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "QueenFreeze",
@@ -5550,7 +6233,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "ElectrifiedShield",
@@ -5567,7 +6251,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BarbarianKingDestroyWalls",
@@ -5584,7 +6269,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Healing Tome Aura",
@@ -5601,7 +6287,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Yellow Card",
@@ -5618,7 +6305,8 @@
    "flags": {
     "DisableProduction": false,
     "EnabledByCalendar": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "GWPhoenixStickSpell",
@@ -5635,7 +6323,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BattleDruidHeal",
@@ -5652,7 +6341,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Electro Boots Aura",
@@ -5669,7 +6359,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "GWLavaloonSpawnPup",
@@ -5686,7 +6377,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "IceMinionFreeze",
@@ -5703,7 +6395,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Commander Aura",
@@ -5720,7 +6413,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "TroopCatapultSummonTroopNew",
@@ -5737,7 +6431,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "TorchThrowerB",
@@ -5754,7 +6449,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Destroyer",
@@ -5771,7 +6467,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Debris Explosion 1",
@@ -5788,7 +6485,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Debris Explosion 2",
@@ -5805,7 +6503,8 @@
    "flags": {
     "DisableProduction": false,
     "EnabledByCalendar": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "FireSpiritBurn_DEF",
@@ -5822,7 +6521,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Resurrect",
@@ -5839,7 +6539,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "TH17WeaponAreaDamage",
@@ -5856,7 +6557,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "BarbKingEquipSpawn",
@@ -5873,7 +6575,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "MassDestruction",
@@ -5890,7 +6593,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "MinionGiantPoison",
@@ -5907,7 +6611,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Unused2",
@@ -5924,7 +6629,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Unused3",
@@ -5941,7 +6647,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "April25_TBRM_Aura",
@@ -5958,7 +6665,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "April25_TBRM_DeathSpawn",
@@ -5975,7 +6683,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "April25_RRAltProjectile_Spawn",
@@ -5992,7 +6701,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "April25_RRAltProjectile_Spawn_DEF",
@@ -6009,7 +6719,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "MPMeteorStaffSpell",
@@ -6026,7 +6737,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "MeteorGolemImpactSpell",
@@ -6043,7 +6755,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "TH18EventMeteorDeathDamage",
@@ -6060,7 +6773,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "SmasherRageArea",
@@ -6069,7 +6783,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 0,
-   "max_level": 1,
+   "max_level": 2,
    "production_building": "",
    "required_building_level": 0,
    "tid": "",
@@ -6077,7 +6791,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "SlowdownTowerSlowness",
@@ -6094,7 +6809,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "GuardianRage",
@@ -6111,7 +6827,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "GuardianReviveSpell",
@@ -6128,7 +6845,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "SeasonalDefenseHeroBoosterRageAura",
@@ -6145,7 +6863,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "SeasonalDefenseHeroBoosterHealthBoostAura",
@@ -6162,7 +6881,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Debris Explosion 3",
@@ -6179,7 +6899,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "TotemSummon",
@@ -6188,7 +6909,7 @@
    "status": "internal",
    "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
    "housing_space": 0,
-   "max_level": 4,
+   "max_level": 5,
    "production_building": "",
    "required_building_level": 0,
    "tid": "",
@@ -6196,7 +6917,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "PhoenixSpell",
@@ -6213,7 +6935,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "AngrySpell",
@@ -6230,7 +6953,8 @@
    "flags": {
     "DisableProduction": false,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Unused4",
@@ -6247,7 +6971,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Unused5",
@@ -6264,7 +6989,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Clashmas25FireArea",
@@ -6281,7 +7007,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "LNY26HealingArea",
@@ -6298,7 +7025,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "LNY26DeathDamage",
@@ -6315,7 +7043,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Lava Launcher Hit Spell_Seasonal_Defense",
@@ -6332,7 +7061,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Spell Tower Earthquake",
@@ -6349,7 +7079,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "DragonDukeDashAura",
@@ -6366,7 +7097,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "DragonDukeRingOfFire",
@@ -6383,7 +7115,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "DragonDukeFireBlast",
@@ -6400,7 +7133,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "DragonCrownExplosion",
@@ -6417,7 +7151,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "DDBlastSpell",
@@ -6434,7 +7169,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "DragonDukeFireBlastMini",
@@ -6451,7 +7187,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "GuardianBuilderRageSpell",
@@ -6468,7 +7205,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "ElephantRiderSummonElephant",
@@ -6485,7 +7223,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "ElephantRiderSummonRider",
@@ -6502,7 +7241,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "AirTroopSummon",
@@ -6519,7 +7259,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "CakeThrowerExplosion",
@@ -6536,7 +7277,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "UndeadWrestlerDeathSpawn",
@@ -6553,7 +7295,26 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "Blizzard Axe Aura",
+   "global_id": 26000148,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 12,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   },
+   "housing_levels": []
   },
   {
    "name": "TinyTotemImpact",
@@ -6570,7 +7331,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "TinyTotemSummon",
@@ -6587,7 +7349,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "CakeThrowerExplosion2",
@@ -6604,7 +7367,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "CakeThrowerExplosion3",
@@ -6621,7 +7385,8 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "CakeThrowerExplosion4",
@@ -6638,7 +7403,116 @@
    "flags": {
     "DisableProduction": true,
     "EnabledByCalendar": false
-   }
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "GoblinThrowerTowerSummon",
+   "global_id": 26000149,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 10,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "Firecracker Tower Hit Spell",
+   "global_id": 26000150,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 2,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "ShieldBroochBurst",
+   "global_id": 26000151,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "ChristmasYetiMiteFreeze",
+   "global_id": 26000152,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 19,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "Heroic Spell",
+   "global_id": 26000153,
+   "kind": "spell",
+   "status": "permanent",
+   "reason": "Spell Factory 10 级可生产",
+   "housing_space": 2,
+   "max_level": 4,
+   "production_building": "Spell Factory",
+   "required_building_level": 10,
+   "tid": "TID_SPELL_HEROIC_SPELL",
+   "name_cn": "英勇法术",
+   "flags": {
+    "DisableProduction": false,
+    "EnabledByCalendar": false
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "FireGoatSummonLamb",
+   "global_id": 26000154,
+   "kind": "spell",
+   "status": "internal",
+   "reason": "DisableProduction=TRUE（派生/防守/内部单位）",
+   "housing_space": 0,
+   "max_level": 19,
+   "production_building": "",
+   "required_building_level": 0,
+   "tid": "",
+   "name_cn": "",
+   "flags": {
+    "DisableProduction": true,
+    "EnabledByCalendar": false
+   },
+   "housing_levels": []
   },
   {
    "name": "Barbarian King",
@@ -6647,12 +7521,13 @@
    "status": "permanent",
    "reason": "英雄（长期解锁）；属性按大本营缩放（ScaleByTH）：4本50% 5本75%，其后 100%",
    "housing_space": 25,
-   "max_level": 110,
+   "max_level": 115,
    "production_building": "",
    "required_building_level": 0,
    "tid": "TID_BARBARIAN_KING",
    "name_cn": "野蛮人之王",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "Archer Queen",
@@ -6661,12 +7536,13 @@
    "status": "permanent",
    "reason": "英雄（长期解锁）",
    "housing_space": 25,
-   "max_level": 110,
+   "max_level": 115,
    "production_building": "",
    "required_building_level": 0,
    "tid": "TID_ARCHER_QUEEN",
    "name_cn": "弓箭女皇",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "Grand Warden",
@@ -6675,12 +7551,13 @@
    "status": "permanent",
    "reason": "英雄（长期解锁）",
    "housing_space": 25,
-   "max_level": 85,
+   "max_level": 90,
    "production_building": "",
    "required_building_level": 0,
    "tid": "TID_GRAND_WARDEN",
    "name_cn": "大守护者",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "BB Battle Machine",
@@ -6694,7 +7571,8 @@
    "required_building_level": 0,
    "tid": "TID_WARMACHINE",
    "name_cn": "战争机器",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "Royal Champion",
@@ -6703,12 +7581,13 @@
    "status": "permanent",
    "reason": "英雄（长期解锁）",
    "housing_space": 25,
-   "max_level": 55,
+   "max_level": 60,
    "production_building": "",
    "required_building_level": 0,
    "tid": "TID_HERO_ROYAL_CHAMPION",
    "name_cn": "飞盾战神",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "BB Battle Copter",
@@ -6722,7 +7601,8 @@
    "required_building_level": 0,
    "tid": "TID_HERO_BATTLE_COPTER",
    "name_cn": "战斗直升机",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "Minion Prince",
@@ -6731,12 +7611,13 @@
    "status": "permanent",
    "reason": "英雄（长期解锁）",
    "housing_space": 25,
-   "max_level": 95,
+   "max_level": 100,
    "production_building": "",
    "required_building_level": 0,
    "tid": "TID_MINION_HERO",
    "name_cn": "亡灵王子",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "Dragon Duke",
@@ -6745,12 +7626,13 @@
    "status": "permanent",
    "reason": "英雄（长期解锁）",
    "housing_space": 25,
-   "max_level": 25,
+   "max_level": 30,
    "production_building": "",
    "required_building_level": 0,
    "tid": "TID_DRAGON_DUKE",
    "name_cn": "飞龙公爵",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "LASSI",
@@ -6764,7 +7646,8 @@
    "required_building_level": 0,
    "tid": "TID_PET_MELEEJUMPER",
    "name_cn": "莱希",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "Mighty Yak",
@@ -6778,7 +7661,8 @@
    "required_building_level": 0,
    "tid": "TID_PET_WALLBUSTER",
    "name_cn": "大牦",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "Electro Owl",
@@ -6792,7 +7676,8 @@
    "required_building_level": 0,
    "tid": "TID_PET_RANGEDATTACKER",
    "name_cn": "闪枭",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "Unicorn",
@@ -6806,7 +7691,8 @@
    "required_building_level": 0,
    "tid": "TID_PET_HEALER",
    "name_cn": "独角",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "Phoenix",
@@ -6820,7 +7706,8 @@
    "required_building_level": 0,
    "tid": "TID_PET_PHOENIX",
    "name_cn": "凤凰",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "Phoenix Egg",
@@ -6834,7 +7721,8 @@
    "required_building_level": 0,
    "tid": "TID_PET_PHOENIX",
    "name_cn": "凤凰",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "Stork",
@@ -6848,7 +7736,8 @@
    "required_building_level": 0,
    "tid": "TID_PET_HEALER",
    "name_cn": "独角",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "Poison Lizard",
@@ -6862,7 +7751,8 @@
    "required_building_level": 0,
    "tid": "TID_PET_POISON_LIZARD",
    "name_cn": "猛蜥",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "Diggy",
@@ -6876,7 +7766,8 @@
    "required_building_level": 0,
    "tid": "TID_PET_DIGGY",
    "name_cn": "地兽",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "Frosty",
@@ -6890,7 +7781,8 @@
    "required_building_level": 0,
    "tid": "TID_PET_FROSTY",
    "name_cn": "冰牙",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "Spirit Fox",
@@ -6904,7 +7796,8 @@
    "required_building_level": 0,
    "tid": "TID_PET_SPIRIT_FOX",
    "name_cn": "灵狐",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "Angry Jelly",
@@ -6913,12 +7806,13 @@
    "status": "permanent",
    "reason": "宠物小屋 10 级解锁（随英雄出场）",
    "housing_space": 0,
-   "max_level": 10,
+   "max_level": 15,
    "production_building": "",
    "required_building_level": 0,
    "tid": "TID_PET_ANGRY_JELLY",
    "name_cn": "愤怒水母",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "JumpAuraPet",
@@ -6932,7 +7826,8 @@
    "required_building_level": 0,
    "tid": "TID_PET_MELEEJUMPER",
    "name_cn": "莱希",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "SpeedupPet",
@@ -6946,7 +7841,8 @@
    "required_building_level": 0,
    "tid": "TID_PET_RANGEDATTACKER",
    "name_cn": "闪枭",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "Turtle",
@@ -6960,7 +7856,8 @@
    "required_building_level": 0,
    "tid": "TID_PET_MELEEJUMPER",
    "name_cn": "莱希",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "AirSplitPetSpawnRemoved",
@@ -6974,7 +7871,8 @@
    "required_building_level": 0,
    "tid": "TID_PET_RANGEDATTACKER",
    "name_cn": "闪枭",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "Sneezy",
@@ -6988,7 +7886,8 @@
    "required_building_level": 0,
    "tid": "TID_PET_SNEEZY",
    "name_cn": "阿啾",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "Crow",
@@ -7002,7 +7901,8 @@
    "required_building_level": 0,
    "tid": "TID_PET_RAVEN",
    "name_cn": "贪婪渡鸦",
-   "flags": {}
+   "flags": {},
+   "housing_levels": []
   },
   {
    "name": "Barbarian Puppet",
@@ -7018,7 +7918,8 @@
    "name_cn": "野蛮人木偶",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Rage Vial",
@@ -7034,7 +7935,8 @@
    "name_cn": "狂暴药水瓶",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Archer Puppet",
@@ -7050,7 +7952,8 @@
    "name_cn": "弓箭手木偶",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Invisibility Vial",
@@ -7066,7 +7969,8 @@
    "name_cn": "隐形药水瓶",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Eternal Tome",
@@ -7082,7 +7986,8 @@
    "name_cn": "永恒书卷",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Life Gem",
@@ -7098,7 +8003,8 @@
    "name_cn": "生命宝石",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Seeking Shield",
@@ -7114,7 +8020,8 @@
    "name_cn": "寻踪飞盾",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Royal Gem",
@@ -7130,7 +8037,8 @@
    "name_cn": "皇家宝石",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Earthquake Boots",
@@ -7146,7 +8054,8 @@
    "name_cn": "地震金靴",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Hog Rider Puppet",
@@ -7162,7 +8071,8 @@
    "name_cn": "野猪骑士木偶",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Giant Gauntlet",
@@ -7178,7 +8088,8 @@
    "name_cn": "巨型手套",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Vampstache",
@@ -7194,7 +8105,8 @@
    "name_cn": "治疗胡须",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Haste Vial",
@@ -7210,7 +8122,8 @@
    "name_cn": "急速药水瓶",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Rocket Spear",
@@ -7226,7 +8139,8 @@
    "name_cn": "火箭飞矛",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Spiky Ball",
@@ -7242,7 +8156,8 @@
    "name_cn": "尖刺足球",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Frozen Arrow",
@@ -7258,7 +8173,8 @@
    "name_cn": "冰封箭矢",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Monolith Arrow",
@@ -7274,10 +8190,11 @@
    "name_cn": "擎天箭矢",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
-   "name": "Piercing Arrow",
+   "name": "Giant Arrow",
    "global_id": -1,
    "kind": "equipment",
    "status": "permanent",
@@ -7286,11 +8203,12 @@
    "max_level": 18,
    "production_building": "Archer Queen",
    "required_building_level": 0,
-   "tid": "TID_GEAR_PIERCING_ARROW",
+   "tid": "TID_GEAR_GIANT_ARROW",
    "name_cn": "巨型箭矢",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "UNUSED2",
@@ -7302,11 +8220,12 @@
    "max_level": 27,
    "production_building": "Archer Queen",
    "required_building_level": 0,
-   "tid": "TID_GEAR_PIERCING_ARROW",
+   "tid": "TID_GEAR_GIANT_ARROW",
    "name_cn": "巨型箭矢",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Heroic Torch",
@@ -7322,7 +8241,8 @@
    "name_cn": "英雄火炬",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Healer Puppet",
@@ -7338,7 +8258,8 @@
    "name_cn": "天使木偶",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "UNUSED3",
@@ -7354,7 +8275,8 @@
    "name_cn": "野蛮人木偶",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Fireball",
@@ -7370,7 +8292,8 @@
    "name_cn": "巨大火球",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "UNUSED4",
@@ -7386,7 +8309,8 @@
    "name_cn": "野蛮人木偶",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Rage Gem",
@@ -7402,7 +8326,8 @@
    "name_cn": "狂暴宝石",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "UNUSED5",
@@ -7418,7 +8343,8 @@
    "name_cn": "野蛮人木偶",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "UNUSED6",
@@ -7434,7 +8360,8 @@
    "name_cn": "野蛮人木偶",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "UNUSED7",
@@ -7450,7 +8377,8 @@
    "name_cn": "野蛮人木偶",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "UNUSED8",
@@ -7466,7 +8394,8 @@
    "name_cn": "野蛮人木偶",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "UNUSED9",
@@ -7482,7 +8411,8 @@
    "name_cn": "野蛮人木偶",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "UNUSED10",
@@ -7498,7 +8428,8 @@
    "name_cn": "野猪骑士木偶",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "UNUSED11",
@@ -7514,7 +8445,8 @@
    "name_cn": "野蛮人木偶",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Snake Bracelet",
@@ -7530,7 +8462,8 @@
    "name_cn": "灵蛇手镯",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "UNUSED13",
@@ -7546,7 +8479,8 @@
    "name_cn": "野蛮人木偶",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Healing Tome",
@@ -7562,7 +8496,8 @@
    "name_cn": "治疗书卷",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Dark Crown",
@@ -7578,7 +8513,8 @@
    "name_cn": "暗黑皇冠",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "UNUSED15",
@@ -7594,7 +8530,8 @@
    "name_cn": "野蛮人木偶",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "UNUSED16",
@@ -7610,7 +8547,8 @@
    "name_cn": "野蛮人木偶",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "UNUSED17",
@@ -7626,7 +8564,8 @@
    "name_cn": "野蛮人木偶",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Magic Mirror",
@@ -7642,7 +8581,8 @@
    "name_cn": "克隆魔镜",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Electro Boots",
@@ -7658,7 +8598,8 @@
    "name_cn": "雷电战靴",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Lavaloon Puppet",
@@ -7674,7 +8615,8 @@
    "name_cn": "熔岩气球玩偶",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Henchmen Puppet",
@@ -7690,7 +8632,8 @@
    "name_cn": "护卫玩偶",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Dark Orb",
@@ -7706,7 +8649,8 @@
    "name_cn": "暗黑魔球",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Metal Pants",
@@ -7722,7 +8666,8 @@
    "name_cn": "铁甲短裤",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "MP Trap Shield",
@@ -7738,7 +8683,8 @@
    "name_cn": "",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Punch Arrow",
@@ -7754,7 +8700,8 @@
    "name_cn": "克隆魔镜",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Noble Iron",
@@ -7770,7 +8717,8 @@
    "name_cn": "贵族哑铃",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Action Figure",
@@ -7786,7 +8734,8 @@
    "name_cn": "动作人偶",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Meteor Staff",
@@ -7802,7 +8751,8 @@
    "name_cn": "陨石法杖",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Frost Charm",
@@ -7818,7 +8768,8 @@
    "name_cn": "冷冽冰晶",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Stick Horse",
@@ -7834,7 +8785,8 @@
    "name_cn": "木棍马驹",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Fire Heart",
@@ -7850,7 +8802,8 @@
    "name_cn": "烈焰之心",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Rocket Backpack",
@@ -7866,7 +8819,8 @@
    "name_cn": "火箭背包",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Deadly Dash2",
@@ -7882,7 +8836,8 @@
    "name_cn": "火箭背包",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Deadly Dash3",
@@ -7898,7 +8853,8 @@
    "name_cn": "火箭背包",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Stun Blaster",
@@ -7914,7 +8870,8 @@
    "name_cn": "爆震器",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Flame Blower",
@@ -7930,7 +8887,8 @@
    "name_cn": "助燃器",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "FlameAttack",
@@ -7946,7 +8904,8 @@
    "name_cn": "爆震器",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "ElectroAttack",
@@ -7962,7 +8921,8 @@
    "name_cn": "雷电獠牙",
    "flags": {
     "epic": false
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Draconic Counter",
@@ -7978,7 +8938,8 @@
    "name_cn": "反击卡组",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
   },
   {
    "name": "Cosmic Portal",
@@ -7994,7 +8955,42 @@
    "name_cn": "传送吊坠",
    "flags": {
     "epic": true
-   }
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "Shield Brooch",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "internal",
+   "reason": "用户审核禁用（2026-11-21，19.32 新装备）",
+   "housing_space": 0,
+   "max_level": 27,
+   "production_building": "Royal Champion",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_SHIELD_BROOCH",
+   "name_cn": "护盾胸针",
+   "flags": {
+    "epic": true
+   },
+   "housing_levels": []
+  },
+  {
+   "name": "Blizzard Axe",
+   "global_id": -1,
+   "kind": "equipment",
+   "status": "internal",
+   "reason": "用户审核禁用（2026-11-21，19.32 新装备）",
+   "housing_space": 0,
+   "max_level": 33,
+   "production_building": "Barbarian King",
+   "required_building_level": 0,
+   "tid": "TID_GEAR_TITLE_BLIZZARD_AXE",
+   "name_cn": "暴雪战斧",
+   "flags": {
+    "epic": false
+   },
+   "housing_levels": []
   }
  ]
 }

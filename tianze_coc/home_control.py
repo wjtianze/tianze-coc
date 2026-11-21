@@ -3,26 +3,29 @@
 原理：探针的通用命令通道（`ProbeClient.cmd`）在主线程按"命令类型 + encode 字节"构造客户端命令，
 走与游戏 UI 相同的提交路径——客户端本地执行，并随 EndClientTurn 发给私服，私服按同样逻辑执行并保存。
 
-命令格式由真机侦听（tools/cmd_recorder.py）抓到的 UI 命令逐字节确认（18.647，`v` = VInt）：
+命令格式由真机侦听（tools/cmd_recorder.py）抓到的 UI 命令逐字节确认（19.32.7，`v` = VInt）。
+19.32 的命令号全部重新编号，多数命令的字段顺序也变了（18.647 的值见 git 历史）：
 
 | 类型 | 作用 | 字段 | 验证 |
 | --- | --- | --- | --- |
-| 6535 | 普通模式移动建筑 | v tick(-1), v y, v 建筑id, v 0, v x | ✅ 探针发出，重登后服务器坐标已变 |
-| 6092 | 从配兵移除 | v tick, v 1, v 0, v 序号, v 数量, v 槽(0兵 1法术 2攻城) | ✅ 数量 6 一次移除 6 个 |
-| 6584 | 向配兵加入 | v tick, v 0, v 1, v 槽, i32 GlobalID, v 1 | ✅ 每条只能加 1 个（>1 返回 -10）；满员返回 -10 |
-| 5504 | 换英雄装备 | v tick, v 1, v 装备槽, v 0, v 英雄槽, i32 装备 | ✅ 三个英雄的 UI 样本；控制器改回后服务器一致 |
-| 6022 | 换战宠 | v tick, v 1, i32 战宠, v 0, v 英雄槽 | ✅ 4 名英雄的战宠由控制器设置，重登后一致 |
-| 6611 | 换出战英雄 | v tick, v 0, v 1, i32 英雄, v 英雄槽 | ✅ 野蛮人之王⇄弓箭女皇，重登后一致 |
-| 5462 | 英雄模式（大守护者地面/空中） | v tick, v 英雄槽, v 0, v 模式, v 1 | ✅ 大守护者切空中后重登一致 |
+| 5488 | 普通模式移动建筑 | v tick(-1), v 0, v 建筑id, v x, v y | ✅ UI 样本与重登后服务器坐标一致 |
+| 6565 | 从配兵移除 | v tick, v 0, v 军队, v 槽(0兵/小队 1法术 2攻城), v 序号, v 数量 | ✅ 探针发出，重登一致 |
+| 6623 | 向配兵加入 | v tick, v 军队, v 1, v 槽, v 0, i32 GlobalID | ✅ 探针发出，重登一致；小队放在槽 0 |
+| 5603 | 换英雄装备 | v tick, v 装备槽, v 1, v 英雄槽, v 0, i32 装备 | ✅ 给 3 号英雄（大守护者）换装备，重登一致 |
+| 5417 | 换战宠 | v tick, v 英雄槽, v 1, v 0, i32 战宠 | ✅ 给 3 号英雄换战宠，重登一致 |
+| 6944 | 换出战英雄 | v tick, v 英雄槽, v 0, i32 英雄, v 1 | ✅ 2 号槽换英雄，重登一致 |
+| 5621 | 英雄模式（大守护者地面/空中） | v tick, v 军队, v 0, v 英雄槽, v 模式 | ✅ 军队写 0 时本地"执行"但无效果；写 1 后重登一致 |
+| 6679 | 设置防守援军 | v tick, v 1, v n, n×{v 1, i32 GlobalID, v 数量, v 等级-1}, v 模式(1 排位 0 友谊) | 格式与 18.647 相同，UI 样本 |
+| 6425 | 编辑器内摆放 | v tick, v 0, v 建筑id, v 0, v x, v y | 只有 UI 样本，未单独验证 |
+
+"军队"：1 = 当前配兵（active_army_loadout，m_type 1），3 = 友谊战军队（friendly_army_loadout，m_type 3）。
+编辑器的"全部移除 / 保存"在 19.32 中尚未确认（候选 6980 / 6486 / 5695），本模块不使用。
 
 **注意：同一批 EndClientTurn 里只要有一条服务器认为非法的命令（例如给没有双模式的英雄切模式），
 整批修改都会被服务器丢弃**（客户端本地仍显示已修改，重登后恢复）。所以发送前一定先校验。
-| 5160 | 设置防守援军 | v tick, v 1, v n, n×{v 1, i32 GlobalID, v 数量, v 等级-1}, v 模式(1 排位 0 友谊) | ✅ 排位战 leg_cc、友谊战 fc_cc 均由控制器设置，重登后一致 |
-| 5471 | 编辑器内摆放 | v tick, v x, v 0, v 建筑id, v 0, v y | 抓到 UI 命令 |
-| 6382 / 5436 | 编辑器 全部移除 / 保存 | v tick, v 0, v 0 | 抓到 UI 命令 |
 
-英雄槽 = active_army_loadout 中英雄列表的下标（0~3）。命令在客户端执行后要等下一条 EndClientTurn（19033）
-发出才会到达服务器，`run()` 默认等它发出再返回——过早关闭游戏会丢失修改。
+英雄槽 = active_army_loadout 中英雄列表的下标（0~3）。命令在客户端执行后要等下一条 EndClientTurn
+（19.32 为 10307；18.647 为 19033）发出才会到达服务器，`run()` 默认等它发出再返回——过早关闭游戏会丢失修改。
 
 规则（用户确认）：防守援军只有 **排位战** 和 **友谊战** 可以自定义；常规战的援军与进攻共用，
 部落战的防守援军由其他成员捐赠，都不能单独设置。
@@ -39,22 +42,23 @@ from .account import BUILD_MAX, BUILD_MIN, Account
 from .army import Army
 from .native_client import ProbeClient, ProbeError
 
-MSG_OWN_HOME = 25195  # 18.647；见 engine_offsets.json 的 msg_OwnHomeData
+MSG_OWN_HOME = 25195  # 18.647 / 19.32 相同；见 engine_offsets.json 的 msg_OwnHomeData
 
-CMD_MOVE = 6535
-CMD_LOADOUT_REMOVE = 6092
-CMD_LOADOUT_ADD = 6584
-CMD_SET_EQUIPMENT = 5504
-CMD_SET_PET = 6022
-CMD_SET_HERO = 6611
-CMD_HERO_MODE = 5462
-MSG_END_CLIENT_TURN = 19033
-CMD_SET_DEFENSE_CC = 5160
-CMD_EDITOR_PLACE = 5471
-CMD_EDITOR_REMOVE_ALL = 6382
-CMD_EDITOR_SAVE = 5436
+CMD_MOVE = 5488
+CMD_LOADOUT_REMOVE = 6565
+CMD_LOADOUT_ADD = 6623
+CMD_SET_EQUIPMENT = 5603
+CMD_SET_PET = 5417
+CMD_SET_HERO = 6944
+CMD_HERO_MODE = 5621
+MSG_END_CLIENT_TURN = 10307  # 与 18.647 的 19033 是同一个消息类（虚函数逐条一致，三元组按虚表顺序对应）
+CMD_SET_DEFENSE_CC = 6679
+CMD_EDITOR_PLACE = 6425
+CMD_EDITOR_REMOVE_ALL = None  # 19.32 未确认
+CMD_EDITOR_SAVE = None  # 19.32 未确认
 
-SLOT_TROOP, SLOT_SPELL, SLOT_SIEGE = 0, 1, 2
+SLOT_TROOP, SLOT_SPELL, SLOT_SIEGE = 0, 1, 2  # 小队与兵种同在 SLOT_TROOP
+ARMY_ACTIVE, ARMY_FRIENDLY = 1, 3
 CC_RANKED, CC_FRIENDLY = 1, 0
 
 
@@ -68,31 +72,31 @@ def i32(x: int) -> bytes:
 
 # ---------------------------------------------------------------------- 编码
 def enc_move(building_id: int, x: int, y: int) -> bytes:
-    return v(-1) + v(y) + v(building_id) + v(0) + v(x)
+    return v(-1) + v(0) + v(building_id) + v(x) + v(y)
 
 
-def enc_loadout_remove(slot: int, index: int, count: int) -> bytes:
-    return v(-1) + v(1) + v(0) + v(index) + v(count) + v(slot)
+def enc_loadout_remove(slot: int, index: int, count: int, army: int = ARMY_ACTIVE) -> bytes:
+    return v(-1) + v(0) + v(army) + v(slot) + v(index) + v(count)
 
 
-def enc_loadout_add(slot: int, gid: int) -> bytes:
-    return v(-1) + v(0) + v(1) + v(slot) + i32(gid) + v(1)
+def enc_loadout_add(slot: int, gid: int, army: int = ARMY_ACTIVE) -> bytes:
+    return v(-1) + v(army) + v(1) + v(slot) + v(0) + i32(gid)
 
 
 def enc_set_equipment(hero_index: int, item_slot: int, item: int) -> bytes:
-    return v(-1) + v(1) + v(item_slot) + v(0) + v(hero_index) + i32(item)
+    return v(-1) + v(item_slot) + v(1) + v(hero_index) + v(0) + i32(item)
 
 
 def enc_set_pet(hero_index: int, pet: int) -> bytes:
-    return v(-1) + v(1) + i32(pet) + v(0) + v(hero_index)
+    return v(-1) + v(hero_index) + v(1) + v(0) + i32(pet)
 
 
 def enc_set_hero(hero_index: int, hero: int) -> bytes:
-    return v(-1) + v(0) + v(1) + i32(hero) + v(hero_index)
+    return v(-1) + v(hero_index) + v(0) + i32(hero) + v(1)
 
 
-def enc_hero_mode(hero_index: int, mode: int) -> bytes:
-    return v(-1) + v(hero_index) + v(0) + v(mode) + v(1)
+def enc_hero_mode(hero_index: int, mode: int, army: int = ARMY_ACTIVE) -> bytes:
+    return v(-1) + v(army) + v(0) + v(hero_index) + v(mode)
 
 
 def enc_defense_cc(entries: list[tuple[int, int, int]], mode: int) -> bytes:
@@ -104,17 +108,17 @@ def enc_defense_cc(entries: list[tuple[int, int, int]], mode: int) -> bytes:
 
 
 # 侦听到的 UI 原始字节（回归测试：编码器必须逐字节复现）
-CAPTURED = {
-    "move": ((500000005, 21, 25), "7f198594ebdc030015"),
-    "loadout_remove": ((SLOT_TROOP, 0, 1), "7f0100000100"),
-    "loadout_add": ((SLOT_SIEGE, 4000087), "7f000102003d095701"),
-    "set_equipment": ((0, 0, 90000008), "7f01000000055d4a88"),
-    "set_equipment_dd": ((1, 1, 90000053), "7f01010001055d4ab5"),
-    "set_equipment_rc": ((2, 0, 90000013), "7f01000002055d4a8d"),
-    "set_pet": ((0, 73000008), "7f010459e4480000"),
-    "set_hero": ((3, 28000001), "7f000101ab3f0103"),
-    "hero_mode": ((3, 1), "7f03000101"),
-    "defense_cc": (([(4000000, 49, 13), (4000002, 6, 10)], CC_RANKED), "7f010201003d0900310c01003d0902060901"),
+CAPTURED = {  # 19.32.7 UI 原始字节（runs/cmd_capture_th19.jsonl）
+    "move": ((500000010, 18, 33), "7f008a94ebdc031221"),
+    "loadout_remove": ((SLOT_SPELL, 2, 1), "7f0001010201"),
+    "loadout_add": ((SLOT_SIEGE, 4000087), "7f01010200003d0957"),
+    "loadout_add_squad": ((SLOT_TROOP, 4000195, ARMY_FRIENDLY), "7f03010000003d09c3"),
+    "set_equipment": ((0, 0, 90000008), "7f00010000055d4a88"),
+    "set_equipment_slot1": ((0, 1, 90000014), "7f01010000055d4a8e"),
+    "set_pet": ((0, 73000008), "7f0001000459e448"),
+    "set_hero": ((2, 28000006), "7f020001ab3f0601"),
+    "hero_mode": ((3, 1), "7f01000301"),
+    "defense_cc": (([(4000006, 15, 15)], CC_FRIENDLY), "7f010101003d09060f0e00"),
 }
 
 

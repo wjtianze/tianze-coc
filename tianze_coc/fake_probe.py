@@ -185,6 +185,10 @@ class FakeEngine:
                 out.update(self.net)
             elif op == "observe":
                 out.update(obs=self.snapshot(req.get("objects", True)), results=[])
+            elif op == "attacker_boost":
+                # 假探针：没有大本营升级强化（军队满级 / 英雄满级），两个 avatar 槽的标志恒为 False
+                out.update(avatars=[{"slot": s, "present": self.gm_state == 2, "army_before": False, "heroes_before": False}
+                                    for s in (0x48, 0x50)])
             else:
                 out = {"seq": req.get("seq"), "ok": False, "error": f"unknown op: {op}"}
         return out

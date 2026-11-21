@@ -16,6 +16,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable
 
+from .attacker_payload import clear_th_boost
 from .home_payload import replace_home_json
 from .local_config import DATA
 from .native_client import ProbeClient, ProbeError
@@ -76,6 +77,9 @@ class OfflineStarter:
         if self.layouts:
             payload = replace_home_json(payload, self.layouts[self._round % len(self.layouts)])
         self._round += 1
+        if self.enemy_kind == "EnemyHomeData" and not getattr(getattr(env, "cfg", None), "attacker_th_boost", False):
+            # 进攻方的"大本营升级强化"（刚升本送的军队满级 / 英雄满级）会让注入的等级全部无效，载入前从负载里去掉
+            payload = clear_th_boost(payload)
         c.record_put(enemy_type, payload)
         if c.status().get("gm_state") != self.home_state:
             self._replay(c, home_type)

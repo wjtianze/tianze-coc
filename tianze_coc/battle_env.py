@@ -32,6 +32,8 @@ from .native_client import ProbeClient, ProbeError
 
 KIND_FOR_CATALOG = {"troop": "troop", "siege": "siege", "spell": "spell", "hero": "hero", "cc_siege": "siege",
                     "cc_spell": "spell"}
+# 动作类型 -> 可接受的单位种类：小队（19.32）与兵种走同一条放兵命令（真机 UI 侦听：类型 7962，GlobalID 为小队本身）
+KINDS_FOR_ACTION = {k: (v,) for k, v in KIND_FOR_CATALOG.items()} | {"troop": ("troop", "squad")}
 ABILITY_KINDS = ("hero", "siege", "troop")  # 技能命令按单位数据查找场上第一个存活的该单位
 DUAL_MODE_HEROES = {28000002}  # 大守护者：地面/空中两种模式（heroes.csv HasAltMode）
 
@@ -52,6 +54,9 @@ class EnvConfig:
     fair_view: bool = True  # 进攻方视角：隐藏陷阱与未现身的特斯拉
     realtime: bool = False  # True：不锁步，按真实时间推进
     realtime_interval_s: float = 0.25
+    # 刚升大本营的账号有数天的"军队满级 / 英雄满级"强化，开着时注入的等级无效（全部按大本营保底 = 满级）。
+    # False（默认）：开局后清掉进攻方的强化，按账号里的等级打；True：保留录制里的状态。
+    attacker_th_boost: bool = False
 
 
 @dataclass
@@ -118,8 +123,21 @@ class TianzeBattleEnv:
         self._revealed.clear()
         obs = self._fair(ObservationV1.from_wire(self.client.observe(objects=self.cfg.include_objects)["obs"]))
         self._check_army_rules(obs)
+        self._boost_checked = False
+        self._clear_th_boost()
         self.last_obs = obs
         return obs
+
+    def _clear_th_boost(self) -> None:
+        """兜底：确认进攻方的"大本营升级强化"（军队满级 / 英雄满级）已关闭。
+        正常情况下 OfflineStarter 已在载入前从负载里清掉强化计时器（attacker_payload.clear_th_boost），
+        出兵栏角标与实际等级都正确；用其他 battle_starter 时这里会在载入后清标志（实际等级正确，角标可能仍显示满级）。"""
+        if self.cfg.attacker_th_boost:
+            return
+        self.client.attacker_boost(army=False, heroes=False)
+        after = self.client.attacker_boost()
+        if any(a.get("army_before") or a.get("heroes_before") for a in after.get("avatars", [])):
+            raise EnvError(f"无法清除进攻方的大本营升级强化: {after}")
 
     # ------------------------------------------------------------ 开战前决策
     def prepare(self, siege: int | None = None, warden_mode: int | None = None, hero: int = 28000002) -> StepInfo:
@@ -204,7 +222,7 @@ class TianzeBattleEnv:
             if a.unit not in self._deployed_units:
                 return "该单位尚未部署，无法触发技能"
             return None
-        if KIND_FOR_CATALOG.get(a.kind) != u.kind:
+        if u.kind not in KINDS_FOR_ACTION.get(a.kind, ()):
             return f"动作类型 {a.kind} 与单位类型 {u.kind} 不符"
         if not in_map:
             return "坐标超出地图"
@@ -232,7 +250,7 @@ class TianzeBattleEnv:
             return {}
         return {
             "troop": [g for g, c in obs.army_units.items() if c > 0 and self.catalog.is_allowed(g)
-                      and self.catalog.get(g).kind == "troop"],
+                      and self.catalog.get(g).kind in ("troop", "squad")],
             "siege": [] if self._siege_deployed else [
                 g for g, c in (obs.army_sieges or obs.army_units).items() if c > 0
                 and self.catalog.is_allowed(g) and self.catalog.get(g).kind == "siege"],
@@ -254,6 +272,9 @@ class TianzeBattleEnv:
         if obs is None:
             raise EnvError("请先 reset()")
         wire, local_rej, sent = [], [], {}
+        if actions and not self._boost_checked:
+            self._clear_th_boost()  # 第一次出兵前再确认一次
+            self._boost_checked = True
         for a in actions or []:
             why = self.validate(a, obs)
             if why:
