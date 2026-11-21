@@ -1764,6 +1764,21 @@
    ],
    "hidden": false,
    "housing": {},
+   "ammo": [
+    1500,
+    1500,
+    1500,
+    1500,
+    1500,
+    1500,
+    1500,
+    1500,
+    1500,
+    1500,
+    1500,
+    1500,
+    1500
+   ],
    "building_class": "Defense",
    "require_built_on_th_up": true
   },
@@ -1811,6 +1826,20 @@
    ],
    "hidden": false,
    "housing": {},
+   "ammo": [
+    1000,
+    1000,
+    1000,
+    1000,
+    1000,
+    1000,
+    1000,
+    1000,
+    1000,
+    1000,
+    1000,
+    1000
+   ],
    "building_class": "Defense",
    "require_built_on_th_up": true
   },
@@ -1853,6 +1882,15 @@
    ],
    "hidden": false,
    "housing": {},
+   "ammo": [
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30
+   ],
    "building_class": "Defense",
    "require_built_on_th_up": false
   },
@@ -1895,6 +1933,15 @@
    ],
    "hidden": false,
    "housing": {},
+   "ammo": [
+    90,
+    90,
+    90,
+    90,
+    90,
+    90,
+    90
+   ],
    "building_class": "Defense",
    "require_built_on_th_up": true
   },

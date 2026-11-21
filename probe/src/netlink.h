@@ -32,5 +32,14 @@ bool wait_replay(long long ticket, int timeout_ms, std::string &status);
 // 外发过滤
 void configure(const json::Value &cfg, json::Writer &w);
 void write_net_log(json::Writer &w);
+// 收包日志：[[时间ms, 类型, 长度, 是否重放], ...]
+void write_inbox(json::Writer &w, bool clear);
+// 离线启动：下一帧把登录状态设为"已发登录、握手已验证"，之后重放录制的 LoginOk / OwnHomeData 等
+void login_prep();
+// 在调用线程（服务线程）上同步投递一条录制消息。用于登录引导阶段（帧循环尚未运行）。
+bool replay_now(int type, std::string &status);
+// 排队一条无负载的合成消息（例如离线启动时的保活回复），下一帧在主线程投递
+void queue_synthetic(int type);
+int login_state();  // 最近一帧读到的登录状态值（-1 = 未知）
 
 }  // namespace tz::net

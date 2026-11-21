@@ -6,6 +6,8 @@
 #include <sys/socket.h>
 #include <unistd.h>
 
+#include <dlfcn.h>
+
 #include <cstring>
 #include <string>
 #include <thread>
@@ -14,6 +16,7 @@
 #include "common.h"
 #include "engine.h"
 #include "netlink.h"
+#include "offline_boot.h"
 #include "json.h"
 
 namespace tz {
@@ -176,9 +179,32 @@ std::string handle(const std::string &line) {
   } else if (op == "net_config") {
     w.key("ok").boolean(true);
     net::configure(req, w);
+  } else if (op == "offline_boot") {
+    w.key("ok").boolean(true);
+    offline::configure(req, w);
+  } else if (op == "replay_now") {
+    std::string st;
+    const bool ok = net::replay_now(static_cast<int>(req["type"].i64()), st);
+    w.key("ok").boolean(ok).key("status").str(st);
+    if (!ok) w.key("error").str("replay_now " + st);
+  } else if (op == "login_prep") {
+    net::login_prep();
+    w.key("ok").boolean(true).key("login_state").num(static_cast<long long>(net::login_state()));
+  } else if (op == "login_state") {
+    w.key("ok").boolean(true).key("login_state").num(static_cast<long long>(net::login_state()));
+  } else if (op == "inbox") {
+    w.key("ok").boolean(true);
+    net::write_inbox(w, req["clear"].boolean(false));
   } else if (op == "net_log") {
     w.key("ok").boolean(true);
     net::write_net_log(w);
+  } else if (op == "dlsym") {
+    // 调试：取进程中某个导出符号的地址（例如 libc 的 connect）
+    const std::string lib = req["lib"].str().empty() ? std::string("libc.so") : req["lib"].str();
+    void *h = dlopen(lib.c_str(), RTLD_NOW | RTLD_NOLOAD);
+    void *a = h ? dlsym(h, req["name"].str().c_str()) : nullptr;
+    w.key("ok").boolean(a != nullptr).key("addr").num(static_cast<long long>(reinterpret_cast<std::uintptr_t>(a)));
+    if (!a) w.key("error").str("symbol not found");
   } else if (op == "peek") {
     // 校准用：读取任意地址（安全读取，非法地址返回 null）
     const auto addr = static_cast<std::uintptr_t>(req["addr"].i64());

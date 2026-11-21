@@ -164,6 +164,8 @@ class Account:
                 for d in p.data["structures"]:
                     if not d["require_built_on_th_up"]:
                         continue
+                    if p.max_structure_level(d["gid"], th - 1) <= 0:
+                        continue  # 上一本还只是废墟（例如 1～2 本的部落城堡），不要求建齐
                     need = min(d["max_count"][th - 2], d["max_count"][th - 1])
                     have = counts.get(d["gid"], 0)
                     if have < need:
@@ -278,7 +280,8 @@ class Account:
             if d["gid"] == TH_GID or (d["category"] == "wall" and not walls) or (d["category"] == "trap" and not traps):
                 continue
             # 合并建筑：成品按上限建；原料在 _fix_merges 中按占用扣减
-            self.set_structure_count(d["gid"], self._target_count(d, t), rng=rng)
+            n = self._target_count(d, t) if self.prog.max_structure_level(d["gid"], t) > 0 else 0
+            self.set_structure_count(d["gid"], n, rng=rng)
             self.set_structure_level(d["gid"])
         self._fix_merges()
         blv = self.building_levels()
@@ -308,9 +311,10 @@ class Account:
             if d["gid"] == TH_GID:
                 continue
             hi = self._target_count(d, t)
-            lo = min(d["max_count"][t - 2], hi) if (require_all_built and t >= 2 and d["require_built_on_th_up"]) else 0
-            if hi <= 0:
-                continue
+            lo = (min(d["max_count"][t - 2], hi) if (require_all_built and t >= 2 and d["require_built_on_th_up"]
+                                                     and self.prog.max_structure_level(d["gid"], t - 1) > 0) else 0)
+            if hi <= 0 or self.prog.max_structure_level(d["gid"], t) <= 0:
+                continue  # 该本还不能建（例如 1～2 本的部落城堡只是废墟）
             n = hi if progress is None and d["category"] == "wall" else _pick(rng, lo, hi, progress)
             cap = self.prog.max_structure_level(d["gid"], t)
             floor_lv = max(1, self.prog.max_structure_level(d["gid"], t - 1) // 2) if t >= 2 else 1
@@ -419,6 +423,14 @@ class Account:
     def apply_to_payload(self, payload: bytes, side: str = "own", clear_obstacles: bool = False) -> bytes:
         """把本账号写回录制负载。side 含义同 from_payload。"""
         out = payload
+        if side == "defender" and self.home is not None and "alliance_units" in self.home:
+            # 防守部落城堡援军：引擎读的是防守方 avatar 里的援军列表，不是村庄 JSON 的 alliance_units（联调发现）。
+            # 必须在替换 JSON 之前、按原负载的内容定位（定位依赖原 JSON 里的援军）。
+            span = defender_cc_span(out)
+            if span is None:
+                raise ValueError("负载中没有找到防守方援军列表")
+            ents = [(u["id"], u["cnt"], u["lvl"]) for u in self.home["alliance_units"]]
+            out = out[:span[0]] + encode_cc_list(ents) + out[span[1]:]
         if side in ("own", "defender") and self.home is not None:
             out = hp.replace_home_json(out, self.home_json(clear_obstacles))
         if side in ("own", "attacker"):
@@ -488,6 +500,76 @@ def _merge_levels(entries: list[tuple[int, int]], levels: dict[int, int], prog: 
             continue
         out.append((gid, lv - 1))
     return out
+
+
+def encode_cc_list(entries: list[tuple[int, int, int]]) -> bytes:
+    """防守方援军列表：int32 条数 + 每条 {int32 GlobalID, VInt 数量, VInt 等级-1}。"""
+    import struct
+
+    out = bytearray(struct.pack(">i", len(entries)))
+    for g, n, lv0 in entries:
+        out += struct.pack(">i", g) + ac.write_vint(n) + ac.write_vint(lv0)
+    return bytes(out)
+
+
+def _parse_cc_list(buf: bytes, o: int):
+    import struct
+
+    if o + 4 > len(buf):
+        return None
+    n = struct.unpack_from(">i", buf, o)[0]
+    if not 0 <= n <= 64:
+        return None
+    p = o + 4
+    ents = []
+    try:
+        for _ in range(n):
+            g = struct.unpack_from(">i", buf, p)[0]
+            if g // 1_000_000 not in (4, 26) or g % 1_000_000 > 999:
+                return None
+            c, p = ac.read_vint(buf, p + 4)
+            lv, p = ac.read_vint(buf, p)
+            if not (0 < c <= 300 and 0 <= lv < 60):
+                return None
+            ents.append((g, c, lv))
+    except (IndexError, struct.error):
+        return None
+    return p, ents
+
+
+def defender_cc_span(payload: bytes) -> tuple[int, int] | None:
+    """防守方 avatar 中援军列表的字节区间（18.647：紧跟在英雄状态列表之后，见 docs/models.md）。
+    先按模板 JSON 的 alliance_units 内容定位；为空时取防守方区域里最后一个 tbl28 列表之后的位置。"""
+    found = hp.find_compressed_json(payload, require_key=None)
+    start = found[-1].data_end if found else 0
+    try:
+        end = ac.find_chain(payload).lists["unit_counts"].start
+    except ValueError:
+        end = len(payload)
+    try:
+        home = hp.extract_home(payload)
+        want = [(u["id"], u["cnt"], u["lvl"]) for u in home.get("alliance_units", [])]
+    except ValueError:
+        want = []
+    if want:
+        pat = encode_cc_list(want)
+        i = payload.find(pat, start, end)
+        if i >= 0:
+            return i, i + len(pat)
+    # 结构定位：防守方区域内连续的 tbl28 列表（英雄等级/生命/状态……）之后紧跟援军列表
+    o, last_end = start, None
+    while o < end - 4:
+        sl = ac.parse_list(payload, o, 28)
+        if sl and sl.entries and sl.end <= end:
+            last_end = sl.end
+            o = sl.end
+            continue
+        o += 1
+    if last_end is not None:
+        r = _parse_cc_list(payload, last_end)
+        if r is not None:
+            return last_end, r[0]
+    return None
 
 
 def _defender_lists(payload: bytes) -> dict[str, ac.SlotList]:

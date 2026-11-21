@@ -108,11 +108,19 @@ class ProbeClient:
     def replay(self, msg_type: int, timeout_ms: int = 10000) -> dict:
         return self.call("replay", type=msg_type, timeout_ms=timeout_ms)
 
+    def replay_now(self, msg_type: int) -> dict:
+        """在服务线程上同步投递（登录引导阶段用，帧循环未运行时）。"""
+        return self.call("replay_now", type=msg_type)
+
     def net_config(self, **kw: Any) -> dict:
         return self.call("net_config", **kw)
 
     def net_log(self) -> dict:
         return self.call("net_log")
+
+    def inbox(self, clear: bool = False) -> list[list]:
+        """进入客户端的消息日志：[[时间ms, 类型, 长度, 是否我们重放的], ...]。"""
+        return self.call("inbox", clear=clear)["inbox"]
 
     def peek(self, addr: int, length: int = 64) -> bytes | None:
         h = self.call("peek", addr=addr, len=length).get("hex")

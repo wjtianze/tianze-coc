@@ -105,6 +105,9 @@ def build_progression(src: AssetSource, lang: str = "cn") -> dict:
             hs = {"troops": _per_level(row, "HousingSpace"), "spells": _per_level(row, "HousingSpaceAlt"),
                   "sieges": _per_level(row, "HousingSpaceSiege")}
             s["housing"] = {k: v for k, v in hs.items() if any(v)}
+            ammo = _per_level(row, "AmmoCount")
+            if any(ammo):
+                s["ammo"] = ammo  # 需要装填弹药的防御（天鹰火炮、地狱塔、X 连弩等），每级满弹数
             s["building_class"] = row.get("BuildingClass")
         if e["name"] in merges:
             s["merge"] = merges[e["name"]]
@@ -225,6 +228,9 @@ class Progression:
                 return 0
         best = 0
         for i, req in enumerate(u["levels_req"]):
+            if i == 0 and u["kind"] in ("troop", "siege", "spell"):
+                # 1 级只要解锁（生产建筑等级）即可；实验室要求只针对升级（实验室 3 本才有，低本兵种也是 1 级）
+                req = {b: n for b, n in req.items() if b != "Laboratory"}
             if all(buildings.get(b, 0) >= need for b, need in req.items()):
                 best = i + 1
             else:

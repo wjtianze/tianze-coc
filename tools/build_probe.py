@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from tianze_coc.local_config import LocalConfig  # noqa: E402
 
-SOURCES = ["probe_main.cpp", "engine.cpp", "server.cpp", "netlink.cpp"]
+SOURCES = ["probe_main.cpp", "engine.cpp", "server.cpp", "netlink.cpp", "offline_boot.cpp"]
 REPLACED_NEEDED = "libsentry-android.so"
 
 

@@ -15,6 +15,7 @@
 #include "common.h"
 #include "engine.h"
 #include "inline_hook.h"
+#include "offline_boot.h"
 
 namespace tz::net {
 namespace {
@@ -51,6 +52,7 @@ struct Record {
 std::map<int, Record> g_records;
 long long g_rec_seq = 0;
 thread_local bool t_replaying = false;
+thread_local bool g_in_replay_call = false;
 
 // 重放队列（服务线程 -> 主线程）
 std::mutex g_rep_mu;
@@ -65,6 +67,20 @@ std::map<long long, std::string> g_job_status;  // ticket -> "ok" / 错误
 long long g_ticket = 0;
 
 ClientUpdateFn g_orig_client_update = nullptr;
+ReceiveFn g_orig_receive = nullptr;
+
+// 收包日志：每条进入 MessageManager::receiveMessage 的消息（类型、长度、时间、是否我们重放的）
+struct InboxEntry {
+  long long ms;
+  int type;
+  int len;
+  bool replayed;
+};
+std::mutex g_inbox_mu;
+std::deque<InboxEntry> g_inbox;
+std::atomic<bool> g_record_all{true};
+std::atomic<int> g_login_prep{0};  // 1 = 下一帧把登录状态设为"已发登录、握手已验证"（离线启动）
+std::atomic<int> g_login_state_seen{-1};  // 录下所有类型的消息字节（供离线启动重放）
 std::atomic<long long> g_frames{0};
 SendOneFn g_orig_send = nullptr;
 
@@ -157,7 +173,9 @@ std::string run_job(const Job &j) {
   // 消息对象不在此释放（处理函数可能"租借"它）。
   switch (g_deliver_mode.load()) {
     case 1:
+      g_in_replay_call = true;
       reinterpret_cast<ReceiveFn>(g_base + off::MessageManager_receiveMessage)(mm, msg);
+      g_in_replay_call = false;
       return "ok:receive";
     case 2: {
       const std::uintptr_t stub = g_stub.load();
@@ -171,8 +189,48 @@ std::string run_job(const Job &j) {
   }
 }
 
+void hk_receive(void *mm, void *msg) {
+  const int t = msg ? type_of(msg) : -1;
+  const bool replay = t_replaying || g_in_replay_call;
+  if (msg && t > 0) {
+    const std::uintptr_t bs = reinterpret_cast<std::uintptr_t>(msg) + off::PiranhaMessage_byteStream;
+    const int len = rd_or<int>(bs + off::ByteStream_length, 0);
+    {
+      std::lock_guard<std::mutex> lk(g_inbox_mu);
+      g_inbox.push_back({now_ms(), t, len, replay});
+      if (g_inbox.size() > 2048) g_inbox.pop_front();
+    }
+    const std::uintptr_t buf = rdp(bs + off::ByteStream_buffer);
+    if (!replay && g_record_all.load() && len > 0 && static_cast<std::size_t>(len) <= kMaxRecord && buf) {
+      Record r;
+      r.bytes.resize(static_cast<std::size_t>(len));
+      if (safe_read(buf, r.bytes.data(), r.bytes.size())) {
+        std::lock_guard<std::mutex> lk(g_rec_mu);
+        auto it = g_records.find(t);
+        // 已由 decode 钩子录下的同一条消息不重复覆盖（两者内容相同）
+        if (it == g_records.end() || it->second.bytes != r.bytes) {
+          r.seq = ++g_rec_seq;
+          r.captured_ms = now_ms();
+          g_records[t] = std::move(r);
+        }
+      }
+    }
+  }
+  g_orig_receive(mm, msg);
+}
+
 void hk_client_update(void *client, float dt) {
   g_frames.fetch_add(1, std::memory_order_relaxed);
+  {
+    const std::uintptr_t ls = rdp(g_base + off::g_loginState);
+    if (ls) g_login_state_seen = rd_or<int>(ls, -1);
+    if (ls && g_login_prep.exchange(0) == 1) {
+      // 离线启动：LoginOk 处理函数要求 状态 == 等待登录回复 且 握手已验证，否则丢弃
+      *reinterpret_cast<int *>(ls) = off::LoginState_awaitingValue;
+      *reinterpret_cast<std::uint8_t *>(ls + off::LoginState_validatedFlag) = 1;
+      LOGI("离线启动：登录状态已设置");
+    }
+  }
   std::deque<Job> jobs;
   {
     std::lock_guard<std::mutex> lk(g_rep_mu);
@@ -182,7 +240,7 @@ void hk_client_update(void *client, float dt) {
     const std::string st = run_job(j);
     LOGI("重放消息 type=%d len=%zu -> %s", j.type, j.bytes.size(), st.c_str());
     std::lock_guard<std::mutex> lk(g_rep_mu);
-    g_job_status[j.ticket] = st;
+    if (j.ticket) g_job_status[j.ticket] = st;
     g_rep_cv.notify_all();
   }
   // 战斗被教程/弹窗暂停时 updateSubTick 不会被调用，因此快照请求也在每帧这里处理
@@ -193,6 +251,7 @@ void hk_client_update(void *client, float dt) {
 
 std::uint64_t hk_send_one(void *messaging, void *msg) {
   const int t = type_of(msg);
+  offline::on_outgoing(t);
   bool drop = false;
   {
     std::lock_guard<std::mutex> lk(g_net_mu);
@@ -232,6 +291,13 @@ bool init(std::uintptr_t base) {
                                       reinterpret_cast<void *>(&hk_send_one), &o2, "Messaging::sendOne");
   g_orig_client_update = reinterpret_cast<ClientUpdateFn>(o1);
   g_orig_send = reinterpret_cast<SendOneFn>(o2);
+  void *o3 = nullptr;
+  if (install_inline_hook(base + off::MessageManager_receiveMessage, off::MessageManager_receiveMessage_prologue,
+                          reinterpret_cast<void *>(&hk_receive), &o3, "MessageManager::receiveMessage")) {
+    g_orig_receive = reinterpret_cast<ReceiveFn>(o3);
+  } else {
+    LOGW("收包录制不可用");
+  }
   g_ready = h1 && h2 && g_npatched == 4;
   return g_ready;
 }
@@ -337,12 +403,54 @@ void configure(const json::Value &cfg, json::Writer &w) {
   if (cfg.has("deliver_mode")) g_deliver_mode = static_cast<int>(cfg["deliver_mode"].i64());
   if (cfg.has("deliver_stub")) g_stub = static_cast<std::uintptr_t>(cfg["deliver_stub"].i64());
   if (cfg.has("gate_value")) g_gate_value = static_cast<int>(cfg["gate_value"].i64());
+  if (cfg.has("record_all")) g_record_all = cfg["record_all"].boolean();
   read_set("block_types", g_block);
   read_set("allow_types", g_allow);
   w.key("offline").boolean(g_offline).key("block_all").boolean(g_block_all);
   w.key("deliver_mode").num(static_cast<long long>(g_deliver_mode.load()));
   w.key("block_types").num(static_cast<long long>(g_block.size()));
   w.key("allow_types").num(static_cast<long long>(g_allow.size()));
+}
+
+void login_prep() { g_login_prep = 1; }
+
+bool replay_now(int type, std::string &status) {
+  Job j;
+  j.type = type;
+  {
+    std::lock_guard<std::mutex> lk(g_rec_mu);
+    auto it = g_records.find(type);
+    if (it == g_records.end()) { status = "no record"; return false; }
+    j.bytes = it->second.bytes;
+  }
+  // 登录状态门控（与 hk_client_update 中一致）：引导阶段帧循环还没跑到那段代码
+  const std::uintptr_t ls = rdp(g_base + off::g_loginState);
+  if (ls && g_login_prep.exchange(0) == 1) {
+    *reinterpret_cast<int *>(ls) = off::LoginState_awaitingValue;
+    *reinterpret_cast<std::uint8_t *>(ls + off::LoginState_validatedFlag) = 1;
+  }
+  status = run_job(j);
+  return status.rfind("ok", 0) == 0;
+}
+
+void queue_synthetic(int type) {
+  Job j;
+  j.type = type;
+  j.ticket = 0;  // 无人等待结果
+  std::lock_guard<std::mutex> lk(g_rep_mu);
+  g_jobs.push_back(std::move(j));
+}
+int login_state() { return g_login_state_seen.load(); }
+
+void write_inbox(json::Writer &w, bool clear) {
+  std::lock_guard<std::mutex> lk(g_inbox_mu);
+  w.key("inbox").begin_arr();
+  for (const auto &e : g_inbox) {
+    w.begin_arr().num(e.ms).num(static_cast<long long>(e.type)).num(static_cast<long long>(e.len));
+    w.boolean(e.replayed).end_arr();
+  }
+  w.end_arr();
+  if (clear) g_inbox.clear();
 }
 
 void write_net_log(json::Writer &w) {

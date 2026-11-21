@@ -502,6 +502,18 @@ def locate(r: ElfRe) -> dict:
     if "LogicCommand_vt_encode" not in s or "LogicCommand_vt_decode" not in s:
         raise LocateError("未找到命令虚表的 encode/decode 槽")
     s["LogicCommand_vt_getType"] = 4
+    # ---- 登录状态（离线启动）：LoginOk 处理函数开头
+    #   adrp x21,..; ldr x8,[x21,#off] -> 登录状态对象；ldr w9,[x8]; cmp w9,#2；ldrb w9,[x8,#0x4d]; cbz -> "without proper validation"
+    lok = func_by_string(r, b"LoginOkMessage received without proper validation.")
+    q = insns(r, lok, n=20)
+    page = next(int(i.op_str.split("#")[1], 0) for i in q if i.mnemonic == "adrp" and i.op_str.startswith("x21,"))
+    ld = next(i for i in q if i.mnemonic == "ldr" and i.op_str.startswith("x8, [x21, #"))
+    o["g_loginState"] = page + int(ld.op_str.split("#")[1].rstrip("]"), 0)
+    cmp = next(i for i in q if i.mnemonic == "cmp" and i.op_str.startswith("w9, #"))
+    s["LoginState_awaitingValue"] = int(cmp.op_str.split("#")[1], 0)
+    vb = next(i for i in q if i.mnemonic == "ldrb" and i.op_str.startswith("w9, [x8, #"))
+    s["LoginState_validatedFlag"] = int(vb.op_str.split("#")[1].rstrip("]"), 0)
+    o["LoginOk_handler"] = lok
     # 删除析构（槽 2）形如 `b operator delete`
     dd = insns(r, r.ptr(pa_vt + 2 * 8), n=1)[0]
     if dd.mnemonic != "b":
@@ -591,7 +603,8 @@ def main() -> None:
     info = locate(r)
     info["libg_sha256"] = hashlib.sha256(r.data).hexdigest()
     info["build_tag"] = a.build_tag
-    hooks = ("LogicGameMode_updateSubTick", "Client_update", "Messaging_sendOne", "ClientCommand_submit")
+    hooks = ("LogicGameMode_updateSubTick", "Client_update", "Messaging_sendOne", "ClientCommand_submit",
+             "MessageManager_receiveMessage")
     info["prologues"] = {k: prologue(r, info["functions"][k]) for k in hooks}
     info["fingerprints"] = {k: r.read(v, 8).hex() for k, v in info["functions"].items()
                             if not k.endswith("_vtable") and not k.startswith("g_")}

@@ -11,6 +11,7 @@
 
 #include "common.h"
 #include "engine.h"
+#include "offline_boot.h"
 
 namespace tz {
 void start_server(int port);
@@ -35,6 +36,7 @@ bool process_allowed() {
 __attribute__((constructor)) void tianze_probe_init() {
   if (!process_allowed()) return;
   LOGI("tianze probe loaded");
+  tz::offline::init_from_property();  // 必须早于游戏连接服务器
   tz::start_server(kDefaultPort);
   // libg 映射完成后才能校验与 hook；作为 libg 的依赖库，我们的构造函数可能早于 libg 进入 soinfo 列表，
   // 因此在后台线程轮询，最多等 30 秒。

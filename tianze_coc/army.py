@@ -230,12 +230,22 @@ def random_army(account: Account, rng, fill: float = 1.0, max_kinds: int = 6) ->
     spells = [u for g, u in p.units.items() if u["kind"] == "spell" and lv.get(g, 0) > 0]
     sieges = [u for g, u in p.units.items() if u["kind"] == "siege" and lv.get(g, 0) > 0]
     room = int(cap.troops * fill)
-    for u in rng.sample(troops, min(len(troops), rng.randint(1, max_kinds))):
-        if room < u["housing"]:
-            continue
-        n = rng.randint(1, room // u["housing"])
-        army.troops[u["gid"]] = army.troops.get(u["gid"], 0) + n
-        room -= n * u["housing"]
+    picks = rng.sample(troops, min(len(troops), rng.randint(1, max_kinds)))
+    # 按随机权重把人口分给选中的兵种，再用最小人口的兵种把剩余填满（配兵应当接近满人口）
+    weights = [rng.random() + 0.1 for _ in picks]
+    tot_w = sum(weights)
+    for u, w in zip(picks, weights):
+        share = int(room * w / tot_w)
+        n = share // u["housing"]
+        if n > 0:
+            army.troops[u["gid"]] = army.troops.get(u["gid"], 0) + n
+    used = sum(p.units[g]["housing"] * n for g, n in army.troops.items())
+    filler = sorted(picks, key=lambda u: u["housing"])
+    for u in filler:
+        k = (room - used) // u["housing"]
+        if k > 0:
+            army.troops[u["gid"]] = army.troops.get(u["gid"], 0) + k
+            used += k * u["housing"]
     room = cap.spells
     rng.shuffle(spells)
     for u in spells:
