@@ -2724,7 +2724,8 @@
    ],
    "unlock": {
     "Barracks": 1
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000001,
@@ -2780,7 +2781,8 @@
    ],
    "unlock": {
     "Barracks": 2
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000003,
@@ -2836,7 +2838,8 @@
    ],
    "unlock": {
     "Barracks": 3
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000002,
@@ -2880,7 +2883,8 @@
    ],
    "unlock": {
     "Barracks": 4
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000004,
@@ -2936,7 +2940,8 @@
    ],
    "unlock": {
     "Barracks": 5
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000005,
@@ -2989,7 +2994,8 @@
    ],
    "unlock": {
     "Barracks": 6
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000006,
@@ -3045,7 +3051,8 @@
    ],
    "unlock": {
     "Barracks": 7
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000007,
@@ -3092,7 +3099,8 @@
    ],
    "unlock": {
     "Barracks": 8
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000008,
@@ -3145,7 +3153,8 @@
    ],
    "unlock": {
     "Barracks": 9
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000009,
@@ -3198,7 +3207,8 @@
    ],
    "unlock": {
     "Barracks": 10
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000023,
@@ -3248,7 +3258,8 @@
    ],
    "unlock": {
     "Barracks": 11
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000024,
@@ -3298,7 +3309,8 @@
    ],
    "unlock": {
     "Barracks": 12
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000059,
@@ -3339,7 +3351,8 @@
    ],
    "unlock": {
     "Barracks": 13
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000053,
@@ -3377,7 +3390,8 @@
    ],
    "unlock": {
     "Barracks": 14
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000065,
@@ -3409,7 +3423,8 @@
    ],
    "unlock": {
     "Barracks": 15
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000095,
@@ -3438,7 +3453,8 @@
    ],
    "unlock": {
     "Barracks": 16
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000110,
@@ -3464,7 +3480,8 @@
    ],
    "unlock": {
     "Barracks": 17
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000132,
@@ -3490,7 +3507,8 @@
    ],
    "unlock": {
     "Barracks": 18
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000177,
@@ -3513,7 +3531,8 @@
    ],
    "unlock": {
     "Barracks": 19
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000010,
@@ -3569,7 +3588,8 @@
    ],
    "unlock": {
     "Dark Barracks": 1
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000011,
@@ -3628,7 +3648,8 @@
    ],
    "unlock": {
     "Dark Barracks": 2
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000012,
@@ -3678,7 +3699,8 @@
    ],
    "unlock": {
     "Dark Barracks": 3
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000013,
@@ -3737,7 +3759,8 @@
    ],
    "unlock": {
     "Dark Barracks": 4
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000015,
@@ -3775,7 +3798,8 @@
    ],
    "unlock": {
     "Dark Barracks": 5
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000017,
@@ -3813,7 +3837,8 @@
    ],
    "unlock": {
     "Dark Barracks": 6
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000022,
@@ -3857,7 +3882,8 @@
    ],
    "unlock": {
     "Dark Barracks": 7
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000058,
@@ -3898,7 +3924,8 @@
    ],
    "unlock": {
     "Dark Barracks": 8
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000082,
@@ -3924,7 +3951,8 @@
    ],
    "unlock": {
     "Dark Barracks": 9
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000097,
@@ -3950,7 +3978,8 @@
    ],
    "unlock": {
     "Dark Barracks": 10
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000123,
@@ -3982,7 +4011,8 @@
    ],
    "unlock": {
     "Dark Barracks": 11
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000150,
@@ -4008,7 +4038,8 @@
    ],
    "unlock": {
     "Dark Barracks": 12
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000026,
@@ -4050,7 +4081,10 @@
    "unlock": {
     "Barracks": 1
    },
-   "derived_level": true
+   "derived_level": true,
+   "visual_offset": 4,
+   "original": "Barbarian",
+   "min_original_level": 7
   },
   {
    "gid": 4000027,
@@ -4095,7 +4129,10 @@
    "unlock": {
     "Barracks": 2
    },
-   "derived_level": true
+   "derived_level": true,
+   "visual_offset": 4,
+   "original": "Archer",
+   "min_original_level": 7
   },
   {
    "gid": 4000029,
@@ -4140,7 +4177,10 @@
    "unlock": {
     "Barracks": 3
    },
-   "derived_level": true
+   "derived_level": true,
+   "visual_offset": 4,
+   "original": "Giant",
+   "min_original_level": 8
   },
   {
    "gid": 4000055,
@@ -4173,7 +4213,10 @@
    "unlock": {
     "Barracks": 4
    },
-   "derived_level": true
+   "derived_level": true,
+   "visual_offset": 4,
+   "original": "Goblin",
+   "min_original_level": 6
   },
   {
    "gid": 4000028,
@@ -4218,7 +4261,10 @@
    "unlock": {
     "Barracks": 5
    },
-   "derived_level": true
+   "derived_level": true,
+   "visual_offset": 4,
+   "original": "Wall Breaker",
+   "min_original_level": 6
   },
   {
    "gid": 4000057,
@@ -4260,7 +4306,10 @@
    "unlock": {
     "Barracks": 6
    },
-   "derived_level": true
+   "derived_level": true,
+   "visual_offset": 4,
+   "original": "Balloon",
+   "min_original_level": 7
   },
   {
    "gid": 4000083,
@@ -4305,7 +4354,10 @@
    "unlock": {
     "Barracks": 7
    },
-   "derived_level": true
+   "derived_level": true,
+   "visual_offset": 4,
+   "original": "Wizard",
+   "min_original_level": 8
   },
   {
    "gid": 4000081,
@@ -4353,7 +4405,10 @@
    "unlock": {
     "Barracks": 9
    },
-   "derived_level": true
+   "derived_level": true,
+   "visual_offset": 2,
+   "original": "Dragon",
+   "min_original_level": 6
   },
   {
    "gid": 4000063,
@@ -4404,7 +4459,10 @@
    "unlock": {
     "Barracks": 11
    },
-   "derived_level": true
+   "derived_level": true,
+   "visual_offset": 0,
+   "original": "Baby Dragon",
+   "min_original_level": 5
   },
   {
    "gid": 4000056,
@@ -4455,7 +4513,10 @@
    "unlock": {
     "Barracks": 12
    },
-   "derived_level": true
+   "derived_level": true,
+   "visual_offset": 0,
+   "original": "Miner",
+   "min_original_level": 6
   },
   {
    "gid": 4000147,
@@ -4494,7 +4555,10 @@
    "unlock": {
     "Barracks": 14
    },
-   "derived_level": true
+   "derived_level": true,
+   "visual_offset": 0,
+   "original": "Yeti",
+   "min_original_level": 2
   },
   {
    "gid": 4000084,
@@ -4542,7 +4606,10 @@
    "unlock": {
     "Dark Barracks": 1
    },
-   "derived_level": true
+   "derived_level": true,
+   "visual_offset": 3,
+   "original": "Minion",
+   "min_original_level": 7
   },
   {
    "gid": 4000098,
@@ -4593,7 +4660,10 @@
    "unlock": {
     "Dark Barracks": 2
    },
-   "derived_level": true
+   "derived_level": true,
+   "visual_offset": 3,
+   "original": "Hog Rider",
+   "min_original_level": 9
   },
   {
    "gid": 4000064,
@@ -4644,7 +4714,10 @@
    "unlock": {
     "Dark Barracks": 3
    },
-   "derived_level": true
+   "derived_level": true,
+   "visual_offset": 0,
+   "original": "Valkyrie",
+   "min_original_level": 6
   },
   {
    "gid": 4000066,
@@ -4683,7 +4756,10 @@
    "unlock": {
     "Dark Barracks": 5
    },
-   "derived_level": true
+   "derived_level": true,
+   "visual_offset": 0,
+   "original": "Witch",
+   "min_original_level": 4
   },
   {
    "gid": 4000076,
@@ -4722,7 +4798,10 @@
    "unlock": {
     "Dark Barracks": 6
    },
-   "derived_level": true
+   "derived_level": true,
+   "visual_offset": 0,
+   "original": "Lava Hound",
+   "min_original_level": 4
   },
   {
    "gid": 4000080,
@@ -4767,7 +4846,10 @@
    "unlock": {
     "Dark Barracks": 7
    },
-   "derived_level": true
+   "derived_level": true,
+   "visual_offset": 0,
+   "original": "Bowler",
+   "min_original_level": 3
   },
   {
    "gid": 4000051,
@@ -4799,7 +4881,8 @@
    ],
    "unlock": {
     "Siege Workshop": 1
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000052,
@@ -4831,7 +4914,8 @@
    ],
    "unlock": {
     "Siege Workshop": 2
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000062,
@@ -4863,7 +4947,8 @@
    ],
    "unlock": {
     "Siege Workshop": 3
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000075,
@@ -4895,7 +4980,8 @@
    ],
    "unlock": {
     "Siege Workshop": 4
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000087,
@@ -4927,7 +5013,8 @@
    ],
    "unlock": {
     "Siege Workshop": 5
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000091,
@@ -4956,7 +5043,8 @@
    ],
    "unlock": {
     "Siege Workshop": 6
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000092,
@@ -4988,7 +5076,8 @@
    ],
    "unlock": {
     "Siege Workshop": 7
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000135,
@@ -5014,7 +5103,8 @@
    ],
    "unlock": {
     "Siege Workshop": 8
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000109,
@@ -5040,7 +5130,8 @@
    ],
    "unlock": {
     "Dark Barracks": 13
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 4000188,
@@ -5066,7 +5157,8 @@
    ],
    "unlock": {
     "Siege Workshop": 9
-   }
+   },
+   "visual_offset": 0
   },
   {
    "gid": 26000000,

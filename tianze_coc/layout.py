@@ -109,8 +109,10 @@ def validate(layout: Layout, account: Account) -> list[str]:
 
 
 def validate_defense_cc(entries: list[tuple[int, int, int]], account: Account) -> list[str]:
-    """防守援军：只能是兵种（部落战/排位战可用、可捐赠），人口不超过部落城堡容量，等级不超过本账号该兵种等级。"""
+    """防守援军：只能是兵种（部落战/排位战可用），人口不超过部落城堡容量，
+    等级不超过援军等级上限（只取决于本账号部落城堡等级，见 progression.cc_level_cap）。"""
     from .army import capacity
+    from .assets.progression import cc_level_cap
 
     p = account.prog
     cap = capacity(account)
@@ -122,9 +124,9 @@ def validate_defense_cc(entries: list[tuple[int, int, int]], account: Account) -
             errs.append(f"{g} 不能作为防守援军（只能是兵种）")
             continue
         used += u["housing"] * n
-        own = account.unit_levels.get(g, 0)
-        if u["status"] != "super_troop" and lv > own:
-            errs.append(f"防守援军 {u['name_cn']} {lv} 级超过本账号的 {own} 级")
+        lim = cc_level_cap(p, g, cap.cc_level)
+        if lv > lim:
+            errs.append(f"防守援军 {u['name_cn']} {lv} 级超过 {cap.cc_level} 级部落城堡的援军上限 {lim} 级")
         if lv < 1:
             errs.append(f"防守援军 {u['name_cn']} 等级无效")
     if used > cap.cc_troops:
@@ -133,21 +135,23 @@ def validate_defense_cc(entries: list[tuple[int, int, int]], account: Account) -
 
 
 def random_defense_cc(account: Account, rng: random.Random | None = None, kinds: int = 3) -> list[tuple[int, int, int]]:
-    """随机合法防守援军（基线/数据增广）：从本账号已解锁的永久兵种里挑几种填满城堡。"""
+    """随机合法防守援军（基线/数据增广）：挑几种兵填满城堡，等级取援军上限（实际对局中援军一般就是上限等级）。"""
     from .army import capacity
+    from .assets.progression import cc_level_cap
 
     rng = rng or random.Random()
     p = account.prog
     room = capacity(account).cc_troops
-    pool = [u for g, u in p.units.items() if u["kind"] == "troop" and u["status"] == "permanent"
-            and account.unit_levels.get(g, 0) > 0 and u["housing"] <= room]
+    ccl = capacity(account).cc_level
+    pool = [u for g, u in p.units.items() if u["kind"] == "troop" and u["status"] in ("permanent", "super_troop")
+            and u["housing"] <= room and cc_level_cap(p, g, ccl) > 0]
     out: dict[int, int] = {}
     for u in rng.sample(pool, min(kinds, len(pool))):
         if room >= u["housing"]:
             n = rng.randint(1, room // u["housing"])
             out[u["gid"]] = out.get(u["gid"], 0) + n
             room -= n * u["housing"]
-    return [(g, n, account.unit_levels[g]) for g, n in out.items()]
+    return [(g, n, cc_level_cap(p, g, ccl)) for g, n in out.items()]
 
 
 def apply(layout: Layout, account: Account, check: bool = True) -> Account:

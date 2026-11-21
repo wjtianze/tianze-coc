@@ -69,6 +69,22 @@ long long g_ticket = 0;
 ClientUpdateFn g_orig_client_update = nullptr;
 ReceiveFn g_orig_receive = nullptr;
 
+// 数据表访问监听：记录 (表号, 调用者) 次数，用于找出某个界面/功能用到了哪些数据
+using GetTableFn = void *(*)(int);
+GetTableFn g_orig_get_table = nullptr;
+std::atomic<bool> g_trace_on{false};
+std::mutex g_trace_mu;
+std::map<std::pair<int, std::uintptr_t>, long long> g_trace;
+
+void *hk_get_table(int idx) {
+  if (g_trace_on.load(std::memory_order_relaxed)) {
+    const auto ra = reinterpret_cast<std::uintptr_t>(__builtin_return_address(0)) - g_base;
+    std::lock_guard<std::mutex> lk(g_trace_mu);
+    g_trace[{idx, ra}]++;
+  }
+  return g_orig_get_table(idx);
+}
+
 // 收包日志：每条进入 MessageManager::receiveMessage 的消息（类型、长度、时间、是否我们重放的）
 struct InboxEntry {
   long long ms;
@@ -298,6 +314,11 @@ bool init(std::uintptr_t base) {
   } else {
     LOGW("收包录制不可用");
   }
+  void *o4 = nullptr;
+  if (install_inline_hook(base + off::LogicDataTables_getTable, off::LogicDataTables_getTable_prologue,
+                          reinterpret_cast<void *>(&hk_get_table), &o4, "LogicDataTables::getTable")) {
+    g_orig_get_table = reinterpret_cast<GetTableFn>(o4);
+  }
   g_ready = h1 && h2 && g_npatched == 4;
   return g_ready;
 }
@@ -413,6 +434,20 @@ void configure(const json::Value &cfg, json::Writer &w) {
 }
 
 void login_prep() { g_login_prep = 1; }
+
+void trace(const json::Value &cfg, json::Writer &w) {
+  if (cfg.has("start") && cfg["start"].boolean()) {
+    std::lock_guard<std::mutex> lk(g_trace_mu);
+    g_trace.clear();
+    g_trace_on = true;
+  }
+  if (cfg.has("stop") && cfg["stop"].boolean()) g_trace_on = false;
+  std::lock_guard<std::mutex> lk(g_trace_mu);
+  w.key("on").boolean(g_trace_on.load()).key("calls").begin_arr();
+  for (const auto &kv : g_trace)
+    w.begin_arr().num(static_cast<long long>(kv.first.first)).num(static_cast<long long>(kv.first.second)).num(kv.second).end_arr();
+  w.end_arr();
+}
 
 bool replay_now(int type, std::string &status) {
   Job j;

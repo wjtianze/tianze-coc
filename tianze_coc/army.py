@@ -108,6 +108,9 @@ def validate(army: Army, account: Account) -> list[str]:
             continue
         if u["status"] == "super_troop":
             supers.add(g)  # 超级兵等级随原兵种；激活本身不在账号等级表里
+            o = super_original(p, g)
+            if o is None or lv.get(o, 0) < u.get("min_original_level", 0) + 1:
+                errs.append(f"{u['name_cn']} 需要原兵种达到 {u.get('min_original_level', 0) + 1} 级才能激活")
         elif lv.get(g, 0) <= 0:
             errs.append(f"{u['name_cn']} 未解锁")
     if len(supers) > p.rules["max_super_troop_kinds"]:
@@ -171,8 +174,11 @@ def validate(army: Army, account: Account) -> list[str]:
         if u is None or u["kind"] not in ("troop", "spell", "siege"):
             errs.append(f"援军 {g} 不可用")
             continue
-        if l < 1 or l > u["max_level"]:
-            errs.append(f"援军 {u['name_cn']} 等级 {l} 无效")
+        from .assets.progression import cc_level_cap
+
+        lim = cc_level_cap(p, g, cap.cc_level)
+        if l < 1 or l > lim:
+            errs.append(f"援军 {u['name_cn']} {l} 级超过 {cap.cc_level} 级部落城堡的援军上限 {lim} 级")
         if u["kind"] == "troop":
             ct += u["housing"] * n
         elif u["kind"] == "spell":
@@ -220,17 +226,57 @@ def from_enemy_payload(payload: bytes) -> Army:
     return Army(d["troops"], d["spells"], d["sieges"], heroes, d["cc"] or [])
 
 
-def random_army(account: Account, rng, fill: float = 1.0, max_kinds: int = 6) -> Army:
+def random_cc(account: Account, rng) -> list[tuple[int, int, int]]:
+    """随机进攻援军：按部落城堡容量配满兵种/法术/攻城机器，等级取援军上限。"""
+    from .assets.progression import cc_level_cap
+
+    p = account.prog
+    cap = capacity(account)
+    ccl = cap.cc_level
+    out: list[tuple[int, int, int]] = []
+    for kind, room in (("troop", cap.cc_troops), ("spell", cap.cc_spells), ("siege", cap.cc_sieges)):
+        pool = [u for g, u in p.units.items() if u["kind"] == kind and u["status"] in ("permanent", "super_troop")
+                and cc_level_cap(p, g, ccl) > 0 and (u["housing"] if kind != "siege" else 1) <= room]
+        rng.shuffle(pool)
+        for u in pool[:3]:
+            h = u["housing"] if kind != "siege" else 1
+            if room < h:
+                continue
+            n = rng.randint(1, room // h)
+            out.append((u["gid"], n, cc_level_cap(p, u["gid"], ccl)))
+            room -= n * h
+    return out
+
+
+def super_original(prog, gid: int) -> int | None:
+    """超级兵的原兵种 GlobalID。"""
+    name = prog.units[gid].get("original")
+    return next((g for g, x in prog.units.items() if x["name"] == name), None)
+
+
+def can_boost(account: Account, gid: int) -> bool:
+    """本账号能否激活该超级兵：原兵种等级 >= MinOriginalLevel + 1（MinOriginalLevel 是 0 起的）。"""
+    p = account.prog
+    o = super_original(p, gid)
+    return o is not None and account.unit_levels.get(o, 0) >= p.units[gid].get("min_original_level", 0) + 1
+
+
+def random_army(account: Account, rng, fill: float = 1.0, max_kinds: int = 6, cc: bool = True) -> Army:
     """随机合法配兵（基线 / 数据增广）：按容量随机挑几种兵和法术。"""
     p = account.prog
     cap = capacity(account)
     lv = account.unit_levels
     army = Army()
     troops = [u for g, u in p.units.items() if u["kind"] == "troop" and u["status"] == "permanent" and lv.get(g, 0) > 0]
+    boostable = [u for g, u in p.units.items() if u["kind"] == "troop" and u["status"] == "super_troop"
+                 and can_boost(account, g)]
+    # 超级兵：随机 0~2 种（同时最多激活 max_super_troop_kinds 种）
+    k = rng.randint(0, min(p.rules["max_super_troop_kinds"], len(boostable)))
+    supers = rng.sample(boostable, k)
     spells = [u for g, u in p.units.items() if u["kind"] == "spell" and lv.get(g, 0) > 0]
     sieges = [u for g, u in p.units.items() if u["kind"] == "siege" and lv.get(g, 0) > 0]
     room = int(cap.troops * fill)
-    picks = rng.sample(troops, min(len(troops), rng.randint(1, max_kinds)))
+    picks = rng.sample(troops, min(len(troops), max(1, rng.randint(1, max_kinds) - k))) + supers
     # 按随机权重把人口分给选中的兵种，再用最小人口的兵种把剩余填满（配兵应当接近满人口）
     weights = [rng.random() + 0.1 for _ in picks]
     tot_w = sum(weights)
@@ -262,4 +308,6 @@ def random_army(account: Account, rng, fill: float = 1.0, max_kinds: int = 6) ->
         items = [i for i, u in p.units.items() if u["kind"] == "equipment" and g in u.get("heroes", []) and lv.get(i, 0) > 0]
         army.heroes.append(HeroPick(g, rng.sample(items, min(2, len(items))), pets.pop() if pets else 0,
                                     rng.randint(0, 1) if p.units[g].get("has_alt_mode") else 0))
+    if cc:
+        army.cc = random_cc(account, rng)
     return army

@@ -36,6 +36,8 @@ void write_net_log(json::Writer &w);
 void write_inbox(json::Writer &w, bool clear);
 // 离线启动：下一帧把登录状态设为"已发登录、握手已验证"，之后重放录制的 LoginOk / OwnHomeData 等
 void login_prep();
+// 数据表访问监听：{"start":true} 清空并开始，{"stop":true} 停止；返回 [[表号, 调用者偏移, 次数], ...]
+void trace(const json::Value &cfg, json::Writer &w);
 // 在调用线程（服务线程）上同步投递一条录制消息。用于登录引导阶段（帧循环尚未运行）。
 bool replay_now(int type, std::string &status);
 // 排队一条无负载的合成消息（例如离线启动时的保活回复），下一帧在主线程投递

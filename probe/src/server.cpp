@@ -187,6 +187,9 @@ std::string handle(const std::string &line) {
     const bool ok = net::replay_now(static_cast<int>(req["type"].i64()), st);
     w.key("ok").boolean(ok).key("status").str(st);
     if (!ok) w.key("error").str("replay_now " + st);
+  } else if (op == "trace") {
+    w.key("ok").boolean(true);
+    net::trace(req, w);
   } else if (op == "login_prep") {
     net::login_prep();
     w.key("ok").boolean(true).key("login_state").num(static_cast<long long>(net::login_state()));

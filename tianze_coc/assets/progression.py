@@ -127,6 +127,10 @@ def build_progression(src: AssetSource, lang: str = "cn") -> dict:
     items = items_t.by_name()
     item_gid = {r.name: TABLE_ITEMS * 1_000_000 + i for i, r in enumerate(items_t.rows)}
     hero_gid = {r.name: 28_000_000 + i for i, r in enumerate(heroes_t.rows)}
+    super_of = {}
+    if src.exists("assets/logic/super_licences.csv"):
+        for r in src.table("assets/logic/super_licences.csv").rows:
+            super_of[r.get("Replacement")] = (r.get("Original"), _int(r.get("MinOriginalLevel")))
     units = []
     for u in ucat["units"]:
         if u["status"] not in ALLOWED_STATUSES:
@@ -163,6 +167,11 @@ def build_progression(src: AssetSource, lang: str = "cn") -> dict:
         else:
             continue
         d["max_level"] = len(d["levels_req"])
+        if kind in ("troop", "siege"):
+            vis = _int(chars[u["name"]].levels[0].get("VisualLevel"), 1) if u["name"] in chars else 1
+            d["visual_offset"] = max(0, vis - 1)  # CSV 第 1 行对应的游戏显示等级 - 1（超级兵从原兵种的某级起编号）
+        if u["status"] == "super_troop" and u["name"] in super_of:
+            d["original"], d["min_original_level"] = super_of[u["name"]]
         units.append(d)
 
     # ---- 障碍物占地（阵型控制时避开）
@@ -236,6 +245,56 @@ class Progression:
             else:
                 break
         return best
+
+
+# 部落城堡援军等级上限（攻防相同，部落对战也适用）：只取决于接收方部落城堡等级 C，与部落等级无关。
+# 完全按 libg 18.647 的代码实现（字段见 docs/models.md 附录）：
+#   0xded060 能否请求、0xded150 最高等级，参数都是 C-1；实验室数组存的是 LaboratoryLevel-1。
+# - 兵种、法术：能请求 <=> 1 级所需实验室 <= C+4（只有冰冻法术 1 级要 7 级实验室，1、2 级城堡要不了）；
+#   最高等级 = 从 2 级起逐级检查"所需实验室 <= C+4"，遇到第一个不满足就停。
+# - 攻城机器：T = 解锁它的攻城工坊等级所需大本营；T <= C+6 才能请求，等级 = C - T + 8（不超过满级）。
+# - 超级兵（EnabledBySuperLicence）：用原兵种的实验室数组，第 i 行对应原兵种第 VisualLevel-1+i 行；
+#   能请求 <=> 原兵种第 MinOriginalLevel+1 级（MinOriginalLevel 是 0 起的）所需实验室 <= C+4，
+#   即原兵种援军上限 >= MinOriginalLevel+1。显示等级与原兵种相同。
+# 请求界面另有：人口 <= 城堡容量、非 DisableDonate、超级兵许可在日历中启用（18.647 全部满足）。
+
+
+def _lab_cap_rows(u: dict, cc_level: int) -> int:
+    """普通兵种/法术：援军最高等级（不判断能否请求）。"""
+    best = 1
+    for i in range(1, len(u["levels_req"])):
+        if u["levels_req"][i].get("Laboratory", 0) <= cc_level + 4:
+            best = i + 1
+        else:
+            break
+    return min(best, u["max_level"])
+
+
+def cc_level_cap(prog: "Progression", gid: int, cc_level: int) -> int:
+    """接收方部落城堡 cc_level 级时该援军的最高等级（CSV 行序号，1 起；0 = 不能请求）。"""
+    u = prog.units.get(gid)
+    if not u or cc_level <= 0:
+        return 0
+    if u["kind"] == "siege":
+        need_ws = (u.get("unlock") or {}).get("Siege Workshop", 1)
+        ws = prog.structure("Siege Workshop")
+        if not ws or need_ws > len(ws["level_th"]):
+            return 0
+        t = ws["level_th"][need_ws - 1]
+        if t > cc_level + 6:
+            return 0
+        return max(0, min(cc_level - t + 8, u["max_level"]))
+    if u["status"] == "super_troop":
+        orig = next((x for x in prog.units.values() if x["name"] == u.get("original")), None)
+        if orig is None or cc_level_cap(prog, orig["gid"], cc_level) == 0:
+            return 0
+        base = _lab_cap_rows(orig, cc_level)  # 原兵种行序号 = 显示等级
+        if base < u.get("min_original_level", 0) + 1:
+            return 0
+        return max(1, min(base - u.get("visual_offset", 0), u["max_level"]))
+    if u["levels_req"] and u["levels_req"][0].get("Laboratory", 0) > cc_level + 4:
+        return 0
+    return _lab_cap_rows(u, cc_level)
 
 
 def main() -> None:

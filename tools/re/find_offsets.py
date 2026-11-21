@@ -604,7 +604,7 @@ def main() -> None:
     info["libg_sha256"] = hashlib.sha256(r.data).hexdigest()
     info["build_tag"] = a.build_tag
     hooks = ("LogicGameMode_updateSubTick", "Client_update", "Messaging_sendOne", "ClientCommand_submit",
-             "MessageManager_receiveMessage")
+             "MessageManager_receiveMessage", "LogicDataTables_getTable")
     info["prologues"] = {k: prologue(r, info["functions"][k]) for k in hooks}
     info["fingerprints"] = {k: r.read(v, 8).hex() for k, v in info["functions"].items()
                             if not k.endswith("_vtable") and not k.startswith("g_")}

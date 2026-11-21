@@ -174,8 +174,23 @@ class ArmyTest(unittest.TestCase):
         from tianze_coc.army import random_army
 
         rng = random.Random(0)
-        for _ in range(5):
-            self.assertEqual(validate(random_army(self.a, rng), self.a), [])
+        seen_super = 0
+        for _ in range(30):
+            army = random_army(self.a, rng)
+            self.assertEqual(validate(army, self.a), [])
+            k = sum(1 for g in army.troops if P.units[g]["status"] == "super_troop")
+            self.assertLessEqual(k, 2)
+            seen_super += k > 0
+        self.assertGreater(seen_super, 0)
+
+    def test_super_troops(self):
+        sb, sa, sg = ugid("Super Barbarian"), ugid("Super Archer"), ugid("Super Giant")
+        self.assertEqual(validate(Army({sb: 10, sa: 10}), self.a), [])
+        self.assertTrue(validate(Army({sb: 10, sa: 10, sg: 2}), self.a))  # 配兵最多 2 种超级兵
+        self.a.set_unit_level(ugid("Barbarian"), 7)
+        self.assertTrue(validate(Army({sb: 10}), self.a))  # 超级野蛮人要 8 级野蛮人
+        self.a.set_unit_level(ugid("Barbarian"), 8)
+        self.assertEqual(validate(Army({sb: 10}), self.a), [])
 
 
 class FairViewTest(unittest.TestCase):
@@ -222,6 +237,55 @@ class RecordedPayloadTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ClanCastleLevelCapTest(unittest.TestCase):
+    def test_against_game(self):
+        """6、7 级城堡的游戏内显示（请求增援 -> 编辑）。"""
+        from tianze_coc.assets.progression import cc_level_cap
+
+        cc6 = {"Barbarian": 9, "Giant": 9, "Wall Breaker": 8, "Wizard": 9, "Dragon": 7, "Baby Dragon": 6,
+               "Electro Dragon": 3, "Archer": 9, "Goblin": 8, "Balloon": 8, "Healer": 5, "PEKKA": 8, "Miner": 6,
+               "Yeti": 2, "Minion": 8, "Witch": 5, "Bowler": 4, "Hog Rider": 9, "Golem": 9, "Lava Hound": 5,
+               "Lightning": 9, "Wall Wrecker": 2, "Battle Blimp": 2, "Stone Slammer": 2,
+               "Super Barbarian": 9 - 4, "Sneaky Goblin": 8 - 4, "Inferno Dragon": 6, "Super Bowler": 4}
+        for n, v in cc6.items():
+            self.assertEqual(cc_level_cap(P, ugid(n), 6), v, n)
+        self.assertEqual(cc_level_cap(P, ugid("Siege Barracks"), 6), 0)  # 6 级城堡要不了攻城训练营
+        cc7 = {"Dragon": 8, "Balloon": 9, "Battle Blimp": 3, "Siege Barracks": 2}
+        for n, v in cc7.items():
+            self.assertEqual(cc_level_cap(P, ugid(n), 7), v, n)
+        self.assertEqual(cc_level_cap(P, ugid("Barbarian"), 1), 4)  # 官方例子：1 级城堡最多 4 级野蛮人
+        for n, c in {"Sneaky Goblin": 4, "Super Barbarian": 5, "Super Archer": 5, "Super Wall Breaker": 5,
+                     "Super Giant": 6, "Inferno Dragon": 6, "Super Bowler": 6, "Super Miner": 7,
+                     "Super Hog Rider": 7, "Super Yeti": 7}.items():  # 与官方公告 4/5/6 级一致
+            self.assertEqual(cc_level_cap(P, ugid(n), c - 1), 0, n)
+            self.assertGreater(cc_level_cap(P, ugid(n), c), 0, n)
+        # 6 级城堡（容量 35）请求界面实际列出的超级兵：等级上限 > 0 且人口 <= 35
+        room = P.structure("Clan Castle")["housing"]["troops"][5]
+        shown = {u["name"] for g, u in P.units.items() if u["status"] == "super_troop"
+                 and cc_level_cap(P, g, 6) > 0 and u["housing"] <= room}
+        self.assertEqual(shown, {"Super Barbarian", "Super Archer", "Super Giant", "Sneaky Goblin",
+                                 "Super Wall Breaker", "Rocket Balloon", "Super Wizard", "Inferno Dragon",
+                                 "Super Minion", "Super Valkyrie", "Super Bowler"})
+        self.assertEqual(cc_level_cap(P, ugid("Freeze"), 2), 0)  # 冰冻 1 级要 7 级实验室
+        self.assertGreater(cc_level_cap(P, ugid("Freeze"), 3), 0)
+        # 超级兵门槛：原兵种上限 >= MinOriginalLevel + 1（隐秘哥布林要 7 级哥布林）
+        first = lambda n: next(c for c in range(1, 15) if cc_level_cap(P, ugid(n), c) > 0)
+        self.assertEqual(cc_level_cap(P, ugid("Goblin"), first("Sneaky Goblin")), 7)
+        self.assertLess(cc_level_cap(P, ugid("Goblin"), first("Sneaky Goblin") - 1), 7)
+
+    def test_defense_cc_uses_cap(self):
+        from tianze_coc.army import capacity
+        from tianze_coc.assets.progression import cc_level_cap
+
+        a = blank(10)
+        a.max_out()
+        self.assertEqual(capacity(a).cc_level, 6)
+        self.assertEqual(L.validate_defense_cc([(ugid("Dragon"), 1, 7)], a), [])
+        self.assertTrue(L.validate_defense_cc([(ugid("Dragon"), 1, 8)], a))
+        cc = L.random_defense_cc(a, random.Random(1))
+        self.assertTrue(cc and all(lv == cc_level_cap(P, g, 6) for g, _n, lv in cc))
 
 
 class BattleModifierTest(unittest.TestCase):

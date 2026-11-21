@@ -217,7 +217,8 @@
   "Client_update": "ff0302d1eb2b016de923026dfd7b03a9",
   "Messaging_sendOne": "ff4302d1fd7b03a9fb2300f9fa6705a9",
   "ClientCommand_submit": "ff0301d1fd7b01a9f65702a9f44f03a9",
-  "MessageManager_receiveMessage": "e80f19fcfd7b01a9fc6f02a9fa6703a9"
+  "MessageManager_receiveMessage": "e80f19fcfd7b01a9fc6f02a9fa6703a9",
+  "LogicDataTables_getTable": "fd7bbea9f30b00f9fd030091f303002a"
  },
  "fingerprints": {
   "LogicCommandManager_createCommand": "ffc300d1fd7b01a9",
